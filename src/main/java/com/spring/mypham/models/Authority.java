@@ -2,11 +2,13 @@ package com.spring.mypham.models;
 
 import java.io.Serializable;
 
-import javax.persistence.Embeddable;
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Embeddable
+@Entity
 @Table(name = "authorities")
 public class Authority implements Serializable {
 
@@ -15,15 +17,18 @@ public class Authority implements Serializable {
 	 */
 	private static final long serialVersionUID = 287290469197608239L;
 	@Id
-	private String username;
+	@ManyToOne
+	@JoinColumn(name = "username")
+	private User user;
+
 	private String authority;
 
-	public String getUsername() {
-		return username;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public String getAuthority() {

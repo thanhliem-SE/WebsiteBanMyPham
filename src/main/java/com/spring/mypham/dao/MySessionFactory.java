@@ -13,18 +13,17 @@ import com.spring.mypham.models.GioHang;
 import com.spring.mypham.models.HoaDon;
 import com.spring.mypham.models.KhachHang;
 import com.spring.mypham.models.LineItem;
-import com.spring.mypham.models.LoaiSanPham;
 import com.spring.mypham.models.NhanVien;
 import com.spring.mypham.models.SanPham;
 import com.spring.mypham.models.ThanhToan;
 import com.spring.mypham.models.User;
 
-public class MySessionFactorys {
+public class MySessionFactory {
 
-	private static MySessionFactorys instance = null;
+	private static MySessionFactory instance = null;
 	private SessionFactory sessionFactory;
 
-	public MySessionFactorys() {
+	public MySessionFactory() {
 		StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();
 		Metadata meta = new MetadataSources(registry)
 				.addAnnotatedClass(Authority.class)
@@ -34,7 +33,6 @@ public class MySessionFactorys {
 				.addAnnotatedClass(HoaDon.class)
 				.addAnnotatedClass(KhachHang.class)
 				.addAnnotatedClass(LineItem.class)
-				.addAnnotatedClass(LoaiSanPham.class)
 				.addAnnotatedClass(NhanVien.class)
 				.addAnnotatedClass(SanPham.class)
 				.addAnnotatedClass(ThanhToan.class)
@@ -43,9 +41,9 @@ public class MySessionFactorys {
 		sessionFactory = meta.getSessionFactoryBuilder().build();
 	}
 
-	public static MySessionFactorys getInstance() {
+	public static MySessionFactory getInstance() {
 		if (instance == null)
-			instance = new MySessionFactorys();
+			instance = new MySessionFactory();
 		return instance;
 	}
 

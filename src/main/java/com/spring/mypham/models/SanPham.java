@@ -44,16 +44,12 @@ public class SanPham implements Serializable {
 	@Lob
 	private String congDung;
 
-	@ElementCollection
+	@ElementCollection()
 	@CollectionTable(name = "HinhAnh", joinColumns = @JoinColumn(name = "maSanPham"))
 	private Set<String> hinhAnh;
 
 	@OneToMany(mappedBy = "sanPham")
 	private Set<LineItem> lineItem;
-
-	@ManyToOne
-	@JoinColumn(name = "maLoai")
-	private LoaiSanPham loaiSanPham;
 
 	@ManyToOne
 	@JoinColumn(name = "maDanhMuc")
@@ -77,14 +73,6 @@ public class SanPham implements Serializable {
 
 	public void setDanhMuc(DanhMuc danhMuc) {
 		this.danhMuc = danhMuc;
-	}
-
-	public LoaiSanPham getLoaiSanPham() {
-		return loaiSanPham;
-	}
-
-	public void setLoaiSanPham(LoaiSanPham loaiSanPham) {
-		this.loaiSanPham = loaiSanPham;
 	}
 
 	public long getMaSanPham() {

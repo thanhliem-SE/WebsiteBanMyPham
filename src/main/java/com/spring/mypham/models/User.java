@@ -1,10 +1,11 @@
 package com.spring.mypham.models;
 
 import java.io.Serializable;
+import java.util.List;
 
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -23,13 +24,13 @@ public class User implements Serializable {
 	private String username;
 	private String password;
 	private boolean enabled;
-	
-	@Embedded
-	private Authority authority;
-	
+
+	@OneToMany(mappedBy = "user")
+	private List<Authority> authority;
+
 	@OneToOne(mappedBy = "user")
 	private NhanVien nhanVien;
-	
+
 	@OneToOne(mappedBy = "user")
 	private KhachHang khachHang;
 
@@ -55,14 +56,6 @@ public class User implements Serializable {
 
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
-	}
-
-	public Authority getAuthority() {
-		return authority;
-	}
-
-	public void setAuthority(Authority authority) {
-		this.authority = authority;
 	}
 
 	public User() {
