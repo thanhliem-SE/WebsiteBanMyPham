@@ -3,7 +3,6 @@ package com.spring.mypham.DAO;
 import java.util.List;
 
 import com.spring.mypham.models.DanhMuc;
-import com.spring.mypham.models.SanPham;
 
 public interface DanhMucDAO {
 	public DanhMuc getDanhMuc(String tenDanhMuc);

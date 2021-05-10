@@ -591,15 +591,14 @@
 								alt="Image">
 						</div>
 						<div class="review-text">
-							<h2>Customer Name</h2>
+							<h2>Nguyễn Thị Tú Dung</h2>
 							<h3>Profession</h3>
 							<div class="ratting">
 								<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
 									class="fa fa-star"></i> <i class="fa fa-star"></i> <i
 									class="fa fa-star"></i>
 							</div>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Curabitur vitae nunc eget leo finibus luctus et vitae lorem</p>
+							<p>Từ ngày mua sản phẩm tại Estore, mọi người xung quanh nhận xét tôi ngày càng quyến rũ, xinh đẹp hơn</p>
 						</div>
 					</div>
 				</div>
@@ -611,15 +610,14 @@
 								alt="Image">
 						</div>
 						<div class="review-text">
-							<h2>Customer Name</h2>
+							<h2>Trần Vũ Trung Vinh</h2>
 							<h3>Profession</h3>
 							<div class="ratting">
 								<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
 									class="fa fa-star"></i> <i class="fa fa-star"></i> <i
 									class="fa fa-star"></i>
 							</div>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Curabitur vitae nunc eget leo finibus luctus et vitae lorem</p>
+							<p>Gia đình 3 đời nhà chúng tôi tin dùng sản phẩm tại Estore</p>
 						</div>
 					</div>
 				</div>
@@ -631,15 +629,14 @@
 								alt="Image">
 						</div>
 						<div class="review-text">
-							<h2>Customer Name</h2>
+							<h2>Nguyễn Thị Kim Huyền</h2>
 							<h3>Profession</h3>
 							<div class="ratting">
 								<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
 									class="fa fa-star"></i> <i class="fa fa-star"></i> <i
 									class="fa fa-star"></i>
 							</div>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Curabitur vitae nunc eget leo finibus luctus et vitae lorem</p>
+							<p>Sản phẩm tại Estore đa dạng, nguồn gốc rõ ràng, sử dụng tôi rất an tâm.</p>
 						</div>
 					</div>
 				</div>
