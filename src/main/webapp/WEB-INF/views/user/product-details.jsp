@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="/common/taglib.jsp"%>
 <div class="product-detail">
 	<div class="container-fluid">
 		<div class="row">
@@ -8,31 +9,50 @@
 					<div class="row align-items-center">
 						<div class="col-md-5">
 							<div class="product-slider-single normal-slider">
-								<img src="img/product-1.jpg" alt="Product Image"> <img
-									src="img/product-3.jpg" alt="Product Image"> <img
-									src="img/product-5.jpg" alt="Product Image"> <img
-									src="img/product-7.jpg" alt="Product Image"> <img
-									src="img/product-9.jpg" alt="Product Image"> <img
-									src="img/product-10.jpg" alt="Product Image">
+								<img
+									src="${pageContext.request.contextPath}/${urlUserImg}/product-1.jpg"
+									alt="Product Image"> <img
+									src="${pageContext.request.contextPath}/${urlUserImg}/product-2.jpg"
+									alt="Product Image"> <img
+									src="${pageContext.request.contextPath}/${urlUserImg}/product-5.jpg"
+									alt="Product Image"> <img
+									src="${pageContext.request.contextPath}/${urlUserImg}/product-7.jpg"
+									alt="Product Image"> <img
+									src="${pageContext.request.contextPath}/${urlUserImg}/product-9.jpg"
+									alt="Product Image"> <img
+									src="${pageContext.request.contextPath}/${urlUserImg}/product-10.jpg"
+									alt="Product Image">
 							</div>
 							<div class="product-slider-single-nav normal-slider">
 								<div class="slider-nav-img">
-									<img src="img/product-1.jpg" alt="Product Image">
+									<img
+									src="${pageContext.request.contextPath}/${urlUserImg}/product-1.jpg"
+									alt="Product Image">
 								</div>
 								<div class="slider-nav-img">
-									<img src="img/product-3.jpg" alt="Product Image">
+									<img
+									src="${pageContext.request.contextPath}/${urlUserImg}/product-2.jpg"
+									alt="Product Image">
 								</div>
 								<div class="slider-nav-img">
-									<img src="img/product-5.jpg" alt="Product Image">
+									<img
+									src="${pageContext.request.contextPath}/${urlUserImg}/product-5.jpg"
+									alt="Product Image">
 								</div>
 								<div class="slider-nav-img">
-									<img src="img/product-7.jpg" alt="Product Image">
+									<img
+									src="${pageContext.request.contextPath}/${urlUserImg}/product-7.jpg"
+									alt="Product Image">
 								</div>
 								<div class="slider-nav-img">
-									<img src="img/product-9.jpg" alt="Product Image">
+									<img
+									src="${pageContext.request.contextPath}/${urlUserImg}/product-9.jpg"
+									alt="Product Image">
 								</div>
 								<div class="slider-nav-img">
-									<img src="img/product-10.jpg" alt="Product Image">
+									<img
+									src="${pageContext.request.contextPath}/${urlUserImg}/product-10.jpg"
+									alt="Product Image">
 								</div>
 							</div>
 						</div>
@@ -187,7 +207,7 @@
 								</div>
 								<div class="product-image">
 									<a href="product-detail.html"> <img
-										src="img/product-10.jpg" alt="Product Image">
+										src="${pageContext.request.contextPath}/${urlUserImg}/product-10.jpg" alt="Product Image">
 									</a>
 									<div class="product-action">
 										<a href="#"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
@@ -215,7 +235,7 @@
 									</div>
 								</div>
 								<div class="product-image">
-									<a href="product-detail.html"> <img src="img/product-8.jpg"
+									<a href="product-detail.html"> <img src="${pageContext.request.contextPath}/${urlUserImg}/product-8.jpg"
 										alt="Product Image">
 									</a>
 									<div class="product-action">
@@ -244,7 +264,7 @@
 									</div>
 								</div>
 								<div class="product-image">
-									<a href="product-detail.html"> <img src="img/product-6.jpg"
+									<a href="product-detail.html"> <img src="${pageContext.request.contextPath}/${urlUserImg}/product-6.jpg"
 										alt="Product Image">
 									</a>
 									<div class="product-action">
@@ -273,7 +293,7 @@
 									</div>
 								</div>
 								<div class="product-image">
-									<a href="product-detail.html"> <img src="img/product-4.jpg"
+									<a href="product-detail.html"> <img src="${pageContext.request.contextPath}/${urlUserImg}/product-4.jpg"
 										alt="Product Image">
 									</a>
 									<div class="product-action">
@@ -302,7 +322,7 @@
 									</div>
 								</div>
 								<div class="product-image">
-									<a href="product-detail.html"> <img src="img/product-2.jpg"
+									<a href="product-detail.html"> <img src="${pageContext.request.contextPath}/${urlUserImg}/product-2.jpg"
 										alt="Product Image">
 									</a>
 									<div class="product-action">
@@ -454,4 +474,4 @@
 			<!-- Side Bar End -->
 		</div>
 	</div>
-	</div>
+</div>

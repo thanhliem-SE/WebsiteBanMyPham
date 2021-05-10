@@ -1,16 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator"
-	prefix="decorator"%>
+<%@ include file="/common/taglib.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title></title>
-
-<c:url value="/resources" var="url" />
-<link href="${url}/img/favicon.ico" rel="icon">
 
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.gstatic.com">

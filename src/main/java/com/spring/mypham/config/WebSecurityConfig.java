@@ -11,14 +11,9 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-/*import com.dienthoai.service.NguoiDungService;*/
-
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-	/*
-	 * @Autowired private NguoiDungService nguoiDungService;
-	 */
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
