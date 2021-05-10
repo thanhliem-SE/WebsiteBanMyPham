@@ -19,10 +19,7 @@ import org.hibernate.annotations.Nationalized;
 
 @Entity
 public class SanPham implements Serializable {
-
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = -1325615998415874517L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

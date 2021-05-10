@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/decorators">
+
+	<decorator name="trangchu" page="user.jsp">
+		<pattern>/trangchu</pattern>
+	</decorator>
+	<decorator name="admin" page="admin.jsp">
+		<pattern>/admin</pattern>
+	</decorator>
+	<decorator name="product" page="user.jsp">
+		<pattern>/product</pattern>
+	</decorator>
+	<decorator name="cart" page="user.jsp">
+		<pattern>/cart</pattern>
+	</decorator>
+	<decorator name="product-details" page="user.jsp">
+		<pattern>/product-details</pattern>
+	</decorator>
+	<decorator name="login" page="user.jsp">
+		<pattern>/login</pattern>
+	</decorator>
+	<decorator name="wish" page="user.jsp">
+		<pattern>/wish</pattern>
+	</decorator>
+	<decorator name="checkout" page="user.jsp">
+		<pattern>/checkout</pattern>
+	</decorator>
+	<decorator name="contact" page="user.jsp">
+		<pattern>/contact</pattern>
+	</decorator>
+	<decorator name="account" page="user.jsp">
+		<pattern>/account</pattern>
+	</decorator>
+</decorators>
