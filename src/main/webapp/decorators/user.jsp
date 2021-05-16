@@ -7,7 +7,7 @@
 
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader&display=swap" rel="stylesheet">
 <!-- CSS Libraries -->
 <link
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -18,8 +18,7 @@
 <link href="${url}/lib/slick/slick.css" rel="stylesheet">
 <link href="${url}/lib/slick/slick-theme.css" rel="stylesheet">
 
-<!-- Template Stylesheet-->
-<link href="${url}/css/style.css" rel="stylesheet">
+<link href="${url}/css/main.css" rel="stylesheet">
 </head>
 <body>
 

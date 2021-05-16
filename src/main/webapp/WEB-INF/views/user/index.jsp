@@ -7,10 +7,10 @@
 			<div class="col-md-3">
 				<nav class="navbar bg-light">
 					<ul class="navbar-nav">
-						<li class="nav-item"><a class="nav-link fs14"
+						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/trangchu"><i
 								class="fa fa-home"></i>Trang Chủ</a></li>
-						<li class="nav-item"><a class="nav-link fs14"
+						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/bestseller"><i
 								class="fa fa-shopping-bag"></i>Sản phẩm bán chạy</a></li>
 						<li class="nav-item"><a class="nav-link"
@@ -275,8 +275,7 @@
 						<h3>
 							<span>$</span>99
 						</h3>
-						<a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy
-							Now</a>
+						<a class="btn fs16" href=""><i class="fa fa-shopping-cart fs16"></i><span>Buy Now</span></a>
 					</div>
 				</div>
 			</div>
@@ -304,8 +303,7 @@
 						<h3>
 							<span>$</span>99
 						</h3>
-						<a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy
-							Now</a>
+						<a class="btn fs16" href=""><i class="fa fa-shopping-cart fs16"></i><span>Buy Now</span></a>
 					</div>
 				</div>
 			</div>
@@ -333,8 +331,7 @@
 						<h3>
 							<span>$</span>99
 						</h3>
-						<a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy
-							Now</a>
+						<a class="btn fs16" href=""><i class="fa fa-shopping-cart fs16"></i><span>Buy Now</span></a>
 					</div>
 				</div>
 			</div>
@@ -362,8 +359,7 @@
 						<h3>
 							<span>$</span>99
 						</h3>
-						<a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy
-							Now</a>
+						<a class="btn fs16" href=""><i class="fa fa-shopping-cart fs16"></i><span>Buy Now</span></a>
 					</div>
 				</div>
 			</div>
@@ -391,8 +387,7 @@
 						<h3>
 							<span>$</span>99
 						</h3>
-						<a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy
-							Now</a>
+						<a class="btn fs16" href=""><i class="fa fa-shopping-cart"></i><span>Buy Now</span></a>
 					</div>
 				</div>
 			</div>
@@ -450,8 +445,7 @@
 						<h3>
 							<span>$</span>99
 						</h3>
-						<a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy
-							Now</a>
+						<a class="btn fs16" href=""><i class="fa fa-shopping-cart fs16"></i><span>Buy Now</span></a>
 					</div>
 				</div>
 			</div>
@@ -479,8 +473,7 @@
 						<h3>
 							<span>$</span>99
 						</h3>
-						<a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy
-							Now</a>
+						<a class="btn fs16" href=""><i class="fa fa-shopping-cart fs16"></i><span>Buy Now</span></a>
 					</div>
 				</div>
 			</div>
@@ -508,8 +501,7 @@
 						<h3>
 							<span>$</span>99
 						</h3>
-						<a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy
-							Now</a>
+						<a class="btn fs16" href=""><i class="fa fa-shopping-cart fs16"></i><span>Buy Now</span></a>
 					</div>
 				</div>
 			</div>
@@ -537,8 +529,7 @@
 						<h3>
 							<span>$</span>99
 						</h3>
-						<a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy
-							Now</a>
+						<a class="btn fs16" href=""><i class="fa fa-shopping-cart fs16"></i><span>Buy Now</span></a>
 					</div>
 				</div>
 			</div>
@@ -566,8 +557,7 @@
 						<h3>
 							<span>$</span>99
 						</h3>
-						<a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy
-							Now</a>
+						<a class="btn fs16" href=""><i class="fa fa-shopping-cart fs16"></i><span>Buy Now</span></a>
 					</div>
 				</div>
 			</div>

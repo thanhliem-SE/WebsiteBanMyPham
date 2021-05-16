@@ -37,9 +37,9 @@
 						<a href="#" class="nav-link dropdown-toggle"
 							data-toggle="dropdown">More Pages</a>
 						<div class="dropdown-menu">
-							<a href="wish" class="dropdown-item">Wishlist</a> <a href="login"
-								class="dropdown-item">Login & Register</a> <a href="contact"
-								class="dropdown-item">Contact Us</a>
+							<a href="wish" class="dropdown-item fs16">Wishlist</a> <a href="login"
+								class="dropdown-item fs16">Login & Register</a> <a href="contact"
+								class="dropdown-item fs16">Contact Us</a>
 						</div>
 					</div>
 				</div>
@@ -48,8 +48,8 @@
 						<a href="#" class="nav-link dropdown-toggle"
 							data-toggle="dropdown">User Account</a>
 						<div class="dropdown-menu">
-							<a href="#" class="dropdown-item">Login</a> <a href="#"
-								class="dropdown-item">Register</a>
+							<a href="#" class="dropdown-item fs16">Login</a> <a href="#"
+								class="dropdown-item fs16">Register</a>
 						</div>
 					</div>
 				</div>
