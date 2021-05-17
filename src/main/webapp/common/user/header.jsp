@@ -48,8 +48,9 @@
 						<a href="#" class="nav-link dropdown-toggle"
 							data-toggle="dropdown">User Account</a>
 						<div class="dropdown-menu">
-							<a href="#" class="dropdown-item fs16">Login</a> <a href="#"
-								class="dropdown-item fs16">Register</a>
+							<a href="#" class="dropdown-item fs16" data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();">Login</a> 
+							<a href="#" class="dropdown-item fs16" data-toggle="modal" href="javascript:void(0)" onclick="openRegisterModal();">Register</a>
+						
 						</div>
 					</div>
 				</div>

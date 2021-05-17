@@ -1,29 +1,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:url value="/resources/admin" var="url" />
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta name="description" content="" />
-<meta name="author" content="" />
-<title>Admin Web MyPham</title>
-<!--favicon-->
-<link rel="icon" href="${url}/images/favicon.ico" type="image/x-icon">
-<!-- Bootstrap core CSS-->
-<link href="${url}/css/bootstrap.min.css" rel="stylesheet" />
-<!-- animate CSS-->
-<link href="${url}/css/animate.css" rel="stylesheet" type="text/css" />
-<!-- Icons CSS-->
-<link href="${url}/css/icons.css" rel="stylesheet" type="text/css" />
-<!-- Custom Style-->
-<link href="${url}/css/app-style.css" rel="stylesheet" />
-</head>
 
-<body class="bg-theme bg-theme1">
+
+
 	<!-- Start wrapper-->
 	<div id="wrapper">
 

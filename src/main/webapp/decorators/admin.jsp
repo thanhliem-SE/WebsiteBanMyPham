@@ -1,40 +1,71 @@
 <%@ include file="/common/taglib.jsp"%>
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="UTF-8">
-<title>Admin</title>
-<link href="${url}/img/favicon.ico" rel="icon">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+	name="viewport">
+<title>Admin Estore</title>
+<!-- Favicon-->
+<link href="<c:url value="/resources/admin/favicon.ico"/>" type="image/x-icon" rel="icon">
 
 <!-- Google Fonts -->
 <link
-	href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap"
+	href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext"
+	rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet" type="text/css">
+
+<!-- Bootstrap Core Css -->
+<link
+	href="<c:url value="/resources/admin/plugins/bootstrap/css/bootstrap.css"/>"
+	rel="stylesheet">
+<!-- Waves Effect Css -->
+<link
+	href="<c:url value="/resources/admin/plugins/node-waves/waves.css"/>"
 	rel="stylesheet">
 
-<!-- CSS Libraries -->
 <link
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	href="<c:url value="/resources/admin/plugins/animate-css/animate.css"/>"
 	rel="stylesheet">
-<link
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
-	rel="stylesheet">
-<link href="${url}/lib/slick/slick.css" rel="stylesheet">
-<link href="${url}/lib/slick/slick-theme.css" rel="stylesheet">
 
-<!-- Template Stylesheet -->
-<link href="${url}/css/style.css" rel="stylesheet">
+<link href="<c:url value="/resources/admin/css/style.css"/>"
+	rel="stylesheet">
+<link href="<c:url value="/resources/admin/css/themes/all-themes.css"/>"
+	rel="stylesheet">
+
 </head>
-<body>
+
+<body class="theme-red">
+
 	<%@ include file="/common/admin/header.jsp"%>
+
 	<decorator:body />
-	<%@ include file="/common/admin/footer.jsp"%>
-	<!-- JavaScript Libraries -->
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<%@ include file="/common/admin/sideleft.jsp"%>
+	<!-- Jquery Core Js -->
 	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-	<script src="${url}/lib/easing/easing.min.js"></script>
-	<script src="${url}/lib/slick/slick.min.js"></script>
-	<!-- Template Javascript -->
-	<script src="${url}/js/main.js"></script>
+		src="<c:url value="/resources/admin/plugins/jquery/jquery.min.js"/>"></script>
+	<!-- Bootstrap Core Js -->
+	<script
+		src="<c:url value="/resources/admin/plugins/bootstrap/js/bootstrap.js"/>"></script>
+	<!-- Select Plugin Js -->
+	<script
+		src="<c:url value="/resources/admin/plugins/bootstrap-select/js/bootstrap-select.js"/>"></script>
+	<!-- Waves Effect Plugin Js -->
+	<script
+		src="<c:url value="/resources/admin/plugins/node-waves/waves.js"/>"></script>
+	<script
+		src="<c:url value="/resources/admin/plugins/morrisjs/morris.js"/>"></script>
+
+
+	<!-- Custom Js -->
+	<script src="<c:url value="/resources/admin/js/admin.js"/>"></script>
+	<script src="<c:url value="/resources/admin/js/pages/index.js"/>"></script>
+	<!-- Demo Js -->
+	<script src="<c:url value="/resources/admin/js/demo.js"/>"></script>
 </body>
+
 </html>

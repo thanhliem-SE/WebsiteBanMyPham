@@ -4,9 +4,6 @@
 	<decorator name="trangchu" page="user.jsp">
 		<pattern>/trangchu</pattern>
 	</decorator>
-	<decorator name="admin" page="admin.jsp">
-		<pattern>/admin</pattern>
-	</decorator>
 	<decorator name="product" page="user.jsp">
 		<pattern>/product</pattern>
 	</decorator>
@@ -30,5 +27,13 @@
 	</decorator>
 	<decorator name="account" page="user.jsp">
 		<pattern>/account</pattern>
+	</decorator>
+
+	<!-- Page Admin -->
+	<decorator name="admin" page="admin.jsp">
+		<pattern>/admin</pattern>
+	</decorator>
+	<decorator name="quanlyadmin" page="admin.jsp">
+		<pattern>/quanlyadmin</pattern>
 	</decorator>
 </decorators>
