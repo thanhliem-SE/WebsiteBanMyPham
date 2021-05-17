@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.spring.mypham.DAO.SanPhamDAO;
+import com.spring.mypham.DAOImpl.SanPhamDAOImpl;
 import com.spring.mypham.SERVICE.SanPhamService;
 import com.spring.mypham.models.SanPham;
 
@@ -15,6 +16,12 @@ public class SanPhamServiceImpl implements SanPhamService{
 	@Autowired
 	private SanPhamDAO sanPhamDAO;
 	
+	
+	
+	public SanPhamServiceImpl() {
+		sanPhamDAO = new SanPhamDAOImpl();
+	}
+
 	@Transactional
 	@Override
 	public void saveSanPham(SanPham sp) {

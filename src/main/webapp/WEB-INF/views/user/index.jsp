@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
@@ -251,146 +252,43 @@
 			<h1>Sản Phẩm Nổi Bật</h1>
 		</div>
 		<div class="row align-items-center product-slider product-slider-4">
-			<div class="col-lg-3">
-				<div class="product-item">
-					<div class="product-title">
-						<a href="#">Product Name</a>
-						<div class="ratting">
-							<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-								class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-								class="fa fa-star"></i>
+			<!-- Start List San Pham Noi Bat -->
+			<c:forEach var="sanPham" items="${sanPhams}">
+				<div class="col-lg-3">
+					<div class="product-item">
+						<div class="product-title">
+							<a href="#">${sanPham.tenSanPham}</a>
+							<div class="ratting">
+								<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+									class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+									class="fa fa-star"></i>
+							</div>
 						</div>
-					</div>
-					<div class="product-image">
-						<a href="product-detail.html"> <img
-							src="${pageContext.request.contextPath}/${urlUserImg}/product-1.jpg"
-							alt="Product Image">
-						</a>
-						<div class="product-action">
-							<a href="#"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
-								class="fa fa-heart"></i></a> <a href="#"><i class="fa fa-search"></i></a>
+						<div class="product-image">
+							<a href="product-detail.html"> <img
+								src="${pageContext.request.contextPath}/${urlUserImg}/${sanPham.getPathFirstImg()}"
+								alt="Product Image">
+							</a>
+							<div class="product-action">
+								<a href="#"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
+									class="fa fa-heart"></i></a> <a href="#"><i
+									class="fa fa-search"></i></a>
+							</div>
 						</div>
-					</div>
-					<div class="product-price">
-						<h3>
-							<span>$</span>99
-						</h3>
-						<a class="btn fs16" href=""><i class="fa fa-shopping-cart fs16"></i><span>Buy Now</span></a>
+						<div class="product-price">
+							<h3>
+								<c:set var="donGia" value="${sanPham.donGia }" scope="request" />
+								<%
+								out.println(new DecimalFormat("#,###").format(request.getAttribute("donGia")));
+								%>
+							</h3>
+							<a class="btn fs16" href=""><i
+								class="fa fa-shopping-cart fs16"></i><span>Buy Now</span></a>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col-lg-3">
-				<div class="product-item">
-					<div class="product-title">
-						<a href="#">Product Name</a>
-						<div class="ratting">
-							<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-								class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-								class="fa fa-star"></i>
-						</div>
-					</div>
-					<div class="product-image">
-						<a href="product-detail.html"> <img
-							src="${pageContext.request.contextPath}/${urlUserImg}/product-2.jpg"
-							alt="Product Image">
-						</a>
-						<div class="product-action">
-							<a href="#"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
-								class="fa fa-heart"></i></a> <a href="#"><i class="fa fa-search"></i></a>
-						</div>
-					</div>
-					<div class="product-price">
-						<h3>
-							<span>$</span>99
-						</h3>
-						<a class="btn fs16" href=""><i class="fa fa-shopping-cart fs16"></i><span>Buy Now</span></a>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3">
-				<div class="product-item">
-					<div class="product-title">
-						<a href="#">Product Name</a>
-						<div class="ratting">
-							<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-								class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-								class="fa fa-star"></i>
-						</div>
-					</div>
-					<div class="product-image">
-						<a href="product-detail.html"> <img
-							src="${pageContext.request.contextPath}/${urlUserImg}/product-3.jpg"
-							alt="Product Image">
-						</a>
-						<div class="product-action">
-							<a href="#"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
-								class="fa fa-heart"></i></a> <a href="#"><i class="fa fa-search"></i></a>
-						</div>
-					</div>
-					<div class="product-price">
-						<h3>
-							<span>$</span>99
-						</h3>
-						<a class="btn fs16" href=""><i class="fa fa-shopping-cart fs16"></i><span>Buy Now</span></a>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3">
-				<div class="product-item">
-					<div class="product-title">
-						<a href="#">Product Name</a>
-						<div class="ratting">
-							<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-								class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-								class="fa fa-star"></i>
-						</div>
-					</div>
-					<div class="product-image">
-						<a href="product-detail.html"> <img
-							src="${pageContext.request.contextPath}/${urlUserImg}/product-4.jpg"
-							alt="Product Image">
-						</a>
-						<div class="product-action">
-							<a href="#"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
-								class="fa fa-heart"></i></a> <a href="#"><i class="fa fa-search"></i></a>
-						</div>
-					</div>
-					<div class="product-price">
-						<h3>
-							<span>$</span>99
-						</h3>
-						<a class="btn fs16" href=""><i class="fa fa-shopping-cart fs16"></i><span>Buy Now</span></a>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3">
-				<div class="product-item">
-					<div class="product-title">
-						<a href="#">Product Name</a>
-						<div class="ratting">
-							<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-								class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-								class="fa fa-star"></i>
-						</div>
-					</div>
-					<div class="product-image">
-						<a href="product-detail.html"> <img
-							src="${pageContext.request.contextPath}/${urlUserImg}/product-5.jpg"
-							alt="Product Image">
-						</a>
-						<div class="product-action">
-							<a href="#"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
-								class="fa fa-heart"></i></a> <a href="#"><i class="fa fa-search"></i></a>
-						</div>
-					</div>
-					<div class="product-price">
-						<h3>
-							<span>$</span>99
-						</h3>
-						<a class="btn fs16" href=""><i class="fa fa-shopping-cart"></i><span>Buy Now</span></a>
-					</div>
-				</div>
-			</div>
+			</c:forEach>
+			<!-- End San Pham Noi Bat -->
 		</div>
 	</div>
 </div>
@@ -421,146 +319,43 @@
 			<h1>Sản Phẩm Mới</h1>
 		</div>
 		<div class="row align-items-center product-slider product-slider-4">
-			<div class="col-lg-3">
-				<div class="product-item">
-					<div class="product-title">
-						<a href="#">Product Name</a>
-						<div class="ratting">
-							<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-								class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-								class="fa fa-star"></i>
+			<!-- Start List San Pham Noi Bat -->
+			<c:forEach var="sanPham" items="${sanPhams}">
+				<div class="col-lg-3">
+					<div class="product-item">
+						<div class="product-title">
+							<a href="#">${sanPham.tenSanPham}</a>
+							<div class="ratting">
+								<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+									class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+									class="fa fa-star"></i>
+							</div>
 						</div>
-					</div>
-					<div class="product-image">
-						<a href="product-detail.html"> <img
-							src="${pageContext.request.contextPath}/${urlUserImg}/product-6.jpg"
-							alt="Product Image">
-						</a>
-						<div class="product-action">
-							<a href="#"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
-								class="fa fa-heart"></i></a> <a href="#"><i class="fa fa-search"></i></a>
+						<div class="product-image">
+							<a href="product-detail.html"> <img
+								src="${pageContext.request.contextPath}/${urlUserImg}/${sanPham.getPathFirstImg()}"
+								alt="Product Image">
+							</a>
+							<div class="product-action">
+								<a href="#"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
+									class="fa fa-heart"></i></a> <a href="#"><i
+									class="fa fa-search"></i></a>
+							</div>
 						</div>
-					</div>
-					<div class="product-price">
-						<h3>
-							<span>$</span>99
-						</h3>
-						<a class="btn fs16" href=""><i class="fa fa-shopping-cart fs16"></i><span>Buy Now</span></a>
+						<div class="product-price">
+							<h3>
+								<c:set var="donGia" value="${sanPham.donGia }" scope="request" />
+								<%
+								out.println(new DecimalFormat("#,###").format(request.getAttribute("donGia")));
+								%>
+							</h3>
+							<a class="btn fs16" href=""><i
+								class="fa fa-shopping-cart fs16"></i><span>Buy Now</span></a>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col-lg-3">
-				<div class="product-item">
-					<div class="product-title">
-						<a href="#">Product Name</a>
-						<div class="ratting">
-							<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-								class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-								class="fa fa-star"></i>
-						</div>
-					</div>
-					<div class="product-image">
-						<a href="product-detail.html"> <img
-							src="${pageContext.request.contextPath}/${urlUserImg}/product-7.jpg"
-							alt="Product Image">
-						</a>
-						<div class="product-action">
-							<a href="#"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
-								class="fa fa-heart"></i></a> <a href="#"><i class="fa fa-search"></i></a>
-						</div>
-					</div>
-					<div class="product-price">
-						<h3>
-							<span>$</span>99
-						</h3>
-						<a class="btn fs16" href=""><i class="fa fa-shopping-cart fs16"></i><span>Buy Now</span></a>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3">
-				<div class="product-item">
-					<div class="product-title">
-						<a href="#">Product Name</a>
-						<div class="ratting">
-							<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-								class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-								class="fa fa-star"></i>
-						</div>
-					</div>
-					<div class="product-image">
-						<a href="product-detail.html"> <img
-							src="${pageContext.request.contextPath}/${urlUserImg}/product-8.jpg"
-							alt="Product Image">
-						</a>
-						<div class="product-action">
-							<a href="#"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
-								class="fa fa-heart"></i></a> <a href="#"><i class="fa fa-search"></i></a>
-						</div>
-					</div>
-					<div class="product-price">
-						<h3>
-							<span>$</span>99
-						</h3>
-						<a class="btn fs16" href=""><i class="fa fa-shopping-cart fs16"></i><span>Buy Now</span></a>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3">
-				<div class="product-item">
-					<div class="product-title">
-						<a href="#">Product Name</a>
-						<div class="ratting">
-							<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-								class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-								class="fa fa-star"></i>
-						</div>
-					</div>
-					<div class="product-image">
-						<a href="product-detail.html"> <img
-							src="${pageContext.request.contextPath}/${urlUserImg}/product-9.jpg"
-							alt="Product Image">
-						</a>
-						<div class="product-action">
-							<a href="#"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
-								class="fa fa-heart"></i></a> <a href="#"><i class="fa fa-search"></i></a>
-						</div>
-					</div>
-					<div class="product-price">
-						<h3>
-							<span>$</span>99
-						</h3>
-						<a class="btn fs16" href=""><i class="fa fa-shopping-cart fs16"></i><span>Buy Now</span></a>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3">
-				<div class="product-item">
-					<div class="product-title">
-						<a href="#">Product Name</a>
-						<div class="ratting">
-							<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-								class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-								class="fa fa-star"></i>
-						</div>
-					</div>
-					<div class="product-image">
-						<a href="product-detail.html"> <img
-							src="${pageContext.request.contextPath}/${urlUserImg}/product-10.jpg"
-							alt="Product Image">
-						</a>
-						<div class="product-action">
-							<a href="#"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
-								class="fa fa-heart"></i></a> <a href="#"><i class="fa fa-search"></i></a>
-						</div>
-					</div>
-					<div class="product-price">
-						<h3>
-							<span>$</span>99
-						</h3>
-						<a class="btn fs16" href=""><i class="fa fa-shopping-cart fs16"></i><span>Buy Now</span></a>
-					</div>
-				</div>
-			</div>
+			</c:forEach>
+			<!-- End San Pham Noi Bat -->
 		</div>
 	</div>
 </div>

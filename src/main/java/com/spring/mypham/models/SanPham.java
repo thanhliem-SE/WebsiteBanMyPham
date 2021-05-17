@@ -1,9 +1,12 @@
 package com.spring.mypham.models;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CollectionTable;
+import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,8 +22,8 @@ import org.hibernate.annotations.Nationalized;
 
 @Entity
 public class SanPham implements Serializable {
-	
-	private static final long serialVersionUID = -1325615998415874517L;
+
+	private static final long serialVersionUID = 41506777562134742L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long maSanPham;
@@ -43,7 +46,7 @@ public class SanPham implements Serializable {
 
 	@ElementCollection()
 	@CollectionTable(name = "HinhAnh", joinColumns = @JoinColumn(name = "maSanPham"))
-	private Set<String> hinhAnh;
+	private List<String> hinhAnh;
 
 	@OneToMany(mappedBy = "sanPham")
 	private Set<LineItem> lineItem;
@@ -152,16 +155,20 @@ public class SanPham implements Serializable {
 		this.congDung = congDung;
 	}
 
-	public Set<String> getHinhAnh() {
+	public List<String> getHinhAnh() {
 		return hinhAnh;
 	}
 
-	public void setHinhAnh(Set<String> hinhAnh) {
+	public void setHinhAnh(List<String> hinhAnh) {
 		this.hinhAnh = hinhAnh;
 	}
 
 	public SanPham() {
 		super();
+	}
+	
+	public String getPathFirstImg() {
+		return getHinhAnh().get(0);
 	}
 
 }

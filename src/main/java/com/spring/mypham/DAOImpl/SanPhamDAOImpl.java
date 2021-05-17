@@ -81,8 +81,8 @@ public class SanPhamDAOImpl implements SanPhamDAO{
 		return rs;
 	}
 	
-	public Set<String> getHinhAnhById(long maSanPham) {
-		Set<String> rs = new HashSet<String>();
+	public List<String> getHinhAnhById(long maSanPham) {
+		List<String> rs = new ArrayList<String>();
 		Session session = sessionFactory.getCurrentSession();
 		try {
 			String sql = "Select hinhanh from sanpham s join hinhanh h on s.masanpham = h.masanpham where s.maSanPham = "
