@@ -32,7 +32,7 @@
 	href="<c:url value="/resources/admin/plugins/animate-css/animate.css"/>"
 	rel="stylesheet">
 
-<link href="<c:url value="/resources/admin/css/style.css"/>"
+<link href="<c:url value="/resources/admin/css/main.css"/>"
 	rel="stylesheet">
 <link href="<c:url value="/resources/admin/css/themes/all-themes.css"/>"
 	rel="stylesheet">

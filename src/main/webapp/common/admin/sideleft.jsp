@@ -35,7 +35,7 @@
                     <li class="active">
                         <a href="${pageContext.request.contextPath}/admin">
                             <i class="material-icons">home</i>
-                            <span>Tổng quan</span>
+                            <span>Tổng Quan</span>
                         </a>
                     </li>
                     <li>
@@ -90,18 +90,18 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="#">Đơn hàng 1</a>
+                                <a href="#">Đơn Hàng 1</a>
                             </li>
                         </ul>
                     </li>
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">assignment</i>
-                            <span>Chi tiết đơn hàng</span>
+                            <span>Chi Tiết Đơn Hàng</span>
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="javascript:void(0);">Chi tiết đơn hàng 1</a>
+                                <a href="javascript:void(0);">Chi Tiết Đơn Hàng 1</a>
                             </li>
                         </ul>
                     </li>
@@ -147,25 +147,25 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="pages/examples/profile.html">Profile</a>
+                                <a href="${pageContext.request.contextPath}/profile">Profile</a>
                             </li>
                             <li>
-                                <a href="pages/examples/sign-in.html">Sign In</a>
+                                <a href="${pageContext.request.contextPath}/session/new">Sign In</a>
                             </li>
                             <li>
-                                <a href="pages/examples/sign-up.html">Sign Up</a>
+                                <a href="${pageContext.request.contextPath}/signup/new">Sign Up</a>
                             </li>
                             <li>
-                                <a href="pages/examples/forgot-password.html">Forgot Password</a>
+                                <a href="${pageContext.request.contextPath}/password_resets/new">Forgot Password</a>
                             </li>
                             <li>
-                                <a href="pages/examples/blank.html">Blank Page</a>
+                                <a href="${pageContext.request.contextPath}/blank_page">Blank Page</a>
                             </li>
                             <li>
-                                <a href="pages/examples/404.html">404 - Not Found</a>
+                                <a href="p${pageContext.request.contextPath}/page_404">404 - Not Found</a>
                             </li>
                             <li>
-                                <a href="pages/examples/500.html">500 - Server Error</a>
+                                <a href="${pageContext.request.contextPath}/page_500">500 - Server Error</a>
                             </li>
                         </ul>
                     </li>
@@ -192,10 +192,9 @@
             </div>
             <!-- #Menu -->
             <!-- Footer -->
-            <div class="legal bg-danger">
+            <div class="legal bg-danger fs13">
                 <div class="copyright text-center">
-                    <span>&copy; 2021</span>
-                    <span><a href="javascript:void(0);"> - Admin | ESTORE DESIGN</a></span>
+                    <span>&copy; 2021 Estore, Inc. </span>
                 </div>
             </div>
             <!-- #Footer -->

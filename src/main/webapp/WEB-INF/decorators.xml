@@ -36,4 +36,15 @@
 	<decorator name="quanlyadmin" page="admin.jsp">
 		<pattern>/quanlyadmin</pattern>
 	</decorator>
+	<decorator name="quanlyuser" page="admin.jsp">
+		<pattern>/quanlyuser</pattern>
+	</decorator>
+	<decorator name="profile" page="admin.jsp">
+		<pattern>/profile</pattern>
+	</decorator>
+	<decorator name="blank_page" page="admin.jsp">
+		<pattern>/blank_page</pattern>
+	</decorator>
+
+
 </decorators>
