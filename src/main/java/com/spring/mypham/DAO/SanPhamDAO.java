@@ -9,4 +9,17 @@ public interface SanPhamDAO {
 	public void deleteSanPham(Long id);
 	public SanPham getDienThoai(Long id);
 	public List<SanPham> getListSanPham();
+	public List<SanPham> getListSanPhamTheoPage(int page, List<SanPham> list);
+	/**
+	 * 
+	 * @param dinhMuc: 1,2,3 tương ứng với dưới 1 tr, từ 1tr đến 3tr, trên 3tr
+	 * @return
+	 */
+	public List<SanPham> getListSanPhamTheoGia(int dinhMuc);
+	public List<SanPham> getListSanPhamTheoDanhMuc(int maDanhMuc);
+	public List<SanPham> getListSanPhamTheoNCC(String ncc);
+	public List<SanPham> getListSanPhamTheoTen(String tenSanPham);
+	public List<SanPham> getListSanPhamTheoTrangThai(int trangThai);
+	
+	public int getPageCountSanPham(List<SanPham> sanPhams);
 }

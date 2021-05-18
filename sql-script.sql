@@ -39,7 +39,23 @@ INSERT [dbo].[SanPham] ([maSanPham], [congDung], [donGia], [donViTinh], [hanSuDu
 GO
 INSERT [dbo].[SanPham] ([maSanPham], [congDung], [donGia], [donViTinh], [hanSuDung], [nhaCungCap], [soLuongTon], [tenSanPham], [thanhPhan], [thue], [maDanhMuc], [maNhanVien]) VALUES (17, N'Nước uống bổ sung Collagen cần thiết cho da, cân bằng độ ẩm đồng thời làm giảm và ngăn chặn tình trạng lão hóa da mang đến cho bạn làn da căng mọng, tươi tắn, tràn đầy sức sống. ', 1850000, N'Hộp', 24, N'Vital Beautie', 10, N'VITAL BEAUTIE Super Collagen - Nước uống bổ sung Collagen', N'Contains 1000mg of Hydrolysed Collagen, Purified Water, Orange Concentrate, Citric Acid, Pectin, Sodium Oral Ginseng, Enzyme Treated Stevia, Tea Powder, Calcium Powder Mixture, Hyaluronic Acid, Bonito Fish Protein Hydrolysate, Vitamin C', 0.5, 6, 1)
 GO
+INSERT [dbo].[SanPham] ([maSanPham], [congDung], [donGia], [donViTinh], [hanSuDung], [nhaCungCap], [soLuongTon], [tenSanPham], [thanhPhan], [thue], [maDanhMuc], [maNhanVien]) VALUES (18, N'
+Là sản phẩm tẩy trang 4-trong-1
+(1) Loại bỏ lớp trang điểm trên mặt, mắt và môi.
+(2) Rửa sạch tạp chất và dầu thừa
+(3) Nuôi dưỡng với prebiotic
+(4) Cấp ẩm sâu
+', 1125000, N'Chai', 32, N'PREBIOTIC', 10, N'PREBIOTIC 4-IN-1 MULTICLEANSER', N'Water/Aqua/Eau, Glycerin, Decyl Glucoside, C13-C16 Isoparaffin, Hexylene Glycol, Propanediol, Hydroxyethyl Acrylate/Sodium Acryloyldimethyl Taurate Copolymer, Lactobacillus, Alpha-Glucan Oligosaccharide, Polymnia Sonchifolia Root Juice, Xylitol, Xylitylglucoside, Anhydroxylitol, Sodium Hyaluronate, Sodium Surfactin, Squalane, Urea, Yeast Amino Acids, Trehalose, Inositol, Taurine, Betaine, Isohexadecane, Caprylhydroxamic Acid, Maltodextrin, 1,2 Hexanediol, Polysorbate 80, Acrylamide/Sodium Acryloyldimethyltaurate Copolymer, Citric Acid, Disodium EDTA', 0.5, 1, 1)
+GO
 SET IDENTITY_INSERT [dbo].[SanPham] OFF
+GO
+INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (1, N'sp-1.jpg')
+GO
+INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (5, N'sp-2.png')
+GO
+INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (7, N'sp-3.png')
+GO
+INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (9, N'sp-4.png')
 GO
 INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (1, N'sp-1.jpg')
 GO
@@ -52,4 +68,34 @@ GO
 INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (14, N'sp-5.png')
 GO
 INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (17, N'sp-6.png')
+GO
+INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (1, N'sp-1.jpg')
+GO
+INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (5, N'sp-2.png')
+GO
+INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (7, N'sp-3.png')
+GO
+INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (9, N'sp-4.png')
+GO
+INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (14, N'sp-5.png')
+GO
+INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (17, N'sp-6.png')
+GO
+INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (14, N'sp-5.png')
+GO
+INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (17, N'sp-6.png')
+GO
+INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (18, N'sp-7.jpg')
+GO
+INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (18, N'sp-8.jpg')
+GO
+INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (1, N'sp-9.jpg')
+GO
+INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (5, N'sp-10.jpg')
+GO
+INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (7, N'sp-11.jpg')
+GO
+INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (9, N'sp-12.jpg')
+GO
+INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (14, N'sp-13.jpg')
 GO

@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.spring.mypham.SERVICE.SanPhamService;
@@ -18,7 +17,7 @@ public class TrangChuController {
 	
 	@RequestMapping("/trangchu")
 	public String trangChu(Model model) {
-		List<SanPham> sanPhams = sanPhamService.getListSanPham();
+		List<SanPham> sanPhams = sanPhamService.getListSanPhamTheoPage(1, sanPhamService.getListSanPham());
 		model.addAttribute("sanPhams", sanPhams);
 		return "user/index";
 	}

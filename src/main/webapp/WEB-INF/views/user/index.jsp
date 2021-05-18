@@ -15,22 +15,22 @@
 							href="${pageContext.request.contextPath}/bestseller"><i
 								class="fa fa-shopping-bag"></i>Sản phẩm bán chạy</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/chamsocda"><i
+							href="product?maDanhMuc=1"><i
 								class="fa fa-plus-square"></i>Chăm sóc da mặt</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/chamsoccothe"><i
+							href="product?maDanhMuc=2"><i
 								class="fa fa-female"></i>Chăm sóc cơ thể</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/chamsoctoc"><i
+							href="product?maDanhMuc=3"><i
 								class="fa fa-child"></i>Chăm sóc tóc</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/nuochoa"><i
+							href="product?maDanhMuc=4"><i
 								class="fa fa-tshirt"></i>Nước hoa</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/trangdiem"><i
+							href="product?maDanhMuc=5"><i
 								class="fa fa-mobile-alt"></i>Trang điểm</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/thucphamchucnang"><i
+							href="product?maDanhMuc=6"><i
 								class="fa fa-microchip"></i>Thực phẩm chức năng</a></li>
 					</ul>
 				</nav>
@@ -74,14 +74,14 @@
 					<div class="img-item">
 						<img
 							src="${pageContext.request.contextPath}/${urlUserImg}/category-1.jpg" />
-						<a class="img-text" href="">
+						<a class="img-text" href="product?maDanhMuc=1">
 							<p>Da Mặt Sáng Mịn</p>
 						</a>
 					</div>
 					<div class="img-item">
 						<img
 							src="${pageContext.request.contextPath}/${urlUserImg}/category-2.jpg" />
-						<a class="img-text" href="">
+						<a class="img-text" href="product?maDanhMuc=3">
 							<p>Tóc Chắc Khỏe</p>
 						</a>
 					</div>
@@ -179,7 +179,7 @@
 				<div class="category-item ch-400">
 					<img
 						src="${pageContext.request.contextPath}/${urlUserImg}/category-3.jpg" />
-					<a class="category-name" href="">
+					<a class="category-name" href="product?maDanhMuc=4">
 						<p>Nước hoa</p>
 					</a>
 				</div>
@@ -188,14 +188,14 @@
 				<div class="category-item ch-250">
 					<img
 						src="${pageContext.request.contextPath}/${urlUserImg}/category-4.jpg" />
-					<a class="category-name" href="">
+					<a class="category-name" href="product?maDanhMuc=2">
 						<p>Chăm sóc cơ thể</p>
 					</a>
 				</div>
 				<div class="category-item ch-150">
 					<img
 						src="${pageContext.request.contextPath}/${urlUserImg}/category-5.jpg" />
-					<a class="category-name" href="">
+					<a class="category-name" href="product?maDanhMuc=6">
 						<p>Thực phẩm chức năng</p>
 					</a>
 				</div>
@@ -204,14 +204,14 @@
 				<div class="category-item ch-150">
 					<img
 						src="${pageContext.request.contextPath}/${urlUserImg}/category-6.jpg" />
-					<a class="category-name" href="">
+					<a class="category-name" href="product?maDanhMuc=5">
 						<p>Trang điểm</p>
 					</a>
 				</div>
 				<div class="category-item ch-250">
 					<img
 						src="${pageContext.request.contextPath}/${urlUserImg}/category-7.jpg" />
-					<a class="category-name" href="">
+					<a class="category-name" href="product?maDanhMuc=1">
 						<p>Chăm sóc da mặt</p>
 					</a>
 				</div>
@@ -220,7 +220,7 @@
 				<div class="category-item ch-400">
 					<img
 						src="${pageContext.request.contextPath}/${urlUserImg}/category-8.jpg" />
-					<a class="category-name" href="">
+					<a class="category-name" href="product?maDanhMuc=3">
 						<p>Chăm sóc tóc</p>
 					</a>
 				</div>
