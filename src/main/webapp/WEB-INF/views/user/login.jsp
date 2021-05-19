@@ -5,44 +5,44 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-lg-6">
-				<form method="POST" action="">
+				<form:form method="post" name="registerForm" action="${pageContext.request.contextPath}/register">
 					<div class="register-form">
 						<div class="row">
 							<div class="col-md-6">
 								<label>Họ và tên</label> <input class="form-control" type="text"
-									placeholder="VD: Trần Văn A">
+									placeholder="VD: Trần Văn A" name="tenKhachHang">
 							</div>
 							<div class="col-md-6">
 								<label>Tên tài khoản</label> <input class="form-control"
-									type="text" placeholder="VD: username123">
+									type="text" placeholder="VD: username123" name="username">
 							</div>
 							<div class="col-md-6">
 								<label>E-mail</label> <input class="form-control" type="text"
-									placeholder="abc@example.com">
+									placeholder="abc@example.com" name="email">
 							</div>
 							<div class="col-md-6">
 								<label>Số điện thoại</label> <input class="form-control"
-									type="text" placeholder="VD: 0912345567">
+									type="text" placeholder="VD: 0912345567" name="soDienThoai">
 							</div>
 							<div class="col-md-6">
-								<label>Mật khẩu</label> <input class="form-control" type="text"
-									placeholder="Mật khẩu">
+								<label>Mật khẩu</label> <input class="form-control" type="password"
+									placeholder="Mật khẩu" name="password">
 							</div>
 							<div class="col-md-6">
 								<label>Nhập lại mật khẩu</label> <input class="form-control"
-									type="text" placeholder="Mật khẩu">
+									type="password" placeholder="Mật khẩu" name="password2">
 							</div>
 							<div class="col-md-12">
-								<button class="btn" type="submit" name="btnDangKy">Đăng
+								<button class="btn" type="submit" value="Register">Đăng
 									ký</button>
 							</div>
 						</div>
 					</div>
-				</form>
+				</form:form>
 
 			</div>
 			<div class="col-lg-6">
-				<form:form method="post" action="${pageContext.request.contextPath}/authenticateTheUser">
+				<form:form method="post" name="submitForm" action="${pageContext.request.contextPath}/login">
 					<div class="login-form">
 						<div class="row">
 							<div class="col-md-6">

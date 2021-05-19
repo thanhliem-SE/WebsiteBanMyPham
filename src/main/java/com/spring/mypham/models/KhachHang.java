@@ -130,4 +130,13 @@ public class KhachHang implements Serializable {
 		super();
 	}
 
+	@Override
+	public String toString() {
+		return "KhachHang [maKhachHang=" + maKhachHang + ", tenKhachHang=" + tenKhachHang + ", soDienThoai="
+				+ soDienThoai + ", email=" + email + ", CMND=" + CMND + ", gioiTinh=" + gioiTinh + ", namSinh="
+				+ namSinh + ", ngheNghiep=" + ngheNghiep + ", user=" + user + ", gioHang=" + gioHang + ", diaChi="
+				+ diaChi + "]";
+	}
+	
+
 }

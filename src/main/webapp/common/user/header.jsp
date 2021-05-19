@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <div class="top-bar">
 	<div class="container-fluid">
 		<div class="row">
@@ -45,13 +45,25 @@
 				</div>
 				<div class="navbar-nav ml-auto">
 					<div class="nav-item dropdown">
-						<a href="#" class="nav-link dropdown-toggle"
-							data-toggle="dropdown">User Account</a>
-						<div class="dropdown-menu">
-							<a href="#" class="dropdown-item fs16" data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();">Login</a> 
-							<a href="#" class="dropdown-item fs16" data-toggle="modal" href="javascript:void(0)" onclick="openRegisterModal();">Register</a>
+						<c:if test="${sessionScope.username != null}">
+  							  <a href="#" class="nav-link dropdown-toggle"
+							data-toggle="dropdown">${sessionScope.username }</a>
+							<div class="dropdown-menu">
+								<a href="${pageContext.request.contextPath}/login" class="dropdown-item fs16">Account</a> 
+								<a href="${pageContext.request.contextPath}/login" class="dropdown-item fs16">Logout</a>
+							
+							</div>
+						</c:if>
+						<c:if test="${sessionScope.username == null}">
+	  							  <a href="#" class="nav-link dropdown-toggle"
+								data-toggle="dropdown">User Account</a>
+							<div class="dropdown-menu">
+								<a href="${pageContext.request.contextPath}/login" class="dropdown-item fs16" >Login</a> 
+								<a href="${pageContext.request.contextPath}/login" class="dropdown-item fs16">Register</a>
+							
+							</div>
+						</c:if>
 						
-						</div>
 					</div>
 				</div>
 			</div>
