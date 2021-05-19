@@ -84,4 +84,15 @@ public class SanPhamServiceImpl implements SanPhamService {
 		return sanPhamDAO.getPageCountSanPham(sanPhams);
 	}
 
+	@Override
+	public SanPham getSanPhamByID(long maSanPham) {
+		// TODO Auto-generated method stub
+		return sanPhamDAO.getSanPhamByID(maSanPham);
+	}
+	
+	@Override
+	public List<String> getHinhAnhById(long maSanPham){
+		return sanPhamDAO.getHinhAnhById(maSanPham);
+	}
+
 }

@@ -20,6 +20,8 @@ public interface SanPhamDAO {
 	public List<SanPham> getListSanPhamTheoNCC(String ncc);
 	public List<SanPham> getListSanPhamTheoTen(String tenSanPham);
 	public List<SanPham> getListSanPhamTheoTrangThai(int trangThai);
+	public SanPham getSanPhamByID(long maSanPham);
+	public List<String> getHinhAnhById(long maSanPham);
 	
 	public int getPageCountSanPham(List<SanPham> sanPhams);
 }

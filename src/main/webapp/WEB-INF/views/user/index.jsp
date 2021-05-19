@@ -271,7 +271,7 @@
 							</a>
 							<div class="product-action">
 								<a href="#"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
-									class="fa fa-heart"></i></a> <a href="#"><i
+									class="fa fa-heart"></i></a> <a href="product-details?maSanPham=${sanPham.maSanPham}"><i
 									class="fa fa-search"></i></a>
 							</div>
 						</div>
@@ -338,7 +338,7 @@
 							</a>
 							<div class="product-action">
 								<a href="#"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
-									class="fa fa-heart"></i></a> <a href="#"><i
+									class="fa fa-heart"></i></a> <a href="product-details?maSanPham=${sanPham.maSanPham}"><i
 									class="fa fa-search"></i></a>
 							</div>
 						</div>

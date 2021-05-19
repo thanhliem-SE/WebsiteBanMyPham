@@ -82,6 +82,9 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 	public List<String> getHinhAnhById(long maSanPham) {
 		List<String> rs = new ArrayList<String>();
 		Session session = sessionFactory.getCurrentSession();
+		Transaction tr = session.getTransaction();
+		if(!tr.isActive())
+			tr.begin();
 		try {
 			String sql = "Select hinhanh from sanpham s join hinhanh h on s.masanpham = h.masanpham where s.maSanPham = "
 					+ maSanPham;
@@ -90,6 +93,7 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 			for (Object obj : objs) {
 				rs.add(obj.toString());
 			}
+			tr.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -228,8 +232,36 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 
 	@Override
 	public List<SanPham> getListSanPhamTheoTen(String tenSanPham) {
-		// TODO Auto-generated method stub
-		return null;
+		List<SanPham> rs = new ArrayList<SanPham>();
+		Session session = sessionFactory.getCurrentSession();
+		Transaction tr = session.beginTransaction();
+
+		try {
+			String sql = "select * from SanPham Where tenSanPham Likw N'%" + tenSanPham + "%'" ;
+			@SuppressWarnings("unchecked")
+			List<Object> objs = session.createNativeQuery(sql).getResultList();
+			for (Object arrayObj : objs) {
+				Object[] obj = (Object[]) arrayObj;
+				SanPham s = new SanPham();
+				s.setMaSanPham(Integer.parseInt(obj[0].toString()));
+				s.setCongDung(obj[1].toString());
+				s.setDonGia(Double.parseDouble(obj[2].toString()));
+				s.setDonViTinh(obj[3].toString());
+				s.setHanSuDung(Integer.parseInt(obj[4].toString()));
+				s.setNhaCungCap(obj[5].toString());
+				s.setSoLuongTon(Integer.parseInt(obj[6].toString()));
+				s.setTenSanPham(obj[7].toString());
+				s.setThanhPhan(obj[8].toString());
+				s.setThue(Double.parseDouble(obj[9].toString()));
+				s.setHinhAnh(getHinhAnhById(s.getMaSanPham()));
+				rs.add(s);
+			}
+
+			tr.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return rs;
 	}
 
 	@Override
@@ -238,7 +270,37 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 		return null;
 	}
 
-	
+	@Override
+	public SanPham getSanPhamByID(long maSanPham) {
+		List<SanPham> rs = new ArrayList<SanPham>();
+		Session session = sessionFactory.getCurrentSession();
+		Transaction tr = session.beginTransaction();
 
+		try {
+			String sql = "select * from SanPham Where maSanPham = '" + maSanPham + "'" ;
+			@SuppressWarnings("unchecked")
+			List<Object> objs = session.createNativeQuery(sql).getResultList();
+			for (Object arrayObj : objs) {
+				Object[] obj = (Object[]) arrayObj;
+				SanPham s = new SanPham();
+				s.setMaSanPham(Integer.parseInt(obj[0].toString()));
+				s.setCongDung(obj[1].toString());
+				s.setDonGia(Double.parseDouble(obj[2].toString()));
+				s.setDonViTinh(obj[3].toString());
+				s.setHanSuDung(Integer.parseInt(obj[4].toString()));
+				s.setNhaCungCap(obj[5].toString());
+				s.setSoLuongTon(Integer.parseInt(obj[6].toString()));
+				s.setTenSanPham(obj[7].toString());
+				s.setThanhPhan(obj[8].toString());
+				s.setThue(Double.parseDouble(obj[9].toString()));
+				s.setHinhAnh(getHinhAnhById(s.getMaSanPham()));
+				rs.add(s);
+			}
 
+			tr.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return rs.get(0);
+	}
 }

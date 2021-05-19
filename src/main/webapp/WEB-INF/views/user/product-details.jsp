@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
@@ -9,57 +10,28 @@
 					<div class="row align-items-center">
 						<div class="col-md-5">
 							<div class="product-slider-single normal-slider">
-								<img
-									src="${pageContext.request.contextPath}/${urlUserImg}/product-1.jpg"
-									alt="Product Image"> <img
-									src="${pageContext.request.contextPath}/${urlUserImg}/product-2.jpg"
-									alt="Product Image"> <img
-									src="${pageContext.request.contextPath}/${urlUserImg}/product-5.jpg"
-									alt="Product Image"> <img
-									src="${pageContext.request.contextPath}/${urlUserImg}/product-7.jpg"
-									alt="Product Image"> <img
-									src="${pageContext.request.contextPath}/${urlUserImg}/product-9.jpg"
-									alt="Product Image"> <img
-									src="${pageContext.request.contextPath}/${urlUserImg}/product-10.jpg"
-									alt="Product Image">
+								<c:forEach var="img" items="${imgs}">
+									<img
+										src="${pageContext.request.contextPath}/${urlUserImg}/${img}"
+										alt="Product Image">
+								</c:forEach>
 							</div>
 							<div class="product-slider-single-nav normal-slider">
-								<div class="slider-nav-img">
-									<img
-									src="${pageContext.request.contextPath}/${urlUserImg}/product-1.jpg"
-									alt="Product Image">
-								</div>
-								<div class="slider-nav-img">
-									<img
-									src="${pageContext.request.contextPath}/${urlUserImg}/product-2.jpg"
-									alt="Product Image">
-								</div>
-								<div class="slider-nav-img">
-									<img
-									src="${pageContext.request.contextPath}/${urlUserImg}/product-5.jpg"
-									alt="Product Image">
-								</div>
-								<div class="slider-nav-img">
-									<img
-									src="${pageContext.request.contextPath}/${urlUserImg}/product-7.jpg"
-									alt="Product Image">
-								</div>
-								<div class="slider-nav-img">
-									<img
-									src="${pageContext.request.contextPath}/${urlUserImg}/product-9.jpg"
-									alt="Product Image">
-								</div>
-								<div class="slider-nav-img">
-									<img
-									src="${pageContext.request.contextPath}/${urlUserImg}/product-10.jpg"
-									alt="Product Image">
-								</div>
+								<c:forEach var="img" items="${imgs}">
+									<div class="slider-nav-img">
+										<img
+											src="${pageContext.request.contextPath}/${urlUserImg}/${img}"
+											alt="Product Image">
+									</div>
+								</c:forEach>
+
 							</div>
 						</div>
+						<c:set var="sp" value="${sanPham}" />
 						<div class="col-md-7">
 							<div class="product-content">
 								<div class="title">
-									<h2>Product Name</h2>
+									<h2>${sp.tenSanPham}</h2>
 								</div>
 								<div class="ratting">
 									<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
@@ -68,12 +40,13 @@
 								</div>
 								<div class="price">
 									<h4>Price:</h4>
-									<p>
-										$99 <span>$149</span>
-									</p>
+									<c:set var="donGia" value="${sanPham.donGia }" scope="request" />
+									<%
+									out.println(new DecimalFormat("#,###").format(request.getAttribute("donGia")));
+									%>
 								</div>
 								<div class="quantity">
-									<h4>Quantity:</h4>
+									<h4>Số lượng:</h4>
 									<div class="qty">
 										<button class="btn-minus">
 											<i class="fa fa-minus"></i>
@@ -85,20 +58,15 @@
 									</div>
 								</div>
 								<div class="p-size">
-									<h4>Size:</h4>
+									<h4>Còn lại:</h4>
 									<div class="btn-group btn-group-sm">
-										<button type="button" class="btn">S</button>
-										<button type="button" class="btn">M</button>
-										<button type="button" class="btn">L</button>
-										<button type="button" class="btn">XL</button>
+										<p>${sanPham.soLuongTon }</p>
 									</div>
 								</div>
 								<div class="p-color">
-									<h4>Color:</h4>
+									<h4>Thuế:</h4>
 									<div class="btn-group btn-group-sm">
-										<button type="button" class="btn">White</button>
-										<button type="button" class="btn">Black</button>
-										<button type="button" class="btn">Blue</button>
+										<p>5%</p>
 									</div>
 								</div>
 								<div class="action">
@@ -115,55 +83,37 @@
 					<div class="col-lg-12">
 						<ul class="nav nav-pills nav-justified">
 							<li class="nav-item"><a class="nav-link active"
-								data-toggle="pill" href="#description">Description</a></li>
+								data-toggle="pill" href="#description">Mô Tả Sản Phẩm</a></li>
 							<li class="nav-item"><a class="nav-link" data-toggle="pill"
-								href="#specification">Specification</a></li>
+								href="#specification">Thành Phần</a></li>
 							<li class="nav-item"><a class="nav-link" data-toggle="pill"
-								href="#reviews">Reviews (1)</a></li>
+								href="#reviews">Đánh Giá (1)</a></li>
 						</ul>
 
 						<div class="tab-content">
 							<div id="description" class="container tab-pane active">
-								<h4>Product description</h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-									In condimentum quam ac mi viverra dictum. In efficitur ipsum
-									diam, at dignissim lorem tempor in. Vivamus tempor hendrerit
-									finibus. Nulla tristique viverra nisl, sit amet bibendum ante
-									suscipit non. Praesent in faucibus tellus, sed gravida lacus.
-									Vivamus eu diam eros. Aliquam et sapien eget arcu rhoncus
-									scelerisque. Suspendisse sit amet neque neque. Praesent
-									suscipit et magna eu iaculis. Donec arcu libero, commodo ac est
-									a, malesuada finibus dolor. Aenean in ex eu velit semper
-									fermentum. In leo dui, aliquet sit amet eleifend sit amet,
-									varius in turpis. Maecenas fermentum ut ligula at consectetur.
-									Nullam et tortor leo.</p>
+								<h4></h4>
+								<p>${sp.congDung }</p>
 							</div>
 							<div id="specification" class="container tab-pane fade">
-								<h4>Product specification</h4>
-								<ul>
-									<li>Lorem ipsum dolor sit amet</li>
-									<li>Lorem ipsum dolor sit amet</li>
-									<li>Lorem ipsum dolor sit amet</li>
-									<li>Lorem ipsum dolor sit amet</li>
-									<li>Lorem ipsum dolor sit amet</li>
-								</ul>
+								<h4></h4>
+								<p>${sp.thanhPhan}</p>
 							</div>
 							<div id="reviews" class="container tab-pane fade">
 								<div class="reviews-submitted">
 									<div class="reviewer">
-										Phasellus Gravida - <span>01 Jan 2020</span>
+										Hoàng Sơn - <span>01 Jan 2020</span>
 									</div>
 									<div class="ratting">
 										<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
 											class="fa fa-star"></i> <i class="fa fa-star"></i> <i
 											class="fa fa-star"></i>
 									</div>
-									<p>Sed ut perspiciatis unde omnis iste natus error sit
-										voluptatem accusantium doloremque laudantium, totam rem
-										aperiam.</p>
+									<p>Sản phẩm dùng rất tốt, hiện nay 3 đời nhà mình đều đang
+										dùng sản phẩm này.</p>
 								</div>
 								<div class="reviews-submit">
-									<h4>Give your Review:</h4>
+									<h4>Gửi đánh giá của bạn:</h4>
 									<div class="ratting">
 										<i class="far fa-star"></i> <i class="far fa-star"></i> <i
 											class="far fa-star"></i> <i class="far fa-star"></i> <i
@@ -171,13 +121,13 @@
 									</div>
 									<div class="row form">
 										<div class="col-sm-6">
-											<input type="text" placeholder="Name">
+											<input type="text" placeholder="Tên">
 										</div>
 										<div class="col-sm-6">
 											<input type="email" placeholder="Email">
 										</div>
 										<div class="col-sm-12">
-											<textarea placeholder="Review"></textarea>
+											<textarea placeholder="Đánh giá"></textarea>
 										</div>
 										<div class="col-sm-12">
 											<button>Submit</button>
@@ -191,155 +141,45 @@
 
 				<div class="product">
 					<div class="section-header">
-						<h1>Related Products</h1>
+						<h1>Sản phần gần đây</h1>
 					</div>
 
 					<div class="row align-items-center product-slider product-slider-3">
-						<div class="col-lg-3">
-							<div class="product-item">
-								<div class="product-title">
-									<a href="#">Product Name</a>
-									<div class="ratting">
-										<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-											class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-											class="fa fa-star"></i>
+						<c:forEach var="sp" items="${sanPhams}">
+							<div class="col-lg-3">
+								<div class="product-item">
+									<div class="product-title">
+										<a href="#">${sp.tenSanPham}</a>
+										<div class="ratting">
+											<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+												class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+												class="fa fa-star"></i>
+										</div>
 									</div>
-								</div>
-								<div class="product-image">
-									<a href="product-detail.html"> <img
-										src="${pageContext.request.contextPath}/${urlUserImg}/product-10.jpg" alt="Product Image">
-									</a>
-									<div class="product-action">
-										<a href="#"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
-											class="fa fa-heart"></i></a> <a href="#"><i
-											class="fa fa-search"></i></a>
+									<div class="product-image">
+										<a href="product-detail.html"> <img
+											src="${pageContext.request.contextPath}/${urlUserImg}/${sp.getPathFirstImg()}"
+											alt="Product Image">
+										</a>
+										<div class="product-action">
+											<a href="#"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
+												class="fa fa-heart"></i></a> <a href="product-details?maSanPham=${sp.maSanPham}"><i
+												class="fa fa-search"></i></a>
+										</div>
 									</div>
-								</div>
-								<div class="product-price">
-									<h3>
-										<span>$</span>99
-									</h3>
-									<a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy
-										Now</a>
+									<div class="product-price">
+										<h3>
+											<c:set var="donGia" value="${sp.donGia }" scope="request" />
+											<%
+											out.println(new DecimalFormat("#,###").format(request.getAttribute("donGia")));
+											%>
+										</h3>
+										<a class="btn" href=""><i class="fa fa-shopping-cart"></i>Mua
+											ngay</a>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="col-lg-3">
-							<div class="product-item">
-								<div class="product-title">
-									<a href="#">Product Name</a>
-									<div class="ratting">
-										<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-											class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-											class="fa fa-star"></i>
-									</div>
-								</div>
-								<div class="product-image">
-									<a href="product-detail.html"> <img src="${pageContext.request.contextPath}/${urlUserImg}/product-8.jpg"
-										alt="Product Image">
-									</a>
-									<div class="product-action">
-										<a href="#"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
-											class="fa fa-heart"></i></a> <a href="#"><i
-											class="fa fa-search"></i></a>
-									</div>
-								</div>
-								<div class="product-price">
-									<h3>
-										<span>$</span>99
-									</h3>
-									<a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy
-										Now</a>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3">
-							<div class="product-item">
-								<div class="product-title">
-									<a href="#">Product Name</a>
-									<div class="ratting">
-										<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-											class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-											class="fa fa-star"></i>
-									</div>
-								</div>
-								<div class="product-image">
-									<a href="product-detail.html"> <img src="${pageContext.request.contextPath}/${urlUserImg}/product-6.jpg"
-										alt="Product Image">
-									</a>
-									<div class="product-action">
-										<a href="#"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
-											class="fa fa-heart"></i></a> <a href="#"><i
-											class="fa fa-search"></i></a>
-									</div>
-								</div>
-								<div class="product-price">
-									<h3>
-										<span>$</span>99
-									</h3>
-									<a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy
-										Now</a>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3">
-							<div class="product-item">
-								<div class="product-title">
-									<a href="#">Product Name</a>
-									<div class="ratting">
-										<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-											class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-											class="fa fa-star"></i>
-									</div>
-								</div>
-								<div class="product-image">
-									<a href="product-detail.html"> <img src="${pageContext.request.contextPath}/${urlUserImg}/product-4.jpg"
-										alt="Product Image">
-									</a>
-									<div class="product-action">
-										<a href="#"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
-											class="fa fa-heart"></i></a> <a href="#"><i
-											class="fa fa-search"></i></a>
-									</div>
-								</div>
-								<div class="product-price">
-									<h3>
-										<span>$</span>99
-									</h3>
-									<a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy
-										Now</a>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3">
-							<div class="product-item">
-								<div class="product-title">
-									<a href="#">Product Name</a>
-									<div class="ratting">
-										<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-											class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-											class="fa fa-star"></i>
-									</div>
-								</div>
-								<div class="product-image">
-									<a href="product-detail.html"> <img src="${pageContext.request.contextPath}/${urlUserImg}/product-2.jpg"
-										alt="Product Image">
-									</a>
-									<div class="product-action">
-										<a href="#"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
-											class="fa fa-heart"></i></a> <a href="#"><i
-											class="fa fa-search"></i></a>
-									</div>
-								</div>
-								<div class="product-price">
-									<h3>
-										<span>$</span>99
-									</h3>
-									<a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy
-										Now</a>
-								</div>
-							</div>
-						</div>
+						</c:forEach>
 					</div>
 				</div>
 			</div>
@@ -347,19 +187,27 @@
 			<!-- Side Bar Start -->
 			<div class="col-lg-4 sidebar">
 				<div class="sidebar-widget category">
-					<h2 class="title">Category</h2>
+					<h2 class="title">Danh mục</h2>
 					<nav class="navbar bg-light">
 						<ul class="navbar-nav">
-							<li class="nav-item"><a class="nav-link" href="#"><i
-									class="fa fa-female"></i>Fashion & Beauty</a></li>
-							<li class="nav-item"><a class="nav-link" href="#"><i
-									class="fa fa-child"></i>Kids & Babies Clothes</a></li>
-							<li class="nav-item"><a class="nav-link" href="#"><i
-									class="fa fa-tshirt"></i>Men & Women Clothes</a></li>
-							<li class="nav-item"><a class="nav-link" href="#"><i
-									class="fa fa-mobile-alt"></i>Gadgets & Accessories</a></li>
-							<li class="nav-item"><a class="nav-link" href="#"><i
-									class="fa fa-microchip"></i>Electronics & Accessories</a></li>
+							<li class="nav-item"><a class="nav-link"
+								href="product?maDanhMuc=1"><i class="fa fa-female"></i>Chăm
+									sóc da mặt</a></li>
+							<li class="nav-item"><a class="nav-link"
+								href="product?maDanhMuc=2"><i class="fa fa-child"></i>Chăm
+									sóc cơ thể</a></li>
+							<li class="nav-item"><a class="nav-link"
+								href="product?maDanhMuc=3"><i class="fa fa-tshirt"></i>Chăm
+									sóc tóc</a></li>
+							<li class="nav-item"><a class="nav-link"
+								href="product?maDanhMuc=4"><i class="fa fa-mobile-alt"></i>Nước
+									hoa</a></li>
+							<li class="nav-item"><a class="nav-link"
+								href="product?maDanhMuc=5"><i class="fa fa-microchip"></i>Trang
+									điểm</a></li>
+							<li class="nav-item"><a class="nav-link"
+								href="product?maDanhMuc=6"><i class="fa fa-microchip"></i>Thực
+									phẩm chức năng</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -367,108 +215,34 @@
 				<div class="sidebar-widget widget-slider">
 					<div class="sidebar-slider normal-slider">
 						<div class="product-item">
-							<div class="product-title">
-								<a href="#">Product Name</a>
-								<div class="ratting">
-									<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-										class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-										class="fa fa-star"></i>
-								</div>
-							</div>
 							<div class="product-image">
-								<a href="product-detail.html"> <img src="img/product-7.jpg"
+								<a href="#"> <img
+									src="${pageContext.request.contextPath}/${urlUserImg}/img-0.jpg"
 									alt="Product Image">
 								</a>
-								<div class="product-action">
-									<a href="#"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
-										class="fa fa-heart"></i></a> <a href="#"><i
-										class="fa fa-search"></i></a>
-								</div>
-							</div>
-							<div class="product-price">
-								<h3>
-									<span>$</span>99
-								</h3>
-								<a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy
-									Now</a>
-							</div>
-						</div>
-						<div class="product-item">
-							<div class="product-title">
-								<a href="#">Product Name</a>
-								<div class="ratting">
-									<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-										class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-										class="fa fa-star"></i>
-								</div>
-							</div>
-							<div class="product-image">
-								<a href="product-detail.html"> <img src="img/product-8.jpg"
-									alt="Product Image">
-								</a>
-								<div class="product-action">
-									<a href="#"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
-										class="fa fa-heart"></i></a> <a href="#"><i
-										class="fa fa-search"></i></a>
-								</div>
-							</div>
-							<div class="product-price">
-								<h3>
-									<span>$</span>99
-								</h3>
-								<a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy
-									Now</a>
-							</div>
-						</div>
-						<div class="product-item">
-							<div class="product-title">
-								<a href="#">Product Name</a>
-								<div class="ratting">
-									<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-										class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-										class="fa fa-star"></i>
-								</div>
-							</div>
-							<div class="product-image">
-								<a href="product-detail.html"> <img src="img/product-9.jpg"
-									alt="Product Image">
-								</a>
-								<div class="product-action">
-									<a href="#"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
-										class="fa fa-heart"></i></a> <a href="#"><i
-										class="fa fa-search"></i></a>
-								</div>
-							</div>
-							<div class="product-price">
-								<h3>
-									<span>$</span>99
-								</h3>
-								<a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy
-									Now</a>
 							</div>
 						</div>
 					</div>
 				</div>
 
 				<div class="sidebar-widget brands">
-					<h2 class="title">Our Brands</h2>
+					<h2 class="title">Nhà cung cấp</h2>
 					<ul>
-						<li><a href="#">Nulla </a><span>(45)</span></li>
-						<li><a href="#">Curabitur </a><span>(34)</span></li>
-						<li><a href="#">Nunc </a><span>(67)</span></li>
-						<li><a href="#">Ullamcorper</a><span>(74)</span></li>
-						<li><a href="#">Fusce </a><span>(89)</span></li>
-						<li><a href="#">Sagittis</a><span>(28)</span></li>
+						<li><a href="product?nhaCC=Bioderma">Bioderma </a><span>(45)</span></li>
+						<li><a href="product?nhaCC=Valmont">Valmont </a><span>(34)</span></li>
+						<li><a href="product?nhaCC=Huxley">Huxley </a><span>(67)</span></li>
+						<li><a href="product?nhaCC=Kérastase">Kérastase</a><span>(74)</span></li>
+						<li><a href="product?nhaCC=Vital Beautie">Vital Beautie </a><span>(89)</span></li>
 					</ul>
 				</div>
 
 				<div class="sidebar-widget tag">
-					<h2 class="title">Tags Cloud</h2>
-					<a href="#">Lorem ipsum</a> <a href="#">Vivamus</a> <a href="#">Phasellus</a>
-					<a href="#">pulvinar</a> <a href="#">Curabitur</a> <a href="#">Fusce</a>
-					<a href="#">Sem quis</a> <a href="#">Mollis metus</a> <a href="#">Sit
-						amet</a> <a href="#">Vel posuere</a> <a href="#">orci luctus</a> <a
-						href="#">Nam lorem</a>
+					<h2 class="title">Tags</h2>
+					<a href="#">tẩy da</a> <a href="#">mặt nạ</a> <a href="#">dưỡng
+						ẩm</a> <a href="#">trang điểm</a> <a href="#">collagen</a> <a href="#">phấn
+						nước</a> <a href="#">sữa rửa mặt</a> <a href="#">tóc bết</a> <a
+						href="#">gàu </a> <a href="#">nước hoa</a> <a href="#">kem tái
+						sinh</a> <a href="#">da trắng</a>
 				</div>
 			</div>
 			<!-- Side Bar End -->
