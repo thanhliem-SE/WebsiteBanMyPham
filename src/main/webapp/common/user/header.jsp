@@ -49,7 +49,7 @@
   							  <a href="#" class="nav-link dropdown-toggle"
 							data-toggle="dropdown">${sessionScope.username }</a>
 							<div class="dropdown-menu">
-								<a href="${pageContext.request.contextPath}/login" class="dropdown-item fs16">Account</a> 
+								<a href="${pageContext.request.contextPath}/account" class="dropdown-item fs16">Account</a> 
 								<a href="${pageContext.request.contextPath}/login" class="dropdown-item fs16">Logout</a>
 							
 							</div>

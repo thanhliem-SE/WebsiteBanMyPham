@@ -1,5 +1,6 @@
 package com.spring.mypham.DAOImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Repository;
 import com.spring.mypham.DAO.KhachHangDAO;
 import com.spring.mypham.DAO.MySessionFactory;
 import com.spring.mypham.models.KhachHang;
+import com.spring.mypham.models.SanPham;
 import com.spring.mypham.models.User;
 
 @Repository
@@ -20,9 +22,51 @@ public class KhachHangDAOImpl implements KhachHangDAO{
 	@Autowired
 	SessionFactory sessionFactory;
 	
+	
+	
 	public KhachHangDAOImpl() {
 		// TODO Auto-generated constructor stub
 		this.sessionFactory = MySessionFactory.getInstance().getSessionFactory();
+	}
+	
+	@Override
+	public KhachHang getKhachHangByUsername(String username) {
+		KhachHang kh = new KhachHang();
+		Session session = sessionFactory.getCurrentSession();
+		Transaction tr = session.beginTransaction();
+
+		try {
+			String sql = "select maKhachHang,email,soDienThoai,tenKhachHang,KhachHang.username, users.password, enabled,CMND,ghiChu,phuong,quan,thanhPho,soNha from KhachHang INNER JOIN users ON KhachHang.username = users.username where KhachHang.username like ?";
+			@SuppressWarnings("unchecked")
+			List<Object> objs = session.createNativeQuery(sql).setParameter(1, username).getResultList();
+			for (Object arrayObj : objs) {
+				Object[] obj = (Object[]) arrayObj;
+				kh.setMaKhachHang(Long.parseLong(obj[0].toString()));
+				kh.setEmail(obj[1].toString());
+				kh.setSoDienThoai(obj[2].toString());
+				kh.setTenKhachHang(obj[3].toString());
+				
+				User user = new User();
+				user.setUsername(obj[4].toString());
+				user.setPassword(obj[5].toString());
+				if(obj[6].toString().equalsIgnoreCase("True"))
+					user.setEnabled(true);
+				else user.setEnabled(false);
+				
+				kh.setSoCMND(obj[7].toString());
+				kh.getDiaChi().setGhiChu(obj[8].toString());
+				kh.getDiaChi().setPhuong(obj[9].toString());
+				kh.getDiaChi().setQuan(obj[10].toString());
+				kh.getDiaChi().setThanhPho(obj[11].toString());
+				kh.getDiaChi().setSoNha(obj[12].toString());
+				kh.setUser(user);
+			}
+
+			tr.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return kh;
 	}
 	@Transactional
 	@Override
@@ -31,6 +75,28 @@ public class KhachHangDAOImpl implements KhachHangDAO{
 		Transaction tr = currentSession.beginTransaction();
 		currentSession.saveOrUpdate(khachHang);
 		tr.commit();
+	}
+	
+	@Transactional
+	@Override
+	public void updateKhachHang(KhachHang khachHang) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		Transaction tr = currentSession.beginTransaction();
+		try {
+			String sql = "update KhachHang set tenKhachHang=?,soDienThoai=?,email=?,phuong=?,quan=?,thanhPho=? where username like ?";
+			currentSession.createNativeQuery(sql)
+				.setParameter(1, khachHang.getTenKhachHang())
+				.setParameter(2, khachHang.getSoDienThoai())
+				.setParameter(3, khachHang.getEmail())
+				.setParameter(4, khachHang.getDiaChi().getPhuong())
+				.setParameter(5, khachHang.getDiaChi().getQuan())
+				.setParameter(6, khachHang.getDiaChi().getThanhPho())
+				.setParameter(7, khachHang.getUser().getUsername()).executeUpdate();
+			tr.commit();
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 	}
 	
 	@Transactional

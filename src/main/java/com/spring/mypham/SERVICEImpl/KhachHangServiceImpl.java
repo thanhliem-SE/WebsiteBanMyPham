@@ -23,4 +23,16 @@ public class KhachHangServiceImpl implements KhachHangService {
 	public String isExistKhachHang(KhachHang khachHang) {
 		return khachHangDAO.isExistKhachhang(khachHang);
 	}
+
+	@Override
+	public void updateKhachHang(KhachHang khachHang) {
+		this.khachHangDAO.updateKhachHang(khachHang);
+		
+	}
+
+	@Override
+	public KhachHang getKhachHangByUsername(String username) {
+		// TODO Auto-generated method stub
+		return this.khachHangDAO.getKhachHangByUsername(username);
+	}
 }

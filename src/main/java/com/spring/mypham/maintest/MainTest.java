@@ -2,10 +2,14 @@ package com.spring.mypham.maintest;
 
 import com.spring.mypham.DAO.SanPhamDAO;
 import com.spring.mypham.DAOImpl.SanPhamDAOImpl;
+import com.spring.mypham.SERVICE.KhachHangService;
 import com.spring.mypham.SERVICE.SanPhamService;
 import com.spring.mypham.SERVICE.UserService;
+import com.spring.mypham.SERVICEImpl.KhachHangServiceImpl;
 import com.spring.mypham.SERVICEImpl.SanPhamServiceImpl;
 import com.spring.mypham.SERVICEImpl.UserServiceImpl;
+import com.spring.mypham.models.DiaChi;
+import com.spring.mypham.models.KhachHang;
 import com.spring.mypham.models.User;
 
 public class MainTest {
@@ -14,21 +18,24 @@ public class MainTest {
 //		dao.getListSanPham().forEach((s)->{
 //			System.out.println(s.getPathFirstImg());
 //		});
-//		User user1 = new User();
-//		user1.setUsername("liem2n");
-//		user1.setPassword("11233334");
-//		user1.setEnabled(true);
-//		User user2 = new User();
-//		user2.setUsername("liem2n");
-//		user2.setPassword("112333344");
-//		user2.setEnabled(true);
-//		User user3 = new User();
-//		user3.setUsername("liem2n");
-//		user3.setPassword("11233334");
-//		user3.setEnabled(false);
-//		UserService dao =new UserServiceImpl();
-//	//	System.out.println(dao.checkLoginInfo(user1).toString());
-//	//	System.out.println(dao.checkLoginInfo(user2).toString());
-//		System.out.println(dao.checkLoginInfo(user3).toString());
+		
+		
+//		KhachHangService hangService = new KhachHangServiceImpl();
+//		
+//		KhachHang kh = new KhachHang();
+//		DiaChi dc = new DiaChi();
+//		dc.setPhuong("Phường 1");
+//		dc.setQuan("Quận 3");
+//		dc.setThanhPho("Hồ Chí Minh");
+//		User user = new User();
+//		user.setUsername("hung123");
+//		user.setPassword("123");
+//		user.setEnabled(true);
+//		kh.setDiaChi(dc);
+//		kh.setSoDienThoai("0987134334");
+//		kh.setTenKhachHang("Trần Đình Hùng");
+//		kh.setEmail("hungbo123@gmail.com");
+//		kh.setUser(user);
+//		hangService.updateKhachHang(kh);
 	}
 }

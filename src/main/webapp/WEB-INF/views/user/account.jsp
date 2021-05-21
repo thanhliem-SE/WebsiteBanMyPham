@@ -1,5 +1,7 @@
+<%@page import="org.hibernate.internal.build.AllowSysOut"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
  <div class="my-account">
             <div class="container-fluid">
                 <div class="row">
@@ -86,29 +88,61 @@
                                     </div>
                                 </div>
                             </div>
+                           
                             <div class="tab-pane fade" id="account-tab" role="tabpanel" aria-labelledby="account-nav">
                                 <h4>Account Details</h4>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <input class="form-control" type="text" placeholder="First Name">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input class="form-control" type="text" placeholder="Last Name">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input class="form-control" type="text" placeholder="Mobile">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input class="form-control" type="text" placeholder="Email">
-                                    </div>
-                                    <div class="col-md-12">
-                                        <input class="form-control" type="text" placeholder="Address">
-                                    </div>
-                                    <div class="col-md-12">
-                                        <button class="btn">Update Account</button>
-                                        <br><br>
-                                    </div>
-                                </div>
+                                <form:form method="post" name="submitForm" action="${pageContext.request.contextPath}/updateAccount">
+	                                <div class="row">
+	                                    <div class="col-md-6">
+	                                        <input class="form-control" type="text" placeholder="Họ và tên" name="tenKhachHang" value="${khachHang.tenKhachHang} ">
+	                                    </div>
+	                                 	<div class="col-md-6">
+	                                        <input class="form-control" type="text" placeholder="CMND" name="soCMND" value="${khachHang.soCMND} ">
+	                                    </div>
+	                                 
+	                                    <div class="col-md-6">
+	                                        <input class="form-control" type="text" placeholder="Số điện thoại" name="soDienThoai" value="${khachHang.soDienThoai}">
+	                                    </div>
+	                                    <div class="col-md-6">
+	                                        <input class="form-control" type="text" placeholder="Email" name ="email" value="${khachHang.email}">
+	                                    </div>
+	                                    <div class="col-md-6">
+	                                        <select class="form-control" name="thanhPho">
+	                                        	<option value="${khachHang.diaChi.thanhPho}" selected disabled hidden>${khachHang.diaChi.thanhPho}</option>
+	                                        	<option value="Hồ Chí Minh">Hồ Chí Minh</option>
+	                                        	<option value="Đồng Nai">Đồng Nai</option>
+	                                        	<option value="Tiền Giang">Tiền Giang</option>
+	                                        </select>
+	                                    </div>
+	                                    <div class="col-md-6">
+	                                        <select class="form-control" name="quan">
+	                                        	<option value="${khachHang.diaChi.quan}" selected disabled hidden>${khachHang.diaChi.quan}</option>
+	                                        	<option value="Quận 1">Quận 1</option>
+	                                        	<option value="Quận 2">Quận 2</option>
+	                                        	<option value="Gò Vấp">Gò Vấp</option>
+	                                        </select>
+	                                    </div>
+	                                    <div class="col-md-6">
+	                                        <select class="form-control" name="phuong">
+	                                       		<option value="${khachHang.diaChi.phuong}" selected disabled hidden>${khachHang.diaChi.phuong}</option>
+	                                        	<option value="Phường 1">Phường 1</option>
+	                                        	<option value="Phường 2">Phường 2</option>
+	                                        	<option value="Phường Hiệp Bình Phước">Phường Hiệp Bình Phước</option>
+	                                        </select>
+	                                    </div>
+	                                    <div class="col-md-6">
+	                                        <input class="form-control" type="text" placeholder="VD: 42/5" name="soNha" value="${khachHang.diaChi.soNha}">
+	                                    </div>
+	                                    <div class="col-md-12">
+	                                        <input class="form-control" type="text" placeholder="VD: 42/5, đường số 2, phường Hiệp Bình Phước, Thủ Đức, HCM" name="ghiChu" value="${khachHang.diaChi.ghiChu}">
+	                                    </div>
+	                                  
+	                                    <div class="col-md-12">
+	                                        <button class="btn" type="submit">Update Account</button>
+	                                        <br><br>
+	                                    </div>
+	                                </div>
+                                </form:form>
                                 <h4>Password change</h4>
                                 <div class="row">
                                     <div class="col-md-12">

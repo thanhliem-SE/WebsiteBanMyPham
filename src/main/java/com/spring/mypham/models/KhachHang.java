@@ -28,7 +28,7 @@ public class KhachHang implements Serializable {
 	private String tenKhachHang;
 	private String soDienThoai;
 	private String email;
-	private String CMND;
+	private String soCMND;
 	@Nationalized
 	private String gioiTinh;
 	private int namSinh;
@@ -94,12 +94,14 @@ public class KhachHang implements Serializable {
 		this.email = email;
 	}
 
-	public String getCMND() {
-		return CMND;
+	
+
+	public String getSoCMND() {
+		return soCMND;
 	}
 
-	public void setCMND(String cMND) {
-		CMND = cMND;
+	public void setSoCMND(String soCMND) {
+		this.soCMND = soCMND;
 	}
 
 	public String getGioiTinh() {
@@ -133,10 +135,14 @@ public class KhachHang implements Serializable {
 	@Override
 	public String toString() {
 		return "KhachHang [maKhachHang=" + maKhachHang + ", tenKhachHang=" + tenKhachHang + ", soDienThoai="
-				+ soDienThoai + ", email=" + email + ", CMND=" + CMND + ", gioiTinh=" + gioiTinh + ", namSinh="
+				+ soDienThoai + ", email=" + email + ", CMND=" + soCMND + ", gioiTinh=" + gioiTinh + ", namSinh="
 				+ namSinh + ", ngheNghiep=" + ngheNghiep + ", user=" + user + ", gioHang=" + gioHang + ", diaChi="
 				+ diaChi + "]";
 	}
+
+	
+
+	
 	
 
 }

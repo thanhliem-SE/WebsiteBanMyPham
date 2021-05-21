@@ -7,5 +7,9 @@ public interface KhachHangDAO {
 	void saveKhachHang(KhachHang khachHang);
 
 	String isExistKhachhang(KhachHang khachHang);
+
+	void updateKhachHang(KhachHang khachHang);
+
+	public KhachHang getKhachHangByUsername(String username);
 	
 }

@@ -68,4 +68,11 @@ public class DiaChi implements Serializable {
 		super();
 	}
 
+	@Override
+	public String toString() {
+		return "DiaChi [soNha=" + soNha + ", phuong=" + phuong + ", quan=" + quan + ", thanhPho=" + thanhPho
+				+ ", ghiChu=" + ghiChu + "]";
+	}
+
+	
 }
