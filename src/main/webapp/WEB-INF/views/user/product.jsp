@@ -22,10 +22,12 @@
 							<div class="row">
 								<div class="col-md-4">
 									<div class="product-search">
-										<input type="email" value="Search">
-										<button>
-											<i class="fa fa-search"></i>
-										</button>
+										<form action="product">
+											<input name="tenSP" type="text" placeholder="Search">
+											<button type="submit">
+												<i class="fa fa-search"></i>
+											</button>
+										</form>
 									</div>
 								</div>
 								<div class="col-md-4">
@@ -169,13 +171,13 @@
 					</div>
 
 					<div class="sidebar-widget tag">
-						<h2 class="title">Tags</h2>
-						<a href="#">tẩy da</a> <a href="#">mặt nạ</a> <a href="#">dưỡng
-							ẩm</a> <a href="#">trang điểm</a> <a href="#">collagen</a> <a
-							href="#">phấn nước</a> <a href="#">sữa rửa mặt</a> <a href="#">tóc
-							bết</a> <a href="#">gàu </a> <a href="#">nước hoa</a> <a href="#">kem
-							tái sinh</a> <a href="#">da trắng</a>
-					</div>
+					<h2 class="title">Tags</h2>
+					<a href="product?tenSP=tẩy da">tẩy da</a> <a href="product?tenSP=mặt nạ">mặt nạ</a> <a href="product?tenSP=dưỡng ẩm">dưỡng
+						ẩm</a> <a href="product?tenSP=trang điểm">trang điểm</a> <a href="product?tenSP=collagen">collagen</a> <a href="product?tenSP=phấn nước">phấn
+						nước</a> <a href="product?tenSP=sữa rửa mặt">sữa rửa mặt</a> <a href="product?tenSP=tóc bết">tóc bết</a> <a
+						href="product?tenSP=gàu">gàu </a> <a href="product?tenSP=nước hoa">nước hoa</a> <a href="product?tenSP=kem tái sinh">kem tái
+						sinh</a> <a href="product?tenSP=da trắng">da trắng</a>
+				</div>
 				</div>
 				<!-- Side Bar End -->
 			</div>

@@ -134,7 +134,7 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 			if(dinhMuc==1)
 				sql = "select * from SanPham Where donGia < 1000000";
 			else if(dinhMuc==2)
-				sql = "select * from SanPham Where donGia >= 1000000 And donGia >= 3000000";
+				sql = "select * from SanPham Where donGia >= 1000000 And donGia <= 3000000";
 			else 
 				sql = "select * from SanPham Where donGia > 3000000";
 			List<Object> objs = session.createNativeQuery(sql).getResultList();
@@ -237,7 +237,7 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 		Transaction tr = session.beginTransaction();
 
 		try {
-			String sql = "select * from SanPham Where tenSanPham Likw N'%" + tenSanPham + "%'" ;
+			String sql = "select * from SanPham Where tenSanPham Like N'%" + tenSanPham + "%'" ;
 			@SuppressWarnings("unchecked")
 			List<Object> objs = session.createNativeQuery(sql).getResultList();
 			for (Object arrayObj : objs) {

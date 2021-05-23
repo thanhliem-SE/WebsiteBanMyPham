@@ -23,6 +23,7 @@ public class ProductController {
 			@RequestParam(value = "nhaCC",  defaultValue = "null") String nhaCC,
 			@RequestParam(value = "tenSP",  defaultValue = "null") String tenSP, 
 			@RequestParam(value = "trangthai", defaultValue = "0") int trangthai) {
+		System.out.println(tenSP);
 
 		if (dinhMuc == 0 && maDanhMuc == 0 && nhaCC.equals("null") && tenSP.equals("null") && trangthai == 0)
 			showListSanPham(model, page);

@@ -43,7 +43,7 @@
 							alt="Slider Image" height="400px" width="600px" />
 						<div class="header-slider-caption">
 							<p>ĐẸP HƠN MỖI NGÀY TẠI ESTORE</p>
-							<a class="btn" href=""><i class="fa fa-shopping-cart"></i>Mua
+							<a class="btn" href="product"><i class="fa fa-shopping-cart"></i>Mua
 								ngay</a>
 						</div>
 					</div>
