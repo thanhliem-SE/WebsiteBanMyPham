@@ -16,6 +16,8 @@ INSERT [dbo].[DanhMuc] ([maDanhMuc], [tenDanhMuc]) VALUES (6, N'Thực Phẩm Ch
 GO
 SET IDENTITY_INSERT [dbo].[DanhMuc] OFF
 GO
+INSERT [dbo].[users] ([username], [enabled], [password]) VALUES (N'liem123', 1, N'123456')
+GO
 INSERT [dbo].[users] ([username], [enabled], [password]) VALUES (N'liem2n', 1, N'11233334')
 GO
 SET IDENTITY_INSERT [dbo].[NhanVien] ON 
@@ -47,8 +49,42 @@ Là sản phẩm tẩy trang 4-trong-1
 (4) Cấp ẩm sâu
 ', 1125000, N'Chai', 32, N'PREBIOTIC', 10, N'PREBIOTIC 4-IN-1 MULTICLEANSER', N'Water/Aqua/Eau, Glycerin, Decyl Glucoside, C13-C16 Isoparaffin, Hexylene Glycol, Propanediol, Hydroxyethyl Acrylate/Sodium Acryloyldimethyl Taurate Copolymer, Lactobacillus, Alpha-Glucan Oligosaccharide, Polymnia Sonchifolia Root Juice, Xylitol, Xylitylglucoside, Anhydroxylitol, Sodium Hyaluronate, Sodium Surfactin, Squalane, Urea, Yeast Amino Acids, Trehalose, Inositol, Taurine, Betaine, Isohexadecane, Caprylhydroxamic Acid, Maltodextrin, 1,2 Hexanediol, Polysorbate 80, Acrylamide/Sodium Acryloyldimethyltaurate Copolymer, Citric Acid, Disodium EDTA', 0.5, 1, 1)
 GO
+INSERT [dbo].[SanPham] ([maSanPham], [congDung], [donGia], [donViTinh], [hanSuDung], [nhaCungCap], [soLuongTon], [tenSanPham], [thanhPhan], [thue], [maDanhMuc], [maNhanVien]) VALUES (19, N'- Giới hạn sự tăng sắc tố và bảo vệ sẹo.
+
+- Đảm bảo sự bảo vệ chống lại sự tổn thương do tia UVA/UVB (cháy nắng, không dung nạp ánh mặt trời...)
+
+- Hàng rào bảo vệ tự nhiên và chủ động của da, chống lại những nguy cơ tổn thương tế bào và lão hóa sớm: bản quyền sinh học Bioprotection Cell.
+
+Đặc trưng:
+
+- Không chứa chất tạo hương.
+
+- Không chứa paraben.
+
+- Không bị rửa trôi bởi nước.
+
+- Ổn định trước ánh sáng.
+
+- Không sinh nhân mụn', 441000, N'Tuýp', 24, N'Bioderma', 10, N'Kem Chống Nắng Bioderma Ngừa Vết Thâm SPF50+ 30ml', N'AQUA/WATER/EAU, DICAPRYLYL CARBONATE, OCTOCRYLENE, METHYLENE BIS-BENZOTRIAZOLYL TETRAMETHYLBUTYLPHENOL (Tinosorb M), BUTYL METHOXYDIBENZOYLMETHANE (Avobenzone), BIS-ETHYLHEXYLOXYPHENOL METHOXYPHENYL TRIAZINE (Tinosorb S), CYCLOPENTASILOXANE, DIPROPYLENE GLYCOL, C20-22 ALKYL PHOSPHATE, GLYCERYL STEARATE, PEG-100 STEARATE, ECTOIN, MANNITOL, XYLITOL, RHAMNOSE, FRUCTOOLIGOSACCHARIDES, LAMINARIA OCHROLEUCA EXTRACT, C20-22 ALCOHOLS, DECYL GLUCOSIDE, CYCLOHEXASILOXANE, HYDROXYETHYL ACRYLATE/SODIUM ACRYLOYLDIMETHYL TAURATE COPOLYMER, GLYCYRRHIZA GLABRA (LICORICE) ROOT EXTRACT, GLYCYRRHETINIC ACID, XANTHAN GUM, PROPYLENE GLYCOL, CITRIC ACID, PENTYLENE GLYCOL, CAPRYLIC/CAPRIC TRIGLYCERIDE, DISODIUM EDTA, SODIUM HYDROXIDE, PHENOXYETHANOL, CHLORPHENESIN.', 0.5, 2, 1)
+GO
+INSERT [dbo].[SanPham] ([maSanPham], [congDung], [donGia], [donViTinh], [hanSuDung], [nhaCungCap], [soLuongTon], [tenSanPham], [thanhPhan], [thue], [maDanhMuc], [maNhanVien]) VALUES (20, N'Sữa rửa mặt tạo bọt cân bằng và thanh lọc da như một đám mây tinh khiết với kết cấu nhẹ và mềm mịn giúp đào thải những bụi bẩn, bã nhờn trên da mang lại cảm giác sạch, sáng mịn và thông thoáng.', 2070000, N'Chai', 24, N'Valmont', 10, N'VALMONT Bubble Falls - Sữa rửa mặt tạo bọt cân bằng da', N'Water (Aqua), Coco-Glucoside, Sodium Lauryl Glucose Carboxylate, Lauryl Glucoside, PEG-6 Caprylic/Capric Glycerides, Cocamidopropyl Betaine, Alpha-Glucan Oligosaccharide, Anhydroxylitol, Lactobacillus, Levulinic Acid, Maltodextrin, Polymnia Sonchifolia Root Juice, Sodium Levulinate, Xylitol, Xylitylglucoside, Citric Acid, Disodium Edta, Glycerin, Sodium Chloride, Sodium Citrate, Sodium Benzoate, Sorbic Acid, Fragrance (Parfum), Citronellol, Eugenol, Hydroxycitronellal, Limonene, Linalool.', 0.5, 1, 1)
+GO
+INSERT [dbo].[SanPham] ([maSanPham], [congDung], [donGia], [donViTinh], [hanSuDung], [nhaCungCap], [soLuongTon], [tenSanPham], [thanhPhan], [thue], [maDanhMuc], [maNhanVien]) VALUES (22, N'Mặt nạ cao cấp dưỡng sáng, căng bóng và bảo vệ da khỏi các tác hại từ môi trường. Thiết kế túi kép độc đáo, hai chiết xuất đặc trưng của Huxley là Dầu xương rồng và Tinh chất dưỡng sáng được bảo quản riêng biệt, cho phép người dùng tự kết hợp khi sử dụng.', 600000, N'Cái', 12, N'Huxley', 5, N'HUXLEY Mask; Glow And Brightness - Mặt dưỡng sáng và căng bóng', N'Oil Pouch: Cyclopentasiloxane, Cetyl Ethylhexanoate, Polyglyceryl-10 Oleate, Polyglyceryl-2 Dioleate, Aqua, Prunus armeniaca (Apricot) Kernel Oil, Macadamia integrifolia Seed Oil, Argania spinosa Kernel Oil, Opuntia ficus-indica Seed Oil, Fragrance.
+
+Sheet mask Pouch: Opuntia Ficus-Indica Stem Extract, Aqua, Glycerin, Niacinamide, Alcohol, Methylpropanediol, Althaea rosea Flower Extract, Gossypium herbaceum (Cotton) Extract, Buddleja davidii Extract, Thymus vulgaris (Thyme) Extract, Leontopodium alpinum Flower/Leaf Extract, 1,2-Hexanediol, Hydroxyacetophenone, Choleth-24, Arginine, Allantoin, Silica, Butylene Glycol, Ethylhexylglycerin, Glutathione, Gluconolactone, Calcium Gluconate, Carbomer, Caffeine, Xanthan Gum, Disodium EDTA, Sodium Benzoate, Fragrance.', 0.5, 5, 1)
+GO
+INSERT [dbo].[SanPham] ([maSanPham], [congDung], [donGia], [donViTinh], [hanSuDung], [nhaCungCap], [soLuongTon], [tenSanPham], [thanhPhan], [thue], [maDanhMuc], [maNhanVien]) VALUES (23, N'Một loại huyết thanh đa tác dụng cung cấp các lợi ích chống lão hóa, trị mụn và làm sáng da. Đã được chứng minh lâm sàng có thể mang lại kết quả tức thì và lâu dài trong việc làm mờ nếp nhăn, làm giảm sự xuất hiện của chứng tăng sắc tố, làm sáng màu da rõ rệt, đồng thời giảm mẩn đỏ và mụn trứng cá, làn da trông sáng và khỏe mạnh hơn.
+
+Được đánh giá là một sản phẩm tuyệt vời cho làn da dễ bị mụn.', 2990000, N'Chai', 12, N'iS Clinical', 10, N'IS CLINICAL Active Serum - Tinh chất đặc trị mụn, lỗ chân lông & dầu thừa', N'Water/Aqua/Eau, Glycerin, Butylene Glycol, Alcohol Denat., Saccharum Officinarum (Sugarcane) Extract [Extrait De Canne à Sucre], Vaccinium Myrtillus Fruit/Leaf Extract, Triethanolamine, Salix Alba (Willow) Bark Extract, Glyceryl Polyacrylate, Arbutin, Polyporus Umbellatus (Mushroom) Extract, Menthol, Phenoxyethanol', 0.5, 6, 1)
+GO
 SET IDENTITY_INSERT [dbo].[SanPham] OFF
 GO
+SET IDENTITY_INSERT [dbo].[KhachHang] ON 
+GO
+INSERT [dbo].[KhachHang] ([maKhachHang], [CMND], [ghiChu], [phuong], [quan], [soNha], [thanhPho], [email], [gioiTinh], [namSinh], [ngheNghiep], [soDienThoai], [tenKhachHang], [username], [soCMND]) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, N'liem@gmail.com', NULL, 0, NULL, N'0123456789', N'Nguyễn Thanh Liêm', N'liem123', NULL)
+GO
+SET IDENTITY_INSERT [dbo].[KhachHang] OFF
+GO
 INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (1, N'sp-1.jpg')
 GO
 INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (5, N'sp-2.png')
@@ -80,6 +116,30 @@ GO
 INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (14, N'sp-5.png')
 GO
 INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (17, N'sp-6.png')
+GO
+INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (19, N'sp-14.jpg')
+GO
+INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (19, N'sp-15.jpg')
+GO
+INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (19, N'sp-16.jpg')
+GO
+INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (20, N'sp-17.png')
+GO
+INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (20, N'sp-18.jpg')
+GO
+INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (20, N'sp-19.jpg')
+GO
+INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (22, N'sp-20.png')
+GO
+INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (22, N'sp-21.jpg')
+GO
+INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (22, N'sp-22.jpg')
+GO
+INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (23, N'sp-23.png')
+GO
+INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (23, N'sp-24.png')
+GO
+INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (23, N'sp-25.png')
 GO
 INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (14, N'sp-5.png')
 GO

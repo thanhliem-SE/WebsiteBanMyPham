@@ -14,8 +14,8 @@ import com.spring.mypham.models.SanPham;
 public class TrangChuController {
 
 	private static final SanPhamService sanPhamService = new SanPhamServiceImpl();
-	
-	@RequestMapping("/trangchu")
+
+	@RequestMapping(value = { "/trangchu", "/" })
 	public String trangChu(Model model) {
 		List<SanPham> sanPhams = sanPhamService.getListSanPhamTheoPage(1, sanPhamService.getListSanPham());
 		model.addAttribute("sanPhams", sanPhams);
