@@ -108,7 +108,7 @@
 	                                    </div>
 	                                    <div class="col-md-6">
 	                                        <select class="form-control" name="thanhPho">
-	                                        	<option value="${khachHang.diaChi.thanhPho}" selected disabled hidden>${khachHang.diaChi.thanhPho}</option>
+	                                        	<option value="${diaChi.thanhPho}" selected hidden>${diaChi.thanhPho}</option>
 	                                        	<option value="Hồ Chí Minh">Hồ Chí Minh</option>
 	                                        	<option value="Đồng Nai">Đồng Nai</option>
 	                                        	<option value="Tiền Giang">Tiền Giang</option>
@@ -116,7 +116,7 @@
 	                                    </div>
 	                                    <div class="col-md-6">
 	                                        <select class="form-control" name="quan">
-	                                        	<option value="${khachHang.diaChi.quan}" selected disabled hidden>${khachHang.diaChi.quan}</option>
+	                                        	<option value="${diaChi.quan}" selected hidden>${diaChi.quan}</option>
 	                                        	<option value="Quận 1">Quận 1</option>
 	                                        	<option value="Quận 2">Quận 2</option>
 	                                        	<option value="Gò Vấp">Gò Vấp</option>
@@ -124,17 +124,17 @@
 	                                    </div>
 	                                    <div class="col-md-6">
 	                                        <select class="form-control" name="phuong">
-	                                       		<option value="${khachHang.diaChi.phuong}" selected disabled hidden>${khachHang.diaChi.phuong}</option>
+	                                       		<option value="${diaChi.phuong}" selected hidden>${diaChi.phuong}</option>
 	                                        	<option value="Phường 1">Phường 1</option>
 	                                        	<option value="Phường 2">Phường 2</option>
 	                                        	<option value="Phường Hiệp Bình Phước">Phường Hiệp Bình Phước</option>
 	                                        </select>
 	                                    </div>
 	                                    <div class="col-md-6">
-	                                        <input class="form-control" type="text" placeholder="VD: 42/5" name="soNha" value="${khachHang.diaChi.soNha}">
+	                                        <input class="form-control" type="text" placeholder="VD: 42/5" name="soNha" value="${diaChi.soNha}">
 	                                    </div>
 	                                    <div class="col-md-12">
-	                                        <input class="form-control" type="text" placeholder="VD: 42/5, đường số 2, phường Hiệp Bình Phước, Thủ Đức, HCM" name="ghiChu" value="${khachHang.diaChi.ghiChu}">
+	                                        <input class="form-control" type="text" placeholder="VD: 42/5, đường số 2, phường Hiệp Bình Phước, Thủ Đức, HCM" name="ghiChu" value="${diaChi.ghiChu}">
 	                                    </div>
 	                                  
 	                                    <div class="col-md-12">

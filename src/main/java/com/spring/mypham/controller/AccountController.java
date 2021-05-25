@@ -27,14 +27,13 @@ public class AccountController {
 	}
 	@RequestMapping(value = "/updateAccount",method = RequestMethod.POST)
 	public String submit(Model model, @ModelAttribute("khachHang") KhachHang khachHang,@ModelAttribute("diaChi") DiaChi diaChi, HttpSession session) {
-		System.out.println(diaChi.toString());
-		System.out.println(khachHang.toString());
-		
 		KhachHang kh = khachHangService.getKhachHangByUsername(session.getAttribute("username").toString());
 		
 		khachHang.setUser(kh.getUser());
+		khachHang.setDiaChi(diaChi);
 		khachHang.setMaKhachHang(kh.getMaKhachHang());
-		
+//		System.out.println("Make1: "+khachHang.toString());
+//		System.out.println("Make2: "+khachHang.getDiaChi().toString());
 		khachHangService.updateKhachHang(khachHang);
 		return "redirect:account";
 	}
@@ -43,7 +42,8 @@ public class AccountController {
 	
 	private void showKhachHang(Model model,String username) {
 		KhachHang kh = khachHangService.getKhachHangByUsername(username);
-		System.out.println(kh.toString());
+	//	System.out.println(kh.toString());
 		model.addAttribute("khachHang", kh);
+		model.addAttribute("diaChi",kh.getDiaChi());
 	}
 }

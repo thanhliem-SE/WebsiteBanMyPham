@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 
 import com.spring.mypham.DAO.KhachHangDAO;
 import com.spring.mypham.DAO.MySessionFactory;
+import com.spring.mypham.models.DiaChi;
 import com.spring.mypham.models.KhachHang;
 import com.spring.mypham.models.SanPham;
 import com.spring.mypham.models.User;
@@ -32,6 +33,7 @@ public class KhachHangDAOImpl implements KhachHangDAO{
 	@Override
 	public KhachHang getKhachHangByUsername(String username) {
 		KhachHang kh = new KhachHang();
+		DiaChi diaChi = new DiaChi();
 		Session session = sessionFactory.getCurrentSession();
 		Transaction tr = session.beginTransaction();
 
@@ -52,13 +54,23 @@ public class KhachHangDAOImpl implements KhachHangDAO{
 				if(obj[6].toString().equalsIgnoreCase("True"))
 					user.setEnabled(true);
 				else user.setEnabled(false);
-				
-				kh.setSoCMND(obj[7].toString());
-				kh.getDiaChi().setGhiChu(obj[8].toString());
-				kh.getDiaChi().setPhuong(obj[9].toString());
-				kh.getDiaChi().setQuan(obj[10].toString());
-				kh.getDiaChi().setThanhPho(obj[11].toString());
-				kh.getDiaChi().setSoNha(obj[12].toString());
+				if(obj[7]!=null)
+					kh.setSoCMND(obj[7].toString());
+				if(obj[8]!=null)
+					diaChi.setGhiChu(obj[8].toString());
+				if(obj[9]!=null)
+					diaChi.setPhuong(obj[9].toString());
+				if(obj[10]!=null) {
+					diaChi.setQuan(obj[10].toString());
+					System.out.println("QUan: "+diaChi.getQuan());
+				}
+				else System.out.println("Quan is Null");
+					
+				if(obj[11]!=null)
+					diaChi.setThanhPho(obj[11].toString());
+				if(obj[12]!=null)
+					diaChi.setSoNha(obj[12].toString());
+				kh.setDiaChi(diaChi);
 				kh.setUser(user);
 			}
 
@@ -82,6 +94,8 @@ public class KhachHangDAOImpl implements KhachHangDAO{
 	public void updateKhachHang(KhachHang khachHang) {
 		Session currentSession = sessionFactory.getCurrentSession();
 		Transaction tr = currentSession.beginTransaction();
+//		System.out.println("Make: "+khachHang.toString());
+//		System.out.println("Make: "+khachHang.getDiaChi().toString());
 		try {
 			String sql = "update KhachHang set tenKhachHang=?,soDienThoai=?,email=?,phuong=?,quan=?,thanhPho=? where username like ?";
 			currentSession.createNativeQuery(sql)
@@ -93,10 +107,11 @@ public class KhachHangDAOImpl implements KhachHangDAO{
 				.setParameter(6, khachHang.getDiaChi().getThanhPho())
 				.setParameter(7, khachHang.getUser().getUsername()).executeUpdate();
 			tr.commit();
+			System.out.println("Update Thanh COng");
 		}catch (Exception e) {
 			// TODO: handle exception
+			System.out.println("Update Khong Thanh COng");
 		}
-		
 	}
 	
 	@Transactional
