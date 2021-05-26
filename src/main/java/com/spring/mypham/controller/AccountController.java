@@ -48,7 +48,7 @@ public class AccountController {
 		return "redirect:account";
 	}
 	@RequestMapping(value = "/resetPassword",method = RequestMethod.POST)
-	public String resetPass(Model model,@ModelAttribute("old_password") String old_password,@ModelAttribute("new_password") String new_password,@ModelAttribute("confirm_password") String confirm_password, HttpSession session) {
+	public String resetPass(Model model,String old_password, String new_password, String confirm_password, HttpSession session) {
 		//KhachHang kh = khachHangService.getKhachHangByUsername(session.getAttribute("username").toString());
 		String userName = session.getAttribute("username").toString();
 		//System.out.println("userName: "+userName);
