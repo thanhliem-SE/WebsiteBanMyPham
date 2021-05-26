@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
  <div class="my-account">
             <div class="container-fluid">
                 <div class="row">
@@ -37,30 +38,22 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Product Name</td>
-                                                <td>01 Jan 2020</td>
-                                                <td>$99</td>
-                                                <td>Approved</td>
-                                                <td><button class="btn">View</button></td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Product Name</td>
-                                                <td>01 Jan 2020</td>
-                                                <td>$99</td>
-                                                <td>Approved</td>
-                                                <td><button class="btn">View</button></td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Product Name</td>
-                                                <td>01 Jan 2020</td>
-                                                <td>$99</td>
-                                                <td>Approved</td>
-                                                <td><button class="btn">View</button></td>
-                                            </tr>
+                                        	<c:if test="${not empty mapHoaDon}">
+
+											      <c:forEach var="element" items="${mapHoaDon}">
+											      
+											         <tr>
+		                                                <td>${element.key.maHoaDon}</td>
+		                                                <td>${element.value}</td>
+		                                                <td>${element.key.ngayLap}</td>
+		                                                <td>${element.key.tongTien}</td>
+		                                                <td>${element.key.trangThaiHoaDon}</td>
+		                                                <td><button class="btn">View</button></td>
+		                                            </tr>
+											      </c:forEach>
+	
+											  </c:if>
+                                           
                                         </tbody>
                                     </table>
                                 </div>

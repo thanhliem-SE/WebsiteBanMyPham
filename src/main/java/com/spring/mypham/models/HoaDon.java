@@ -45,6 +45,58 @@ public class HoaDon implements Serializable {
 	
 	
 
+	public HoaDon(long maHoaDon, LocalDate ngayLap, LocalDate ngayGiao, String trangThaiHoaDon, double tongTien,
+			String sdtNhanHang, ThanhToan thanhToan, DiaChi diaChi, Set<LineItem> lineItem) {
+		super();
+		this.maHoaDon = maHoaDon;
+		this.ngayLap = ngayLap;
+		this.ngayGiao = ngayGiao;
+		this.trangThaiHoaDon = trangThaiHoaDon;
+		this.tongTien = tongTien;
+		this.sdtNhanHang = sdtNhanHang;
+		this.thanhToan = thanhToan;
+		this.diaChi = diaChi;
+		this.lineItem = lineItem;
+	}
+	
+
+
+	public String getTrangThaiHoaDon() {
+		return trangThaiHoaDon;
+	}
+
+
+
+	public void setTrangThaiHoaDon(String trangThaiHoaDon) {
+		this.trangThaiHoaDon = trangThaiHoaDon;
+	}
+
+
+
+	public DiaChi getDiaChi() {
+		return diaChi;
+	}
+
+
+
+	public void setDiaChi(DiaChi diaChi) {
+		this.diaChi = diaChi;
+	}
+
+
+
+	public Set<LineItem> getLineItem() {
+		return lineItem;
+	}
+
+
+
+	public void setLineItem(Set<LineItem> lineItem) {
+		this.lineItem = lineItem;
+	}
+
+
+
 	public ThanhToan getThanhToan() {
 		return thanhToan;
 	}
@@ -96,5 +148,15 @@ public class HoaDon implements Serializable {
 	public HoaDon() {
 		super();
 	}
+
+
+
+	@Override
+	public String toString() {
+		return "HoaDon [maHoaDon=" + maHoaDon + ", ngayLap=" + ngayLap + ", ngayGiao=" + ngayGiao + ", trangThaiHoaDon="
+				+ trangThaiHoaDon + ", tongTien=" + tongTien + ", sdtNhanHang=" + sdtNhanHang + ", thanhToan="
+				+ thanhToan + ", diaChi=" + diaChi + ", lineItem=" + lineItem + "]";
+	}
+	
 
 }

@@ -1,5 +1,8 @@
 package com.spring.mypham.controller;
 
+import java.util.ArrayList;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -8,13 +11,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.spring.mypham.SERVICE.HoaDonService;
 import com.spring.mypham.SERVICE.KhachHangService;
-import com.spring.mypham.SERVICE.SanPhamService;
 import com.spring.mypham.SERVICE.UserService;
+import com.spring.mypham.SERVICEImpl.HoaDonServiceImpl;
 import com.spring.mypham.SERVICEImpl.KhachHangServiceImpl;
-import com.spring.mypham.SERVICEImpl.SanPhamServiceImpl;
 import com.spring.mypham.SERVICEImpl.UserServiceImpl;
 import com.spring.mypham.models.DiaChi;
+import com.spring.mypham.models.HoaDon;
 import com.spring.mypham.models.KhachHang;
 import com.spring.mypham.models.User;
 
@@ -22,10 +26,13 @@ import com.spring.mypham.models.User;
 public class AccountController {
 	private static final KhachHangService khachHangService = new KhachHangServiceImpl();
 	private static final UserService userService = new UserServiceImpl();
+	HoaDonService hoaDonService = new HoaDonServiceImpl();
 	@RequestMapping("/account")
 	public String trangChu(Model model,HttpSession session) {
 		//System.out.println("Mask:" +session.getAttribute("username").toString());
-		showKhachHang(model,session.getAttribute("username").toString());
+		String userName = session.getAttribute("username").toString();
+		showOrders(model, userName);
+		showKhachHang(model,userName);
 		return "user/account";
 	}
 	@RequestMapping(value = "/updateAccount",method = RequestMethod.POST)
@@ -69,7 +76,13 @@ public class AccountController {
 		return "redirect:account";
 	}
 	
-	
+	@SuppressWarnings("unused")
+	private void showOrders(Model model,String username) {
+		KhachHang kh = khachHangService.getKhachHangByUsername(username);
+	//	System.out.println(kh.toString());
+		Map<HoaDon,String> map = hoaDonService.getListHoaDonByUsername(username);
+		model.addAttribute("mapHoaDon", map);
+	} 
 	
 	private void showKhachHang(Model model,String username) {
 		KhachHang kh = khachHangService.getKhachHangByUsername(username);

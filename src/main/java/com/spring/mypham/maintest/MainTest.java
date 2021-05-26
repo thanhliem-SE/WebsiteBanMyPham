@@ -1,16 +1,12 @@
 package com.spring.mypham.maintest;
 
-import com.spring.mypham.DAO.SanPhamDAO;
-import com.spring.mypham.DAOImpl.SanPhamDAOImpl;
-import com.spring.mypham.SERVICE.KhachHangService;
-import com.spring.mypham.SERVICE.SanPhamService;
-import com.spring.mypham.SERVICE.UserService;
-import com.spring.mypham.SERVICEImpl.KhachHangServiceImpl;
-import com.spring.mypham.SERVICEImpl.SanPhamServiceImpl;
-import com.spring.mypham.SERVICEImpl.UserServiceImpl;
-import com.spring.mypham.models.DiaChi;
-import com.spring.mypham.models.KhachHang;
-import com.spring.mypham.models.User;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
+import com.spring.mypham.SERVICE.HoaDonService;
+import com.spring.mypham.SERVICEImpl.HoaDonServiceImpl;
+import com.spring.mypham.models.HoaDon;
 
 public class MainTest {
 	public static void main(String[] args) {
@@ -42,11 +38,27 @@ public class MainTest {
 		
 		
 		
-		UserService userService = new UserServiceImpl();
-		User user =new User();
-		user.setUsername("liem2n");
-		user.setPassword("123");
+//		UserService userService = new UserServiceImpl();
+//		User user =new User();
+//		user.setUsername("liem2n");
+//		user.setPassword("123");
+//		
+//		userService.resetPassword(user);
 		
-		userService.resetPassword(user);
+		
+//		HoaDonService donService = new HoaDonServiceImpl();
+//		
+//		Map<HoaDon,String> map1 = new HashMap<>();
+//		HoaDon hd = new HoaDon();
+//		hd.setMaHoaDon(1);
+//		hd.setTongTien(134000);
+//		String a = "abc";
+//		map1.put(hd, a);
+		
+//		Map<HoaDon,String> map = donService.getListHoaDonByUsername("hung123");
+//		Set<HoaDon> keySet = map.keySet();
+//        for (HoaDon key : keySet) {
+//            System.out.println(key.toString() + " - " + map.get(key));
+//        }
 	}
 }
