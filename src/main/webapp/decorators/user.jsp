@@ -19,7 +19,7 @@
 	rel="stylesheet">
 <link href="${url}/lib/slick/slick.css" rel="stylesheet">
 <link href="${url}/lib/slick/slick-theme.css" rel="stylesheet">
-<link href="<c:url value="/resources/user/css/main.css"/>" rel="stylesheet">
+<link href="<c:url value="/resources/user/css/style.css"/>" rel="stylesheet">
 </head>
 <body>
 
