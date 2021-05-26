@@ -112,6 +112,10 @@
 	                                        	<option value="Hồ Chí Minh">Hồ Chí Minh</option>
 	                                        	<option value="Đồng Nai">Đồng Nai</option>
 	                                        	<option value="Tiền Giang">Tiền Giang</option>
+	                                        	<option value="An Giang">An Giang</option>
+	                                        	<option value="Đồng Tháp">Đồng Tháp</option>
+	                                        	<option value="Cà Mau">Cà Mau</option>
+	                                        	<option value="Hà Tĩnh">Hà Tĩnh</option>
 	                                        </select>
 	                                    </div>
 	                                    <div class="col-md-6">
@@ -119,6 +123,12 @@
 	                                        	<option value="${diaChi.quan}" selected hidden>${diaChi.quan}</option>
 	                                        	<option value="Quận 1">Quận 1</option>
 	                                        	<option value="Quận 2">Quận 2</option>
+	                                        	<option value="Quận 3">Quận 3</option>
+	                                        	<option value="Quận 4">Quận 4</option>
+	                                        	<option value="Quận 5">Quận 5</option>
+	                                        	<option value="Quận 6">Quận 6</option>
+	                                        	<option value="Quận 7">Quận 7</option>
+	                                        	<option value="Quận 8">Quận 8</option>
 	                                        	<option value="Gò Vấp">Gò Vấp</option>
 	                                        </select>
 	                                    </div>
@@ -127,6 +137,12 @@
 	                                       		<option value="${diaChi.phuong}" selected hidden>${diaChi.phuong}</option>
 	                                        	<option value="Phường 1">Phường 1</option>
 	                                        	<option value="Phường 2">Phường 2</option>
+	                                        	<option value="Phường 3">Phường 3</option>
+	                                        	<option value="Phường 4">Phường 4</option>
+	                                        	<option value="Phường 5">Phường 5</option>
+	                                        	<option value="Phường 6">Phường 6</option>
+	                                        	<option value="Phường 7">Phường 7</option>
+	                                        	<option value="Phường 8">Phường 8</option>
 	                                        	<option value="Phường Hiệp Bình Phước">Phường Hiệp Bình Phước</option>
 	                                        </select>
 	                                    </div>
