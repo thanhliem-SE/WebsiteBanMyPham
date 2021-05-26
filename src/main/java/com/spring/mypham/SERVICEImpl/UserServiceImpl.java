@@ -34,4 +34,10 @@ public class UserServiceImpl implements UserService{
 		return userDao.checkLoginInfo(userLogin);
 	}
 
+	@Override
+	public void resetPassword(User user) {
+		// TODO Auto-generated method stub
+		this.userDao.resetPassword(user);
+	}
+
 }

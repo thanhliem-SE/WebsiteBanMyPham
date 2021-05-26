@@ -16,6 +16,7 @@ import org.springframework.stereotype.Repository;
 
 import com.spring.mypham.DAO.MySessionFactory;
 import com.spring.mypham.DAO.UserDAO;
+import com.spring.mypham.models.KhachHang;
 import com.spring.mypham.models.SanPham;
 import com.spring.mypham.models.User;
 
@@ -37,6 +38,7 @@ public class UserDAOImpl implements UserDAO{
 		currentSession.saveOrUpdate(user);
 		tr.commit();
 	}
+	
 	
 	@Override
 	public User getLoginInfoByUsername(String username) {
@@ -65,6 +67,26 @@ public class UserDAOImpl implements UserDAO{
 			e.printStackTrace();
 		}
 		return user;
+	}
+	
+	@Transactional
+	@Override
+	public void resetPassword(User user) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		Transaction tr = currentSession.beginTransaction();
+//		System.out.println("Make: "+khachHang.toString());
+//		System.out.println("Make: "+khachHang.getDiaChi().toString());
+		try {
+			String sql = "update users set password=? where username like ?";
+			currentSession.createNativeQuery(sql)
+				.setParameter(1, user.getPassword())
+				.setParameter(2, user.getUsername()).executeUpdate();
+			tr.commit();
+			System.out.println("reset mat khau Thanh COng");
+		}catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("reset mat khau Khong Thanh COng");
+		}
 	}
 
 	@Transactional

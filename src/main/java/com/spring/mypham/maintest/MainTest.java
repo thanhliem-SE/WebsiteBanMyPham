@@ -20,24 +20,33 @@ public class MainTest {
 //		});
 		
 		
-		KhachHangService hangService = new KhachHangServiceImpl();
-		
-		KhachHang kh = new KhachHang();
-		DiaChi dc = new DiaChi();
-		dc.setPhuong("Phường 2");
-		dc.setQuan("Quận 3");
-		dc.setThanhPho("Hồ Chí Minh");
-		User user = new User();
-		user.setUsername("hung123");
-		user.setPassword("123");
-		user.setEnabled(true);
-		kh.setDiaChi(dc);
-		kh.setSoDienThoai("0987134334");
-		kh.setTenKhachHang("Trần Đình Hùng");
-		kh.setEmail("hungbo123@gmail.com");
-		kh.setUser(user);
-		
-		System.out.println(kh.getDiaChi().toString());
+//		KhachHangService hangService = new KhachHangServiceImpl();
+//		
+//		KhachHang kh = new KhachHang();
+//		DiaChi dc = new DiaChi();
+//		dc.setPhuong("Phường 2");
+//		dc.setQuan("Quận 3");
+//		dc.setThanhPho("Hồ Chí Minh");
+//		User user = new User();
+//		user.setUsername("hung123");
+//		user.setPassword("123");
+//		user.setEnabled(true);
+//		kh.setDiaChi(dc);
+//		kh.setSoDienThoai("0987134334");
+//		kh.setTenKhachHang("Trần Đình Hùng");
+//		kh.setEmail("hungbo123@gmail.com");
+//		kh.setUser(user);
+//		
+//		System.out.println(kh.getDiaChi().toString());
 		//hangService.updateKhachHang(kh);
+		
+		
+		
+		UserService userService = new UserServiceImpl();
+		User user =new User();
+		user.setUsername("liem2n");
+		user.setPassword("123");
+		
+		userService.resetPassword(user);
 	}
 }

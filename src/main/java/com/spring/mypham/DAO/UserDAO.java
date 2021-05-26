@@ -8,4 +8,6 @@ public interface UserDAO {
 	public Boolean checkLoginInfo(User user);
 
 	public void saveUser(User user);
+
+	void resetPassword(User user);
 }

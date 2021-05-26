@@ -133,6 +133,7 @@
 	                                        </select>
 	                                    </div>
 	                                    <div class="col-md-6">
+	                                    
 	                                        <select class="form-control" name="phuong">
 	                                       		<option value="${diaChi.phuong}" selected hidden>${diaChi.phuong}</option>
 	                                        	<option value="Phường 1">Phường 1</option>
@@ -159,21 +160,23 @@
 	                                    </div>
 	                                </div>
                                 </form:form>
+                                <form:form method="post" name="submitForm" action="${pageContext.request.contextPath}/resetPassword">
                                 <h4>Password change</h4>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <input class="form-control" type="password" placeholder="Current Password">
+                                        <input class="form-control" type="password" placeholder="Current Password" name="old_password">
                                     </div>
                                     <div class="col-md-6">
-                                        <input class="form-control" type="text" placeholder="New Password">
+                                        <input class="form-control" type="password" placeholder="New Password" name="new_password">
                                     </div>
                                     <div class="col-md-6">
-                                        <input class="form-control" type="text" placeholder="Confirm Password">
+                                        <input class="form-control" type="password" placeholder="Confirm Password" name="confirm_password">
                                     </div>
                                     <div class="col-md-12">
-                                        <button class="btn">Save Changes</button>
+                                        <button class="btn" type="submit">Save Changes</button>
                                     </div>
                                 </div>
+                                </form:form>
                             </div>
                         </div>
                     </div>
