@@ -102,14 +102,14 @@
 				<div class="col-md-12">
 					<nav aria-label="Page navigation example">
 						<ul class="pagination justify-content-center">
-							<li class="page-item disabled"><a class="page-link" href="#"
-								tabindex="-1">Trước đó</a></li>
+							<li class="page-item"><a class="page-link px-4" href="product?page=${previosPage }">Tiếp
+									theo</a></li>
 
 							<c:forEach var="i" begin="1" end="${countPage}">
 								<li class="page-item"><a class="page-link px-4"
 									href="product?page=${i}">${i}</a></li>
 							</c:forEach>
-							<li class="page-item"><a class="page-link px-4" href="#">Tiếp
+							<li class="page-item"><a class="page-link px-4" href="product?page=${nextPage }">Tiếp
 									theo</a></li>
 						</ul>
 					</nav>
