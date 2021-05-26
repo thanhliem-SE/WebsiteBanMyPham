@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
  <div class="my-account">
             <div class="container-fluid">
                 <div class="row">
@@ -37,30 +38,22 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Product Name</td>
-                                                <td>01 Jan 2020</td>
-                                                <td>$99</td>
-                                                <td>Approved</td>
-                                                <td><button class="btn">View</button></td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Product Name</td>
-                                                <td>01 Jan 2020</td>
-                                                <td>$99</td>
-                                                <td>Approved</td>
-                                                <td><button class="btn">View</button></td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Product Name</td>
-                                                <td>01 Jan 2020</td>
-                                                <td>$99</td>
-                                                <td>Approved</td>
-                                                <td><button class="btn">View</button></td>
-                                            </tr>
+                                        	<c:if test="${not empty mapHoaDon}">
+
+											      <c:forEach var="element" items="${mapHoaDon}">
+											      
+											         <tr>
+		                                                <td>${element.key.maHoaDon}</td>
+		                                                <td>${element.value}</td>
+		                                                <td>${element.key.ngayLap}</td>
+		                                                <td>${element.key.tongTien}</td>
+		                                                <td>${element.key.trangThaiHoaDon}</td>
+		                                                <td><button class="btn">View</button></td>
+		                                            </tr>
+											      </c:forEach>
+	
+											  </c:if>
+                                           
                                         </tbody>
                                     </table>
                                 </div>
@@ -112,6 +105,10 @@
 	                                        	<option value="Hồ Chí Minh">Hồ Chí Minh</option>
 	                                        	<option value="Đồng Nai">Đồng Nai</option>
 	                                        	<option value="Tiền Giang">Tiền Giang</option>
+	                                        	<option value="An Giang">An Giang</option>
+	                                        	<option value="Đồng Tháp">Đồng Tháp</option>
+	                                        	<option value="Cà Mau">Cà Mau</option>
+	                                        	<option value="Hà Tĩnh">Hà Tĩnh</option>
 	                                        </select>
 	                                    </div>
 	                                    <div class="col-md-6">
@@ -119,14 +116,27 @@
 	                                        	<option value="${diaChi.quan}" selected hidden>${diaChi.quan}</option>
 	                                        	<option value="Quận 1">Quận 1</option>
 	                                        	<option value="Quận 2">Quận 2</option>
+	                                        	<option value="Quận 3">Quận 3</option>
+	                                        	<option value="Quận 4">Quận 4</option>
+	                                        	<option value="Quận 5">Quận 5</option>
+	                                        	<option value="Quận 6">Quận 6</option>
+	                                        	<option value="Quận 7">Quận 7</option>
+	                                        	<option value="Quận 8">Quận 8</option>
 	                                        	<option value="Gò Vấp">Gò Vấp</option>
 	                                        </select>
 	                                    </div>
 	                                    <div class="col-md-6">
+	                                    
 	                                        <select class="form-control" name="phuong">
 	                                       		<option value="${diaChi.phuong}" selected hidden>${diaChi.phuong}</option>
 	                                        	<option value="Phường 1">Phường 1</option>
 	                                        	<option value="Phường 2">Phường 2</option>
+	                                        	<option value="Phường 3">Phường 3</option>
+	                                        	<option value="Phường 4">Phường 4</option>
+	                                        	<option value="Phường 5">Phường 5</option>
+	                                        	<option value="Phường 6">Phường 6</option>
+	                                        	<option value="Phường 7">Phường 7</option>
+	                                        	<option value="Phường 8">Phường 8</option>
 	                                        	<option value="Phường Hiệp Bình Phước">Phường Hiệp Bình Phước</option>
 	                                        </select>
 	                                    </div>
@@ -143,21 +153,23 @@
 	                                    </div>
 	                                </div>
                                 </form:form>
+                                <form:form method="post" name="submitForm" action="${pageContext.request.contextPath}/resetPassword">
                                 <h4>Password change</h4>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <input class="form-control" type="password" placeholder="Current Password">
+                                        <input class="form-control" type="password" placeholder="Current Password" name="old_password">
                                     </div>
                                     <div class="col-md-6">
-                                        <input class="form-control" type="text" placeholder="New Password">
+                                        <input class="form-control" type="password" placeholder="New Password" name="new_password">
                                     </div>
                                     <div class="col-md-6">
-                                        <input class="form-control" type="text" placeholder="Confirm Password">
+                                        <input class="form-control" type="password" placeholder="Confirm Password" name="confirm_password">
                                     </div>
                                     <div class="col-md-12">
-                                        <button class="btn">Save Changes</button>
+                                        <button class="btn" type="submit">Save Changes</button>
                                     </div>
                                 </div>
+                                </form:form>
                             </div>
                         </div>
                     </div>

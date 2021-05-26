@@ -114,6 +114,8 @@ public class KhachHangDAOImpl implements KhachHangDAO{
 		}
 	}
 	
+	
+	
 	@Transactional
 	@Override
 	public String isExistKhachhang(KhachHang khachHang) {

@@ -6,4 +6,5 @@ public interface UserService {
 	public User getLoginInfoByUsername(String username) ;
 	public Boolean checkLoginInfo(User userLogin);
 	public void saveUser(User user);
+	public void resetPassword(User user);
 }
