@@ -685,18 +685,12 @@
 					</ul>
 				</li>
 				<li class="nav-item"><a
-					class="nav-link text-white text-uppercase" href="#"
-					data-bs-toggle="dropdown">Thương hiệu</a></li>
+					class="nav-link text-uppercase text-white" href="${pageContext.request.contextPath}/product">Danh sách sản phẩm</a></li>
 				<li class="nav-item"><a
-					class="nav-link text-uppercase text-white" href="#">Hàng mới về</a></li>
-				<li class="nav-item"><a
-					class="nav-link text-uppercase text-white" href="#">Bán chạy</a></li>
-				<li class="nav-item"><a
-					class="nav-link text-uppercase text-white" href="#">Clinic &
-						Spa</a></li>
+					class="nav-link text-uppercase text-white" href="${pageContext.request.contextPath}/checkout">Check out</a></li>
 				<li class="nav-item"><a
 					class="nav-link text-uppercase text-white"
-					href="${pageContext.request.contextPath}/checkout">Checkout</a></li>
+					href="account">Tài khoản</a></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle text-white text-uppercase"
 					href="javascript:void(0)" data-bs-toggle="dropdown"> More pages
