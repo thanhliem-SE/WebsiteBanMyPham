@@ -37,17 +37,21 @@
 		<pattern>/admin</pattern>
 	</decorator>
 	<decorator name="quanlyadmin" page="admin.jsp">
-		<pattern>/quanlyadmin</pattern>
+		<pattern>/admin/quanlyadmin</pattern>
 	</decorator>
 	<decorator name="quanlyuser" page="admin.jsp">
-		<pattern>/quanlyuser</pattern>
+		<pattern>/admin/quanlyuser</pattern>
 	</decorator>
 	<decorator name="profile" page="admin.jsp">
-		<pattern>/profile</pattern>
+		<pattern>/admin/profile</pattern>
 	</decorator>
 	<decorator name="blank_page" page="admin.jsp">
-		<pattern>/blank_page</pattern>
+		<pattern>/admin/blank_page</pattern>
 	</decorator>
-
-
+	<decorator name="page_404" page="admin.jsp">
+		<pattern>/admin/page_404</pattern>
+	</decorator>
+		<decorator name="error" page="admin.jsp">
+		<pattern>/admin/error</pattern>
+	</decorator>
 </decorators>

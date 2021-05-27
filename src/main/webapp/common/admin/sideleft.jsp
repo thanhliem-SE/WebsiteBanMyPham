@@ -16,7 +16,7 @@
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
-                            <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
+                            <li><a href="${pageContext.request.contextPath}/admin/profile"><i class="material-icons">person</i>Profile</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="javascript:void(0);"><i class="material-icons">group</i>Followers</a></li>
                             <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
@@ -39,14 +39,14 @@
                         </a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/quanlyadmin">
+                        <a href="${pageContext.request.contextPath}/admin/quanlyadmin">
                             <i class="material-icons">account_circle</i>
                             <i class="zmdi zmdi-account-box"></i>
                             <span>Quản Lý Admin</span>
                         </a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/quanlyuser">
+                        <a href="${pageContext.request.contextPath}/admin/quanlyuser">
                             <i class="material-icons">
                                 supervised_user_circle
                             </i>
@@ -55,7 +55,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/quanlydanhmuc" class="menu-toggle">
+                        <a href="${pageContext.request.contextPath}/admin/quanlydanhmuc" class="menu-toggle">
                             <i class="material-icons">widgets</i>
                             <span>Danh Mục</span>
                         </a>
@@ -84,7 +84,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/quanlydonhang" class="menu-toggle">
+                        <a href="${pageContext.request.contextPath}/admin/quanlydonhang" class="menu-toggle">
                             <i class="material-icons">shopping_cart</i>
                             <span>Đơn Hàng</span>
                         </a>
@@ -106,7 +106,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/quanlythuonghieu" class="menu-toggle">
+                        <a href="${pageContext.request.contextPath}/admin/quanlythuonghieu" class="menu-toggle">
                             <i class="material-icons">view_list</i>
                             <span>Thương Hiệu</span>
                         </a>
@@ -117,7 +117,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/quanlyreview" class="menu-toggle">
+                        <a href="${pageContext.request.contextPath}/admin/quanlyreview" class="menu-toggle">
                             <i class="material-icons">rate_review</i>
                             <span>Reviews</span>
                         </a>
@@ -147,25 +147,25 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="${pageContext.request.contextPath}/profile">Profile</a>
+                                <a href="${pageContext.request.contextPath}/admin/profile">Profile</a>
                             </li>
                             <li>
-                                <a href="${pageContext.request.contextPath}/session/new">Sign In</a>
+                                <a href="${pageContext.request.contextPath}/admin/login">Sign In</a>
                             </li>
                             <li>
-                                <a href="${pageContext.request.contextPath}/signup/new">Sign Up</a>
+                                <a href="${pageContext.request.contextPath}/admin/signup/new">Sign Up</a>
                             </li>
                             <li>
-                                <a href="${pageContext.request.contextPath}/password_resets/new">Forgot Password</a>
+                                <a href="${pageContext.request.contextPath}/admin/password_resets/new">Forgot Password</a>
                             </li>
                             <li>
-                                <a href="${pageContext.request.contextPath}/blank_page">Blank Page</a>
+                                <a href="${pageContext.request.contextPath}/admin/blank_page">Blank Page</a>
                             </li>
                             <li>
-                                <a href="p${pageContext.request.contextPath}/page_404">404 - Not Found</a>
+                                <a href="${pageContext.request.contextPath}/admin/page_404">404 - Not Found</a>
                             </li>
                             <li>
-                                <a href="${pageContext.request.contextPath}/page_500">500 - Server Error</a>
+                                <a href="${pageContext.request.contextPath}/admin/page_500">500 - Server Error</a>
                             </li>
                         </ul>
                     </li>
@@ -194,7 +194,7 @@
             <!-- Footer -->
             <div class="legal bg-danger fs13">
                 <div class="copyright text-center">
-                    <span>&copy; 2021 Estore, Inc. </span>
+                    <b style="color: #f44336;">&copy; 2021 Estore, Inc. </b>
                 </div>
             </div>
             <!-- #Footer -->

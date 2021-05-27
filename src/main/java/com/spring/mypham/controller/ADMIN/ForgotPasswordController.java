@@ -4,12 +4,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller(value = "LoginControllerAdmin")
+@Controller(value = "ForgotPasswordControllerAdmin")
 @RequestMapping("/admin")
-public class DangNhapController {	
-	@GetMapping("/quantricp")
-	public String showMyLoginPage() {
-		return "admin/login-form";
+public class ForgotPasswordController {	
+	@GetMapping("/password_resets/new")
+	public String showMyFormForgetPassword() {
+		return "admin/forgotpassword";
 		
 	}
 	
