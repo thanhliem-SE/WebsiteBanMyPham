@@ -29,8 +29,8 @@
 						class="nav-item nav-link active">Home</a> <a
 						href="${pageContext.request.contextPath}/product"
 						class="nav-item nav-link">Products</a> <a href="product-details"
-						class="nav-item nav-link">Product Detail</a> <a href="cart"
-						class="nav-item nav-link">Cart</a> <a href="checkout"
+						class="nav-item nav-link">Product Detail</a> <a href="${pageContext.request.contextPath}/cart/"
+						class="nav-item nav-link">Cart</a> <a href="${pageContext.request.contextPath}/checkout"
 						class="nav-item nav-link">Checkout</a> <a href="account"
 						class="nav-item nav-link">My Account</a>
 					<div class="nav-item dropdown">
@@ -49,7 +49,7 @@
   							  <a href="#" class="nav-link dropdown-toggle"
 							data-toggle="dropdown">${sessionScope.username }</a>
 							<div class="dropdown-menu">
-								<a href="${pageContext.request.contextPath}/account" class="dropdown-item fs16">Account</a> 
+								<a href="${pageContext.request.contextPath}/login" class="dropdown-item fs16">Account</a> 
 								<a href="${pageContext.request.contextPath}/login" class="dropdown-item fs16">Logout</a>
 							
 							</div>

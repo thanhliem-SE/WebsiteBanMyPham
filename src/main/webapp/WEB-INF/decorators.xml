@@ -10,9 +10,6 @@
 	<decorator name="cart" page="user.jsp">
 		<pattern>/cart/</pattern>
 	</decorator>
-	<decorator name="addtocart" page="user.jsp">
-		<pattern>/cart/addtocart</pattern>
-	</decorator>
 	<decorator name="product-details" page="user.jsp">
 		<pattern>/product-details</pattern>
 	</decorator>
@@ -30,6 +27,9 @@
 	</decorator>
 	<decorator name="account" page="user.jsp">
 		<pattern>/account</pattern>
+	</decorator>
+	<decorator name="addtocart" page="user.jsp">
+		<pattern>/cart/addtocart</pattern>
 	</decorator>
 
 	<!-- Page Admin -->

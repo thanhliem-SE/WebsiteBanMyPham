@@ -25,7 +25,7 @@
                                        
                                             <td>
                                                 <div class="img">
-                                                    <a href="#"><img src="${pageContext.request.contextPath}/${urlUserImg}/category-8.jpg" alt="Image"></a>
+                                                    <a href="#"><img src="${pageContext.request.contextPath}/${urlUserImg}/${sanPham.getPathFirstImg()}" alt="Image"></a>
                                                     <p>${ds.sp.tenSanPham }</p>
                                                 </div>
                                             </td>
@@ -66,8 +66,8 @@
                                             <h2>Grand Total<span>${sub}</span></h2>
                                         </div>
                                         <div class="cart-btn">
-                                            <button>Update Cart</button>
-                                            <button>Checkout</button>
+                                           <a href="${pageContext.request.contextPath}/checkout"> <button>Checkout</button></a>
+                                           
                                         </div>
                                     </div>
                                 </div>

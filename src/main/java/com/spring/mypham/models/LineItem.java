@@ -86,4 +86,22 @@ public class LineItem implements Serializable {
 		super();
 	}
 
+	public LineItem(long maLineItem, int soLuong, double thanhTien, HoaDon hoaDon, SanPham sanPham) {
+		super();
+		this.maLineItem = maLineItem;
+		this.soLuong = soLuong;
+		this.thanhTien = thanhTien;
+		this.hoaDon = hoaDon;
+		this.sanPham = sanPham;
+	}
+
+	public LineItem(int soLuong, double thanhTien, HoaDon hoaDon, SanPham sanPham) {
+		super();
+		this.soLuong = soLuong;
+		this.thanhTien = thanhTien;
+		this.hoaDon = hoaDon;
+		this.sanPham = sanPham;
+	}
+
+	
 }

@@ -19,11 +19,18 @@
 	rel="stylesheet">
 <link href="${url}/lib/slick/slick.css" rel="stylesheet">
 <link href="${url}/lib/slick/slick-theme.css" rel="stylesheet">
-<link href="<c:url value="/resources/user/css/style.css"/>" rel="stylesheet">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+	rel="stylesheet" crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+	crossorigin="anonymous"></script>
+<link href="<c:url value="/resources/user/css/main.css"/>"
+	rel="stylesheet">
 </head>
 <body>
 
-	<%@ include file="/common/user/header.jsp"%>
+	<%@ include file="/common/user/header1.jsp"%>
 	<decorator:body />
 	<%@ include file="/common/user/footer.jsp"%>
 
@@ -34,7 +41,7 @@
 	<script src="${url}/lib/easing/easing.min.js"></script>
 	<script src="${url}/lib/slick/slick.min.js"></script>
 	<!-- Template Javascript -->
-	<script src="${url}/js/main.js"></script>
+	<script src="${url}/js/main1.js"></script>
 	<script src="${url}/js/bootstrap.js"></script>
 </body>
 </html>

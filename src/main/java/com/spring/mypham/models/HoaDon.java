@@ -10,8 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.Nationalized;
 
@@ -31,9 +31,12 @@ public class HoaDon implements Serializable {
 	private String trangThaiHoaDon;
 
 	private double tongTien;
+
 	private String sdtNhanHang;
+	private String email;
+	private String tenNhanHang;
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "maThanhToan")
 	private ThanhToan thanhToan;
 	
@@ -46,7 +49,8 @@ public class HoaDon implements Serializable {
 	
 
 	public HoaDon(long maHoaDon, LocalDate ngayLap, LocalDate ngayGiao, String trangThaiHoaDon, double tongTien,
-			String sdtNhanHang, ThanhToan thanhToan, DiaChi diaChi, Set<LineItem> lineItem) {
+			String sdtNhanHang, String email, String tenNhanHang, ThanhToan thanhToan, DiaChi diaChi,
+			Set<LineItem> lineItem) {
 		super();
 		this.maHoaDon = maHoaDon;
 		this.ngayLap = ngayLap;
@@ -54,48 +58,52 @@ public class HoaDon implements Serializable {
 		this.trangThaiHoaDon = trangThaiHoaDon;
 		this.tongTien = tongTien;
 		this.sdtNhanHang = sdtNhanHang;
+		this.email = email;
+		this.tenNhanHang = tenNhanHang;
 		this.thanhToan = thanhToan;
 		this.diaChi = diaChi;
 		this.lineItem = lineItem;
 	}
-	
-
 
 	public String getTrangThaiHoaDon() {
 		return trangThaiHoaDon;
 	}
 
-
-
 	public void setTrangThaiHoaDon(String trangThaiHoaDon) {
 		this.trangThaiHoaDon = trangThaiHoaDon;
 	}
 
+	public String getEmail() {
+		return email;
+	}
 
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getTenNhanHang() {
+		return tenNhanHang;
+	}
+
+	public void setTenNhanHang(String tenNhanHang) {
+		this.tenNhanHang = tenNhanHang;
+	}
 
 	public DiaChi getDiaChi() {
 		return diaChi;
 	}
 
-
-
 	public void setDiaChi(DiaChi diaChi) {
 		this.diaChi = diaChi;
 	}
-
-
 
 	public Set<LineItem> getLineItem() {
 		return lineItem;
 	}
 
-
-
 	public void setLineItem(Set<LineItem> lineItem) {
 		this.lineItem = lineItem;
 	}
-
-
 
 	public ThanhToan getThanhToan() {
 		return thanhToan;
@@ -148,15 +156,5 @@ public class HoaDon implements Serializable {
 	public HoaDon() {
 		super();
 	}
-
-
-
-	@Override
-	public String toString() {
-		return "HoaDon [maHoaDon=" + maHoaDon + ", ngayLap=" + ngayLap + ", ngayGiao=" + ngayGiao + ", trangThaiHoaDon="
-				+ trangThaiHoaDon + ", tongTien=" + tongTien + ", sdtNhanHang=" + sdtNhanHang + ", thanhToan="
-				+ thanhToan + ", diaChi=" + diaChi + ", lineItem=" + lineItem + "]";
-	}
-	
 
 }

@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.spring.mypham.DAO.LineItemDAO;
 import com.spring.mypham.DAO.MySessionFactory;
@@ -19,12 +20,15 @@ public class LineItemDAOImpl implements LineItemDAO{
 	public LineItemDAOImpl() {
 		sessionFactory = MySessionFactory.getInstance().getSessionFactory();
 	}
+
+	@Transactional
 	@Override
 	public void saveLineItem(LineItem item) {
 		Session currentSession = sessionFactory.getCurrentSession();
 		currentSession.saveOrUpdate(item);
 	}
 
+	@Transactional
 	@Override
 	public void deleteLineItem(Long id) {
 		Session currentSession = sessionFactory.getCurrentSession();
@@ -32,6 +36,7 @@ public class LineItemDAOImpl implements LineItemDAO{
 		currentSession.delete(item);
 	}
 
+	@Transactional
 	@Override
 	public LineItem getLineItem(Long id) {
 		Session currentSession = sessionFactory.getCurrentSession();
@@ -39,6 +44,7 @@ public class LineItemDAOImpl implements LineItemDAO{
 		return item;
 	}
 
+	@Transactional
 	@Override
 	public List<LineItem> getListLineItem() {
 		Session currentSession = sessionFactory.getCurrentSession();
