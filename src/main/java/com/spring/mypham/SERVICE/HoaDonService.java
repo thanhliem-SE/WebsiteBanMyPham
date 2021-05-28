@@ -5,5 +5,5 @@ import java.util.Map;
 import com.spring.mypham.models.HoaDon;
 
 public interface HoaDonService {
-	Map<HoaDon, String> getListHoaDonByUsername(String username);
+	public Map<HoaDon,String> getListHoaDonByUsername(String username);
 }

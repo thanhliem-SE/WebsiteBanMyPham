@@ -28,7 +28,7 @@ public class HoaDonServiceImpl implements HoaDonService{
 	@Override
 	public Map<HoaDon, String> getListHoaDonByUsername(String username) {
 		// TODO Auto-generated method stub
-		return ((HoaDonService) hoaDonDao).getListHoaDonByUsername(username);
+		return hoaDonDao.getListHoaDonByUsername(username);
 	}
 	
 }

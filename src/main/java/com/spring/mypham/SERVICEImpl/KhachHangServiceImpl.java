@@ -1,5 +1,7 @@
 package com.spring.mypham.SERVICEImpl;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,5 +36,17 @@ public class KhachHangServiceImpl implements KhachHangService {
 	public KhachHang getKhachHangByUsername(String username) {
 		// TODO Auto-generated method stub
 		return this.khachHangDAO.getKhachHangByUsername(username);
+	}
+
+	@Override
+	public ArrayList<KhachHang> getAllKhachHang() {
+		// TODO Auto-generated method stub
+		return khachHangDAO.getAllKhachHang();
+	}
+
+	@Override
+	public void deleteKhachHangByUserName(String username) {
+		// TODO Auto-generated method stub
+		khachHangDAO.deleteKhachHangByUserName(username);
 	}
 }
