@@ -29,7 +29,7 @@ public class KhachHangDAOImpl implements KhachHangDAO{
 		// TODO Auto-generated constructor stub
 		this.sessionFactory = MySessionFactory.getInstance().getSessionFactory();
 	}
-	
+
 	@Override
 	public KhachHang getKhachHangByUsername(String username) {
 		KhachHang kh = new KhachHang();
@@ -80,7 +80,6 @@ public class KhachHangDAOImpl implements KhachHangDAO{
 		}
 		return kh;
 	}
-	@Transactional
 	@Override
 	public void saveKhachHang(KhachHang khachHang) {
 		Session currentSession = sessionFactory.getCurrentSession();
@@ -89,7 +88,6 @@ public class KhachHangDAOImpl implements KhachHangDAO{
 		tr.commit();
 	}
 	
-	@Transactional
 	@Override
 	public void updateKhachHang(KhachHang khachHang) {
 		Session currentSession = sessionFactory.getCurrentSession();
@@ -116,7 +114,6 @@ public class KhachHangDAOImpl implements KhachHangDAO{
 	
 	
 	
-	@Transactional
 	@Override
 	public String isExistKhachhang(KhachHang khachHang) {
 		Session session = sessionFactory.getCurrentSession();

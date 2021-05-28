@@ -38,6 +38,7 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 		currentSession.delete(sanPham);
 	}
 
+	@Transactional
 	@Override
 	public SanPham getDienThoai(Long id) {
 		Session currentSession = sessionFactory.getCurrentSession();
@@ -100,6 +101,7 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 		return rs;
 	}
 
+	@Transactional
 	@Override
 	public List<SanPham> getListSanPhamTheoPage(int page, List<SanPham> list) {
 		int position = (page-1)*6;
@@ -115,6 +117,7 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 		return sanPhams;
 	}
 
+	@Transactional
 	@Override
 	public int getPageCountSanPham(List<SanPham> sanPhams) {
 		if (sanPhams.size() % 6 == 0)
@@ -264,6 +267,7 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 		return rs;
 	}
 
+	@Transactional
 	@Override
 	public List<SanPham> getListSanPhamTheoTrangThai(int trangThai) {
 		// TODO Auto-generated method stub

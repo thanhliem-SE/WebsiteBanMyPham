@@ -30,7 +30,6 @@ public class UserDAOImpl implements UserDAO{
 		sessionFactory = MySessionFactory.getInstance().getSessionFactory();
 	}
 	
-	@Transactional
 	@Override
 	public void saveUser(User user) {
 		Session currentSession = sessionFactory.getCurrentSession();
@@ -39,7 +38,7 @@ public class UserDAOImpl implements UserDAO{
 		tr.commit();
 	}
 	
-	
+
 	@Override
 	public User getLoginInfoByUsername(String username) {
 		User user = new User();
@@ -69,7 +68,6 @@ public class UserDAOImpl implements UserDAO{
 		return user;
 	}
 	
-	@Transactional
 	@Override
 	public void resetPassword(User user) {
 		Session currentSession = sessionFactory.getCurrentSession();
@@ -89,7 +87,6 @@ public class UserDAOImpl implements UserDAO{
 		}
 	}
 
-	@Transactional
 	@Override
 	public Boolean checkLoginInfo(User userLogin) {
 		User user = new User();

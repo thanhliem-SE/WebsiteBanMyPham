@@ -22,14 +22,8 @@ public class ThanhToan implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long maThanhToan;
+	private String phuongThucTT;
 
-	private LocalDate ngayThanhToan;
-	private double tongTien;
-	@Nationalized
-	private String ghiChu;
-	
-	@OneToOne(mappedBy = "thanhToan")
-	private HoaDon hoaDon;
 
 	public long getMaThanhToan() {
 		return maThanhToan;
@@ -39,32 +33,12 @@ public class ThanhToan implements Serializable {
 		this.maThanhToan = maThanhToan;
 	}
 
-	public LocalDate getNgayThanhToan() {
-		return ngayThanhToan;
+	public String getPhuongThucTT() {
+		return phuongThucTT;
 	}
 
-	public void setNgayThanhToan(LocalDate ngayThanhToan) {
-		this.ngayThanhToan = ngayThanhToan;
-	}
-
-	public double getTongTien() {
-		return tongTien;
-	}
-
-	public void setTongTien(double tongTien) {
-		this.tongTien = tongTien;
-	}
-
-	public String getGhiChu() {
-		return ghiChu;
-	}
-
-	public void setGhiChu(String ghiChu) {
-		this.ghiChu = ghiChu;
-	}
-
-	public ThanhToan() {
-		super();
+	public void setPhuongThucTT(String phuongThucTT) {
+		this.phuongThucTT = phuongThucTT;
 	}
 
 }

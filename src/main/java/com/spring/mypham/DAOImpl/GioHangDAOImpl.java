@@ -24,6 +24,7 @@ public class GioHangDAOImpl implements GioHangDAO{
 		currentSession.saveOrUpdate(gioHang);
 	}
 
+	@Transactional
 	@Override
 	public GioHang getGioHang(Long id) {
 		Session currentSession = sessionFactory.getCurrentSession();
@@ -31,6 +32,7 @@ public class GioHangDAOImpl implements GioHangDAO{
 		return gioHang;
 	}
 
+	@Transactional
 	@Override
 	public List<GioHang> getListGioHang() {
 		Session currentSession = sessionFactory.getCurrentSession();

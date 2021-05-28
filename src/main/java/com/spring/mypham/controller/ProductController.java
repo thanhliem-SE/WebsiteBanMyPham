@@ -22,8 +22,8 @@ public class ProductController {
 			@RequestParam(value = "maDanhMuc",  defaultValue = "0") int maDanhMuc, 
 			@RequestParam(value = "nhaCC",  defaultValue = "null") String nhaCC,
 			@RequestParam(value = "tenSP",  defaultValue = "null") String tenSP, 
-			@RequestParam(value = "trangthai", defaultValue = "0") int trangthai){
-		
+			@RequestParam(value = "trangthai", defaultValue = "0") int trangthai) {
+
 		if (dinhMuc == 0 && maDanhMuc == 0 && nhaCC.equals("null") && tenSP.equals("null") && trangthai == 0)
 			showListSanPham(model, page);
 		
@@ -39,20 +39,12 @@ public class ProductController {
 		else if (dinhMuc == 0 && maDanhMuc == 0 && nhaCC.equals("null") && trangthai == 0)
 			showListSanPhamTheoTen(model, tenSP, page);
 		
-		nextOrPreviosPage(model, page);
-		
 		return "user/product";
 	}
-	
-	private void nextOrPreviosPage(Model model, int page) {
-		System.out.println(page);
-		int previosPage, nextPage;
-		
-		previosPage = (page>1) ? page-1 : page;
-		nextPage = page + 1;
-		
-		model.addAttribute("previosPage", previosPage);
-		model.addAttribute("nextPage", nextPage);
+	public void showListSanPham(Model model, int page) {
+		List<SanPham> sanPhams = sanPhamService.getListSanPham();
+		model.addAttribute("countPage", sanPhamService.getPageCountSanPham(sanPhams));
+		model.addAttribute("sanPhams", sanPhamService.getListSanPhamTheoPage(page, sanPhams));
 	}
 
 	private void showListSanPhamTheoTen(Model model, String tenSP, int page) {
@@ -82,9 +74,5 @@ public class ProductController {
 		model.addAttribute("sanPhams", sanPhamService.getListSanPhamTheoPage(page, sanPhams));
 	}
 
-	public void showListSanPham(Model model, int page) {
-		List<SanPham> sanPhams = sanPhamService.getListSanPham();
-		model.addAttribute("countPage", sanPhamService.getPageCountSanPham(sanPhams));
-		model.addAttribute("sanPhams", sanPhamService.getListSanPhamTheoPage(page, sanPhams));
-	}
+	
 }

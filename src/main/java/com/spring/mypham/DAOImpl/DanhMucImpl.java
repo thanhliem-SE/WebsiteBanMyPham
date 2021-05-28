@@ -17,13 +17,15 @@ import com.spring.mypham.models.DanhMuc;
 public class DanhMucImpl implements DanhMucDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
-
+	
+	@Transactional
 	@Override
 	public void saveDanhMuc(DanhMuc danhMuc) {
 		Session currentSession = sessionFactory.getCurrentSession();
 		currentSession.saveOrUpdate(danhMuc);
 	}
 
+	@Transactional
 	@Override
 	public void deleteDanhMuc(Long id) {
 		Session currentSession = sessionFactory.getCurrentSession();
@@ -31,6 +33,7 @@ public class DanhMucImpl implements DanhMucDAO {
 		currentSession.delete(danhMuc);
 	}
 
+	@Transactional
 	@Override
 	public DanhMuc getDanhMuc(Long id) {
 		Session currentSession = sessionFactory.getCurrentSession();
@@ -38,6 +41,7 @@ public class DanhMucImpl implements DanhMucDAO {
 		return danhMuc;
 	}
 
+	@Transactional
 	@Override
 	public List<DanhMuc> getListDanhMuc() {
 		Session currentSession = sessionFactory.getCurrentSession();
@@ -46,6 +50,7 @@ public class DanhMucImpl implements DanhMucDAO {
 		return danhMucs;
 	}
 
+	@Transactional
 	@Override
 	public DanhMuc getDanhMuc(String tenDanhMuc) {
 		Session currentSession = sessionFactory.getCurrentSession();

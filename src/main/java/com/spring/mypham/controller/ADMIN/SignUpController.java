@@ -4,12 +4,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller(value = "LoginControllerAdmin")
+@Controller(value = "SignUpControllerAdmin")
 @RequestMapping("/admin")
-public class DangNhapController {	
-	@GetMapping("/quantricp")
+public class SignUpController {	
+	@GetMapping("/signup/new")
 	public String showMyLoginPage() {
-		return "admin/login-form";
+		return "admin/signup-form";
 		
 	}
 	

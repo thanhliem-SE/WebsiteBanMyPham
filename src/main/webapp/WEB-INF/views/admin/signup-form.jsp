@@ -1,4 +1,5 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:url value="/resources/admin" var="url" />
 <!DOCTYPE html>
@@ -9,7 +10,7 @@
 <meta
 	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
 	name="viewport">
-<title>Sign In | Estore Based Admin - Estore Design</title>
+<title>Sign Up | Admin EStore Design</title>
 <!-- Favicon-->
 <link rel="icon" href="/resources/admin/favicon.ico" type="image/x-icon">
 
@@ -33,22 +34,30 @@
 <link href="<c:url value="/resources/admin/css/main.css"/>" rel="stylesheet">
 </head>
 
-<body class="login-page" style="background: #f44336">
-	<div class="login-box">
+<body class="signup-page" style="background: #f44336">
+	<div class="signup-box">
 		<div class="logo">
-			<a href="javascript:void(0);">Admin<b>EST</b></a> <small>Admin
-				Estore Based - Estore Design</small>
+			<a href="/index.html" class="text-decoration-none">Admin<b>ETS</b></a>
+			<small>Admin Estore Based - Estore Design</small>
 		</div>
 		<div class="card">
 			<div class="body">
-				<form id="sign_in" method="POST">
-					<div class="msg text-uppercase" style="font-style: bold;">Login</div>
+				<form id="sign_up" method="POST">
+					<div class="msg">Đăng ký thành viên mới</div>
 					<div class="input-group">
 						<span class="input-group-addon"> <i class="material-icons">person</i>
 						</span>
 						<div class="form-line">
-							<input type="text" class="form-control" name="username"
-								placeholder="Username" required autofocus>
+							<input type="text" class="form-control" name="namesurname"
+								placeholder="Name Surname" required autofocus>
+						</div>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"> <i class="material-icons">email</i>
+						</span>
+						<div class="form-line">
+							<input type="email" class="form-control" name="email"
+								placeholder="Email Address" required>
 						</div>
 					</div>
 					<div class="input-group">
@@ -56,24 +65,30 @@
 						</span>
 						<div class="form-line">
 							<input type="password" class="form-control" name="password"
-								placeholder="Password" required>
+								minlength="6" placeholder="Password" required>
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-xs-8 p-t-5">
-							<input type="checkbox" name="rememberme" id="rememberme"
-								class="filled-in chk-col-pink"> <label for="rememberme">Remember
-								Me</label>
-						</div>
-						<div class="col-xs-4">
-							<button class="btn btn-block waves-effect text-white" type="submit" style="background: #f44336; color: white;">SIGN
-								IN</button>
+					<div class="input-group">
+						<span class="input-group-addon"> <i class="material-icons">lock</i>
+						</span>
+						<div class="form-line">
+							<input type="password" class="form-control" name="confirm"
+								minlength="6" placeholder="Confirm Password" required>
 						</div>
 					</div>
-					<div class="row m-t-15 m-b--20">
-						<div class="col-xs-12 align-center">
-							<a href="${pageContext.request.contextPath}/admin/password_resets/new">Forgot Password?</a>
-						</div>
+					<div class="form-group">
+						<input type="checkbox" name="terms" id="terms"
+							class="filled-in chk-col-pink"> <label for="terms">I
+							read and agree to the <a href="javascript:void(0);">terms of
+								usage</a>.
+						</label>
+					</div>
+
+					<button class="btn btn-block btn-lg bg-pink waves-effect"
+						type="submit">SIGN UP</button>
+
+					<div class="m-t-25 m-b--5 align-center">
+						<a href="sign-in.html">You already have a membership?</a>
 					</div>
 				</form>
 			</div>
@@ -96,7 +111,7 @@
 
 	<!-- Custom Js -->
 	<script src="<c:url value="/resources/admin/js/admin.js"/>"></script>
-	<script src="<c:url value="/resources/admin/js/pages/examples/sign-in.js"/>"></script>
+	<script src="<c:url value="/resources/admin/js/pages/examples/sign-up.js"/>"></script>
 </body>
 
 </html>

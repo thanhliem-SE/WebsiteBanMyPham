@@ -43,7 +43,7 @@
 							alt="Slider Image" height="400px" width="600px" />
 						<div class="header-slider-caption">
 							<p>ĐẸP HƠN MỖI NGÀY TẠI ESTORE</p>
-							<a class="btn" href="product"><i class="fa fa-shopping-cart"></i>Mua
+							<a class="btn" href=""><i class="fa fa-shopping-cart"></i>Mua
 								ngay</a>
 						</div>
 					</div>
@@ -257,7 +257,7 @@
 				<div class="col-lg-3">
 					<div class="product-item">
 						<div class="product-title">
-							<a href="#" class="only-line-2">${sanPham.tenSanPham}</a>
+							<a href="#">${sanPham.tenSanPham}</a>
 							<div class="ratting">
 								<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
 									class="fa fa-star"></i> <i class="fa fa-star"></i> <i
@@ -270,7 +270,7 @@
 								alt="Product Image">
 							</a>
 							<div class="product-action">
-								<a href="${pageContext.request.contextPath}/cart/addtocart/${sanPham.maSanPham}" class="text-decoration-none"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
+								<a href="${pageContext.request.contextPath}/cart/addtocart/${sanPham.maSanPham}"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
 									class="fa fa-heart"></i></a> <a href="product-details?maSanPham=${sanPham.maSanPham}"><i
 									class="fa fa-search"></i></a>
 							</div>
@@ -282,10 +282,8 @@
 								out.println(new DecimalFormat("#,###").format(request.getAttribute("donGia")));
 								%>
 							</h3>
-							<a class="btn fs16" href="${pageContext.request.contextPath}/cart/addtocart/${sanPham.maSanPham}">
-								<i class="fa fa-shopping-cart fs16"></i>
-								<span>Buy Now</span>
-							</a>
+							<a class="btn fs16" href="${pageContext.request.contextPath}/cart/addtocart/${sanPham.maSanPham}"><i
+								class="fa fa-shopping-cart fs16"></i><span>Buy Now</span></a>
 						</div>
 					</div>
 				</div>
@@ -326,7 +324,7 @@
 				<div class="col-lg-3">
 					<div class="product-item">
 						<div class="product-title">
-							<a href="#" class="only-line-2">${sanPham.tenSanPham}</a>
+							<a href="#">${sanPham.tenSanPham}</a>
 							<div class="ratting">
 								<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
 									class="fa fa-star"></i> <i class="fa fa-star"></i> <i
@@ -339,7 +337,7 @@
 								alt="Product Image">
 							</a>
 							<div class="product-action">
-								<a href="${pageContext.request.contextPath}/cart/addtocart/${sanPham.maSanPham}" class="text-decoration-none"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
+								<a href="${pageContext.request.contextPath}/cart/addtocart/${sanPham.maSanPham}"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
 									class="fa fa-heart"></i></a> <a href="product-details?maSanPham=${sanPham.maSanPham}"><i
 									class="fa fa-search"></i></a>
 							</div>

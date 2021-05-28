@@ -1,1 +1,1 @@
-<% response.sendRedirect("TrangChuControllerAdmin/admin"); %>
+<% response.sendRedirect("trangchu"); %>
