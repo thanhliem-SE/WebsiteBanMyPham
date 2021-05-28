@@ -87,6 +87,25 @@ public class KhachHangDAOImpl implements KhachHangDAO{
 		currentSession.saveOrUpdate(khachHang);
 		tr.commit();
 	}
+	@Override
+	public void deleteKhachHangByUserName(String username) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		Transaction tr = currentSession.beginTransaction();
+		try {
+			String sql = "delete KhachHang where username like ?";
+			currentSession.createNativeQuery(sql)
+				.setParameter(1, username).executeUpdate();
+			sql = "delete users where username like ?";
+			currentSession.createNativeQuery(sql)
+				.setParameter(1, username).executeUpdate();
+			tr.commit();
+			System.out.println("Delete Thanh COng");
+		}catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Delete Khong Thanh COng");
+		}
+	}
+	
 	
 	@Override
 	public void updateKhachHang(KhachHang khachHang) {
@@ -146,6 +165,44 @@ public class KhachHangDAOImpl implements KhachHangDAO{
 		}
 		//KhachHang moi (Hop le)
 		return "Ready";
+	}
+	@Override
+	public ArrayList<KhachHang> getAllKhachHang() {
+		ArrayList<KhachHang> listKH = new ArrayList<KhachHang>();
+		
+		Session session = sessionFactory.getCurrentSession();
+		Transaction tr = session.beginTransaction();
+
+		try {
+			String sql = "select kh.tenKhachHang, kh.email, kh.soDienThoai, u.username, kh.thanhPho from users u JOIN KhachHang kh ON u.username = kh.username";
+			@SuppressWarnings("unchecked")
+			List<Object> objs = session.createNativeQuery(sql).getResultList();
+			for (Object arrayObj : objs) {
+				Object[] obj = (Object[]) arrayObj;
+				KhachHang kh = new KhachHang();
+				User user = new User();
+				DiaChi dc = new DiaChi();
+				kh.setTenKhachHang(obj[0].toString());
+				if(obj[1]!=null)
+					kh.setEmail(obj[1].toString());
+				else kh.setEmail("Chýa có");
+				if(obj[2]!=null)
+					kh.setSoDienThoai(obj[2].toString());
+				else kh.setSoDienThoai("Chýa có");
+				user.setUsername(obj[3].toString());
+				if(obj[4]!=null)
+					dc.setThanhPho(obj[4].toString());
+				else dc.setThanhPho("Chýa có");
+				kh.setUser(user);
+				kh.setDiaChi(dc);
+				listKH.add(kh);
+			}
+
+			tr.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return listKH;
 	}
 	
 	

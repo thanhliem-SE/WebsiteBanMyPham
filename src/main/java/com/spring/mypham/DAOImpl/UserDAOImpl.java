@@ -16,6 +16,7 @@ import org.springframework.stereotype.Repository;
 
 import com.spring.mypham.DAO.MySessionFactory;
 import com.spring.mypham.DAO.UserDAO;
+import com.spring.mypham.models.DiaChi;
 import com.spring.mypham.models.KhachHang;
 import com.spring.mypham.models.SanPham;
 import com.spring.mypham.models.User;
@@ -118,6 +119,5 @@ public class UserDAOImpl implements UserDAO{
 		}
 		return false;
 	}
-
 	
 }

@@ -1,5 +1,7 @@
 package com.spring.mypham.DAO;
 
+import java.util.ArrayList;
+
 import com.spring.mypham.models.User;
 
 public interface UserDAO {
@@ -10,4 +12,5 @@ public interface UserDAO {
 	public void saveUser(User user);
 
 	void resetPassword(User user);
+
 }
