@@ -23,7 +23,11 @@ public class DiaChi implements Serializable {
 	private String thanhPho;
 	@Nationalized
 	private String ghiChu;
-
+	
+	public String getFullDiaChi() {
+		return soNha+", "+phuong+", "+quan+", "+thanhPho;
+	}
+	
 	public String getSoNha() {
 		return soNha;
 	}
