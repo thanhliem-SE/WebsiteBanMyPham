@@ -3,6 +3,7 @@
     pageEncoding="UTF-8"%>
     <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <%@ include file="/common/taglib.jsp"%>
  <div class="my-account">
             <div class="container-fluid">
                 <div class="row">
@@ -19,10 +20,16 @@
                     <div class="col-md-9">
                         <div class="tab-content">
                             <div class="tab-pane fade show active" id="dashboard-tab" role="tabpanel" aria-labelledby="dashboard-nav">
-                                <h4>Dashboard</h4>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In condimentum quam ac mi viverra dictum. In efficitur ipsum diam, at dignissim lorem tempor in. Vivamus tempor hendrerit finibus. Nulla tristique viverra nisl, sit amet bibendum ante suscipit non. Praesent in faucibus tellus, sed gravida lacus. Vivamus eu diam eros. Aliquam et sapien eget arcu rhoncus scelerisque.
-                                </p> 
+                                   <div class="row">
+                                     <img src="${urlUserImg}/icon-avatar.jpg" class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                    <div class="col-sm-9 col-md-9 col-lg-9 col-xl-9 mt-5">
+                                        <p><b>Họ tên:</b> ${khachHang.tenKhachHang}</p>
+                                        <p><b>Số điện thoại:</b> ${khachHang.soDienThoai}</p>
+                                        <p><b>Email:</b> ${khachHang.email}</p>
+                                        <p><b>Số CMND/CCCD:</b> ${khachHang.soCMND}</p>
+                                        <p><b>Địa chỉ:</b> ${diaChi.getFullDiaChi()}</p>
+                                    </div>
+                                </div> 
                             </div>
                             <div class="tab-pane fade" id="orders-tab" role="tabpanel" aria-labelledby="orders-nav">
                                 <div class="table-responsive">
@@ -68,15 +75,15 @@
                                 <h4>Address</h4>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <h5>Payment Address</h5>
-                                        <p>123 Payment Street, Los Angeles, CA</p>
-                                        <p>Mobile: 012-345-6789</p>
+                                        <h5>Địa chỉ thanh toán</h5>
+                                        <p>${diaChi.soNha}, ${diaChi.phuong}, ${diaChi.quan}, ${diaChi.thanhPho}</p>
+                                        <p>Số điện thoại: ${khachHang.soDienThoai}</p>
                                         <button class="btn">Edit Address</button>
                                     </div>
                                     <div class="col-md-6">
-                                        <h5>Shipping Address</h5>
-                                        <p>123 Shipping Street, Los Angeles, CA</p>
-                                        <p>Mobile: 012-345-6789</p>
+                                        <h5>Địa chỉ nhận hàng</h5>
+                                        <p>${diaChi.soNha}, ${diaChi.phuong}, ${diaChi.quan}, ${diaChi.thanhPho}</p>
+                                        <p>Số điện thoại: ${khachHang.soDienThoai}</p>
                                         <button class="btn">Edit Address</button>
                                     </div>
                                 </div>
