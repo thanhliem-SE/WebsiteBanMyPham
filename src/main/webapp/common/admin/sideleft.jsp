@@ -150,7 +150,7 @@
                                 <a href="${pageContext.request.contextPath}/admin/profile">Profile</a>
                             </li>
                             <li>
-                                <a href="${pageContext.request.contextPath}/admin/login">Sign In</a>
+                                <a href="${pageContext.request.contextPath}/admin/quantricp">Sign In</a>
                             </li>
                             <li>
                                 <a href="${pageContext.request.contextPath}/admin/signup/new">Sign Up</a>
