@@ -58,7 +58,7 @@
 										<td>
 											<div class="img">
 												<a href="#"><img
-													src="${pageContext.request.contextPath}/${urlUserImg}/${ds.sp.hinhAnh}"
+													src="${pageContext.request.contextPath}/${urlUserImg}/"
 													alt="Image"></a>
 												<p>${ds.sp.tenSanPham }</p>
 											</div>
