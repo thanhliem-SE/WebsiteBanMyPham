@@ -104,6 +104,7 @@ select.selectpicker {
   overflow: hidden;
   width: 100%;
   text-align: left;
+  margin-left: -10px;
 }
 .bootstrap-select.btn-group .dropdown-toggle .caret {
   position: absolute;

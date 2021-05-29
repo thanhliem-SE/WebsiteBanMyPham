@@ -11,7 +11,7 @@
                 </div>
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Trung Vinh</div>
-                    <div class="email">trungvinh@estore.com</div>
+                    <div class="email">admin@estore.com</div>
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="true">keyboard_arrow_down</i>
@@ -31,18 +31,12 @@
             <!-- Menu -->
             <div class="menu">
                 <ul class="list">
-                    <li class="header">Main menu</li>
+                    <li class="header text-uppercase">Main menu</li>
                     <li class="active">
-                        <a href="${pageContext.request.contextPath}/admin">
-                            <i class="material-icons">home</i>
-                            <span>Tổng Quan</span>
-                        </a>
-                    </li>
-                    <li>
                         <a href="${pageContext.request.contextPath}/admin/quanlyadmin">
                             <i class="material-icons">account_circle</i>
                             <i class="zmdi zmdi-account-box"></i>
-                            <span>Quản Lý Admin</span>
+                            <span>Quản lý Admin</span>
                         </a>
                     </li>
                     <li>
@@ -51,95 +45,31 @@
                                 supervised_user_circle
                             </i>
 
-                            <span>Quản Lý User</span>
+                            <span>Quản lý User</span>
                         </a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/admin/quanlydanhmuc" class="menu-toggle">
+                        <a href="${pageContext.request.contextPath}/admin/quanlydanhmuc">
                             <i class="material-icons">widgets</i>
-                            <span>Danh Mục</span>
+                            <span>Quản lý Danh Mục</span>
                         </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="javascript:void(0);" class="menu-toggle">
-                                    <span>Danh Mục Sản Phẩm</span>
-                                </a>
-                                <ul class="ml-menu">
-                                    <li>
-                                        <a href="javascript:void(0);">Danh Mục Loại Sản Phẩm</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);" class="menu-toggle">
-                                    <span>Danh Mục Khách Hàng</span>
-                                </a>
-                                <ul class="ml-menu">
-                                    <li>
-                                        <a href="javascript:void(0);">Danh Mục Loại Khách Hàng</a>
-                                    </li>
-
-                                </ul>
-                            </li>
-                        </ul>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/admin/quanlydonhang" class="menu-toggle">
+                        <a href="${pageContext.request.contextPath}/admin/quanlydonhang">
                             <i class="material-icons">shopping_cart</i>
-                            <span>Đơn Hàng</span>
+                            <span>Quản lý Đơn Hàng</span>
                         </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="#">Đơn Hàng 1</a>
-                            </li>
-                        </ul>
                     </li>
+                   
+                   
                     <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">assignment</i>
-                            <span>Chi Tiết Đơn Hàng</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="javascript:void(0);">Chi Tiết Đơn Hàng 1</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="${pageContext.request.contextPath}/admin/quanlythuonghieu" class="menu-toggle">
-                            <i class="material-icons">view_list</i>
-                            <span>Thương Hiệu</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="javascript:void(0);">Danh Sách Thương Hiệu</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="${pageContext.request.contextPath}/admin/quanlyreview" class="menu-toggle">
+                        <a href="${pageContext.request.contextPath}/admin/quanlysanpham">
                             <i class="material-icons">rate_review</i>
-                            <span>Reviews</span>
+                            <span>Quản lý Sản Phẩm</span>
                         </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="javascript:void(0);">Review 1</a>
-                            </li>
-
-
-                        </ul>
+                       
                     </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">feed</i>
-                            <span>Tin Tức</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="javascript:void(0);">Danh Sách Tin Tức</a>
-                            </li>
-                        </ul>
-                    </li>
+                 
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">contacts</i>
