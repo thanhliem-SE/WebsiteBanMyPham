@@ -60,7 +60,7 @@ public class loginController {
 	}
 	@Transactional
 	@RequestMapping(value = "/register",method = RequestMethod.POST)
-	public String register(Model model, @ModelAttribute("user") User user,@ModelAttribute("khachHang") KhachHang khachHang,@ModelAttribute("password2") String password2, HttpSession session) {
+	public String register(Model model, @ModelAttribute("user") User user,@ModelAttribute("khachHang") KhachHang khachHang,String password2, HttpSession session, String btnThemMoi) {
 //		System.out.println(user.toString());
 //		System.out.println(khachHang.toString());
 //		System.out.println("PW2: "+password2);
@@ -75,7 +75,8 @@ public class loginController {
 				khachHangService.saveKhachHang(khachHang);
 				
 				session.setAttribute("username", user.getUsername());
-				
+				if(btnThemMoi.equalsIgnoreCase("themKHMoi"))
+					return "redirect:admin/quanlyuser";
 				return "redirect:trangchu";
 			}
 			else System.out.println(rs);
@@ -83,4 +84,5 @@ public class loginController {
 		return "redirect:login";
 
 	}
+
 }
