@@ -4,33 +4,47 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.spring.mypham.DAO.DanhMucDAO;
+import com.spring.mypham.DAO.MySessionFactory;
 import com.spring.mypham.models.DanhMuc;
 
 
 @Repository
 public class DanhMucImpl implements DanhMucDAO {
 	@Autowired
-	private SessionFactory sessionFactory;
+	private static final SessionFactory sessionFactory = MySessionFactory.getInstance().getSessionFactory();
 	
 	@Transactional
 	@Override
 	public void saveDanhMuc(DanhMuc danhMuc) {
 		Session currentSession = sessionFactory.getCurrentSession();
-		currentSession.saveOrUpdate(danhMuc);
+		Transaction tr = currentSession.beginTransaction();
+		try {
+			currentSession.saveOrUpdate(danhMuc);
+			tr.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Transactional
 	@Override
 	public void deleteDanhMuc(Long id) {
 		Session currentSession = sessionFactory.getCurrentSession();
-		DanhMuc danhMuc=currentSession.get(DanhMuc.class, id);
-		currentSession.delete(danhMuc);
+		Transaction tr = currentSession.beginTransaction();
+		try {
+			DanhMuc danhMuc=currentSession.get(DanhMuc.class, id);
+			currentSession.delete(danhMuc);
+			tr.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Transactional
@@ -45,8 +59,15 @@ public class DanhMucImpl implements DanhMucDAO {
 	@Override
 	public List<DanhMuc> getListDanhMuc() {
 		Session currentSession = sessionFactory.getCurrentSession();
-		Query<DanhMuc> theQuery = currentSession.createQuery("from DanhMuc", DanhMuc.class);
-		List<DanhMuc> danhMucs = theQuery.getResultList();
+		Transaction tr = currentSession.beginTransaction();
+		List<DanhMuc> danhMucs = null;
+		try {
+			Query<DanhMuc> theQuery = currentSession.createQuery("from DanhMuc", DanhMuc.class);
+			danhMucs = theQuery.getResultList();
+			tr.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return danhMucs;
 	}
 

@@ -7,13 +7,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.spring.mypham.DAO.DanhMucDAO;
+import com.spring.mypham.DAOImpl.DanhMucImpl;
 import com.spring.mypham.SERVICE.DanhMucService;
 import com.spring.mypham.models.DanhMuc;
 
 @Service
 public class DanhMucServiceImpl implements DanhMucService{
 	@Autowired
-	private DanhMucDAO danhMucDao;
+	private static final DanhMucDAO danhMucDao =  new DanhMucImpl();
 	
 	@Transactional
 	@Override
