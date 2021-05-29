@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -263,11 +264,11 @@
 																<label for=""hinhanh"">Hình Ảnh</label>
 															</div>
 															<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7 ml--15">
-									<form:input path="anhURL" cssClass="form-control" />
-									<input name="linkImage" type="file" id="linkImage"
-										hidden="hidden" /> <span id="result"></span>
-								</div>
+																<form:input path="anhURL" cssClass="form-control" />
+																<input name="linkImage" type="file" id="linkImage"
+																	hidden="hidden" /> <span id="result"></span>
 															</div>
+														</div>
 
 														<!-- Submit -->
 														<div class="row clearfix">
@@ -306,28 +307,42 @@
 										<th scope="col">#</th>
 										<th scope="col">Hình ảnh</th>
 										<th scope="col">Tên mỹ phẩm</th>
+										<th scope="col">Thành phần</th>
+										<th scope="col">Công dụng</th>
 										<th scope="col">Giá</th>
 										<th scope="col">Số lượng</th>
-										<th scope="col">Xem chi tiết</th>
+										<!--th scope="col">Xem chi tiết</th-->
 										<th scope="col" colspan="2">Hành động</th>
 									</tr>
 								</thead>
 
 								<tbody>
-									<tr>
-										<th scope="row">1</th>
-										<td>Admin</td>
-										<td>admin@estore.com</td>
-										<td>0987333999</td>
-										<td>@admin</td>
-										<td><a onClick="xemChiTiet('${product.id}')"
-											data-toggle="modal" data-target="#xem-modal"><span
-												class="material-icons-outlined"> info </span> </a></td>
-										<td><a href="javascript:void(0);"
-											style="text-align: center"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a
-											href="javascript:void(0);" class="text-center"><i
-												class="fas fa-trash"></i></a>
-									</tr>
+									<c:forEach var="sp" items="${listSP}">
+										<tr>
+											<th scope="row">1</th>
+											<td><c:forEach var="img" items="${sp.hinhAnh}">
+													<img
+														src="${pageContext.request.contextPath}/${urlUserImg}/${img}"
+														width="100px" height="100px">
+												</c:forEach></td>
+											<td>${sp.tenSanPham}</td>
+											<td>${sp.thanhPhan}</td>
+											<td>${sp.congDung}</td>
+
+											<td><c:set var="donGia" value="${sp.donGia }"
+													scope="request" /> <%
+ out.println(new DecimalFormat("#,###").format(request.getAttribute("donGia")) + "đ");
+ %></td>
+											<td>${sp.soLuongTon }${sp.donViTinh }</td>
+											<!-- td><a onClick="xemChiTiet('${product.id}')"
+												data-toggle="modal" data-target="#xem-modal"><span
+													class="material-icons-outlined"> info </span> </a></td-->
+											<td><a href="javascript:void(0);"
+												style="text-align: center"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a
+												href="javascript:void(0);" class="text-center"><i
+													class="fas fa-trash"></i></a>
+										</tr>
+									</c:forEach>
 
 								</tbody>
 							</table>
@@ -338,30 +353,17 @@
 								id="DataTables_Table_0_paginate">
 								<ul class="pagination">
 									<li class="paginate_button previous"
-										id="DataTables_Table_0_previous"><a href="#"
+										id="DataTables_Table_0_previous"><a href="quanlysanpham?page=${previosPage}"
 										aria-controls="DataTables_Table_0" data-dt-idx="0"
 										tabindex="0">Previous</a></li>
-									<li class="paginate_button "><a href="#"
-										aria-controls="DataTables_Table_0" data-dt-idx="1"
-										tabindex="0">1</a></li>
-									<li class="paginate_button "><a href="#"
-										aria-controls="DataTables_Table_0" data-dt-idx="2"
-										tabindex="0">2</a></li>
-									<li class="paginate_button "><a href="#"
-										aria-controls="DataTables_Table_0" data-dt-idx="3"
-										tabindex="0">3</a></li>
-									<li class="paginate_button "><a href="#"
-										aria-controls="DataTables_Table_0" data-dt-idx="4"
-										tabindex="0">4</a></li>
-									<li class="paginate_button "><a href="#"
-										aria-controls="DataTables_Table_0" data-dt-idx="5"
-										tabindex="0">5</a></li>
-									<li class="paginate_button active"><a href="#"
-										aria-controls="DataTables_Table_0" data-dt-idx="6"
-										tabindex="0">6</a></li>
-									<li class="paginate_button next disabled"
-										id="DataTables_Table_0_next"><a href="#"
-										aria-controls="DataTables_Table_0" data-dt-idx="7"
+									<c:forEach var="page" begin="1" end="${pageCount}">
+										<li class="paginate_button "><a href="#"
+											aria-controls="DataTables_Table_0" data-dt-idx="1"
+											tabindex="0">${page}</a></li>
+									</c:forEach>
+									<li class="paginate_button previous"
+										id="DataTables_Table_0_previous"><a href="quanlysanpham?page=${nextPage}"
+										aria-controls="DataTables_Table_0" data-dt-idx="0"
 										tabindex="0">Next</a></li>
 								</ul>
 							</div>
