@@ -688,7 +688,7 @@
 						<li style="margin-top: -8px;"><a class="dropdown-item"
 							href="${pageContext.request.contextPath}/wish"> Wishlist</a></li>
 						<li style="margin-bottom: -8px;"><a class="dropdown-item"
-							href="${pageContext.request.contextPath}/contactus"> Contact
+							href="${pageContext.request.contextPath}/contact"> Contact
 								Us </a></li>
 					</ul></li>
 			</ul>

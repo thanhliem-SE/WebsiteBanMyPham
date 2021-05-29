@@ -7,13 +7,13 @@
 				<div class="contact-info">
 					<h2>Our Office</h2>
 					<h3>
-						<i class="fa fa-map-marker"></i>123 Office, Los Angeles, CA, USA
+						<i class="fa fa-map-marker"></i>103 Phú Định, Phường 16, Quận 8, HCM
 					</h3>
 					<h3>
-						<i class="fa fa-envelope"></i>office@example.com
+						<i class="fa fa-envelope"></i>estore.office@estore.com
 					</h3>
 					<h3>
-						<i class="fa fa-phone"></i>+123-456-7890
+						<i class="fa fa-phone"></i>+0987.000.999
 					</h3>
 					<div class="social">
 						<a href=""><i class="fab fa-twitter"></i></a> <a href=""><i
@@ -28,13 +28,13 @@
 				<div class="contact-info">
 					<h2>Our Store</h2>
 					<h3>
-						<i class="fa fa-map-marker"></i>123 Store, Los Angeles, CA, USA
+						<i class="fa fa-map-marker"></i>212 Pasteur, Phường 6, Quận 3, HCM
 					</h3>
 					<h3>
-						<i class="fa fa-envelope"></i>store@example.com
+						<i class="fa fa-envelope"></i>estore@estore.com
 					</h3>
 					<h3>
-						<i class="fa fa-phone"></i>+123-456-7890
+						<i class="fa fa-phone"></i>+0987.059.059
 					</h3>
 					<div class="social">
 						<a href=""><i class="fab fa-twitter"></i></a> <a href=""><i

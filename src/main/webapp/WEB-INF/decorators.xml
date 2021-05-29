@@ -4,6 +4,9 @@
 	<decorator name="trangchu" page="user.jsp">
 		<pattern>/trangchu</pattern>
 	</decorator>
+	<decorator name="trangchu" page="user.jsp">
+		<pattern>/</pattern>
+	</decorator>
 	<decorator name="product" page="user.jsp">
 		<pattern>/product</pattern>
 	</decorator>

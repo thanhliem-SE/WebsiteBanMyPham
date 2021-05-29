@@ -58,7 +58,6 @@ public class SanPham implements Serializable {
 	@OneToOne
 	@JoinColumn(name = "maNhanVien")
 	private NhanVien nhanVien;
-
 	public NhanVien getNhanVien() {
 		return nhanVien;
 	}
@@ -171,4 +170,5 @@ public class SanPham implements Serializable {
 		return getHinhAnh().get(0);
 	}
 
+	
 }

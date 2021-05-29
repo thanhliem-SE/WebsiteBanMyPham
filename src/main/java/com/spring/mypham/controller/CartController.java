@@ -22,9 +22,9 @@ public class CartController {
 	@Autowired
 	private SanPhamService sanPhamService;
 
-
 	@GetMapping("/addtocart/{id}")
 	public String addToCart(@PathVariable("id") long maSanPham, Model model, HttpSession session) {
+		
 		if (session.getAttribute("cart") == null) {
 			List<CartItem> cart = new ArrayList<>();
 			SanPham sp = sanPhamService.getSanPham(maSanPham);
@@ -36,6 +36,8 @@ public class CartController {
 		} else {
 			List<CartItem> cart = (List<CartItem>) session.getAttribute("cart");
 			int index = ktraSanPhamDaTonTai(maSanPham, session);
+
+			//ko load đc sysout -> ko chạy vô dòng else nên ko chạy đc add sp ừ để t thử lại
 			if (index == -1) {
 				SanPham sp = sanPhamService.getSanPham(maSanPham);
 				CartItem cartItem = new CartItem(sp, 1);
@@ -44,8 +46,10 @@ public class CartController {
 				int sl = cart.get(index).getSoLuong() + 1;
 				cart.get(index).setSoLuong(sl);
 			}
-			session.setAttribute("cart", cart);
-
+			session.setAttribute("cart", cart);	
+			session.setAttribute("cartsize", cart.size());	
+			System.out.println("cart.size() : " + cart.size());
+			System.out.println("TRUNG VINH");
 		}
 		return "redirect:/cart/";
 	}
@@ -56,16 +60,21 @@ public class CartController {
 		if (cart == null) {
 			session.setAttribute("sub", 0);
 			session.setAttribute("price", 0);
+			session.setAttribute("statuscart", "Không có sản phẩm nào trong giỏ hàng");
 			return "user/cart";
 		} else {
 			if (cart.size() <= 0) {
+				session.setAttribute("sub", 0);
+				session.setAttribute("price", 0);
+				session.setAttribute("statuscart", "Không có sản phẩm nào trong giỏ hàng");
 				return "user/cart";
 			} else {
+				session.setAttribute("statuscart", "");
 				updatePrice(session);
 				return "user/cart";
 			}
 		}
-
+//chi lai t chỗ sp
 	}
 
 	public int ktraSanPhamDaTonTai(long id, HttpSession session) {
@@ -95,12 +104,16 @@ public class CartController {
 		List<CartItem> cart = (List<CartItem>) session.getAttribute("cart");
 		double price = 0;
 		double tax = 0;
+		double salePrice = 0;
 		for (CartItem cartItem : cart) {
 			price += cartItem.getSp().getDonGia() * cartItem.getSoLuong();
 			tax += (price * cartItem.getSp().getThue()) / 100;
-			session.setAttribute("sub", price + tax);
+//			salePrice += (price * cartItem.getSp().getGiamGia()) / 100;
+			session.setAttribute("sub", price);
 			session.setAttribute("tax", tax);
-			session.setAttribute("price", price);
+			session.setAttribute("salePrice", salePrice);
+//			session.setAttribute("price", price - salePrice + tax);
+			session.setAttribute("price", price + tax);
 		}
 	}
 	@RequestMapping(value = "/addCartItem/{id}")
@@ -122,6 +135,7 @@ public class CartController {
 			if (cartItem.getSp().getMaSanPham() == maSanPham) {
 				int sl = cartItem.getSoLuong() - 1;
 				cartItem.setSoLuong(sl);
+				System.out.println("Delete: "+ cartItem.getSp().getMaSanPham());
 			}
 		}
 		return "redirect:/cart/";

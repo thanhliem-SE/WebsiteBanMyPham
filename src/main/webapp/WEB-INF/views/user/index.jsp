@@ -303,7 +303,7 @@
 			</div>
 			<div class="col-md-6">
 				<div class="form">
-					<input type="email" value="Nhập email của bạn">
+					<input type="email" placeholder="Nhập email của bạn">
 					<button>Submit</button>
 				</div>
 			</div>
