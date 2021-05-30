@@ -32,7 +32,7 @@ public class CheckoutController {
 	@Autowired
 	private LineItemService lineItemService;
 	@GetMapping("")
-	private String trangChu(Model model,HttpSession session) {
+	private String trangChu(Model model, HttpSession session) {
 		List<CartItem> cart=(List<CartItem>) session.getAttribute("cart");
 		List<ThanhToan> listThanhToans=((HoaDonDAO) hoaDonService).getListThanhToan();
 		model.addAttribute("hoaDon",new HoaDon());

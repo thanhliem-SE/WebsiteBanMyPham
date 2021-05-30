@@ -45,13 +45,16 @@
 	<decorator name="quanlyuser" page="admin.jsp">
 		<pattern>/admin/quanlyuser</pattern>
 	</decorator>
-	<decorator name="quanlyuser" page="admin.jsp">
+	<decorator name="quanlydanhmuc" page="admin.jsp">
 		<pattern>/admin/quanlydanhmuc</pattern>
 	</decorator>
-	<decorator name="quanlyuser" page="admin.jsp">
+	<decorator name="quanlynhacungcap" page="admin.jsp">
+		<pattern>/admin/quanlynhacungcap</pattern>
+	</decorator>
+	<decorator name="quanlydonhang" page="admin.jsp">
 		<pattern>/admin/quanlydonhang</pattern>
 	</decorator>
-	<decorator name="quanlyuser" page="admin.jsp">
+	<decorator name="quanlysanpham" page="admin.jsp">
 		<pattern>/admin/quanlysanpham</pattern>
 	</decorator>
 	<decorator name="profile" page="admin.jsp">

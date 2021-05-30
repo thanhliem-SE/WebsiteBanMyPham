@@ -13,17 +13,11 @@ import com.spring.mypham.models.HoaDon;
 public class HoaDonServiceImpl implements HoaDonService{
 	@Autowired
 	HoaDonDAO hoaDonDao;
-	
-	
-	
-	
+		
 	public HoaDonServiceImpl() {
 		super();
 		this.hoaDonDao = new HoaDonDAOImpl();
 	}
-
-
-
 
 	@Override
 	public Map<HoaDon, String> getListHoaDonByUsername(String username) {

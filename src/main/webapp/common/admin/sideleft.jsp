@@ -54,6 +54,12 @@
                             <span>Quản lý Danh Mục</span>
                         </a>
                     </li>
+                                        <li>
+                        <a href="${pageContext.request.contextPath}/admin/quanlynhacungcap">
+                            <i class="material-icons">widgets</i>
+                            <span>Quản lý Nhà Cung Cấp</span>
+                        </a>
+                    </li>
                     <li>
                         <a href="${pageContext.request.contextPath}/admin/quanlydonhang">
                             <i class="material-icons">shopping_cart</i>

@@ -32,7 +32,7 @@
 											<b>Giỏ hàng của bạn còn trống</b>
 										</p>
 										<div style="text-align: center;">
-											<a href="${pageContext.request.contextPath}/">
+											<a href="${pageContext.request.contextPath}/product">
 												<button type="button" class="btn btn-success fs14"
 													style="margin-bottom: 19px; background: #F91C1C; color: white; min-width: 189px;">
 													</i> MUA NGAY
