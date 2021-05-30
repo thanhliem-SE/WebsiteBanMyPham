@@ -25,7 +25,18 @@ public class DiaChi implements Serializable {
 	private String ghiChu;
 	
 	public String getFullDiaChi() {
-		return soNha+", "+phuong+", "+quan+", "+thanhPho;
+		String fullDiaChi="";
+		if(soNha!=null)
+			fullDiaChi+=soNha+", ";
+		if(phuong!=null)
+			fullDiaChi+=phuong+", ";
+		if(quan!=null)
+			fullDiaChi+=quan+", ";
+		if(thanhPho!=null)
+			fullDiaChi+=thanhPho;
+		if(fullDiaChi.isEmpty())
+			fullDiaChi="Chưa cập nhật";
+		return fullDiaChi;
 	}
 	
 	public String getSoNha() {

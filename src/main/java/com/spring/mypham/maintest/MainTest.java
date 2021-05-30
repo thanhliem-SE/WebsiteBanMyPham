@@ -14,13 +14,10 @@ import com.spring.mypham.models.HoaDon;
 public class MainTest {
 	public static void main(String[] args) {
 		
-		System.out.println(new DanhMucImpl().getListDanhMuc().size());
-		
-		SanPhamService dao = new SanPhamServiceImpl();
-		dao.getListSanPham().forEach((s)->{
-			System.out.println(s.getPathFirstImg());
+		SanPhamService sanPhamService = new SanPhamServiceImpl();
+		sanPhamService.getListSanPham().forEach(s->{
+			System.out.println("Hinh anh: " + s.getHinhAnh().size());
 		});
-		
 		
 //		KhachHangService hangService = new KhachHangServiceImpl();
 //		

@@ -36,15 +36,24 @@ public class AccountController {
 		return "user/account";
 	}
 	@RequestMapping(value = "/updateAccount",method = RequestMethod.POST)
-	public String submit(Model model, @ModelAttribute("khachHang") KhachHang khachHang,@ModelAttribute("diaChi") DiaChi diaChi, HttpSession session) {
-		KhachHang kh = khachHangService.getKhachHangByUsername(session.getAttribute("username").toString());
+	public String submit(Model model, @ModelAttribute("khachHang") KhachHang khachHang,@ModelAttribute("diaChi") DiaChi diaChi, HttpSession session, String btnCapNhat,@ModelAttribute("user") User user) {
+		System.out.println("Make -1: "+user.toString());
+		String username = user.getUsername();
+		if(!btnCapNhat.equalsIgnoreCase("updateKHByAdmin")) {
+			username = session.getAttribute("username").toString();
+		}
+		KhachHang kh = khachHangService.getKhachHangByUsername(username);
 		
+		System.out.println("make0: "+username);
 		khachHang.setUser(kh.getUser());
 		khachHang.setDiaChi(diaChi);
 		khachHang.setMaKhachHang(kh.getMaKhachHang());
+		//System.out.println("Make0 username: "+username+", KH.user.username: "+khachHang.getUser().getUsername());
 		System.out.println("Make1: "+khachHang.toString());
 		System.out.println("Make2: "+khachHang.getDiaChi().toString());
 		khachHangService.updateKhachHang(khachHang);
+		if(btnCapNhat.equalsIgnoreCase("updateKHByAdmin"))
+			return "redirect:admin/quanlyuser";
 		return "redirect:account";
 	}
 	@RequestMapping(value = "/resetPassword",method = RequestMethod.POST)

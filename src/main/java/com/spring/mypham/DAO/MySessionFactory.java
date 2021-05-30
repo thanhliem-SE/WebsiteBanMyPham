@@ -13,6 +13,7 @@ import com.spring.mypham.models.GioHang;
 import com.spring.mypham.models.HoaDon;
 import com.spring.mypham.models.KhachHang;
 import com.spring.mypham.models.LineItem;
+import com.spring.mypham.models.NhaCungCap;
 import com.spring.mypham.models.NhanVien;
 import com.spring.mypham.models.SanPham;
 import com.spring.mypham.models.ThanhToan;
@@ -37,6 +38,7 @@ public class MySessionFactory {
 				.addAnnotatedClass(SanPham.class)
 				.addAnnotatedClass(ThanhToan.class)
 				.addAnnotatedClass(User.class)
+				.addAnnotatedClass(NhaCungCap.class)
 				.getMetadataBuilder().build();
 		sessionFactory = meta.getSessionFactoryBuilder().build();
 	}

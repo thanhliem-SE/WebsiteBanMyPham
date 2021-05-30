@@ -6,6 +6,8 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.NativeQuery;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,15 +29,27 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 	@Override
 	public void saveSanPham(SanPham sanPham) {
 		Session currentSession = sessionFactory.getCurrentSession();
-		currentSession.saveOrUpdate(sanPham);
+		Transaction tr = currentSession.beginTransaction();
+		try {
+			currentSession.saveOrUpdate(sanPham);
+			tr.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Transactional
 	@Override
 	public void deleteSanPham(Long id) {
 		Session currentSession = sessionFactory.getCurrentSession();
-		SanPham sanPham = currentSession.get(SanPham.class, id);
-		currentSession.delete(sanPham);
+		Transaction tr = currentSession.beginTransaction();
+		try {
+			SanPham sanPham = currentSession.get(SanPham.class, id);
+			currentSession.delete(sanPham);
+			tr.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Transactional
@@ -53,30 +67,15 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 		Transaction tr = session.beginTransaction();
 
 		try {
-			String sql = "select * from SanPham";
-			@SuppressWarnings("unchecked")
-			List<Object> objs = session.createNativeQuery(sql).getResultList();
-			for (Object arrayObj : objs) {
-				Object[] obj = (Object[]) arrayObj;
-				SanPham s = new SanPham();
-				s.setMaSanPham(Integer.parseInt(obj[0].toString()));
-				s.setCongDung(obj[1].toString());
-				s.setDonGia(Double.parseDouble(obj[2].toString()));
-				s.setDonViTinh(obj[3].toString());
-				s.setHanSuDung(Integer.parseInt(obj[4].toString()));
-				s.setNhaCungCap(obj[5].toString());
-				s.setSoLuongTon(Integer.parseInt(obj[6].toString()));
-				s.setTenSanPham(obj[7].toString());
-				s.setThanhPhan(obj[8].toString());
-				s.setThue(Double.parseDouble(obj[9].toString()));
+			Query<SanPham> theQuery = session.createQuery("from SanPham", SanPham.class);
+			rs = theQuery.getResultList();
+			for (SanPham s : rs)
 				s.setHinhAnh(getHinhAnhById(s.getMaSanPham()));
-				rs.add(s);
-			}
-
 			tr.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
 		return rs;
 	}
 
@@ -84,7 +83,7 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 		List<String> rs = new ArrayList<String>();
 		Session session = sessionFactory.getCurrentSession();
 		Transaction tr = session.getTransaction();
-		if(!tr.isActive())
+		if (!tr.isActive())
 			tr.begin();
 		try {
 			String sql = "Select hinhanh from sanpham s join hinhanh h on s.masanpham = h.masanpham where s.maSanPham = "
@@ -104,16 +103,16 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 	@Transactional
 	@Override
 	public List<SanPham> getListSanPhamTheoPage(int page, List<SanPham> list) {
-		int position = (page-1)*6;
+		int position = (page - 1) * 6;
 		int end = position + 6;
-		
+
 		List<SanPham> sanPhams = new ArrayList<SanPham>();
-		
-		while(position < end && list.size() > position) {
+
+		while (position < end && list.size() > position) {
 			sanPhams.add(list.get(position));
 			position++;
 		}
-		
+
 		return sanPhams;
 	}
 
@@ -125,39 +124,23 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 		return ((int) (sanPhams.size() / 6)) + 1;
 	}
 
-
 	@Override
-	@SuppressWarnings("unchecked")
 	public List<SanPham> getListSanPhamTheoGia(int dinhMuc) {
 		List<SanPham> rs = new ArrayList<SanPham>();
 		Session session = sessionFactory.getCurrentSession();
 		Transaction tr = session.beginTransaction();
 		String sql = "";
 		try {
-			if(dinhMuc==1)
+			if (dinhMuc == 1)
 				sql = "select * from SanPham Where donGia < 1000000";
-			else if(dinhMuc==2)
+			else if (dinhMuc == 2)
 				sql = "select * from SanPham Where donGia >= 1000000 And donGia <= 3000000";
-			else 
+			else
 				sql = "select * from SanPham Where donGia > 3000000";
-			List<Object> objs = session.createNativeQuery(sql).getResultList();
-			for (Object arrayObj : objs) {
-				Object[] obj = (Object[]) arrayObj;
-				SanPham s = new SanPham();
-				s.setMaSanPham(Integer.parseInt(obj[0].toString()));
-				s.setCongDung(obj[1].toString());
-				s.setDonGia(Double.parseDouble(obj[2].toString()));
-				s.setDonViTinh(obj[3].toString());
-				s.setHanSuDung(Integer.parseInt(obj[4].toString()));
-				s.setNhaCungCap(obj[5].toString());
-				s.setSoLuongTon(Integer.parseInt(obj[6].toString()));
-				s.setTenSanPham(obj[7].toString());
-				s.setThanhPhan(obj[8].toString());
-				s.setThue(Double.parseDouble(obj[9].toString()));
+			NativeQuery<SanPham> theQuery = session.createNativeQuery(sql, SanPham.class);
+			rs = theQuery.getResultList();
+			for (SanPham s : rs)
 				s.setHinhAnh(getHinhAnhById(s.getMaSanPham()));
-				rs.add(s);
-			}
-
 			tr.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -173,25 +156,10 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 
 		try {
 			String sql = "select * from SanPham Where maDanhMuc = " + maDanhMuc;
-			@SuppressWarnings("unchecked")
-			List<Object> objs = session.createNativeQuery(sql).getResultList();
-			for (Object arrayObj : objs) {
-				Object[] obj = (Object[]) arrayObj;
-				SanPham s = new SanPham();
-				s.setMaSanPham(Integer.parseInt(obj[0].toString()));
-				s.setCongDung(obj[1].toString());
-				s.setDonGia(Double.parseDouble(obj[2].toString()));
-				s.setDonViTinh(obj[3].toString());
-				s.setHanSuDung(Integer.parseInt(obj[4].toString()));
-				s.setNhaCungCap(obj[5].toString());
-				s.setSoLuongTon(Integer.parseInt(obj[6].toString()));
-				s.setTenSanPham(obj[7].toString());
-				s.setThanhPhan(obj[8].toString());
-				s.setThue(Double.parseDouble(obj[9].toString()));
+			NativeQuery<SanPham> theQuery = session.createNativeQuery(sql, SanPham.class);
+			rs = theQuery.getResultList();
+			for (SanPham s : rs)
 				s.setHinhAnh(getHinhAnhById(s.getMaSanPham()));
-				rs.add(s);
-			}
-
 			tr.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -206,26 +174,13 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 		Transaction tr = session.beginTransaction();
 
 		try {
-			String sql = "select * from SanPham Where NhaCungCap = N'" + ncc + "'" ;
-			@SuppressWarnings("unchecked")
-			List<Object> objs = session.createNativeQuery(sql).getResultList();
-			for (Object arrayObj : objs) {
-				Object[] obj = (Object[]) arrayObj;
-				SanPham s = new SanPham();
-				s.setMaSanPham(Integer.parseInt(obj[0].toString()));
-				s.setCongDung(obj[1].toString());
-				s.setDonGia(Double.parseDouble(obj[2].toString()));
-				s.setDonViTinh(obj[3].toString());
-				s.setHanSuDung(Integer.parseInt(obj[4].toString()));
-				s.setNhaCungCap(obj[5].toString());
-				s.setSoLuongTon(Integer.parseInt(obj[6].toString()));
-				s.setTenSanPham(obj[7].toString());
-				s.setThanhPhan(obj[8].toString());
-				s.setThue(Double.parseDouble(obj[9].toString()));
+			String sql = "Select * from SanPham maSanPham where maSanPham in\r\n"
+					+ "(select maSanPham from SanPham s join NhaCungCap ncc on s.maNhaCungCap = ncc.id Where tenNCC = N'"
+					+ ncc + "')";
+			NativeQuery<SanPham> theQuery = session.createNativeQuery(sql, SanPham.class);
+			rs = theQuery.getResultList();
+			for (SanPham s : rs)
 				s.setHinhAnh(getHinhAnhById(s.getMaSanPham()));
-				rs.add(s);
-			}
-
 			tr.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -240,26 +195,11 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 		Transaction tr = session.beginTransaction();
 
 		try {
-			String sql = "select * from SanPham Where tenSanPham Like N'%" + tenSanPham + "%'" ;
-			@SuppressWarnings("unchecked")
-			List<Object> objs = session.createNativeQuery(sql).getResultList();
-			for (Object arrayObj : objs) {
-				Object[] obj = (Object[]) arrayObj;
-				SanPham s = new SanPham();
-				s.setMaSanPham(Integer.parseInt(obj[0].toString()));
-				s.setCongDung(obj[1].toString());
-				s.setDonGia(Double.parseDouble(obj[2].toString()));
-				s.setDonViTinh(obj[3].toString());
-				s.setHanSuDung(Integer.parseInt(obj[4].toString()));
-				s.setNhaCungCap(obj[5].toString());
-				s.setSoLuongTon(Integer.parseInt(obj[6].toString()));
-				s.setTenSanPham(obj[7].toString());
-				s.setThanhPhan(obj[8].toString());
-				s.setThue(Double.parseDouble(obj[9].toString()));
+			String sql = "select * from SanPham Where tenSanPham Like N'%" + tenSanPham + "%'";
+			NativeQuery<SanPham> theQuery = session.createNativeQuery(sql, SanPham.class);
+			rs = theQuery.getResultList();
+			for (SanPham s : rs)
 				s.setHinhAnh(getHinhAnhById(s.getMaSanPham()));
-				rs.add(s);
-			}
-
 			tr.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -281,26 +221,11 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 		Transaction tr = session.beginTransaction();
 
 		try {
-			String sql = "select * from SanPham Where maSanPham = '" + maSanPham + "'" ;
-			@SuppressWarnings("unchecked")
-			List<Object> objs = session.createNativeQuery(sql).getResultList();
-			for (Object arrayObj : objs) {
-				Object[] obj = (Object[]) arrayObj;
-				SanPham s = new SanPham();
-				s.setMaSanPham(Integer.parseInt(obj[0].toString()));
-				s.setCongDung(obj[1].toString());
-				s.setDonGia(Double.parseDouble(obj[2].toString()));
-				s.setDonViTinh(obj[3].toString());
-				s.setHanSuDung(Integer.parseInt(obj[4].toString()));
-				s.setNhaCungCap(obj[5].toString());
-				s.setSoLuongTon(Integer.parseInt(obj[6].toString()));
-				s.setTenSanPham(obj[7].toString());
-				s.setThanhPhan(obj[8].toString());
-				s.setThue(Double.parseDouble(obj[9].toString()));
+			String sql = "select * from SanPham Where maSanPham = '" + maSanPham + "'";
+			NativeQuery<SanPham> theQuery = session.createNativeQuery(sql, SanPham.class);
+			rs = theQuery.getResultList();
+			for (SanPham s : rs)
 				s.setHinhAnh(getHinhAnhById(s.getMaSanPham()));
-				rs.add(s);
-			}
-
 			tr.commit();
 		} catch (Exception e) {
 			e.printStackTrace();

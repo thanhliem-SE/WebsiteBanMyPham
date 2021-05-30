@@ -108,8 +108,13 @@
 	                                    </div>
 	                                    <div class="col-md-6">
 	                                        <select class="form-control" name="thanhPho">
-	                                        	<option value="${diaChi.thanhPho}" selected hidden>${diaChi.thanhPho}</option>
-	                                        	<option value="Hồ Chí Minh">Hồ Chí Minh</option>
+	                                        	<c:if test="${not empty diaChi.thanhPho}">
+	                                        		<option value="${diaChi.thanhPho}" selected hidden>${diaChi.thanhPho}</option>
+	                                        	</c:if>
+	                                        	<c:if test="${empty diaChi.thanhPho}">
+	                                        		<option value="Hồ Chí Minh" selected hidden>Hồ Chí Minh</option>
+	                                        	</c:if>
+	                                     		<option value="Hồ Chí Minh">Hồ Chí Minh</option>
 	                                        	<option value="Đồng Nai">Đồng Nai</option>
 	                                        	<option value="Tiền Giang">Tiền Giang</option>
 	                                        	<option value="An Giang">An Giang</option>
@@ -120,7 +125,12 @@
 	                                    </div>
 	                                    <div class="col-md-6">
 	                                        <select class="form-control" name="quan">
-	                                        	<option value="${diaChi.quan}" selected hidden>${diaChi.quan}</option>
+	                                        	<c:if test="${not empty diaChi.quan}">
+	                                        		<option value="${diaChi.quan}" selected hidden>${diaChi.quan}</option>
+	                                        	</c:if>
+	                                        	<c:if test="${empty diaChi.quan}">
+	                                        		<option value="Quận 1" selected hidden>Quận 1</option>
+	                                        	</c:if>
 	                                        	<option value="Quận 1">Quận 1</option>
 	                                        	<option value="Quận 2">Quận 2</option>
 	                                        	<option value="Quận 3">Quận 3</option>
@@ -135,7 +145,12 @@
 	                                    <div class="col-md-6">
 	                                    
 	                                        <select class="form-control" name="phuong">
-	                                       		<option value="${diaChi.phuong}" selected hidden>${diaChi.phuong}</option>
+	                                        	<c:if test="${not empty diaChi.phuong}">
+	                                        		<option value="${diaChi.phuong}" selected hidden>${diaChi.phuong}</option>
+	                                        	</c:if>
+	                                        	<c:if test="${empty diaChi.phuong}">
+	                                        		<option value="Phường 1" selected hidden>Phường 1</option>
+	                                        	</c:if>
 	                                        	<option value="Phường 1">Phường 1</option>
 	                                        	<option value="Phường 2">Phường 2</option>
 	                                        	<option value="Phường 3">Phường 3</option>

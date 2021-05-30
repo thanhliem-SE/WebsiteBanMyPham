@@ -1,12 +1,10 @@
 package com.spring.mypham.models;
 
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CollectionTable;
-import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,8 +27,11 @@ public class SanPham implements Serializable {
 	private long maSanPham;
 	@Nationalized
 	private String tenSanPham;
-	@Nationalized
-	private String nhaCungCap;
+
+	@OneToOne
+	@JoinColumn(name = "maNhaCungCap")
+	private NhaCungCap NhaCungCap;
+
 	private double donGia;
 	private int hanSuDung;
 	@Nationalized
@@ -43,6 +44,8 @@ public class SanPham implements Serializable {
 	@Nationalized
 	@Lob
 	private String congDung;
+
+	private double giamGia;
 
 	@ElementCollection()
 	@CollectionTable(name = "HinhAnh", joinColumns = @JoinColumn(name = "maSanPham"))
@@ -58,6 +61,23 @@ public class SanPham implements Serializable {
 	@OneToOne
 	@JoinColumn(name = "maNhanVien")
 	private NhanVien nhanVien;
+
+	public void setNhaCungCap(NhaCungCap nhaCungCap) {
+		NhaCungCap = nhaCungCap;
+	}
+
+	public NhaCungCap getNhaCungCap() {
+		return NhaCungCap;
+	}
+
+	public double getGiamGia() {
+		return giamGia;
+	}
+
+	public void setGiamGia(double giamGia) {
+		this.giamGia = giamGia;
+	}
+
 	public NhanVien getNhanVien() {
 		return nhanVien;
 	}
@@ -88,14 +108,6 @@ public class SanPham implements Serializable {
 
 	public void setTenSanPham(String tenSanPham) {
 		this.tenSanPham = tenSanPham;
-	}
-
-	public String getNhaCungCap() {
-		return nhaCungCap;
-	}
-
-	public void setNhaCungCap(String nhaCungCap) {
-		this.nhaCungCap = nhaCungCap;
 	}
 
 	public double getDonGia() {
@@ -165,10 +177,9 @@ public class SanPham implements Serializable {
 	public SanPham() {
 		super();
 	}
-	
+
 	public String getPathFirstImg() {
 		return getHinhAnh().get(0);
 	}
 
-	
 }

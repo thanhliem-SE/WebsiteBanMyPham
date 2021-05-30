@@ -114,7 +114,7 @@ public class KhachHangDAOImpl implements KhachHangDAO{
 //		System.out.println("Make: "+khachHang.toString());
 //		System.out.println("Make: "+khachHang.getDiaChi().toString());
 		try {
-			String sql = "update KhachHang set tenKhachHang=?,soDienThoai=?,email=?,phuong=?,quan=?,thanhPho=?,soNha=?,ghiChu=? where username like ?";
+			String sql = "update KhachHang set tenKhachHang=?,soDienThoai=?,email=?,phuong=?,quan=?,thanhPho=?,soNha=?,ghiChu=?,soCMND=? where username like ?";
 			currentSession.createNativeQuery(sql)
 				.setParameter(1, khachHang.getTenKhachHang())
 				.setParameter(2, khachHang.getSoDienThoai())
@@ -122,9 +122,10 @@ public class KhachHangDAOImpl implements KhachHangDAO{
 				.setParameter(4, khachHang.getDiaChi().getPhuong())
 				.setParameter(5, khachHang.getDiaChi().getQuan())
 				.setParameter(6, khachHang.getDiaChi().getThanhPho())
-				.setParameter(9, khachHang.getUser().getUsername())
+				.setParameter(10, khachHang.getUser().getUsername())
 				.setParameter(7, khachHang.getDiaChi().getSoNha())
 				.setParameter(8, khachHang.getDiaChi().getGhiChu())
+				.setParameter(9, khachHang.getSoCMND())
 				.executeUpdate();
 			tr.commit();
 			System.out.println("Update Thanh COng");
@@ -185,17 +186,19 @@ public class KhachHangDAOImpl implements KhachHangDAO{
 				KhachHang kh = new KhachHang();
 				User user = new User();
 				DiaChi dc = new DiaChi();
-				kh.setTenKhachHang(obj[0].toString());
+				if(obj[0]!=null)
+					kh.setTenKhachHang(obj[0].toString());
+				else kh.setTenKhachHang("Chýa có");
 				if(obj[1]!=null)
 					kh.setEmail(obj[1].toString());
-				else kh.setEmail("Chï¿½a cï¿½");
+				else kh.setEmail("Chýa có");
 				if(obj[2]!=null)
 					kh.setSoDienThoai(obj[2].toString());
-				else kh.setSoDienThoai("Chï¿½a cï¿½");
+				else kh.setSoDienThoai("Chýa có");
 				user.setUsername(obj[3].toString());
 				if(obj[4]!=null)
 					dc.setThanhPho(obj[4].toString());
-				else dc.setThanhPho("Chï¿½a cï¿½");
+				else dc.setThanhPho("Chýa có");
 				kh.setUser(user);
 				kh.setDiaChi(dc);
 				listKH.add(kh);
