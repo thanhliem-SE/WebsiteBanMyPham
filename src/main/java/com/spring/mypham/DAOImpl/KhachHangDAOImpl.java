@@ -38,7 +38,7 @@ public class KhachHangDAOImpl implements KhachHangDAO{
 		Transaction tr = session.beginTransaction();
 
 		try {
-			String sql = "select maKhachHang,email,soDienThoai,tenKhachHang,KhachHang.username, users.password, enabled,CMND,ghiChu,phuong,quan,thanhPho,soNha from KhachHang INNER JOIN users ON KhachHang.username = users.username where KhachHang.username like ?";
+			String sql = "select maKhachHang,email,soDienThoai,tenKhachHang,KhachHang.username, users.password, enabled,soCMND,ghiChu,phuong,quan,thanhPho,soNha from KhachHang INNER JOIN users ON KhachHang.username = users.username where KhachHang.username like ?";
 			@SuppressWarnings("unchecked")
 			List<Object> objs = session.createNativeQuery(sql).setParameter(1, username).getResultList();
 			for (Object arrayObj : objs) {
@@ -114,7 +114,7 @@ public class KhachHangDAOImpl implements KhachHangDAO{
 //		System.out.println("Make: "+khachHang.toString());
 //		System.out.println("Make: "+khachHang.getDiaChi().toString());
 		try {
-			String sql = "update KhachHang set tenKhachHang=?,soDienThoai=?,email=?,phuong=?,quan=?,thanhPho=? where username like ?";
+			String sql = "update KhachHang set tenKhachHang=?,soDienThoai=?,email=?,phuong=?,quan=?,thanhPho=?,soNha=?,ghiChu=? where username like ?";
 			currentSession.createNativeQuery(sql)
 				.setParameter(1, khachHang.getTenKhachHang())
 				.setParameter(2, khachHang.getSoDienThoai())
@@ -122,7 +122,10 @@ public class KhachHangDAOImpl implements KhachHangDAO{
 				.setParameter(4, khachHang.getDiaChi().getPhuong())
 				.setParameter(5, khachHang.getDiaChi().getQuan())
 				.setParameter(6, khachHang.getDiaChi().getThanhPho())
-				.setParameter(7, khachHang.getUser().getUsername()).executeUpdate();
+				.setParameter(9, khachHang.getUser().getUsername())
+				.setParameter(7, khachHang.getDiaChi().getSoNha())
+				.setParameter(8, khachHang.getDiaChi().getGhiChu())
+				.executeUpdate();
 			tr.commit();
 			System.out.println("Update Thanh COng");
 		}catch (Exception e) {
@@ -185,14 +188,14 @@ public class KhachHangDAOImpl implements KhachHangDAO{
 				kh.setTenKhachHang(obj[0].toString());
 				if(obj[1]!=null)
 					kh.setEmail(obj[1].toString());
-				else kh.setEmail("Chýa có");
+				else kh.setEmail("Chï¿½a cï¿½");
 				if(obj[2]!=null)
 					kh.setSoDienThoai(obj[2].toString());
-				else kh.setSoDienThoai("Chýa có");
+				else kh.setSoDienThoai("Chï¿½a cï¿½");
 				user.setUsername(obj[3].toString());
 				if(obj[4]!=null)
 					dc.setThanhPho(obj[4].toString());
-				else dc.setThanhPho("Chýa có");
+				else dc.setThanhPho("Chï¿½a cï¿½");
 				kh.setUser(user);
 				kh.setDiaChi(dc);
 				listKH.add(kh);

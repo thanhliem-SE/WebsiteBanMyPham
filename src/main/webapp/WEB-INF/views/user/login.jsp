@@ -33,7 +33,7 @@
 									type="password" placeholder="Mật khẩu" name="password2">
 							</div>
 							<div class="col-md-12">
-								<button class="btn" type="submit" value="Register">Đăng
+								<button class="btn" type="submit" value="Register" name="btnThemMoi">Đăng
 									ký</button>
 							</div>
 						</div>

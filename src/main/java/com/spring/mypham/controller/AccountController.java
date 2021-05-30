@@ -42,8 +42,8 @@ public class AccountController {
 		khachHang.setUser(kh.getUser());
 		khachHang.setDiaChi(diaChi);
 		khachHang.setMaKhachHang(kh.getMaKhachHang());
-//		System.out.println("Make1: "+khachHang.toString());
-//		System.out.println("Make2: "+khachHang.getDiaChi().toString());
+		System.out.println("Make1: "+khachHang.toString());
+		System.out.println("Make2: "+khachHang.getDiaChi().toString());
 		khachHangService.updateKhachHang(khachHang);
 		return "redirect:account";
 	}
