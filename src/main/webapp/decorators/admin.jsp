@@ -59,7 +59,7 @@
         <!-- Dropzone Css -->
     <link href="<c:url value="/resources/admin/plugins/dropzone/dropzone.css"/>" rel="stylesheet">
         <!-- Multi Select Css -->
-    <link href="<c:url value="/resources/admin/plugins/multi-select/css/multi-select.css"/>" rel="stylesheet">
+ <link href="<c:url value="/resources/admin/plugins/multi-select/css/multi-select.css"/>" rel="stylesheet"> 
     <!-- Bootstrap Spinner Css -->
     <link href="<c:url value="/resources/admin/plugins/jquery-spinner/css/bootstrap-spinner.css"/>" rel="stylesheet">
         <!-- Bootstrap Tagsinput Css -->
