@@ -5,8 +5,6 @@
 <%@ include file="/common/taglib.jsp"%>
 <section class="content">
 	<div class="container-fluid">
-		<!-- #END# Basic Examples -->
-		<!-- Exportable Table -->
 		<div class="row clearfix">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<div class="card">
@@ -338,7 +336,7 @@
 								id="DataTables_Table_0" role="grid"
 								aria-describedby="DataTables_Table_0_info">
 								<thead>
-									<tr role="row">
+						<!-- 			<tr role="row"> -->
 								<thead>
 									<tr class="text-white">
 										<th scope="col">#</th>

@@ -41,6 +41,7 @@ public class CartController {
 				SanPham sp = sanPhamService.getSanPham(maSanPham);
 				CartItem cartItem = new CartItem(sp, 1);
 				cart.add(cartItem);
+				model.addAttribute("sp", sp);
 			} else {
 				int sl = cart.get(index).getSoLuong() + 1;
 				cart.get(index).setSoLuong(sl);
@@ -73,9 +74,8 @@ public class CartController {
 				return "user/cart";
 			}
 		}
-//chi lai t chỗ sp
 	}
-
+	
 	public int ktraSanPhamDaTonTai(long id, HttpSession session) {
 		List<CartItem> cart = (List<CartItem>) session.getAttribute("cart");
 		for (int i = 0; i < cart.size(); i++) {

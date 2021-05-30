@@ -9,7 +9,7 @@
 				<nav class="navbar bg-light">
 					<ul class="navbar-nav">
 						<li class="nav-item"><a class="nav-link"
-							href="${pageContext.request.contextPath}/trangchu"><i
+							href="<c:url value="${pageContext.request.contextPath}/trangchu"/>"><i
 								class="fa fa-home"></i>Trang Chủ</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/bestseller"><i
