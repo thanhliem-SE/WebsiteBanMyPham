@@ -41,10 +41,15 @@
 								<div style="display: block;">
 									<h2 style="color: white;">vinh</h2>
 									<button type="button" class="btn btn-info btn-lg"
-										style="background: #f44336 !important;" data-toggle="modal"
-										data-target="#myModal">Thêm sản phẩm</button>
+										style="background: #f44336 !important; min-width: 180px !important;"
+										data-toggle="modal" data-target="#myModal">Thêm sản
+										phẩm</button>
+									<button type="button" class="btn btn-info btn-lg"
+										style="background: #f44336 !important; min-width: 180px !important;"
+										data-toggle="modal" data-target="#myModalNCC">Thêm
+										Nhà Cung Cấp</button>
 
-									<!-- Modal -->
+									<!-- Modal Thêm Sản Phẩm -->
 									<div class="modal fade" id="myModal" role="dialog">
 										<div class="modal-dialog">
 
@@ -57,38 +62,6 @@
 														sản phẩm</h4>
 												</div>
 												<div class="modal-body">
-													<!-- 													<form class="form-horizontal" action="/action_page.php">
-														<div class="form-group mt-10">
-															<label class="control-label col-sm-3" for="email">Tên
-																sản phẩm:</label>
-															<div class="col-sm-9">
-																<input type="text" class="form-control input-themsp"
-																	id="tensanpham" placeholder="Venus" name="tensanpham">
-															</div>
-														</div>
-														<div class="form-group mt-10">
-															<label class="control-label col-sm-3" for="email">Giá</label>
-															<div class="col-sm-9">
-																<input type="text" class="form-control input-themsp"
-																	id="tensanpham" placeholder="Venus" name="tensanpham">
-															</div>
-														</div>
-														<div class="form-group mt-10">
-															<label class="control-label col-sm-3" for="email">Số lượng</label>
-															<div class="col-sm-9">
-																<input type="text" class="form-control input-themsp"
-																	id="tensanpham" placeholder="Venus" name="tensanpham">
-															</div>
-														</div>
-														<div class="form-group mt-10">
-															<label class="control-label col-sm-3" for="email">Tên
-																sản phẩm:</label>
-															<div class="col-sm-9">
-																<input type="text" class="form-control input-themsp"
-																	id="tensanpham" placeholder="Venus" name="tensanpham">
-															</div>
-														</div>
-													</form> -->
 													<form class="form-horizontal">
 														<div class="row clearfix">
 															<div
@@ -149,13 +122,13 @@
 														<div class="row clearfix">
 															<div
 																class="col-lg-3 col-md-3 col-sm-4 col-xs-5 form-control-label">
-																<label for=""nhacungcap"">Công dụng</label>
+																<label for="congdung">Công dụng</label>
 															</div>
 															<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7">
 																<div class="form-group">
 																	<div class="form-line">
-																		<input type="text" id="thue" class="form-control"
-																			placeholder="Trắng da">
+																		<textarea rows="4" class="form-control no-resize"
+																			placeholder="Tươi Mát Da"></textarea>
 																	</div>
 																</div>
 															</div>
@@ -163,13 +136,13 @@
 														<div class="row clearfix">
 															<div
 																class="col-lg-3 col-md-3 col-sm-4 col-xs-5 form-control-label">
-																<label for=""nhacungcap"">Thành phần</label>
+																<label for="thanhphan">Thành phần</label>
 															</div>
 															<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7">
 																<div class="form-group">
 																	<div class="form-line">
-																		<input type="text" id="thue" class="form-control"
-																			placeholder="Collect">
+																		<textarea rows="4" class="form-control no-resize"
+																			placeholder="Nước Tẩy Trang L'Oreal Micellar Water 3-In-1 là dòng sản phẩm tẩy trang đến từ thương hiệu L'Oreal Paris"></textarea>
 																	</div>
 																</div>
 															</div>
@@ -293,6 +266,70 @@
 										</div>
 
 									</div>
+									<div class="modal fade" id="myModalNCC" role="dialog">
+										<div class="modal-dialog">
+
+											<!-- Modal content-->
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal">&times;</button>
+													<h4 class="modal-title"
+														style="text-align: center; text-transform: uppercase; color: #f63f2e; font-size: 24px;">Thêm
+														nhà cung cấp</h4>
+												</div>
+												<div class="modal-body">
+													<form class="form-horizontal">
+														<div class="row clearfix">
+															<div
+																class="col-lg-3 col-md-3 col-sm-4 col-xs-5 form-control-label">
+																<label for="tensp">Tên sản phẩm</label>
+															</div>
+															<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7">
+																<div class="form-group">
+																	<div class="form-line">
+																		<input type="text" id="tensp" class="form-control"
+																			placeholder="Công Ty TNHH 1 thành viên">
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="row clearfix">
+															<div
+																class="col-lg-3 col-md-3 col-sm-4 col-xs-5 form-control-label">
+																<label for="tensp">Thông tin NCC</label>
+															</div>
+															<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7">
+																<div class="form-group">
+																	<div class="form-line">
+																		<textarea rows="6" class="form-control no-resize"
+																			placeholder="Please type what you want..."></textarea>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<!-- Submit -->
+														<div class="row clearfix">
+															<div
+																class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+
+															</div>
+															<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+																<button type="button"
+																	style="width: 90%; height: 40px; margin-left: 32px; margin-top: 0; background: #f63f2e !important;"
+																	class="btn btn-primary m-t-15 waves-effect">Submit</button>
+															</div>
+														</div>
+												</div>
+
+												</form>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-default"
+													data-dismiss="modal">Close</button>
+											</div>
+										</div>
+
+									</div>
 								</div>
 
 							</div>
@@ -353,7 +390,8 @@
 								id="DataTables_Table_0_paginate">
 								<ul class="pagination">
 									<li class="paginate_button previous"
-										id="DataTables_Table_0_previous"><a href="quanlysanpham?page=${previosPage}"
+										id="DataTables_Table_0_previous"><a
+										href="quanlysanpham?page=${previosPage}"
 										aria-controls="DataTables_Table_0" data-dt-idx="0"
 										tabindex="0">Previous</a></li>
 									<c:forEach var="page" begin="1" end="${pageCount}">
@@ -362,7 +400,8 @@
 											tabindex="0">${page}</a></li>
 									</c:forEach>
 									<li class="paginate_button previous"
-										id="DataTables_Table_0_previous"><a href="quanlysanpham?page=${nextPage}"
+										id="DataTables_Table_0_previous"><a
+										href="quanlysanpham?page=${nextPage}"
 										aria-controls="DataTables_Table_0" data-dt-idx="0"
 										tabindex="0">Next</a></li>
 								</ul>
