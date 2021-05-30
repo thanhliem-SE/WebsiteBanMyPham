@@ -42,10 +42,6 @@
 										style="background: #f44336 !important; min-width: 180px !important;"
 										data-toggle="modal" data-target="#myModal">Thêm sản
 										phẩm</button>
-									<button type="button" class="btn btn-info btn-lg"
-										style="background: #f44336 !important; min-width: 180px !important;"
-										data-toggle="modal" data-target="#myModalNCC">Thêm
-										Nhà Cung Cấp</button>
 
 									<!-- Modal Thêm Sản Phẩm -->
 									<div class="modal fade" id="myModal" role="dialog">
@@ -60,7 +56,8 @@
 														sản phẩm</h4>
 												</div>
 												<div class="modal-body">
-													<form class="form-horizontal">
+													<form class="form-horizontal" enctype="multipart/form-data"
+														method="post" action="addSanPham">
 														<div class="row clearfix">
 															<div
 																class="col-lg-3 col-md-3 col-sm-4 col-xs-5 form-control-label">
@@ -69,8 +66,8 @@
 															<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7">
 																<div class="form-group">
 																	<div class="form-line">
-																		<input type="text" id="tensp" class="form-control"
-																			placeholder="Venus 2021">
+																		<input type="text" id="tensp" name="tenSanPham"
+																			class="form-control" placeholder="Venus 2021">
 																	</div>
 																</div>
 															</div>
@@ -83,8 +80,8 @@
 															<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7">
 																<div class="form-group">
 																	<div class="form-line">
-																		<input type="tel" id="tensp" class="form-control"
-																			placeholder="200.000">
+																		<input type="tel" id="tensp" name="donGia"
+																			class="form-control" placeholder="200.000">
 																	</div>
 																</div>
 															</div>
@@ -97,8 +94,8 @@
 															<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7">
 																<div class="form-group">
 																	<div class="form-line">
-																		<input type="text" id="tensp" class="form-control"
-																			placeholder="2">
+																		<input type="text" id="tensp" name="soLuongTon"
+																			class="form-control" placeholder="2">
 																	</div>
 																</div>
 															</div>
@@ -111,8 +108,8 @@
 															<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7">
 																<div class="form-group">
 																	<div class="form-line">
-																		<input type="text" id="thue" class="form-control"
-																			placeholder="10%">
+																		<input type="text" id="thue" name="thue"
+																			class="form-control" placeholder="10%">
 																	</div>
 																</div>
 															</div>
@@ -126,7 +123,7 @@
 																<div class="form-group">
 																	<div class="form-line">
 																		<textarea rows="4" class="form-control no-resize"
-																			placeholder="Tươi Mát Da"></textarea>
+																			placeholder="Tươi Mát Da" name="congDung"></textarea>
 																	</div>
 																</div>
 															</div>
@@ -140,6 +137,7 @@
 																<div class="form-group">
 																	<div class="form-line">
 																		<textarea rows="4" class="form-control no-resize"
+																			name="thanhPhan"
 																			placeholder="Nước Tẩy Trang L'Oreal Micellar Water 3-In-1 là dòng sản phẩm tẩy trang đến từ thương hiệu L'Oreal Paris"></textarea>
 																	</div>
 																</div>
@@ -154,13 +152,14 @@
 																<div
 																	class="btn-group bootstrap-select form-control show-tick open dropup">
 
-																	<select class="form-control show-tick" tabindex="-98">
-																		<option>Chai</option>
-																		<option>Cái</option>
-																		<option>Tuýp</option>
-																		<option>Hộp</option>
-																		<option>Hũ</option>
-																		<option>Lọ</option>
+																	<select class="form-control show-tick" tabindex="-98"
+																		name="donViTinh">
+																		<option value="Chai">Chai</option>
+																		<option value="Cái">Cái</option>
+																		<option value="Tuýp">Tuýp</option>
+																		<option value="Hộp">Hộp</option>
+																		<option value="Hũ">Hũ</option>
+																		<option value="Lọ">Lọ</option>
 																	</select>
 																</div>
 															</div>
@@ -174,12 +173,13 @@
 																<div
 																	class="btn-group bootstrap-select form-control show-tick open dropup">
 
-																	<select class="form-control show-tick" tabindex="-98">
-																		<option>6</option>
-																		<option>12</option>
-																		<option>18</option>
-																		<option>24</option>
-																		<option>36</option>
+																	<select class="form-control show-tick" tabindex="-98"
+																		name="hanSuDung">
+																		<option value="6">6 tháng</option>
+																		<option value="12">12 tháng</option>
+																		<option value="18">18 tháng</option>
+																		<option value="24">24 tháng</option>
+																		<option value="36">36 tháng</option>
 																	</select>
 																</div>
 															</div>
@@ -193,13 +193,11 @@
 																<div
 																	class="btn-group bootstrap-select form-control show-tick open dropup">
 
-																	<select class="form-control show-tick" tabindex="-98">
-																		<option>Chăm Sóc Da Mặt</option>
-																		<option>Chăm Sóc Cơ Thể</option>
-																		<option>Chăm Sóc Tóc</option>
-																		<option>Nước Hoa</option>
-																		<option>Trang Điểm</option>
-																		<option>Thực Phẩm Chức Năng</option>
+																	<select class="form-control show-tick" tabindex="-98"
+																		name="maDanhMuc">
+																		<c:forEach var="dm" items="${listDanhMuc}">
+																			<option value="${dm.maDanhMuc}">${dm.tenDanhMuc}</option>
+																		</c:forEach>
 																	</select>
 																</div>
 															</div>
@@ -213,18 +211,11 @@
 																<div
 																	class="btn-group bootstrap-select form-control show-tick open dropup">
 
-																	<select class="form-control show-tick" tabindex="-98">
-																		<option>Bioderma</option>
-																		<option>Valmont</option>
-																		<option>Kérastase</option>
-																		<option>Huxley</option>
-																		<option>Huxley</option>
-																		<option>Vital Beautie</option>
-																		<option>PREBIOTIC</option>
-																		<option>Bioderma</option>
-																		<option>Valmont</option>
-																		<option>Huxley</option>
-																		<option>iS Clinical</option>
+																	<select class="form-control show-tick"
+																		tabindex="-98 name="maNhaCungCap">
+																		<c:forEach var="ncc" items="${listNhaCungCap}">
+																			<option value="${ncc.id}">${ncc.tenNCC}</option>
+																		</c:forEach>
 																	</select>
 																</div>
 															</div>
@@ -248,71 +239,7 @@
 
 															</div>
 															<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-																<button type="button"
-																	style="width: 90%; height: 40px; margin-left: 32px; margin-top: 0; background: #f63f2e !important;"
-																	class="btn btn-primary m-t-15 waves-effect">Submit</button>
-															</div>
-														</div>
-												</div>
-
-												</form>
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-default"
-													data-dismiss="modal">Close</button>
-											</div>
-										</div>
-
-									</div>
-									<div class="modal fade" id="myModalNCC" role="dialog">
-										<div class="modal-dialog">
-
-											<!-- Modal content-->
-											<div class="modal-content">
-												<div class="modal-header">
-													<button type="button" class="close" data-dismiss="modal">&times;</button>
-													<h4 class="modal-title"
-														style="text-align: center; text-transform: uppercase; color: #f63f2e; font-size: 24px;">Thêm
-														nhà cung cấp</h4>
-												</div>
-												<div class="modal-body">
-													<form class="form-horizontal">
-														<div class="row clearfix">
-															<div
-																class="col-lg-3 col-md-3 col-sm-4 col-xs-5 form-control-label">
-																<label for="tensp">Tên sản phẩm</label>
-															</div>
-															<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7">
-																<div class="form-group">
-																	<div class="form-line">
-																		<input type="text" id="tensp" class="form-control"
-																			placeholder="Công Ty TNHH 1 thành viên">
-																	</div>
-																</div>
-															</div>
-														</div>
-														<div class="row clearfix">
-															<div
-																class="col-lg-3 col-md-3 col-sm-4 col-xs-5 form-control-label">
-																<label for="tensp">Thông tin NCC</label>
-															</div>
-															<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7">
-																<div class="form-group">
-																	<div class="form-line">
-																		<textarea rows="6" class="form-control no-resize"
-																			placeholder="Please type what you want..."></textarea>
-																	</div>
-																</div>
-															</div>
-														</div>
-														<!-- Submit -->
-														<div class="row clearfix">
-															<div
-																class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-
-															</div>
-															<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-																<button type="button"
+																<button type="submit"
 																	style="width: 90%; height: 40px; margin-left: 32px; margin-top: 0; background: #f63f2e !important;"
 																	class="btn btn-primary m-t-15 waves-effect">Submit</button>
 															</div>
@@ -336,10 +263,9 @@
 								id="DataTables_Table_0" role="grid"
 								aria-describedby="DataTables_Table_0_info">
 								<thead>
-						<!-- 			<tr role="row"> -->
+									<!-- 			<tr role="row"> -->
 								<thead>
 									<tr class="text-white">
-										<th scope="col">#</th>
 										<th scope="col">Hình ảnh</th>
 										<th scope="col">Tên mỹ phẩm</th>
 										<th scope="col">Thành phần</th>
@@ -354,7 +280,6 @@
 								<tbody>
 									<c:forEach var="sp" items="${listSP}">
 										<tr>
-											<th scope="row">1</th>
 											<td><c:forEach var="img" items="${sp.hinhAnh}">
 													<img
 														src="${pageContext.request.contextPath}/${urlUserImg}/${img}"
@@ -374,7 +299,8 @@
 													class="material-icons-outlined"> info </span> </a></td-->
 											<td><a href="javascript:void(0);"
 												style="text-align: center"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a
-												href="javascript:void(0);" class="text-center"><i
+												onclick="return confirm('Bạn muốn xoá sản phẩm này phải không?');"
+												href="deleteSanPham?id=${sp.maSanPham}" class="text-center"><i
 													class="fas fa-trash"></i></a>
 										</tr>
 									</c:forEach>
@@ -393,7 +319,8 @@
 										aria-controls="DataTables_Table_0" data-dt-idx="0"
 										tabindex="0">Previous</a></li>
 									<c:forEach var="page" begin="1" end="${pageCount}">
-										<li class="paginate_button "><a href="#"
+										<li class="paginate_button "><a
+											href="quanlysanpham?page=${page}"
 											aria-controls="DataTables_Table_0" data-dt-idx="1"
 											tabindex="0">${page}</a></li>
 									</c:forEach>

@@ -55,19 +55,34 @@
 														Nhà Cung Cấp</h4>
 												</div>
 												<div class="modal-body">
-													<form class="form-horizontal" action="themDanhMuc"
+													<form class="form-horizontal" action="themNhaCungCap"
 														method="post">
 														<div class="row clearfix">
 															<div
 																class="col-lg-3 col-md-3 col-sm-4 col-xs-5 form-control-label">
-																<label for="tensp">Tên NCC</label>
+																<label for="tensp">Tên Nhà Cung Cấp</label>
 															</div>
 															<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7">
 																<div class="form-group">
 																	<div class="form-line">
-																		<input type="text" id="tensp" name="tenDanhMuc"
+																		<input type="text" id="tensp" name="tenNCC"
 																			class="form-control" required="required"
-																			placeholder="Chăm sóc da mặt">
+																			placeholder="Huxley">
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="row clearfix">
+															<div
+																class="col-lg-3 col-md-3 col-sm-4 col-xs-5 form-control-label">
+																<label for="tensp">Thông tin Nhà Cung Cấp</label>
+															</div>
+															<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7">
+																<div class="form-group">
+																	<div class="form-line">
+																		<input type="text" id="tensp" name="thongTinNCC"
+																			class="form-control" required="required"
+																			placeholder="Huxley là một thương hiệu...">
 																	</div>
 																</div>
 															</div>
@@ -106,26 +121,27 @@
 									<tr role="row">
 								<thead>
 									<tr class="text-white">
-										<th scope="col">Mã NCC</th>
 										<th scope="col">Tên NCC</th>
+										<th scope="col">Thông NCC</th>
 										<th scope="col" colspan="2">Hành động</th>
 									</tr>
 								</thead>
 
 								<tbody>
-									<c:forEach var="dm" items="${listDM}">
+									<c:forEach var="ncc" items="${listNCC}">
 										<tr>
-											<td>${dm.maDanhMuc}</td>
-											<td>${dm.tenDanhMuc}</td>
+											<td>${ncc.tenNCC}</td>
+											<td>${ncc.thongTinNCC}</td>
 
 											<td><a style="text-align: center" data-toggle="modal"
-												data-target="#modal${dm.maDanhMuc}"><i class="fas fa-edit"></i></a>
+												data-target="#modal${ncc.id}"><i class="fas fa-edit"></i></a>
 												&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; <a
-												href="deleteDanhMuc?maDanhMuc=${dm.maDanhMuc}"
-												class="text-center"><i class="fas fa-trash"></i></a>
+												onclick="return confirm('Bạn muốn xoá nhà cung cấp này phải không?');"
+												href="deleteNhaCungCap?id=${ncc.id}" class="text-center"><i
+													class="fas fa-trash"></i></a>
 										</tr>
 										<!-- Modal -->
-										<div class="modal fade" id="modal${dm.maDanhMuc}" role="dialog">
+										<div class="modal fade" id="modal${ncc.id}" role="dialog">
 											<div class="modal-dialog">
 												<!-- Modal content-->
 												<div class="modal-content">
@@ -133,23 +149,40 @@
 														<button type="button" class="close" data-dismiss="modal">&times;</button>
 														<h4 class="modal-title"
 															style="text-align: center; text-transform: uppercase; color: #f63f2e; font-size: 24px;">Edit
-															danh mục</h4>
+															Nhà Cung Cấp</h4>
 													</div>
 													<div class="modal-body">
-														<form class="form-horizontal" action="themDanhMuc"
+														<form class="form-horizontal" action="themNhaCungCap"
 															method="post">
 
 															<div class="row clearfix">
 																<div
 																	class="col-lg-3 col-md-3 col-sm-4 col-xs-5 form-control-label">
-																	<label for="tensp">Tên danh mục</label>
+																	<label for="tensp">Tên Nhà Cung Cấp</label>
 																</div>
 																<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7">
 																	<div class="form-group">
 																		<div class="form-line">
-																			<input type="text" name="maDanhMuc" value="${dm.maDanhMuc}" hidden>
-																			<input type="text" name="tenDanhMuc" value="${dm.tenDanhMuc}"
-																				class="form-control" required="required">
+																			<input type="text" name="id" value="${ncc.id}" hidden>
+																			<input type="text" name="tenNCC"
+																				value="${ncc.tenNCC}" class="form-control"
+																				required="required">
+																		</div>
+																	</div>
+																</div>
+															</div>
+
+															<div class="row clearfix">
+																<div
+																	class="col-lg-3 col-md-3 col-sm-4 col-xs-5 form-control-label">
+																	<label for="tensp">Tên Nhà Cung Cấp</label>
+																</div>
+																<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7">
+																	<div class="form-group">
+																		<div class="form-line">
+																			<input type="text" name="thongTinNCC"
+																				value="${ncc.thongTinNCC}" class="form-control"
+																				required="required">
 																		</div>
 																	</div>
 																</div>
