@@ -3,8 +3,13 @@ package com.spring.mypham.models;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -13,10 +18,11 @@ import javax.persistence.Table;
 @Table(name = "users")
 public class User implements Serializable {
 
+	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 3668102614215435784L;
+	private static final long serialVersionUID = 6766789070876192525L;
 	/**
 	 * 
 	 */
@@ -25,8 +31,14 @@ public class User implements Serializable {
 	private String password;
 	private boolean enabled;
 
-	@OneToMany(mappedBy = "user")
-	private List<Authority> authority;
+	@ManyToMany(cascade=CascadeType.MERGE)
+    @JoinTable(
+       name="user_role",
+       joinColumns={@JoinColumn(name="USER_ID", referencedColumnName="username")},
+       inverseJoinColumns={@JoinColumn(name="ROLE_ID", referencedColumnName="ID")})
+    private List<Role> roles;
+//	@OneToMany(mappedBy = "user")
+//	private List<Authority> authority;
 
 	@OneToOne(mappedBy = "user")
 	private NhanVien nhanVien;
@@ -64,9 +76,11 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		return "User [username=" + username + ", password=" + password + ", enabled=" + enabled + ", authority="
-				+ authority + ", nhanVien=" + nhanVien + ", khachHang=" + khachHang + "]";
+		return "User [username=" + username + ", password=" + password + ", enabled=" + enabled + ", roles=" + roles
+				+ ", nhanVien=" + nhanVien + ", khachHang=" + khachHang + "]";
 	}
+
+	
 	
 	
 

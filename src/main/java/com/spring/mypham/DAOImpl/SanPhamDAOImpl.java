@@ -29,7 +29,9 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 	@Override
 	public void saveSanPham(SanPham sanPham) {
 		Session currentSession = sessionFactory.getCurrentSession();
-		Transaction tr = currentSession.beginTransaction();
+		Transaction tr = currentSession.getTransaction();
+		if (!tr.isActive())
+			tr = currentSession.beginTransaction();
 		try {
 			currentSession.saveOrUpdate(sanPham);
 			tr.commit();
@@ -59,15 +61,34 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 		SanPham sanPham = currentSession.get(SanPham.class, id);
 		return sanPham;
 	}
+
+	public SanPham getDienThoai(Long id) {
+		List<SanPham> rs = new ArrayList<SanPham>();
+		Session session = sessionFactory.getCurrentSession();
+		Transaction tr = session.beginTransaction();
+
+		try {
+			String sql = "select * from SanPham Where maSanPham = '" + id + "'";
+			NativeQuery<SanPham> theQuery = session.createNativeQuery(sql, SanPham.class);
+			rs = theQuery.getResultList();
+			for (SanPham s : rs)
+				s.setHinhAnh(getHinhAnhById(s.getMaSanPham()));
+			tr.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return rs.get(0);
+	}
 	@Transactional
 	@Override
 	public List<SanPham> getListSanPham() {
 		List<SanPham> rs = new ArrayList<SanPham>();
-		
+
 		  Session session = sessionFactory.getCurrentSession(); 
 		  Transaction tr = session.beginTransaction();
-		 
-
+//		Transaction tr = session.getTransaction();
+		if (!tr.isActive())
+			tr = session.beginTransaction();
 		try {
 			Query<SanPham> theQuery = session.createQuery("from SanPham", SanPham.class);
 			rs = theQuery.getResultList();
@@ -92,9 +113,12 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 					+ maSanPham;
 			@SuppressWarnings("unchecked")
 			List<Object> objs = session.createNativeQuery(sql).getResultList();
-			for (Object obj : objs) {
-				rs.add(obj.toString());
-			}
+			if (objs.size() > 0)
+				for (Object obj : objs) {
+					rs.add(obj.toString());
+				}
+			else
+				rs.add("img-default.jpg");
 			tr.commit();
 		} catch (Exception e) {
 			e.printStackTrace();

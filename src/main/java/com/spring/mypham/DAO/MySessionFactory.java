@@ -6,7 +6,6 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
-import com.spring.mypham.models.Authority;
 import com.spring.mypham.models.DanhMuc;
 import com.spring.mypham.models.DiaChi;
 import com.spring.mypham.models.GioHang;
@@ -15,6 +14,7 @@ import com.spring.mypham.models.KhachHang;
 import com.spring.mypham.models.LineItem;
 import com.spring.mypham.models.NhaCungCap;
 import com.spring.mypham.models.NhanVien;
+import com.spring.mypham.models.Role;
 import com.spring.mypham.models.SanPham;
 import com.spring.mypham.models.ThanhToan;
 import com.spring.mypham.models.User;
@@ -27,7 +27,7 @@ public class MySessionFactory {
 	public MySessionFactory() {
 		StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();
 		Metadata meta = new MetadataSources(registry)
-				.addAnnotatedClass(Authority.class)
+				.addAnnotatedClass(Role.class)
 				.addAnnotatedClass(DanhMuc.class)
 				.addAnnotatedClass(DiaChi.class)
 				.addAnnotatedClass(GioHang.class)

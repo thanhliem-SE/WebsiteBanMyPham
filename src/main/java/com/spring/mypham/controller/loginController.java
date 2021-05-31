@@ -42,7 +42,7 @@ public class loginController {
 	public String submit(Model model, @ModelAttribute("user") User user, HttpSession session) {
 		if (user != null && user.getUsername() != null & user.getPassword() != null) {
 			System.out.println("username: "+user.getUsername()+"/ pass: "+user.getPassword());
-			if (userService.checkLoginInfo(user)) {
+			if (userService.checkLoginInfo(user,"USER")) {
 				//model.addAttribute("msg", user.getUsername());
 				session.setAttribute("username"	, user.getUsername());
 				System.out.println("Mat khau trung khop");

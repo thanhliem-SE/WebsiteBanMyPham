@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="/common/taglib.jsp"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <section class="content">
 	<div class="container-fluid">
 		<!-- #END# Basic Examples -->
@@ -31,6 +32,74 @@
 						<div class="table-responsive">
 							<div id="DataTables_Table_0_wrapper"
 								class="dataTables_wrapper form-inline dt-bootstrap">
+								<div class="col-md-12">
+												<button class="btn btn-success" type="button" data-toggle="modal"
+														data-target="#modalThemMoi">Thêm nhân viên mới</button>
+								</div>
+									<!-- The Modal -->
+									<div class="modal" id="modalThemMoi">
+										<div class="modal-dialog">
+											<div class="modal-content">
+					
+												<!-- Modal Header -->
+												<div class="modal-header">
+													<h4 class="modal-title">Thêm nhân viên mới</h4>
+													<button type="button" class="close" data-dismiss="modal">&times;</button>
+												</div>
+					
+												<!-- Modal body -->
+												<div class="modal-body">
+													<form:form method="post" name="registerNhanVien"
+														action="${pageContext.request.contextPath}/admin/registerNhanVien">
+														<div class="register-form">
+															<div class="row">
+																<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+																	<label>Họ và tên</label> <br><input class="form-control fs14 "
+																		type="text" placeholder="VD: Trần Văn A"
+																		name="tenKhachHang">
+																</div>
+																<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+																	<label>Tên tài khoản</label> <input
+																		class="form-control fs14" type="text"
+																		placeholder="VD: username123" name="username">
+																</div>
+																<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+																	<label>E-mail</label> <br><input class="form-control fs14"
+																		type="text" placeholder="abc@example.com" name="email">
+																</div>
+																<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+																	<label>Số điện thoại</label> <input
+																		class="form-control fs14" type="text"
+																		placeholder="VD: 0912345567" name="soDienThoai">
+																</div>
+																<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+																	<label>Mật khẩu</label><br> <input class="form-control fs14"
+																		type="password" placeholder="Mật khẩu" name="password">
+																</div>
+																<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+																	<label>Nhập lại mật khẩu</label> <input
+																		class="form-control fs14" type="password"
+																		placeholder="Mật khẩu" name="password2">
+																</div>
+																
+																<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+																	<button class="btn btn-success" type="submit"
+																		value="btnThemNV" name="btnThemNV">Thêm mới</button>
+																</div>
+															</div>
+														</div>
+													</form:form>
+												</div>
+					
+												<!-- Modal footer -->
+												<div class="modal-footer">
+													<button type="button" class="btn btn-danger"
+														data-dismiss="modal">Close</button>
+												</div>
+					
+											</div>
+										</div>
+									</div>
 								<div id="DataTables_Table_0_filter" class="dataTables_filter"
 									style="float: left; padding-bottom: 4px">
 									<label>Search:<input type="search"
@@ -50,73 +119,31 @@
 											<th scope="col">Email</th>
 											<th scope="col">Số điện thoại</th>
 											<th scope="col">Username</th>
-											<th scope="col">Ngày tạo</th>
+											<th scope="col">Chức vụ</th>
 											<th scope="col">Hành động</th>
 										</tr>
 									</thead>
 
 									<tbody>
-										<tr>
-											<th scope="row">1</th>
-											<td>Admin</td>
-											<td>admin@estore.com</td>
-											<td>0987333999</td>
-											<td>@admin</td>
-											<td>05-05-2021</td>
-											<td><a href="javascript:void(0);" class="text-center"><i
-													class="fas fa-user-edit"></i></a>
-										</tr>
-										<tr>
-											<th scope="row">1</th>
-											<td>Admin</td>
-											<td>admin@estore.com</td>
-											<td>0987333999</td>
-											<td>@admin</td>
-											<td>05-05-2021</td>
-											<td><a href="javascript:void(0);" class="text-center"><i
-													class="fas fa-user-edit"></i></a>
-										</tr>
-										<tr>
-											<th scope="row">1</th>
-											<td>Admin</td>
-											<td>admin@estore.com</td>
-											<td>0987333999</td>
-											<td>@admin</td>
-											<td>05-05-2021</td>
-											<td><a href="javascript:void(0);" class="text-center"><i
-													class="fas fa-user-edit"></i></a>
-										</tr>
-										<tr>
-											<th scope="row">1</th>
-											<td>Admin</td>
-											<td>admin@estore.com</td>
-											<td>0987333999</td>
-											<td>@admin</td>
-											<td>05-05-2021</td>
-											<td><a href="javascript:void(0);" class="text-center"><i
-													class="fas fa-user-edit"></i></a>
-										</tr>
-										<tr>
-											<th scope="row">1</th>
-											<td>Admin</td>
-											<td>admin@estore.com</td>
-											<td>0987333999</td>
-											<td>@admin</td>
-											<td>05-05-2021</td>
-											<td><a href="javascript:void(0);" class="text-center"><i
-													class="fas fa-user-edit"></i></a>
-										</tr>
-										<tr>
-											<th scope="row">1</th>
-											<td>Admin</td>
-											<td>admin@estore.com</td>
-											<td>0987333999</td>
-											<td>@admin</td>
-											<td>05-05-2021</td>
-											<td><a href="javascript:void(0);" class="text-center"><i
-													class="fas fa-user-edit"></i></a>
-										</tr>
-
+										<c:if test="${not empty listNV }">
+										<%
+										int i = 1;
+										%>
+										<c:forEach var="element" items="${listNV}">
+											<tr>
+												<th scope="row"><%=i++%></th>
+												<td>${element.tenNhanVien}</td>
+												<td>${element.email}</td>
+												<td>${element.soDienThoai}</td>
+												<td>${element.user.username}</td>
+												<td>${element.chucVu}</td>
+												<td>
+													<button>Sửa</button>
+													<button>Xóa</button>
+												</td>
+											</tr>
+										</c:forEach>
+										</c:if>
 									</tbody>
 								</table>
 								<div class="dataTables_info" id="DataTables_Table_0_info"
@@ -162,3 +189,8 @@
 		<!-- #END# Exportable Table -->
 	</div>
 </section>
+
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

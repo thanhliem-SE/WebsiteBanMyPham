@@ -2,6 +2,8 @@ package com.spring.mypham.controller.ADMIN;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -18,8 +20,10 @@ import com.spring.mypham.models.KhachHang;
 public class QuanLyUserController {
 	private static final KhachHangService khachHangService = new KhachHangServiceImpl();
 	@GetMapping("/quanlyuser")
-	public String managerUser(Model model) {
-		
+	public String managerUser(Model model,HttpSession session) {
+		if(session.getAttribute("usernameAdmin")==null)
+			return "redirect:quantricp";
+			
 		showAllKhachHang(model);
 		return "admin/quanlyuser";
 	}
