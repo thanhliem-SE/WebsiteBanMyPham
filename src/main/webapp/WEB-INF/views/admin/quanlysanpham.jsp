@@ -58,7 +58,7 @@
 												</div>
 												<div class="modal-body">
 													<form class="form-horizontal" method="post"
-														action="addSanPham">
+														enctype="multipart/form-data" action="addSanPham">
 														<div class="row clearfix">
 															<div
 																class="col-lg-3 col-md-3 col-sm-4 col-xs-5 form-control-label">
@@ -247,17 +247,15 @@
 																</div>
 															</div>
 														</div>
-														<!--div class="row clearfix">
+														<div class="row clearfix">
 															<div
 																class="col-lg-3 col-md-3 col-sm-4 col-xs-5 form-control-label">
 																<label for=""hinhanh"">Hình Ảnh</label>
 															</div>
 															<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7 ml--15">
-																<input name="linkImage" type="file" id="linkImage"
-																	hidden="hidden" /> <span id="result"></span>
+																<input type="file" name="files" multiple="multiple" />
 															</div>
-														</div-->
-
+														</div>
 														<!-- Submit -->
 														<div class="row clearfix">
 															<div
@@ -305,28 +303,6 @@
 
 								<tbody>
 									<c:forEach var="sp" items="${listSP}">
-										<tr>
-											<td><c:forEach var="img" items="${sp.hinhAnh}">
-													<img
-														src="${pageContext.request.contextPath}/${urlUserImg}/${img}"
-														width="100px" height="100px">
-												</c:forEach></td>
-											<td>${sp.tenSanPham}</td>
-											<td>${sp.thanhPhan}</td>
-											<td>${sp.congDung}</td>
-
-											<td><c:set var="donGia" value="${sp.donGia }"
-													scope="request" /> <%
- out.println(new DecimalFormat("#,###").format(request.getAttribute("donGia")) + "đ");
- %></td>
-											<td>${sp.soLuongTon }&nbsp;${sp.donViTinh }</td>
-											<td>
-											<a style="text-align: center" data-toggle="modal" data-target="#modal${sp.maSanPham}"><i
-													class="fas fa-edit"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a
-												onclick="return confirm('Bạn muốn xoá sản phẩm này phải không?');"
-												href="deleteSanPham?id=${sp.maSanPham}" class="text-center"><i
-													class="fas fa-trash"></i></a>
-										</tr>
 										<!-- Modal Edit Sản Phẩm -->
 										<div class="modal fade" id="modal${sp.maSanPham}"
 											role="dialog">
@@ -342,7 +318,7 @@
 													</div>
 													<div class="modal-body">
 														<form class="form-horizontal" method="post"
-															action="editSanPham">
+															action="updateSanPham" enctype="multipart/form-data">
 															<div class="row clearfix">
 																<div
 																	class="col-lg-3 col-md-3 col-sm-4 col-xs-5 form-control-label">
@@ -351,10 +327,10 @@
 																<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7">
 																	<div class="form-group">
 																		<div class="form-line">
-																			<input  name="maSanPham" value="${sp.maSanPham}" hidden>
-																			<input type="text" id="tensp" name="tenSanPham"
-																				required="required" class="form-control"
-																				value="${sp.tenSanPham}">
+																			<input name="maSanPham" value="${sp.maSanPham}"
+																				hidden> <input type="text" id="tensp"
+																				name="tenSanPham" required="required"
+																				class="form-control" value="${sp.tenSanPham}">
 
 																		</div>
 																	</div>
@@ -414,8 +390,7 @@
 																	<div class="form-group">
 																		<div class="form-line">
 																			<textarea rows="4" class="form-control no-resize"
-																				required="required"
-																				name="congDung">${sp.congDung}</textarea>
+																				required="required" name="congDung">${sp.congDung}</textarea>
 																		</div>
 																	</div>
 																</div>
@@ -476,7 +451,7 @@
 																	</div>
 																</div>
 															</div>
-															 <div class="row clearfix">
+															<div class="row clearfix">
 																<div
 																	class="col-lg-3 col-md-3 col-sm-4 col-xs-5 form-control-label">
 																	<label for=""danhmuc"">Danh mục</label>
@@ -486,9 +461,10 @@
 																		class="btn-group bootstrap-select form-control show-tick open dropup">
 
 																		<select class="form-control show-tick" tabindex="-98"
-																			name="maDanhMuc2">
+																			name="maDanhMuc">
 																			<c:forEach var="dm" items="${listDanhMuc}">
-																				<option value="${dm.maDanhMuc}" <c:if test="${sp.danhMuc.maDanhMuc == dm.maDanhMuc}">selected="selected"</c:if>>${dm.tenDanhMuc}</option>
+																				<option value="${dm.maDanhMuc}"
+																					<c:if test="${sp.danhMuc.maDanhMuc == dm.maDanhMuc}">selected="selected"</c:if>>${dm.tenDanhMuc}</option>
 																			</c:forEach>
 																		</select>
 																	</div>
@@ -506,7 +482,8 @@
 																		<select class="form-control show-tick"
 																			tabindex="-98 name="maNhaCungCap">
 																			<c:forEach var="ncc" items="${listNhaCungCap}">
-																				<option value="${ncc.id}" <c:if test="${sp.nhaCungCap.id == ncc.id}">selected="selected"</c:if>>${ncc.tenNCC}</option>
+																				<option value="${ncc.id}"
+																					<c:if test="${sp.nhaCungCap.id == ncc.id}"></c:if>>${ncc.tenNCC}</option>
 																			</c:forEach>
 																		</select>
 																	</div>
@@ -523,13 +500,27 @@
 
 																		<select class="form-control show-tick" tabindex="-98"
 																			name="giamGia">
-																			<option value="5" <c:if test="${sp.giamGia == 5}">selected="selected"</c:if>>5%</option>
-																			<option value="10" <c:if test="${sp.giamGia == 10}">selected="selected"</c:if>>10%</option>
-																			<option value="15" <c:if test="${sp.giamGia == 15}">selected="selected"</c:if>>15%</option>
-																			<option value="20" <c:if test="${sp.giamGia == 20}">selected="selected"</c:if>>20%</option>
-																			<option value="25" <c:if test="${sp.giamGia == 25}">selected="selected"</c:if>>25%</option>
+																			<option value="5"
+																				<c:if test="${sp.giamGia == 5}">selected="selected"</c:if>>5%</option>
+																			<option value="10"
+																				<c:if test="${sp.giamGia == 10}">selected="selected"</c:if>>10%</option>
+																			<option value="15"
+																				<c:if test="${sp.giamGia == 15}">selected="selected"</c:if>>15%</option>
+																			<option value="20"
+																				<c:if test="${sp.giamGia == 20}">selected="selected"</c:if>>20%</option>
+																			<option value="25"
+																				<c:if test="${sp.giamGia == 25}">selected="selected"</c:if>>25%</option>
 																		</select>
 																	</div>
+																</div>
+															</div>
+															<div class="row clearfix">
+																<div
+																	class="col-lg-3 col-md-3 col-sm-4 col-xs-5 form-control-label">
+																	<label for=""hinhanh"">Hình Ảnh</label>
+																</div>
+																<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7 ml--15">
+																	<input type="file" name="files" multiple="multiple" />
 																</div>
 															</div>
 															<div class="row clearfix">
@@ -553,11 +544,35 @@
 											</div>
 
 										</div>
+										<!-- End Modal Edit San Pham -->
+										<tr>
+											<td><c:forEach var="img" items="${sp.hinhAnh}">
+													<img
+														src="${pageContext.request.contextPath}/${urlUserImg}/${img}"
+														width="100px" height="100px">
+												</c:forEach></td>
+											<td>${sp.tenSanPham}</td>
+											<td>${sp.thanhPhan}</td>
+											<td>${sp.congDung}</td>
+
+											<td><c:set var="donGia" value="${sp.donGia }"
+													scope="request" /> <%
+ out.println(new DecimalFormat("#,###").format(request.getAttribute("donGia")) + "đ");
+ %></td>
+											<td>${sp.soLuongTon }&nbsp;${sp.donViTinh }</td>
+											<td><a style="text-align: center" data-toggle="modal"
+												data-target="#modal${sp.maSanPham}"><i
+													class="fas fa-edit"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+												<a
+												onclick="return confirm('Bạn muốn xoá sản phẩm này phải không?');"
+												href="deleteSanPham?id=${sp.maSanPham}" class="text-center"><i
+													class="fas fa-trash"></i></a>
+										</tr>
 									</c:forEach>
 
 								</tbody>
 							</table>
-						
+
 							<div class="dataTables_paginate paging_simple_numbers"
 								id="DataTables_Table_0_paginate">
 								<ul class="pagination">

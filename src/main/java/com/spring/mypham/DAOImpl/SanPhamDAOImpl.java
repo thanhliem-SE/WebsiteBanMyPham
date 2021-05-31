@@ -57,9 +57,21 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 	@Transactional
 	@Override
 	public SanPham getDienThoai(Long id) {
-		Session currentSession = sessionFactory.getCurrentSession();
-		SanPham sanPham = currentSession.get(SanPham.class, id);
-		return sanPham;
+		List<SanPham> rs = new ArrayList<SanPham>();
+		Session session = sessionFactory.getCurrentSession();
+		Transaction tr = session.beginTransaction();
+
+		try {
+			String sql = "select * from SanPham Where maSanPham = '" + id + "'";
+			NativeQuery<SanPham> theQuery = session.createNativeQuery(sql, SanPham.class);
+			rs = theQuery.getResultList();
+			for (SanPham s : rs)
+				s.setHinhAnh(getHinhAnhById(s.getMaSanPham()));
+			tr.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return rs.get(0);
 	}
 
 	@Override
@@ -93,7 +105,7 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 					+ maSanPham;
 			@SuppressWarnings("unchecked")
 			List<Object> objs = session.createNativeQuery(sql).getResultList();
-			if(objs.size()>0)
+			if (objs.size() > 0)
 				for (Object obj : objs) {
 					rs.add(obj.toString());
 				}

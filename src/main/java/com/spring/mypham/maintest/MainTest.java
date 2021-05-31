@@ -1,5 +1,8 @@
 package com.spring.mypham.maintest;
 
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -14,10 +17,12 @@ import com.spring.mypham.models.HoaDon;
 public class MainTest {
 	public static void main(String[] args) {
 		
-		SanPhamService sanPhamService = new SanPhamServiceImpl();
-		sanPhamService.getListSanPham().forEach(s->{
-			System.out.println("Hinh anh: " + s.getHinhAnh().size());
-		});
+//		SanPhamService sanPhamService = new SanPhamServiceImpl();
+//		sanPhamService.getListSanPham().forEach(s->{
+//			System.out.println("Hinh anh: " + s.getHinhAnh().size());
+//		});
+		
+		System.out.println(Paths.get(new File("").getAbsolutePath()));
 		
 //		KhachHangService hangService = new KhachHangServiceImpl();
 //		
