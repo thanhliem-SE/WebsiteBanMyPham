@@ -6,7 +6,7 @@
 <div class="cart-page">
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-lg-8">
+			<div class="col-lg-9">
 
 				<div class="cart-page-inner">
 					<div class="table-responsive">
@@ -119,35 +119,48 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-4">
+			<div class="col-lg-3">
 				<div class="cart-page-inner">
 					<div class="row">
 						<div class="col-md-12">
 							<div class="coupon">
-								<input type="text" placeholder="Coupon Code">
+								<input type="text" placeholder="Coupon">
 								<button>Apply Code</button>
 							</div>
 						</div>
 						<div class="col-md-12">
 							<div class="cart-summary">
 								<div class="cart-content">
-									<h1>Hoá đơn của bạn(VAT)</h1>
+									<h1 style="font-size: 16px; text-align: center">Hoá đơn
+										của bạn</h1>
 									<p>
 										Tạm tính<span> <fmt:formatNumber type="number"
-												pattern="#,###,###.## ₫" value="${price}" /></span>
+												pattern="###,###,### ₫" value="${sub}" /></span>
 									</p>
-									<!-- <p>Shipping Cost<span>0</span><span>₫</span></p> -->
-									<h2>
-										Tổng tiền<span> <fmt:formatNumber type="number"
-												pattern="#,###,###.## ₫" value="${price}" /></span>
-									</h2>
-								</div>
-								<div class="cart-btn">
-									<a href="${pageContext.request.contextPath}/checkout">
-										<button>Checkout</button>
-									</a>
+									<p>
+												Giảm giá
+												<fmt:formatNumber type="number" pattern="###,###"
+												value="${ds.sp.giamGia }" />
+										<span><fmt:formatNumber type="number" pattern="###,###"
+												value="${salePrice}" /> ₫</span>
+									</p>
 
+									<!-- <p>Shipping Cost<span>0</span><span>₫</span></p> -->
+									<p>
+										Tổng tiền(VAT)<span style="color: #ff6f61; font-style: bold;">
+											<fmt:formatNumber type="number" pattern="###,###,### ₫"
+												value="${price}" />
+										</span>
+										</ps>
 								</div>
+								<c:if test="${empty statuscart }">
+									<div class="cart-btn">
+										<a href="${pageContext.request.contextPath}/checkout">
+											<button>Checkout</button>
+										</a>
+
+									</div>
+								</c:if>
 							</div>
 						</div>
 					</div>

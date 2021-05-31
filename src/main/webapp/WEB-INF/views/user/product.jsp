@@ -78,20 +78,21 @@
 										alt="Product Image">
 									</a>
 									<div class="product-action">
-										<a href="#"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
+										<a href="${pageContext.request.contextPath}/cart/addtocart/${sanPham.maSanPham}"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
 											class="fa fa-heart"></i></a> <a href="product-details?maSanPham=${sanPham.maSanPham}"><i
 											class="fa fa-search"></i></a>
 									</div>
 								</div>
 								<div class="product-price">
-									<h3>
+									<h3 style="font-size: 16px;">
 										<c:set var="donGia" value="${sanPham.donGia }" scope="request" />
 										<%
 										out.println(new DecimalFormat("#,###").format(request.getAttribute("donGia")));
 										%>
 									</h3>
-									<a class="btn" href=""><i class="fa fa-shopping-cart"></i>Mua
-										ngay</a>
+									<a class="btn" href="<c:url value="product-details?maSanPham=${sanPham.maSanPham}"/>">
+										<i class="fa fa-shopping-cart"></i>Mua ngay
+									</a>
 								</div>
 							</div>
 						</div>

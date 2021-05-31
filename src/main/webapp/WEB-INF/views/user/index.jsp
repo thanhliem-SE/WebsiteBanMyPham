@@ -282,8 +282,8 @@
 								out.println(new DecimalFormat("#,###").format(request.getAttribute("donGia")));
 								%>
 							</h3>
-							<a class="btn fs16" href="${pageContext.request.contextPath}/cart/addtocart/${sanPham.maSanPham}"><i
-								class="fa fa-shopping-cart fs16"></i><span>Buy Now</span></a>
+							<a class="btn fs16" href="<c:url value="product-details?maSanPham=${sanPham.maSanPham}"/>"><i
+								class="fa fa-shopping-cart fs16"></i><span>Mua ngay</span></a>
 						</div>
 					</div>
 				</div>
@@ -349,8 +349,8 @@
 								out.println(new DecimalFormat("#,###").format(request.getAttribute("donGia")));
 								%>
 							</h3>
-							<a class="btn fs16" href="${pageContext.request.contextPath}/cart/addtocart/${sanPham.maSanPham}"><i
-								class="fa fa-shopping-cart fs16"></i><span>Buy Now</span></a>
+							<a class="btn fs16" href="<c:url value="product-details?maSanPham=${sanPham.maSanPham}"/>"><i
+								class="fa fa-shopping-cart fs16"></i><span>Mua ngay</span></a>
 						</div>
 					</div>
 				</div>

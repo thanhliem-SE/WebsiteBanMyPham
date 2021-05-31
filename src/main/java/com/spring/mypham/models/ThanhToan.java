@@ -23,8 +23,6 @@ public class ThanhToan implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long maThanhToan;
 	private String phuongThucTT;
-
-
 	public long getMaThanhToan() {
 		return maThanhToan;
 	}

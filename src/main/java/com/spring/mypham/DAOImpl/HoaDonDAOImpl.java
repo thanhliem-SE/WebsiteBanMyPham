@@ -53,24 +53,6 @@ public class HoaDonDAOImpl implements HoaDonDAO{
 		List<HoaDon> hds = theQuery.getResultList();
 		return hds;
 	}
-
-	@Transactional
-	@Override
-	public List<ThanhToan> getListThanhToan() {
-		// TODO Auto-generated method stub
-		Session currentSession = sessionFactory.getCurrentSession();
-		List<ThanhToan> listThanhToans=currentSession.createNativeQuery("select * from ThanhToan", ThanhToan.class).getResultList();
-		return listThanhToans;
-	}
-
-	@Transactional
-	@Override
-	public ThanhToan getThanhToan(long id) {
-		// TODO Auto-generated method stub
-		Session currentSession = sessionFactory.getCurrentSession();
-		ThanhToan thanhToan=currentSession.get(ThanhToan.class, id);
-		return thanhToan;
-	}
 	@Override
 	public Map<HoaDon,String> getListHoaDonByUsername(String username) {
 		Map<HoaDon,String> map  = new HashMap<>();

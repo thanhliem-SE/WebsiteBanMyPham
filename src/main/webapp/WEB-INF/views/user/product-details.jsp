@@ -64,15 +64,14 @@
 									</div>
 								</div>
 								<div class="p-color">
-									<h4>Thuế:</h4>
+									<h4>Giảm giá:</h4>
 									<div class="btn-group btn-group-sm">
-										<p>5%</p>
+										<p>${sanPham.giamGia }%</p>
 									</div>
 								</div>
 								<div class="action">
-									<a class="btn" href="#"><i class="fa fa-shopping-cart"></i>Add
-										to Cart</a> <a class="btn" href="#"><i
-										class="fa fa-shopping-bag"></i>Buy Now</a>
+									<a class="btn" href="${pageContext.request.contextPath}/cart/addtocart/${sanPham.maSanPham}"><i class="fa fa-shopping-cart"></i>Giỏ hàng</a> <a class="btn" href="${pageContext.request.contextPath}/checkout"><i
+										class="fa fa-shopping-bag"></i>Mua ngay</a>
 								</div>
 							</div>
 						</div>
@@ -141,7 +140,7 @@
 
 				<div class="product">
 					<div class="section-header">
-						<h1>Sản phần gần đây</h1>
+						<h1>Sản phẩm gần đây</h1>
 					</div>
 
 					<div class="row align-items-center product-slider product-slider-3">
@@ -162,13 +161,13 @@
 											alt="Product Image">
 										</a>
 										<div class="product-action">
-											<a href="#"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
+											<a href="${pageContext.request.contextPath}/cart/addtocart/${sanPham.maSanPham}"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
 												class="fa fa-heart"></i></a> <a href="product-details?maSanPham=${sp.maSanPham}"><i
 												class="fa fa-search"></i></a>
 										</div>
 									</div>
 									<div class="product-price">
-										<h3>
+										<h3 style="font-size: 16px">
 											<c:set var="donGia" value="${sp.donGia }" scope="request" />
 											<%
 											out.println(new DecimalFormat("#,###").format(request.getAttribute("donGia")));

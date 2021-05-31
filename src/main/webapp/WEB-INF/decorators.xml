@@ -25,6 +25,9 @@
 	<decorator name="checkout" page="user.jsp">
 		<pattern>/checkout</pattern>
 	</decorator>
+	<decorator name="xacnhan" page="user.jsp">
+		<pattern>/xacnhan</pattern>
+	</decorator>
 	<decorator name="contact" page="user.jsp">
 		<pattern>/contact</pattern>
 	</decorator>
