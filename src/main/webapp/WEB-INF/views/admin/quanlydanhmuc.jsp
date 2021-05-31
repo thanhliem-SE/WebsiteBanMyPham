@@ -120,13 +120,16 @@
 											<td>${dm.tenDanhMuc}</td>
 
 											<td><a style="text-align: center" data-toggle="modal"
-												data-target="#modal${dm.maDanhMuc}"><i class="fas fa-edit"></i></a>
+												data-target="#modal${dm.maDanhMuc}"><i
+													class="fas fa-edit"></i></a>
 												&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; <a
+												onclick="return confirm('Bạn muốn xoá danh mục này phải không?');"
 												href="deleteDanhMuc?maDanhMuc=${dm.maDanhMuc}"
 												class="text-center"><i class="fas fa-trash"></i></a>
 										</tr>
 										<!-- Modal -->
-										<div class="modal fade" id="modal${dm.maDanhMuc}" role="dialog">
+										<div class="modal fade" id="modal${dm.maDanhMuc}"
+											role="dialog">
 											<div class="modal-dialog">
 												<!-- Modal content-->
 												<div class="modal-content">
@@ -148,9 +151,11 @@
 																<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7">
 																	<div class="form-group">
 																		<div class="form-line">
-																			<input type="text" name="maDanhMuc" value="${dm.maDanhMuc}" hidden>
-																			<input type="text" name="tenDanhMuc" value="${dm.tenDanhMuc}"
-																				class="form-control" required="required">
+																			<input type="text" name="maDanhMuc"
+																				value="${dm.maDanhMuc}" hidden> <input
+																				type="text" name="tenDanhMuc"
+																				value="${dm.tenDanhMuc}" class="form-control"
+																				required="required">
 																		</div>
 																	</div>
 																</div>

@@ -32,7 +32,7 @@ public class QuanLyUserController {
 	@RequestMapping(value = "/deleteKH",method = RequestMethod.POST)
 	public String deleteKH(Model model,String btnDelete) {
 		khachHangService.deleteKhachHangByUserName(btnDelete);
-		return "redirect:admin/quanlyuser";
+		return "redirect:quanlyuser";
 
 	}
 }

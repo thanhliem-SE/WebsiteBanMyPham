@@ -182,4 +182,13 @@ public class SanPham implements Serializable {
 		return getHinhAnh().get(0);
 	}
 
+	@Override
+	public String toString() {
+		return "SanPham [maSanPham=" + maSanPham + ", tenSanPham=" + tenSanPham + ", NhaCungCap=" + NhaCungCap
+				+ ", donGia=" + donGia + ", hanSuDung=" + hanSuDung + ", donViTinh=" + donViTinh + ", soLuongTon="
+				+ soLuongTon + ", thue=" + thue + ", thanhPhan=" + thanhPhan + ", congDung=" + congDung + ", giamGia="
+				+ giamGia + ", hinhAnh=" + hinhAnh + ", lineItem=" + lineItem + ", danhMuc=" + danhMuc + ", nhanVien="
+				+ nhanVien + "]";
+	}
+
 }

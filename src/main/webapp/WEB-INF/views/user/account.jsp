@@ -170,7 +170,7 @@
 	                                    </div>
 	                                  
 	                                    <div class="col-md-12">
-	                                        <button class="btn" type="submit">Update Account</button>
+	                                        <button class="btn" type="submit" name="btnCapNhat" value="updateAccount">Update Account</button>
 	                                        <br><br>
 	                                    </div>
 	                                </div>
