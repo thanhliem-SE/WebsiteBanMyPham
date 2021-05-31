@@ -42,6 +42,7 @@ public class HoaDon implements Serializable {
 	
 	@Embedded
 	private DiaChi diaChi;
+	private String diaChiNhanHang;
 	
 	@OneToMany(mappedBy = "hoaDon")
 	private Set<LineItem> lineItem;
@@ -75,6 +76,32 @@ public class HoaDon implements Serializable {
 
 	public String getEmail() {
 		return email;
+	}
+
+	public HoaDon(long maHoaDon, LocalDate ngayLap, LocalDate ngayGiao, String trangThaiHoaDon, double tongTien,
+			String sdtNhanHang, String email, String tenNhanHang, ThanhToan thanhToan, DiaChi diaChi,
+			String diaChiNhanHang, Set<LineItem> lineItem) {
+		super();
+		this.maHoaDon = maHoaDon;
+		this.ngayLap = ngayLap;
+		this.ngayGiao = ngayGiao;
+		this.trangThaiHoaDon = trangThaiHoaDon;
+		this.tongTien = tongTien;
+		this.sdtNhanHang = sdtNhanHang;
+		this.email = email;
+		this.tenNhanHang = tenNhanHang;
+		this.thanhToan = thanhToan;
+		this.diaChi = diaChi;
+		this.diaChiNhanHang = diaChiNhanHang;
+		this.lineItem = lineItem;
+	}
+
+	public String getDiaChiNhanHang() {
+		return diaChiNhanHang;
+	}
+
+	public void setDiaChiNhanHang(String diaChiNhanHang) {
+		this.diaChiNhanHang = diaChiNhanHang;
 	}
 
 	public void setEmail(String email) {

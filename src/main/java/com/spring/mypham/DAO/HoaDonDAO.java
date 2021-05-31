@@ -10,7 +10,5 @@ public interface HoaDonDAO {
 	public void saveHoaDon(HoaDon hoaDon);
 	public HoaDon getHoaDon(Long id);
 	public List<HoaDon> getListHoaDon();
-	public List<ThanhToan> getListThanhToan();
-	public ThanhToan getThanhToan(long id);
 	Map<HoaDon, String> getListHoaDonByUsername(String username);
 }

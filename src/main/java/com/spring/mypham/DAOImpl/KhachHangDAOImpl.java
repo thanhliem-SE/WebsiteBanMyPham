@@ -23,8 +23,6 @@ public class KhachHangDAOImpl implements KhachHangDAO{
 	@Autowired
 	SessionFactory sessionFactory;
 	
-	
-	
 	public KhachHangDAOImpl() {
 		// TODO Auto-generated constructor stub
 		this.sessionFactory = MySessionFactory.getInstance().getSessionFactory();

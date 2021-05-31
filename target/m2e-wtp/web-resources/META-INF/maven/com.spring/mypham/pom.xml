@@ -16,6 +16,7 @@
 		<springsecurity.version>5.2.2.RELEASE</springsecurity.version>
 	</properties>
 	<dependencies>
+	
 		<dependency>
 			<groupId>javax.mail</groupId>
 			<artifactId>mail</artifactId>

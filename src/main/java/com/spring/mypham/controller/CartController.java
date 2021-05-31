@@ -101,18 +101,24 @@ public class CartController {
 
 	public void updatePrice(HttpSession session) {
 		List<CartItem> cart = (List<CartItem>) session.getAttribute("cart");
+		//giá
 		double price = 0;
+		//thuế
 		double tax = 0;
+		//giảm giá
 		double salePrice = 0;
 		for (CartItem cartItem : cart) {
+			tax++;
+			//Tạm tính
 			price += cartItem.getSp().getDonGia() * cartItem.getSoLuong();
-			tax += (price * cartItem.getSp().getThue()) / 100;
-//			salePrice += (price * cartItem.getSp().getGiamGia()) / 100;
+			//Thuế
+			tax += (price * cartItem.getSp().getThue()/100);
+			//Giảm giá
+			salePrice += (price * cartItem.getSp().getGiamGia()) / 100;
+			
 			session.setAttribute("sub", price);
-			session.setAttribute("tax", tax);
 			session.setAttribute("salePrice", salePrice);
-//			session.setAttribute("price", price - salePrice + tax);
-			session.setAttribute("price", price + tax);
+			session.setAttribute("price", price - salePrice + tax);
 		}
 	}
 

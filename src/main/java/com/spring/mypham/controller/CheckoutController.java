@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.spring.mypham.DAO.HoaDonDAO;
 import com.spring.mypham.SERVICE.HoaDonService;
 import com.spring.mypham.SERVICE.LineItemService;
+import com.spring.mypham.SERVICE.ThanhToanService;
 import com.spring.mypham.models.CartItem;
 import com.spring.mypham.models.HoaDon;
 import com.spring.mypham.models.LineItem;
@@ -28,34 +29,47 @@ import com.spring.mypham.models.ThanhToan;
 public class CheckoutController {
 	@Autowired
 	private HoaDonService hoaDonService;
-	
+	@Autowired
+	private ThanhToanService thanhToanService;
 	@Autowired
 	private LineItemService lineItemService;
 	@GetMapping("")
 	private String trangChu(Model model, HttpSession session) {
+		@SuppressWarnings("unchecked")
 		List<CartItem> cart=(List<CartItem>) session.getAttribute("cart");
-		List<ThanhToan> listThanhToans=((HoaDonDAO) hoaDonService).getListThanhToan();
-		model.addAttribute("hoaDon",new HoaDon());
-		model.addAttribute("listThanhToans",listThanhToans);
-		model.addAttribute("cart",cart);
-		try {
-			model.addAttribute("quantity",cart.size());
-		} catch (Exception e) {
-			// TODO: handle exception
+		List<ThanhToan> listThanhToans= thanhToanService.getListThanhToan();
+		if(cart == null) {
+			session.setAttribute("statuscart", "Vui lòng chọn sản phẩm vào giỏ hàng");
+			return "redirect:/cart/";
+		} else {
+			if(cart.size()<=0) {
+				session.setAttribute("statuscart", "Vui lòng chọn sản phẩm vào giỏ hàng");
+				return "redirect:/cart/";
+			}
+			else {
+				model.addAttribute("hoaDon",new HoaDon());
+				model.addAttribute("listThanhToans",listThanhToans);
+				model.addAttribute("cart",cart);
+				try {
+					model.addAttribute("quantity",cart.size());
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				return "user/checkout";
+			}
 		}
-		return "user/checkout";
+		
 	}
 	
 	
 	@PostMapping("/themHoaDon")
-	private String themHoaDon(@ModelAttribute("hoaDon") HoaDon hoaDon,@RequestParam("maThanhToan") long maThanhToan,HttpSession session) {
+	private String themHoaDon(@ModelAttribute("hoaDon") HoaDon hoaDon, @RequestParam("maThanhToan") long maThanhToan,HttpSession session) {
 		List<CartItem> cart=(List<CartItem>) session.getAttribute("cart");
 		LocalDate localDate = LocalDate.now();		
-		double tongTien=(double) session.getAttribute("sub");
-		ThanhToan tt=((HoaDonDAO) hoaDonService).getThanhToan(maThanhToan);
-		
+		double tongTien=(double) session.getAttribute("price");
+		ThanhToan tt= thanhToanService.getThanhToan(maThanhToan);
 		hoaDon.setThanhToan(tt);
-		hoaDon.setTrangThaiHoaDon("Th�nh c�ng");
+		hoaDon.setTrangThaiHoaDon("Thành công");
 		hoaDon.setNgayGiao(localDate.plusDays(5));
 		hoaDon.setTongTien(tongTien);
 		hoaDon.setNgayLap(localDate);
