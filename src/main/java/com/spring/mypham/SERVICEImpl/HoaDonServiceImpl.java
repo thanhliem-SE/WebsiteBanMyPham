@@ -1,6 +1,9 @@
 package com.spring.mypham.SERVICEImpl;
 
+import java.util.List;
 import java.util.Map;
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,5 +27,26 @@ public class HoaDonServiceImpl implements HoaDonService{
 		// TODO Auto-generated method stub
 		return hoaDonDao.getListHoaDonByUsername(username);
 	}
+	@Transactional
+	@Override
+	public void saveHoaDon(HoaDon hoaDon) {
+		// TODO Auto-generated method stub
+		hoaDonDao.saveHoaDon(hoaDon);
+	}
+
+	@Transactional
+	@Override
+	public HoaDon getHoaDon(Long id) {
+		// TODO Auto-generated method stub
+		return hoaDonDao.getHoaDon(id);
+	}
+
+	@Transactional
+	@Override
+	public List<HoaDon> getListHoaDon() {
+		// TODO Auto-generated method stub
+		return hoaDonDao.getListHoaDon();
+	}
+
 	
 }

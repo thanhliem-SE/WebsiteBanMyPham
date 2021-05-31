@@ -63,12 +63,11 @@ public class CheckoutController {
 	
 	
 	@PostMapping("/themHoaDon")
-	private String themHoaDon(@ModelAttribute("hoaDon") HoaDon hoaDon,@RequestParam("maThanhToan") long maThanhToan,HttpSession session) {
+	private String themHoaDon(@ModelAttribute("hoaDon") HoaDon hoaDon, @RequestParam("maThanhToan") long maThanhToan,HttpSession session) {
 		List<CartItem> cart=(List<CartItem>) session.getAttribute("cart");
 		LocalDate localDate = LocalDate.now();		
 		double tongTien=(double) session.getAttribute("price");
 		ThanhToan tt= thanhToanService.getThanhToan(maThanhToan);
-		
 		hoaDon.setThanhToan(tt);
 		hoaDon.setTrangThaiHoaDon("Thành công");
 		hoaDon.setNgayGiao(localDate.plusDays(5));

@@ -2,6 +2,8 @@ package com.spring.mypham.SERVICEImpl;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,15 +20,16 @@ public class ThanhToanServiceImpl implements ThanhToanService{
 	public ThanhToanServiceImpl() {
 		thanhToanDAO = new ThanhToanDAOImpl() ;
 	}
-
+	
+	@Transactional
 	@Override
 	public ThanhToan getThanhToan(Long id) {
-		return this.thanhToanDAO.getThanhToan(id);
+		return thanhToanDAO.getThanhToan(id);
 	}
-
+	@Transactional
 	@Override
 	public List<ThanhToan> getListThanhToan() {
-		return this.thanhToanDAO.getListThanhToan();
+		return thanhToanDAO.getListThanhToan();
 	}
 
 }

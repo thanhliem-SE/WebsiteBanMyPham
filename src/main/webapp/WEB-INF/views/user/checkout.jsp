@@ -29,66 +29,28 @@
 									<form:input cssClass="form-control" type="tel"
 										path="sdtNhanHang" placeholder="0987059059" />
 								</div>
+								
 								<div class="col-md-12">
-									<label>Số nhà</label>
-									<form:input cssClass="form-control" path="email"
-										placeholder="400/9d" />
-								</div>
-								<%-- 										<div class="col-md-6">
-											<label>Địa chỉ</label>
-											<form:input cssClass="form-control" type="tel" path="diaChi"
-												placeholder="400/9d Ấp Chánh 1, Tân Xuân, Hóc Môn" />
-										</div> --%>
-								<div class="col-md-12">
-									<div class="form-group">
-										<label>Phường</label> <select name="maHoaDon"
-											class="custom-select" required>
-											<c:forEach var="tt" items="${listThanhToans}">
-												<option value="${tt.maThanhToan}" selected="selected">
-													${tt.phuongThucTT}</option>
-											</c:forEach>
-										</select>
-									</div>
+									<label>Địa chỉ nhận hàng</label>
+									<form:input cssClass="form-control" type="text"
+										path="diaChiNhanHang" placeholder="Số nhà, đường, xã, quận, huyện, thành phố" />
 								</div>
 								<div class="col-md-12">
-									<div class="form-group">
-										<label>Quận</label> <select name="maThanhToan"
-											class="custom-select" required>
-											<c:forEach var="tt" items="${listThanhToans}">
-												<option value="${tt.maThanhToan}" selected="selected">
-													${tt.phuongThucTT}</option>
-											</c:forEach>
-										</select>
-									</div>
-								</div>
-								<div class="col-md-12">
-									<div class="form-group">
-										<label>Thành phố</label> <select name="maThanhToan"
-											class="custom-select" required>
-											<c:forEach var="tt" items="${listThanhToans}">
-												<option value="${tt.maThanhToan}" selected="selected">
-													${tt.phuongThucTT}</option>
-											</c:forEach>
-										</select>
-									</div>
-								</div>
-								<div class="col-md-12">
-									<div class="form-group">
-										<label>Phương thức nhận hàng</label> <select
-											name="maThanhToan" class="custom-select" required>
-											<c:forEach var="tt" items="${listThanhToans}">
-												<option value="${tt.maThanhToan}" selected="selected">
-													${tt.phuongThucTT}</option>
-											</c:forEach>
-										</select>
-									</div>
-								</div>
-
-								<div class="col-md-12">
+											<div class="form-group">
+												<label>Phương thức nhận hàng</label> <select
+													name="maThanhToan" class="custom-select" required>
+													<c:forEach var="tt" items="${listThanhToans}">
+														<option value="${tt.maThanhToan}" selected="selected">
+															${tt.phuongThucTT}</option>
+													</c:forEach>
+												</select>
+											</div>
+										</div>
+<!-- 								<div class="col-md-12">
 									<label>Ghi chú</label>
 									<textarea class="form-control" id="exampleFormControlTextarea1"
 										rows="3"></textarea>
-								</div>
+								</div> -->
 								<div class="col-md-12">
 									<input type="submit" value="Đặt hàng">
 								</div>
