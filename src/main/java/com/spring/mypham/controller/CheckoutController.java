@@ -2,6 +2,7 @@ package com.spring.mypham.controller;
 
 import java.math.BigInteger;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -20,6 +21,7 @@ import com.spring.mypham.SERVICE.HoaDonService;
 import com.spring.mypham.SERVICE.LineItemService;
 import com.spring.mypham.SERVICE.ThanhToanService;
 import com.spring.mypham.models.CartItem;
+import com.spring.mypham.models.DiaChi;
 import com.spring.mypham.models.HoaDon;
 import com.spring.mypham.models.LineItem;
 import com.spring.mypham.models.ThanhToan;
@@ -61,25 +63,56 @@ public class CheckoutController {
 		
 	}
 	
-	
 	@PostMapping("/themHoaDon")
-	private String themHoaDon(@ModelAttribute("hoaDon") HoaDon hoaDon, @RequestParam("maThanhToan") long maThanhToan,HttpSession session) {
-		List<CartItem> cart=(List<CartItem>) session.getAttribute("cart");
-		LocalDate localDate = LocalDate.now();		
-		double tongTien=(double) session.getAttribute("price");
-		ThanhToan tt= thanhToanService.getThanhToan(maThanhToan);
-		hoaDon.setThanhToan(tt);
-		hoaDon.setTrangThaiHoaDon("Thành công");
-		hoaDon.setNgayGiao(localDate.plusDays(5));
-		hoaDon.setTongTien(tongTien);
-		hoaDon.setNgayLap(localDate);
-		((HoaDonDAO) hoaDonService).saveHoaDon(hoaDon);
+	private String themHoaDon(@ModelAttribute("hoaDon") HoaDon hoaDon, @RequestParam("maThanhToan") long maThanhToan, HttpSession session, DiaChi diaChi) {
+		/*
+		 * List<CartItem> cart=(List<CartItem>) session.getAttribute("cart"); LocalDate
+		 * localDate = LocalDate.now(); double tongTien=(double)
+		 * session.getAttribute("price"); ThanhToan tt=
+		 * thanhToanService.getThanhToan(maThanhToan); hoaDon.setThanhToan(tt);
+		 * hoaDon.setTrangThaiHoaDon("Thành công");
+		 * hoaDon.setNgayGiao(localDate.plusDays(5)); hoaDon.setTongTien(tongTien);
+		 * hoaDon.setNgayLap(localDate); ((HoaDonDAO) hoaDonService).saveHoaDon(hoaDon);
+		 * 
+		 * for (CartItem cartItem : cart) { LineItem item=new
+		 * LineItem(cartItem.getSoLuong(),cartItem.getSoLuong()*cartItem.getSp().
+		 * getDonGia(),hoaDon,cartItem.getSp()); lineItemService.saveLineItem(item); }
+		 * return "user/xacnhan";
+		 */
+
+		@SuppressWarnings("unchecked")
+		List<CartItem> cart = (List<CartItem>) session.getAttribute("cart");
+		hoaDon.setDiaChi(diaChi);
+		LocalDate localDate = LocalDate.now();
+		double tongtien = (double) session.getAttribute("price");
+
+		ThanhToan thanhToan = thanhToanService.getThanhToan(maThanhToan);
+		hoaDon.setThanhToan(thanhToan);
+		hoaDon.setTongTien(tongtien);
 		
+		hoaDon.setTrangThaiHoaDon("Thành công");
+		
+		hoaDon.setNgayLap(localDate);
+		hoaDon.setNgayGiao(localDate.plusDays(5));
+		System.out.println(tongtien);
+		System.out.println(localDate);
+		
+		System.out.println(diaChi);
+		
+		hoaDonService.saveHoaDon(hoaDon);
 		for (CartItem cartItem : cart) {
-			LineItem item=new LineItem(cartItem.getSoLuong(),cartItem.getSoLuong()*cartItem.getSp().getDonGia(),hoaDon,cartItem.getSp());
+
+//			System.out.println(cartItem.getSp().getTenSanPham());
+//			System.out.println(cartItem.getSoLuong());
+//			System.out.println(cartItem.getSp().getDonGia());
+			LineItem item = new LineItem(
+					cartItem.getSoLuong(), 
+					cartItem.getSp().getMaSanPham(), 
+					hoaDon, 
+					cartItem.getSp());
 			lineItemService.saveLineItem(item);
 		}
-		return "user/xacnhan";
+		return "/user/xacnhan";
 	}
 
 }

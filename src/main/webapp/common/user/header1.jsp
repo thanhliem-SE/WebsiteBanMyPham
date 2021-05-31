@@ -22,15 +22,20 @@
 					</form>
 				</div>
 			</div>
+
 			<div class="col-md-3">
 				<div class="user">
 					<a href="${pageContext.request.contextPath}/wish"
 						class="btn wishlist"> <i class="fa fa-heart"></i> <span>(0)</span>
 					</a> <a href="${pageContext.request.contextPath}/cart/"
-						class="btn cart"> <i class="fa fa-shopping-cart"></i> <span>(0)</span>
+						class="btn cart"> <i class="fa fa-shopping-cart"></i> <span>
+							<c:forEach var="ds" items="${sessionScope.cart}">(${ds.soLuong})			</c:forEach>
+					</span>
+
 					</a>
 				</div>
 			</div>
+
 		</div>
 	</div>
 </div>
@@ -676,7 +681,7 @@
 						phẩm</a></li>
 				<li class="nav-item"><a
 					class="nav-link text-uppercase text-white"
-					href="${pageContext.request.contextPath}/checkout">Check out</a></li>
+					href="${pageContext.request.contextPath}/checkout">Thanh toán</a></li>
 				<li class="nav-item"><a
 					class="nav-link text-uppercase text-white" href="account">Tài
 						khoản</a></li>
@@ -686,10 +691,9 @@
 				</a>
 					<ul class="dropdown-menu dropdown-menu-end">
 						<li style="margin-top: -8px;"><a class="dropdown-item"
-							href="${pageContext.request.contextPath}/wish"> Wishlist</a></li>
+							href="${pageContext.request.contextPath}/wish"> Yêu thích</a></li>
 						<li style="margin-bottom: -8px;"><a class="dropdown-item"
-							href="${pageContext.request.contextPath}/contact"> Contact Us
-						</a></li>
+							href="${pageContext.request.contextPath}/contact"> Liên hệ </a></li>
 					</ul></li>
 			</ul>
 

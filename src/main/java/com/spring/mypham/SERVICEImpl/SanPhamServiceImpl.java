@@ -33,7 +33,7 @@ public class SanPhamServiceImpl implements SanPhamService {
 	@Transactional
 	@Override
 	public SanPham getSanPham(Long id) {
-		return sanPhamDAO.getDienThoai(id);
+		return sanPhamDAO.getSanPham(id);
 	}
 
 	@Override

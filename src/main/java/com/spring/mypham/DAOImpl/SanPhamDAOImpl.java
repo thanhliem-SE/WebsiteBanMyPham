@@ -54,17 +54,19 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 
 	@Transactional
 	@Override
-	public SanPham getDienThoai(Long id) {
+	public SanPham getSanPham(Long id) {
 		Session currentSession = sessionFactory.getCurrentSession();
 		SanPham sanPham = currentSession.get(SanPham.class, id);
 		return sanPham;
 	}
-
+	@Transactional
 	@Override
 	public List<SanPham> getListSanPham() {
 		List<SanPham> rs = new ArrayList<SanPham>();
-		Session session = sessionFactory.getCurrentSession();
-		Transaction tr = session.beginTransaction();
+		
+		  Session session = sessionFactory.getCurrentSession(); 
+		  Transaction tr = session.beginTransaction();
+		 
 
 		try {
 			Query<SanPham> theQuery = session.createQuery("from SanPham", SanPham.class);
