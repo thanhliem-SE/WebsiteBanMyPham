@@ -275,10 +275,7 @@
 															<form:form method="post" name="submitForm"
 																action="${pageContext.request.contextPath}/updateAccount">
 																<div class="row">
-																	<div class="col-md-12">
-																		<input class="form-control" type="text" name="username"
-																			value="${element.user.username}">
-																	</div>
+																	
 																	<div class="col-md-6">
 																		<input class="form-control" type="text"
 																			placeholder="Họ và tên" name="tenKhachHang"
@@ -377,7 +374,7 @@
 																	</div>
 
 																	<div class="col-md-12">
-																		<button class="btn" type="submit" name="btnCapNhat" value="updateKHByAdmin">Cập nhật</button>
+																		<button class="btn" type="submit" name="btnCapNhat" value="${element.user.username}">Cập nhật</button>
 																		<br>
 																		<br>
 																	</div>
@@ -395,7 +392,7 @@
 												</div>
 											</div>
 											<form:form method="post" name="registerForm"
-												action="${pageContext.request.contextPath}/admin/quanlyuser/deleteKH">
+												action="${pageContext.request.contextPath}/admin/deleteKH">
 												<button
 													class="btn btn-danger col-sm-6 col-md-6 col-lg-6 col-xl-6"
 													type="submit" name="btnDelete"

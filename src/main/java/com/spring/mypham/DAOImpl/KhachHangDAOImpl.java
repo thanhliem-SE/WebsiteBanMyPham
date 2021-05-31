@@ -178,7 +178,7 @@ public class KhachHangDAOImpl implements KhachHangDAO{
 		Transaction tr = session.beginTransaction();
 
 		try {
-			String sql = "select kh.tenKhachHang, kh.email, kh.soDienThoai, u.username, kh.thanhPho from users u JOIN KhachHang kh ON u.username = kh.username";
+			String sql = "select kh.tenKhachHang, kh.email, kh.soDienThoai, u.username, kh.thanhPho,kh.soNha,kh.phuong,kh.quan,kh.ghiChu,kh.soCMND from users u JOIN KhachHang kh ON u.username = kh.username";
 			@SuppressWarnings("unchecked")
 			List<Object> objs = session.createNativeQuery(sql).getResultList();
 			for (Object arrayObj : objs) {
@@ -199,6 +199,16 @@ public class KhachHangDAOImpl implements KhachHangDAO{
 				if(obj[4]!=null)
 					dc.setThanhPho(obj[4].toString());
 				else dc.setThanhPho("Chýa có");
+				if(obj[5]!=null)
+					dc.setSoNha(obj[5].toString());
+				if(obj[6]!=null)
+					dc.setPhuong(obj[6].toString());
+				if(obj[7]!=null)
+					dc.setQuan(obj[7].toString());
+				if(obj[8]!=null)
+					dc.setGhiChu(obj[8].toString());
+				if(obj[9]!=null)
+					kh.setSoCMND(obj[9].toString());
 				kh.setUser(user);
 				kh.setDiaChi(dc);
 				listKH.add(kh);

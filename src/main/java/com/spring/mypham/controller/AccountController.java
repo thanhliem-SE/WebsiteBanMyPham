@@ -36,10 +36,10 @@ public class AccountController {
 		return "user/account";
 	}
 	@RequestMapping(value = "/updateAccount",method = RequestMethod.POST)
-	public String submit(Model model, @ModelAttribute("khachHang") KhachHang khachHang,@ModelAttribute("diaChi") DiaChi diaChi, HttpSession session, String btnCapNhat,@ModelAttribute("user") User user) {
-		System.out.println("Make -1: "+user.toString());
-		String username = user.getUsername();
-		if(!btnCapNhat.equalsIgnoreCase("updateKHByAdmin")) {
+	public String submit(Model model, @ModelAttribute("khachHang") KhachHang khachHang,@ModelAttribute("diaChi") DiaChi diaChi, HttpSession session, String btnCapNhat) {
+		//System.out.println("Make -1: "+user.toString());
+		String username = btnCapNhat;
+		if(btnCapNhat.equalsIgnoreCase("updateAccount")) {
 			username = session.getAttribute("username").toString();
 		}
 		KhachHang kh = khachHangService.getKhachHangByUsername(username);
@@ -52,9 +52,9 @@ public class AccountController {
 		System.out.println("Make1: "+khachHang.toString());
 		System.out.println("Make2: "+khachHang.getDiaChi().toString());
 		khachHangService.updateKhachHang(khachHang);
-		if(btnCapNhat.equalsIgnoreCase("updateKHByAdmin"))
-			return "redirect:admin/quanlyuser";
-		return "redirect:account";
+		if(btnCapNhat.equalsIgnoreCase("updateAccount"))
+			return "redirect:account";
+		return "redirect:admin/quanlyuser";
 	}
 	@RequestMapping(value = "/resetPassword",method = RequestMethod.POST)
 	public String resetPass(Model model,String old_password, String new_password, String confirm_password, HttpSession session) {
