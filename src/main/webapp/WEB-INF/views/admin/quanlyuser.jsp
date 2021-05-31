@@ -179,7 +179,7 @@
 									<div class="register-form">
 										<div class="row">
 											<div class="col-md-6">
-												<label>Họ và tên</label> <input class="form-control fs14"
+												<label>Họ và tên      .</label> <input class="form-control fs14"
 													type="text" placeholder="VD: Trần Văn A"
 													name="tenKhachHang">
 											</div>
@@ -189,7 +189,7 @@
 													placeholder="VD: username123" name="username">
 											</div>
 											<div class="col-md-6">
-												<label>E-mail</label> <input class="form-control fs14"
+												<label>E-mail          </label> <input class="form-control fs14"
 													type="text" placeholder="abc@example.com" name="email">
 											</div>
 											<div class="col-md-6">
@@ -198,7 +198,7 @@
 													placeholder="VD: 0912345567" name="soDienThoai">
 											</div>
 											<div class="col-md-6">
-												<label>Mật khẩu</label> <input class="form-control fs14"
+												<label>Mật khẩu          </label> <input class="form-control fs14"
 													type="password" placeholder="Mật khẩu" name="password">
 											</div>
 											<div class="col-md-6">
@@ -257,9 +257,9 @@
 											<button
 												class="btn btn-primary col-sm-6 col-md-6 col-lg-6 col-xl-6"
 												type="button" data-toggle="modal"
-												data-target="#modalEditKhachHang">Sửa</button>
+												data-target="#modalEditKhachHang${element.user.username}">Sửa</button>
 											<!-- The Modal -->
-											<div class="modal" id="modalEditKhachHang">
+											<div class="modal" id="modalEditKhachHang${element.user.username}">
 												<div class="modal-dialog">
 													<div class="modal-content">
 

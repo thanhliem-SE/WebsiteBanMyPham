@@ -28,16 +28,18 @@ public class UserServiceImpl implements UserService{
 	}
 
 
-	@Override
-	public Boolean checkLoginInfo(User userLogin) {
-		// TODO Auto-generated method stub
-		return userDao.checkLoginInfo(userLogin);
-	}
+
 
 	@Override
 	public void resetPassword(User user) {
 		// TODO Auto-generated method stub
 		this.userDao.resetPassword(user);
+	}
+
+	@Override
+	public Boolean checkLoginInfo(User userLogin, String roleName) {
+		// TODO Auto-generated method stub
+		return userDao.checkLoginInfo(userLogin, roleName);
 	}
 
 }

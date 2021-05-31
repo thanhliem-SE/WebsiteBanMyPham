@@ -37,8 +37,23 @@ public class UserDAOImpl implements UserDAO{
 		Transaction tr = currentSession.beginTransaction();
 		currentSession.saveOrUpdate(user);
 		tr.commit();
+		
+		themUserRole(user,1);
+		
 	}
-	
+	public void themUserRole(User user,int numRole) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		Transaction tr = currentSession.beginTransaction();
+		try {
+			String sql = "insert into user_role VALUES(?,?)";
+			currentSession.createNativeQuery(sql).setParameter(1, user.getUsername()).setParameter(2, numRole).executeUpdate();
+			System.out.println("them user role thanh cong");
+			tr.commit();
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("them user role that bai");
+		}
+	}
 
 	@Override
 	public User getLoginInfoByUsername(String username) {
@@ -89,13 +104,13 @@ public class UserDAOImpl implements UserDAO{
 	}
 
 	@Override
-	public Boolean checkLoginInfo(User userLogin) {
+	public Boolean checkLoginInfo(User userLogin,String roleName) {
 		User user = new User();
 		Session session = sessionFactory.getCurrentSession();
 		Transaction tr = session.beginTransaction();
 
 		try {
-			String sql = "select * from users where username like ?";
+			String sql = "select * from users u JOIN user_role ur ON u.username = ur.USER_ID JOIN roles r ON ur.ROLE_ID = r.id where username like ?";
 			@SuppressWarnings("unchecked")
 			List<Object> objs = session.createNativeQuery(sql).setParameter(1, userLogin.getUsername()).getResultList();
 			for (Object arrayObj : objs) {
@@ -107,7 +122,7 @@ public class UserDAOImpl implements UserDAO{
 				else user.setEnabled(false);
 	
 				user.setPassword(obj[2].toString());
-				if(userLogin.getUsername().equals(user.getUsername()) && userLogin.getPassword().equals(user.getPassword()) && user.isEnabled()==true) {
+				if(userLogin.getUsername().equals(user.getUsername()) && userLogin.getPassword().equals(user.getPassword()) && user.isEnabled()==true && roleName.equalsIgnoreCase(obj[6].toString())) {
 					return true;
 				}
 				
@@ -119,5 +134,6 @@ public class UserDAOImpl implements UserDAO{
 		}
 		return false;
 	}
+
 	
 }

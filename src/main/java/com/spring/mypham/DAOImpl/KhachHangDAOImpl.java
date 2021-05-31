@@ -83,6 +83,7 @@ public class KhachHangDAOImpl implements KhachHangDAO{
 	@Override
 	public void saveKhachHang(KhachHang khachHang) {
 		Session currentSession = sessionFactory.getCurrentSession();
+		System.out.println("Make Kam: "+khachHang.toString());
 		Transaction tr = currentSession.beginTransaction();
 		currentSession.saveOrUpdate(khachHang);
 		tr.commit();
