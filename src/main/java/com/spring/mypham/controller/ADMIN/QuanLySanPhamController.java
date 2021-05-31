@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -50,9 +51,21 @@ public class QuanLySanPhamController {
 	}
 	
 	@PostMapping("/addSanPham")
-	public String addSanPham(Model model, String maNhaCungCap) {
-		System.out.println("sanPham: "+ maNhaCungCap);
-		//sanPhamService.saveSanPham(sanPham);
+	public String addSanPham(Model model, SanPham sanPham, Long maNhaCungCap, Long maDanhMuc) {
+		sanPham.setNhaCungCap(nhaCungCapService.getNhaCungCap(maNhaCungCap));
+		sanPham.setDanhMuc(danhMucService.getDanhMuc(maDanhMuc));
+		sanPhamService.saveSanPham(sanPham);
+		return "redirect:quanlysanpham";
+	}
+	
+	
+	@PostMapping("/editSanPham")
+	public String editSanPham(Model model, SanPham sanPham, Long maDanhMuc) {
+//		System.out.println("maNhaCC: " + maNhaCC);
+//		System.out.println("maDanhMuc: " + maDanhMuc);
+//		sanPham.setNhaCungCap(nhaCungCapService.getNhaCungCap(maNhaCungCap));
+//		sanPham.setDanhMuc(danhMucService.getDanhMuc(maDanhMuc));
+//		sanPhamService.saveSanPham(sanPham);
 		return "redirect:quanlysanpham";
 	}
 	

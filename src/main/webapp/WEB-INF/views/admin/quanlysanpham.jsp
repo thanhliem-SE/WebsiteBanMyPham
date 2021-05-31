@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags/form"%>
 <%@ include file="/common/taglib.jsp"%>
 <section class="content">
 	<div class="container-fluid">
@@ -56,8 +57,8 @@
 														sản phẩm</h4>
 												</div>
 												<div class="modal-body">
-													<form class="form-horizontal" enctype="multipart/form-data"
-														method="post" action="addSanPham">
+													<form class="form-horizontal" method="post"
+														action="addSanPham">
 														<div class="row clearfix">
 															<div
 																class="col-lg-3 col-md-3 col-sm-4 col-xs-5 form-control-label">
@@ -67,7 +68,9 @@
 																<div class="form-group">
 																	<div class="form-line">
 																		<input type="text" id="tensp" name="tenSanPham"
-																			class="form-control" placeholder="Venus 2021">
+																			required="required" class="form-control"
+																			placeholder="Venus 2021">
+
 																	</div>
 																</div>
 															</div>
@@ -81,7 +84,8 @@
 																<div class="form-group">
 																	<div class="form-line">
 																		<input type="tel" id="tensp" name="donGia"
-																			class="form-control" placeholder="200.000">
+																			required="required" class="form-control"
+																			placeholder="200.000">
 																	</div>
 																</div>
 															</div>
@@ -94,8 +98,9 @@
 															<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7">
 																<div class="form-group">
 																	<div class="form-line">
-																		<input type="text" id="tensp" name="soLuongTon"
-																			class="form-control" placeholder="2">
+																		<input type="number" id="tensp" name="soLuongTon"
+																			required="required" class="form-control"
+																			placeholder="2">
 																	</div>
 																</div>
 															</div>
@@ -108,8 +113,9 @@
 															<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7">
 																<div class="form-group">
 																	<div class="form-line">
-																		<input type="text" id="thue" name="thue"
-																			class="form-control" placeholder="10%">
+																		<input type="number" id="thue" name="thue"
+																			required="required" class="form-control"
+																			placeholder="10%">
 																	</div>
 																</div>
 															</div>
@@ -123,7 +129,8 @@
 																<div class="form-group">
 																	<div class="form-line">
 																		<textarea rows="4" class="form-control no-resize"
-																			placeholder="Tươi Mát Da" name="congDung"></textarea>
+																			required="required" placeholder="Tươi Mát Da"
+																			name="congDung"></textarea>
 																	</div>
 																</div>
 															</div>
@@ -137,7 +144,7 @@
 																<div class="form-group">
 																	<div class="form-line">
 																		<textarea rows="4" class="form-control no-resize"
-																			name="thanhPhan"
+																			name="thanhPhan" required="required"
 																			placeholder="Nước Tẩy Trang L'Oreal Micellar Water 3-In-1 là dòng sản phẩm tẩy trang đến từ thương hiệu L'Oreal Paris"></textarea>
 																	</div>
 																</div>
@@ -223,14 +230,33 @@
 														<div class="row clearfix">
 															<div
 																class="col-lg-3 col-md-3 col-sm-4 col-xs-5 form-control-label">
+																<label for=""hansudung"">Giảm giá</label>
+															</div>
+															<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7 ml--15">
+																<div
+																	class="btn-group bootstrap-select form-control show-tick open dropup">
+
+																	<select class="form-control show-tick" tabindex="-98"
+																		name="giamGia">
+																		<option value="5">5%</option>
+																		<option value="10">10%</option>
+																		<option value="15">15%</option>
+																		<option value="20">20%</option>
+																		<option value="25">25%</option>
+																	</select>
+																</div>
+															</div>
+														</div>
+														<!--div class="row clearfix">
+															<div
+																class="col-lg-3 col-md-3 col-sm-4 col-xs-5 form-control-label">
 																<label for=""hinhanh"">Hình Ảnh</label>
 															</div>
 															<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7 ml--15">
-																<form:input path="anhURL" cssClass="form-control" />
 																<input name="linkImage" type="file" id="linkImage"
 																	hidden="hidden" /> <span id="result"></span>
 															</div>
-														</div>
+														</div-->
 
 														<!-- Submit -->
 														<div class="row clearfix">
@@ -293,23 +319,245 @@
 													scope="request" /> <%
  out.println(new DecimalFormat("#,###").format(request.getAttribute("donGia")) + "đ");
  %></td>
-											<td>${sp.soLuongTon }${sp.donViTinh }</td>
-											<!-- td><a onClick="xemChiTiet('${product.id}')"
-												data-toggle="modal" data-target="#xem-modal"><span
-													class="material-icons-outlined"> info </span> </a></td-->
-											<td><a href="javascript:void(0);"
-												style="text-align: center"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a
+											<td>${sp.soLuongTon }&nbsp;${sp.donViTinh }</td>
+											<td>
+											<a style="text-align: center" data-toggle="modal" data-target="#modal${sp.maSanPham}"><i
+													class="fas fa-edit"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a
 												onclick="return confirm('Bạn muốn xoá sản phẩm này phải không?');"
 												href="deleteSanPham?id=${sp.maSanPham}" class="text-center"><i
 													class="fas fa-trash"></i></a>
 										</tr>
+										<!-- Modal Edit Sản Phẩm -->
+										<div class="modal fade" id="modal${sp.maSanPham}"
+											role="dialog">
+											<div class="modal-dialog">
+
+												<!-- Modal content-->
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal">&times;</button>
+														<h4 class="modal-title"
+															style="text-align: center; text-transform: uppercase; color: #f63f2e; font-size: 24px;">Edit
+															sản phẩm</h4>
+													</div>
+													<div class="modal-body">
+														<form class="form-horizontal" method="post"
+															action="editSanPham">
+															<div class="row clearfix">
+																<div
+																	class="col-lg-3 col-md-3 col-sm-4 col-xs-5 form-control-label">
+																	<label for="tensp">Tên sản phẩm</label>
+																</div>
+																<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7">
+																	<div class="form-group">
+																		<div class="form-line">
+																			<input  name="maSanPham" value="${sp.maSanPham}" hidden>
+																			<input type="text" id="tensp" name="tenSanPham"
+																				required="required" class="form-control"
+																				value="${sp.tenSanPham}">
+
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="row clearfix">
+																<div
+																	class="col-lg-3 col-md-3 col-sm-4 col-xs-5 form-control-label">
+																	<label for="tensp">Giá</label>
+																</div>
+																<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7">
+																	<div class="form-group">
+																		<div class="form-line">
+																			<input type="tel" id="tensp" name="donGia"
+																				required="required" class="form-control"
+																				value="${sp.donGia}">
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="row clearfix">
+																<div
+																	class="col-lg-3 col-md-3 col-sm-4 col-xs-5 form-control-label">
+																	<label for="tensp">Số lượng</label>
+																</div>
+																<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7">
+																	<div class="form-group">
+																		<div class="form-line">
+																			<input type="number" id="tensp" name="soLuongTon"
+																				required="required" class="form-control"
+																				value="${sp.soLuongTon}">
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="row clearfix">
+																<div
+																	class="col-lg-3 col-md-3 col-sm-4 col-xs-5 form-control-label">
+																	<label for=""thue"">Thuế</label>
+																</div>
+																<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7">
+																	<div class="form-group">
+																		<div class="form-line">
+																			<input type="number" id="thue" name="thue"
+																				required="required" class="form-control"
+																				value="${sp.thue}">
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="row clearfix">
+																<div
+																	class="col-lg-3 col-md-3 col-sm-4 col-xs-5 form-control-label">
+																	<label for="congdung">Công dụng</label>
+																</div>
+																<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7">
+																	<div class="form-group">
+																		<div class="form-line">
+																			<textarea rows="4" class="form-control no-resize"
+																				required="required"
+																				name="congDung">${sp.congDung}</textarea>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="row clearfix">
+																<div
+																	class="col-lg-3 col-md-3 col-sm-4 col-xs-5 form-control-label">
+																	<label for="thanhphan">Thành phần</label>
+																</div>
+																<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7">
+																	<div class="form-group">
+																		<div class="form-line">
+																			<textarea rows="4" class="form-control no-resize"
+																				name="thanhPhan" required="required"
+																				placeholder="Nước Tẩy Trang L'Oreal Micellar Water 3-In-1 là dòng sản phẩm tẩy trang đến từ thương hiệu L'Oreal Paris">${sp.thanhPhan}</textarea>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="row clearfix">
+																<div
+																	class="col-lg-3 col-md-3 col-sm-4 col-xs-5 form-control-label">
+																	<label for=""donvitinh"">Đơn vị tính</label>
+																</div>
+																<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7 ml--15">
+																	<div
+																		class="btn-group bootstrap-select form-control show-tick open dropup">
+
+																		<select class="form-control show-tick" tabindex="-98"
+																			name="donViTinh">
+																			<option value="Chai">Chai</option>
+																			<option value="Cái">Cái</option>
+																			<option value="Tuýp">Tuýp</option>
+																			<option value="Hộp">Hộp</option>
+																			<option value="Hũ">Hũ</option>
+																			<option value="Lọ">Lọ</option>
+																		</select>
+																	</div>
+																</div>
+															</div>
+															<div class="row clearfix">
+																<div
+																	class="col-lg-3 col-md-3 col-sm-4 col-xs-5 form-control-label">
+																	<label for=""hansudung"">Hạn sử dụng</label>
+																</div>
+																<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7 ml--15">
+																	<div
+																		class="btn-group bootstrap-select form-control show-tick open dropup">
+
+																		<select class="form-control show-tick" tabindex="-98"
+																			name="hanSuDung">
+																			<option value="6">6 tháng</option>
+																			<option value="12">12 tháng</option>
+																			<option value="18">18 tháng</option>
+																			<option value="24">24 tháng</option>
+																			<option value="36">36 tháng</option>
+																		</select>
+																	</div>
+																</div>
+															</div>
+															 <div class="row clearfix">
+																<div
+																	class="col-lg-3 col-md-3 col-sm-4 col-xs-5 form-control-label">
+																	<label for=""danhmuc"">Danh mục</label>
+																</div>
+																<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7 ml--15">
+																	<div
+																		class="btn-group bootstrap-select form-control show-tick open dropup">
+
+																		<select class="form-control show-tick" tabindex="-98"
+																			name="maDanhMuc2">
+																			<c:forEach var="dm" items="${listDanhMuc}">
+																				<option value="${dm.maDanhMuc}" <c:if test="${sp.danhMuc.maDanhMuc == dm.maDanhMuc}">selected="selected"</c:if>>${dm.tenDanhMuc}</option>
+																			</c:forEach>
+																		</select>
+																	</div>
+																</div>
+															</div>
+															<div class="row clearfix">
+																<div
+																	class="col-lg-3 col-md-3 col-sm-4 col-xs-5 form-control-label">
+																	<label for="nhacungcap">Nhà cung cấp</label>
+																</div>
+																<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7 ml--15">
+																	<div
+																		class="btn-group bootstrap-select form-control show-tick open dropup">
+
+																		<select class="form-control show-tick"
+																			tabindex="-98 name="maNhaCungCap">
+																			<c:forEach var="ncc" items="${listNhaCungCap}">
+																				<option value="${ncc.id}" <c:if test="${sp.nhaCungCap.id == ncc.id}">selected="selected"</c:if>>${ncc.tenNCC}</option>
+																			</c:forEach>
+																		</select>
+																	</div>
+																</div>
+															</div>
+															<div class="row clearfix">
+																<div
+																	class="col-lg-3 col-md-3 col-sm-4 col-xs-5 form-control-label">
+																	<label for=""hansudung"">Giảm giá</label>
+																</div>
+																<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7 ml--15">
+																	<div
+																		class="btn-group bootstrap-select form-control show-tick open dropup">
+
+																		<select class="form-control show-tick" tabindex="-98"
+																			name="giamGia">
+																			<option value="5" <c:if test="${sp.giamGia == 5}">selected="selected"</c:if>>5%</option>
+																			<option value="10" <c:if test="${sp.giamGia == 10}">selected="selected"</c:if>>10%</option>
+																			<option value="15" <c:if test="${sp.giamGia == 15}">selected="selected"</c:if>>15%</option>
+																			<option value="20" <c:if test="${sp.giamGia == 20}">selected="selected"</c:if>>20%</option>
+																			<option value="25" <c:if test="${sp.giamGia == 25}">selected="selected"</c:if>>25%</option>
+																		</select>
+																	</div>
+																</div>
+															</div>
+															<div class="row clearfix">
+																<div
+																	class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+
+																</div>
+																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+																	<button type="submit"
+																		style="width: 90%; height: 40px; margin-left: 32px; margin-top: 0; background: #f63f2e !important;"
+																		class="btn btn-primary m-t-15 waves-effect">Submit</button>
+																</div>
+															</div>
+													</div>
+													</form>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-default"
+														data-dismiss="modal">Close</button>
+												</div>
+											</div>
+
+										</div>
 									</c:forEach>
 
 								</tbody>
 							</table>
-							<div class="dataTables_info" id="DataTables_Table_0_info"
-								role="status" aria-live="polite">Showing 51 to 57 of 57
-								entries</div>
+						
 							<div class="dataTables_paginate paging_simple_numbers"
 								id="DataTables_Table_0_paginate">
 								<ul class="pagination">

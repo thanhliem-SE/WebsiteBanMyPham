@@ -29,7 +29,9 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 	@Override
 	public void saveSanPham(SanPham sanPham) {
 		Session currentSession = sessionFactory.getCurrentSession();
-		Transaction tr = currentSession.beginTransaction();
+		Transaction tr = currentSession.getTransaction();
+		if (!tr.isActive())
+			tr = currentSession.beginTransaction();
 		try {
 			currentSession.saveOrUpdate(sanPham);
 			tr.commit();
@@ -64,8 +66,9 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 	public List<SanPham> getListSanPham() {
 		List<SanPham> rs = new ArrayList<SanPham>();
 		Session session = sessionFactory.getCurrentSession();
-		Transaction tr = session.beginTransaction();
-
+		Transaction tr = session.getTransaction();
+		if (!tr.isActive())
+			tr = session.beginTransaction();
 		try {
 			Query<SanPham> theQuery = session.createQuery("from SanPham", SanPham.class);
 			rs = theQuery.getResultList();
@@ -90,9 +93,12 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 					+ maSanPham;
 			@SuppressWarnings("unchecked")
 			List<Object> objs = session.createNativeQuery(sql).getResultList();
-			for (Object obj : objs) {
-				rs.add(obj.toString());
-			}
+			if(objs.size()>0)
+				for (Object obj : objs) {
+					rs.add(obj.toString());
+				}
+			else
+				rs.add("img-default.jpg");
 			tr.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
