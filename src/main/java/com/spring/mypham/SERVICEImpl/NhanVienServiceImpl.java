@@ -29,5 +29,11 @@ public class NhanVienServiceImpl implements NhanVienService{
 		// TODO Auto-generated method stub
 		return nvDAO.getAllNhanVien();
 	}
+
+	@Override
+	public String isExistNhanVien(NhanVien nhanVien) {
+		// TODO Auto-generated method stub
+		return nvDAO.isExistNhanVien(nhanVien);
+	}
 	
 }
