@@ -1,8 +1,11 @@
 eclipse.preferences.version=1
+encoding//src/main/java=UTF-8
 encoding//src/main/java/com/spring/mypham/DAOImpl/SanPhamDAOImpl.java=UTF-8
 encoding//src/main/java/com/spring/mypham/controller/CartController.java=UTF-8
 encoding//src/main/java/com/spring/mypham/models/DiaChi.java=UTF-8
+encoding//src/main/resources=UTF-8
 encoding//src/main/webapp/WEB-INF/views/user/index.jsp=UTF-8
 encoding//src/main/webapp/decorators/admin.jsp=UTF-8
 encoding//src/main/webapp/index.jsp=UTF-8
+encoding//src/test/resources=UTF-8
 encoding/<project>=UTF-8

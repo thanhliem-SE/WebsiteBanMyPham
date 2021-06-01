@@ -60,6 +60,9 @@
 	<decorator name="quanlysanpham" page="admin.jsp">
 		<pattern>/admin/quanlysanpham</pattern>
 	</decorator>
+	<decorator name="thongke" page="user.jsp">
+		<pattern>/admin/thongke</pattern>
+	</decorator>
 	<decorator name="profile" page="admin.jsp">
 		<pattern>/admin/profile</pattern>
 	</decorator>

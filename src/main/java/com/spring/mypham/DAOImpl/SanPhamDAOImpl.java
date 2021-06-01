@@ -34,6 +34,7 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 			tr = currentSession.beginTransaction();
 		try {
 			currentSession.saveOrUpdate(sanPham);
+//			currentSession.getTransaction().commit();
 			tr.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -79,13 +80,14 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 		}
 		return rs.get(0);
 	}
+
 	@Transactional
 	@Override
 	public List<SanPham> getListSanPham() {
 		List<SanPham> rs = new ArrayList<SanPham>();
 
-		  Session session = sessionFactory.getCurrentSession(); 
-		  Transaction tr = session.beginTransaction();
+		Session session = sessionFactory.getCurrentSession();
+		Transaction tr = session.beginTransaction();
 //		Transaction tr = session.getTransaction();
 		if (!tr.isActive())
 			tr = session.beginTransaction();

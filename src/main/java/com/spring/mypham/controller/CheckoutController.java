@@ -19,11 +19,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.spring.mypham.DAO.HoaDonDAO;
 import com.spring.mypham.SERVICE.HoaDonService;
 import com.spring.mypham.SERVICE.LineItemService;
+import com.spring.mypham.SERVICE.SanPhamService;
 import com.spring.mypham.SERVICE.ThanhToanService;
 import com.spring.mypham.models.CartItem;
 import com.spring.mypham.models.DiaChi;
 import com.spring.mypham.models.HoaDon;
 import com.spring.mypham.models.LineItem;
+import com.spring.mypham.models.SanPham;
 import com.spring.mypham.models.ThanhToan;
 
 @Controller
@@ -35,6 +37,8 @@ public class CheckoutController {
 	private ThanhToanService thanhToanService;
 	@Autowired
 	private LineItemService lineItemService;
+	@Autowired
+	private SanPhamService sanPhamService;
 	@GetMapping("")
 	private String trangChu(Model model, HttpSession session) {
 		@SuppressWarnings("unchecked")
@@ -105,12 +109,13 @@ public class CheckoutController {
 //			System.out.println(cartItem.getSp().getTenSanPham());
 //			System.out.println(cartItem.getSoLuong());
 //			System.out.println(cartItem.getSp().getDonGia());
-			LineItem item = new LineItem(
-					cartItem.getSoLuong(), 
-					cartItem.getSp().getMaSanPham(), 
-					hoaDon, 
-					cartItem.getSp());
-			lineItemService.saveLineItem(item);
+//			LineItem item = new LineItem(cartItem.getSoLuong(),hoaDon, cartItem.getSp());
+//			lineItemService.saveLineItem(item);
+			SanPham updateQuantity = cartItem.getSp();
+			int quantity = 0;
+			quantity = cartItem.getSp().getSoLuongTon() - cartItem.getSoLuong();
+			updateQuantity.setSoLuongTon(quantity);
+			sanPhamService.saveSanPham(updateQuantity);
 		}
 		return "/user/xacnhan";
 	}
