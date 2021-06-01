@@ -1,6 +1,7 @@
 package com.spring.mypham.controller.ADMIN;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -18,8 +19,10 @@ import com.spring.mypham.SERVICE.UserService;
 import com.spring.mypham.SERVICEImpl.KhachHangServiceImpl;
 import com.spring.mypham.SERVICEImpl.NhanVienServiceImpl;
 import com.spring.mypham.SERVICEImpl.UserServiceImpl;
+import com.spring.mypham.models.DiaChi;
 import com.spring.mypham.models.KhachHang;
 import com.spring.mypham.models.NhanVien;
+import com.spring.mypham.models.Role;
 import com.spring.mypham.models.User;
 
 @Controller(value = "QLAdminControllerAdmin")
@@ -54,7 +57,7 @@ public class QuanLyAdminController {
 				user.setEnabled(true);
 				userService.saveUser(user);
 				
-				
+				nhanVien.setUser(user);
 				nhanVienService.saveNhanVien(nhanVien);
 				
 				//session.setAttribute("username", user.getUsername());
@@ -64,6 +67,24 @@ public class QuanLyAdminController {
 			}
 			else System.out.println(rs);
 		}
+		return "redirect:quanlyadmin";
+
+	}
+	@RequestMapping(value = "/updateNhanVien",method = RequestMethod.POST)
+	public String submit(Model model, @ModelAttribute("nhanVien") NhanVien nhanVien, HttpSession session, String btnCapNhat) {
+		//System.out.println("Make -1: "+user.toString());
+		String username = btnCapNhat;
+		User user = new User();
+		user.setUsername(username);
+		nhanVien.setUser(user);
+		
+		nhanVienService.updateNhanVien(nhanVien);
+		return "redirect:quanlyadmin";
+	}
+	@Transactional
+	@RequestMapping(value = "/deleteNV",method = RequestMethod.POST)
+	public String deleteKH(Model model,String btnDelete) {
+		nhanVienService.deleteNhanVienByUserName(btnDelete);
 		return "redirect:quanlyadmin";
 
 	}

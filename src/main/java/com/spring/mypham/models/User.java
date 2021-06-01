@@ -39,9 +39,17 @@ public class User implements Serializable {
     private List<Role> roles;
 //	@OneToMany(mappedBy = "user")
 //	private List<Authority> authority;
-
+	
 	@OneToOne(mappedBy = "user")
 	private NhanVien nhanVien;
+
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}
 
 	@OneToOne(mappedBy = "user")
 	private KhachHang khachHang;

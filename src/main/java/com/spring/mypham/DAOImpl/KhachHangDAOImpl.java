@@ -91,7 +91,10 @@ public class KhachHangDAOImpl implements KhachHangDAO{
 		Session currentSession = sessionFactory.getCurrentSession();
 		Transaction tr = currentSession.beginTransaction();
 		try {
-			String sql = "delete KhachHang where username like ?";
+			String sql = "delete user_role where USER_ID like ?";
+			currentSession.createNativeQuery(sql)
+				.setParameter(1, username).executeUpdate();
+			sql = "delete KhachHang where username like ?";
 			currentSession.createNativeQuery(sql)
 				.setParameter(1, username).executeUpdate();
 			sql = "delete users where username like ?";
@@ -187,17 +190,17 @@ public class KhachHangDAOImpl implements KhachHangDAO{
 				DiaChi dc = new DiaChi();
 				if(obj[0]!=null)
 					kh.setTenKhachHang(obj[0].toString());
-				else kh.setTenKhachHang("Chýa có");
+				else kh.setTenKhachHang("ChÆ°a cÃ³");
 				if(obj[1]!=null)
 					kh.setEmail(obj[1].toString());
-				else kh.setEmail("Chýa có");
+				else kh.setEmail("ChÆ°a cÃ³");
 				if(obj[2]!=null)
 					kh.setSoDienThoai(obj[2].toString());
-				else kh.setSoDienThoai("Chýa có");
+				else kh.setSoDienThoai("ChÆ°a cÃ³");
 				user.setUsername(obj[3].toString());
 				if(obj[4]!=null)
 					dc.setThanhPho(obj[4].toString());
-				else dc.setThanhPho("Chýa có");
+				else dc.setThanhPho("ChÆ°a cÃ³");
 				if(obj[5]!=null)
 					dc.setSoNha(obj[5].toString());
 				if(obj[6]!=null)
