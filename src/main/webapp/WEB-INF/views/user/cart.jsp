@@ -64,7 +64,7 @@
 											</div>
 										</td>
 										<td colspan="2"><fmt:formatNumber type="number"
-												pattern="#,###,###.## ₫" value="${ds.sp.donGia }" /></td>
+												pattern="#,###,###.## ₫" value="${ds.sp.donGia + (ds.sp.donGia*ds.sp.thue/100)}" /></td>
 										<td>
 											<div class="qty">
 												<c:if test="${ds.soLuong >= 2}">
@@ -102,7 +102,7 @@
 										</td>
 										<td colspan="2"><fmt:formatNumber type="number"
 												pattern="#,###,###.## ₫"
-												value="${ds.sp.donGia * ds.soLuong}" /></td>
+												value="${(ds.sp.donGia * ds.soLuong) + (ds.sp.donGia * ds.soLuong)*(ds.sp.thue/100) }" /></td>
 										<td><a
 											onclick="return confirm('Bạn muốn xoá mình ra khỏi giỏ hàng ư :<?');"
 											href="<c:url value="deletecart/${ds.sp.maSanPham}"/>">

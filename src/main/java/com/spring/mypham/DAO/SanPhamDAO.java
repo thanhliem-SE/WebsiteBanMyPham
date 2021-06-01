@@ -7,7 +7,7 @@ import com.spring.mypham.models.SanPham;
 public interface SanPhamDAO {
 	public void saveSanPham(SanPham sanPham);
 	public void deleteSanPham(Long id);
-	public SanPham getDienThoai(Long id);
+	public SanPham getSanPham(Long id);
 	public List<SanPham> getListSanPham();
 	public List<SanPham> getListSanPhamTheoPage(int page, List<SanPham> list);
 	/**

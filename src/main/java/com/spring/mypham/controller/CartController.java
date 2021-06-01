@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.spring.mypham.SERVICE.SanPhamService;
+import com.spring.mypham.SERVICEImpl.SanPhamServiceImpl;
 import com.spring.mypham.models.CartItem;
 import com.spring.mypham.models.SanPham;
 
@@ -21,7 +22,6 @@ import com.spring.mypham.models.SanPham;
 public class CartController {
 	@Autowired
 	private SanPhamService sanPhamService;
-
 	@GetMapping("/addtocart/{id}")
 	public String addToCart(@PathVariable("id") long maSanPham, Model model, HttpSession session) {
 
@@ -30,9 +30,7 @@ public class CartController {
 			SanPham sp = sanPhamService.getSanPham(maSanPham);
 			CartItem cartItem = new CartItem(sp, 1);
 			cart.add(cartItem);
-//			session.setAttribute("imgs", sanPhamService.getHinhAnhById(maSanPham));
 			session.setAttribute("cart", cart);
-
 			return "redirect:/cart/";
 		} else {
 			List<CartItem> cart = (List<CartItem>) session.getAttribute("cart");
@@ -59,14 +57,16 @@ public class CartController {
 		List<SanPham> cart = (List<SanPham>) session.getAttribute("cart");
 		if (cart == null) {
 			session.setAttribute("sub", 0);
+			session.setAttribute("salePrice", 0);
 			session.setAttribute("price", 0);
-			session.setAttribute("statuscart", "Không có sản phẩm nào trong giỏ hàng");
+			session.setAttribute("statuscart", "Không có sản phẩm nào trong giỏ hàng!");
 			return "user/cart";
 		} else {
 			if (cart.size() <= 0) {
 				session.setAttribute("sub", 0);
+				session.setAttribute("salePrice", 0);
 				session.setAttribute("price", 0);
-				session.setAttribute("statuscart", "Không có sản phẩm nào trong giỏ hàng");
+				session.setAttribute("statuscart", "Không có sản phẩm nào trong giỏ hàng!");
 				return "user/cart";
 			} else {
 				session.setAttribute("statuscart", "");
@@ -107,18 +107,21 @@ public class CartController {
 		double tax = 0;
 		//giảm giá
 		double salePrice = 0;
+		double priceVAT = 0;
 		for (CartItem cartItem : cart) {
 			tax++;
 			//Tạm tính
-			price += cartItem.getSp().getDonGia() * cartItem.getSoLuong();
+			price += (cartItem.getSp().getDonGia() * cartItem.getSoLuong());
+			//Đã VAT 10%
+			priceVAT += price + (price*cartItem.getSp().getThue()/100);
 			//Thuế
 			tax += (price * cartItem.getSp().getThue()/100);
 			//Giảm giá
-			salePrice += (price * cartItem.getSp().getGiamGia()) / 100;
+			salePrice += (priceVAT * cartItem.getSp().getGiamGia()/100);
 			
-			session.setAttribute("sub", price);
+			session.setAttribute("sub", priceVAT);
 			session.setAttribute("salePrice", salePrice);
-			session.setAttribute("price", price - salePrice + tax);
+			session.setAttribute("price", priceVAT - salePrice);
 		}
 	}
 
