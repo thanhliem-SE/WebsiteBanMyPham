@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
-<h1>Thanh Cong</h1>
-<!-- <div class="wishlist-page">
+<div class="wishlist-page">
 	<div class="container-fluid">
 		<div class="col-12 col-md-12">
 			<div class="row bg-white pb-5 rounded">
@@ -117,10 +116,18 @@
 							</div>
 						</div>
 					</div>
+					<div class="row">
+						<div class="col-12">
+							<div class="receive text-center pt-1">
+								<span class="badge bg-recei py-2 fs-14 px-3">
+								<a href="<c:url value="/"/>" class="cl-3333">Trở về trang chủ</a>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 
 
 		</div>
 	</div>
-</div> -->
+</div>
