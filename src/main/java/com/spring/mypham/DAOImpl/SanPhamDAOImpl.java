@@ -59,8 +59,18 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 	@Override
 	public SanPham getSanPham(Long id) {
 		Session currentSession = sessionFactory.getCurrentSession();
-		SanPham sanPham = currentSession.get(SanPham.class, id);
-		return sanPham;
+		Transaction tr = currentSession.getTransaction();
+		if (!tr.isActive())
+			tr.begin();
+		try {
+			SanPham sanPham = currentSession.get(SanPham.class, id);
+			tr.commit();
+			sanPham.setHinhAnh(getHinhAnhById(sanPham.getMaSanPham()));
+			return sanPham;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	public SanPham getDienThoai(Long id) {
@@ -104,6 +114,7 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 		return rs;
 	}
 
+	@Transactional
 	public List<String> getHinhAnhById(long maSanPham) {
 		List<String> rs = new ArrayList<String>();
 		Session session = sessionFactory.getCurrentSession();
@@ -260,4 +271,37 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 		}
 		return rs.get(0);
 	}
+
+	// Select Top 5 San Pham Ban Chay Nhat Theo Thang/Nam
+	@Override
+	@Transactional
+	public List<SanPham> getListSanPhamThongKe(int thang, int nam) {
+		List<SanPham> rs = new ArrayList<SanPham>();
+		Session session = sessionFactory.getCurrentSession();
+		Transaction tr = session.beginTransaction();
+
+		try {
+			String sql = "Select TOP 5 S.maSanPham, SUM(L.soLuong)SoLuong From SanPham S Join LineItem L ON S.maSanPham =  L.maSanPham\r\n"
+					+ "Join HoaDon H ON L.maHoaDon = H.maHoaDon Where YEAR(ngayLap)=" + nam + " AND MONTH(ngayLap)="
+					+ thang + " Group by S.maSanPham Order By SoLuong";
+			NativeQuery theQuery = session.createNativeQuery(sql);
+			List<Object> listObject = theQuery.getResultList();
+			tr.commit();
+			if (listObject.size() > 0) {
+				for (Object obj : listObject) {
+					Object[] objs = (Object[]) obj;
+					Long id = Long.parseLong(objs[0].toString());
+					SanPham s = getSanPham(id);
+					s.setSoLuongTon(Integer.parseInt(objs[1].toString()));
+					rs.add(s);
+				}
+				
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
+
 }

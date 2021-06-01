@@ -95,4 +95,9 @@ public class SanPhamServiceImpl implements SanPhamService {
 		return sanPhamDAO.getHinhAnhById(maSanPham);
 	}
 
+	@Override
+	public List<SanPham> getListSanPhamThongKe(int thang, int nam) {
+		return sanPhamDAO.getListSanPhamThongKe(thang, nam);
+	}
+
 }

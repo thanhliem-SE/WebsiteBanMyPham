@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import com.spring.mypham.DAO.MySessionFactory;
 import com.spring.mypham.DAOImpl.DanhMucImpl;
 import com.spring.mypham.SERVICE.HoaDonService;
 import com.spring.mypham.SERVICE.SanPhamService;
@@ -17,13 +18,12 @@ import com.spring.mypham.models.HoaDon;
 public class MainTest {
 	public static void main(String[] args) {
 		
-//		SanPhamService sanPhamService = new SanPhamServiceImpl();
-//		sanPhamService.getListSanPham().forEach(s->{
-//			System.out.println("Hinh anh: " + s.getHinhAnh().size());
-//		});
+		SanPhamService sanPhamService = new SanPhamServiceImpl();
+		sanPhamService.getListSanPhamThongKe(8, 2021).forEach(s->{
+			System.out.println(s);
+		});
 		
-		System.out.println(Paths.get(new File("").getAbsolutePath()));
-		
+//		MySessionFactory.getInstance().getSessionFactory();
 //		KhachHangService hangService = new KhachHangServiceImpl();
 //		
 //		KhachHang kh = new KhachHang();

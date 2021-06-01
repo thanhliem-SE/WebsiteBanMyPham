@@ -4,9 +4,11 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -51,7 +53,7 @@ public class SanPham implements Serializable {
 	@CollectionTable(name = "HinhAnh", joinColumns = @JoinColumn(name = "maSanPham"))
 	private List<String> hinhAnh;
 
-	@OneToMany(mappedBy = "sanPham")
+	@OneToMany(mappedBy = "sanPham",fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Set<LineItem> lineItem;
 
 	@ManyToOne

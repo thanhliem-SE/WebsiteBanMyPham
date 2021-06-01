@@ -30,5 +30,7 @@ public interface SanPhamService {
 	public SanPham getSanPhamByID(long maSanPham);
 	
 	public List<String> getHinhAnhById(long maSanPham);
+	
+	public List<SanPham> getListSanPhamThongKe(int thang, int nam);
 
 }
