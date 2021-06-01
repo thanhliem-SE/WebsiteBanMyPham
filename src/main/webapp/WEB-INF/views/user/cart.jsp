@@ -64,7 +64,7 @@
 											</div>
 										</td>
 										<td colspan="2"><fmt:formatNumber type="number"
-												pattern="#,###,###.## ₫" value="${ds.sp.donGia + (ds.sp.donGia*ds.sp.thue/100)}" /></td>
+												pattern="#,###,###.## ₫" value="${ds.sp.donGia * ds.soLuong}" /></td>
 										<td>
 											<div class="qty">
 												<c:if test="${ds.soLuong >= 2}">
@@ -102,7 +102,7 @@
 										</td>
 										<td colspan="2"><fmt:formatNumber type="number"
 												pattern="#,###,###.## ₫"
-												value="${(ds.sp.donGia * ds.soLuong) + (ds.sp.donGia * ds.soLuong)*(ds.sp.thue/100) }" /></td>
+												value="${ds.sp.donGia * ds.soLuong}" /></td>
 										<td><a
 											onclick="return confirm('Bạn muốn xoá mình ra khỏi giỏ hàng ư :<?');"
 											href="<c:url value="deletecart/${ds.sp.maSanPham}"/>">
@@ -135,21 +135,19 @@
 										của bạn</h1>
 									<p>
 										Tạm tính<span> <fmt:formatNumber type="number"
-												pattern="###,###,### ₫" value="${sub}" /></span>
+												pattern="###,###,### ₫" value="${tamtinh}" /></span>
 									</p>
 									<p>
 												Giảm giá
-												<fmt:formatNumber type="number" pattern="###,###"
-												value="${ds.sp.giamGia }" />
-										<span><fmt:formatNumber type="number" pattern="###,###"
-												value="${salePrice}" /> ₫</span>
+										<span><fmt:formatNumber type="number" pattern="###,###,###"
+												value="${giamgia}" /> ₫</span>
 									</p>
 
 									<!-- <p>Shipping Cost<span>0</span><span>₫</span></p> -->
 									<p>
 										Tổng tiền(VAT)<span style="color: #ff6f61; font-style: bold;">
 											<fmt:formatNumber type="number" pattern="###,###,### ₫"
-												value="${price}" />
+												value="${tongtien}" />
 										</span>
 										</ps>
 								</div>

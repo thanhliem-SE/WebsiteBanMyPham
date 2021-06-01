@@ -29,18 +29,18 @@
 									<form:input cssClass="form-control" type="tel"
 										path="sdtNhanHang" placeholder="0987059059" />
 								</div>
+								<div class="col-md-12">
+									<label>Số nhà</label>
+									<input class="form-control" name="soNha" type="text"
+										placeholder="số nhà, tên đường" />
+								</div>
 
-								<%-- 								<div class="col-md-12">
-									<label>Địa chỉ nhận hàng</label>
-									<form:input cssClass="form-control" type="text"
-										path="diaChiNhanHang"
-										placeholder="Số nhà, đường, xã, quận, huyện, thành phố" />
-								</div> --%>
 								<div class="col-md-12">
 									<div class="form-group">
 										<label>Phường</label> <select name="phuong"
 											class="custom-select" required>
-											<option value="Phường 1" selected="selected">Phường1</option>
+											<option value="Phường 1" selected="selected">Phường
+												1</option>
 											<option value="Phường 2">Phường 2</option>
 											<option value="Phường 3">Phường 3</option>
 											<option value="Phường 4">Phường 4</option>
@@ -95,11 +95,11 @@
 										</select>
 									</div>
 								</div>
-								<!-- 								<div class="col-md-12">
+								<div class="col-md-12">
 									<label>Ghi chú</label>
-									<textarea class="form-control" id="exampleFormControlTextarea1"
+									<textarea class="form-control" name="ghiChu"
 										rows="3"></textarea>
-								</div> -->
+								</div>
 								<div class="col-md-12">
 									<input type="submit" value="Đặt hàng">
 								</div>
