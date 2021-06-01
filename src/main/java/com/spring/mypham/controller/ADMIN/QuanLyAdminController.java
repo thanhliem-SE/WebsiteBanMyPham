@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spring.mypham.SERVICE.KhachHangService;
 import com.spring.mypham.SERVICE.NhanVienService;
@@ -82,9 +83,9 @@ public class QuanLyAdminController {
 		return "redirect:quanlyadmin";
 	}
 	@Transactional
-	@RequestMapping(value = "/deleteNV",method = RequestMethod.POST)
-	public String deleteKH(Model model,String btnDelete) {
-		nhanVienService.deleteNhanVienByUserName(btnDelete);
+	@RequestMapping(value = "/deleteNV",method = RequestMethod.GET)
+	public String deleteKH(Model model,@RequestParam String username) {
+		nhanVienService.deleteNhanVienByUserName(username);
 		return "redirect:quanlyadmin";
 
 	}

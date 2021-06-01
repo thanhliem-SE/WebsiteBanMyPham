@@ -139,10 +139,7 @@
 												<td>${element.chucVu}</td>
 												<td>
 										<div class="row">
-											<button
-												class="btn btn-primary col-sm-6 col-md-6 col-lg-6 col-xl-6"
-												type="button" data-toggle="modal"
-												data-target="#modalEditNhanVien${element.user.username}">Sửa</button>
+											<a style="text-align: center" data-toggle="modal" data-target="#modalEditNhanVien${element.user.username}"><i class="fas fa-edit"></i></a>
 											<!-- The Modal -->
 											<div class="modal" id="modalEditNhanVien${element.user.username}">
 												<div class="modal-dialog">
@@ -275,13 +272,11 @@
 													</div>
 												</div>
 											</div>
-											<form:form method="post" name="registerForm"
-												action="${pageContext.request.contextPath}/admin/deleteNV">
-												<button
-													class="btn btn-danger col-sm-6 col-md-6 col-lg-6 col-xl-6"
-													type="submit" name="btnDelete"
-													value="${element.user.username}">Xóa</button>
-											</form:form>
+										
+											&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; <a
+														onclick="return confirm('Bạn muốn xoá nhân viên này phải không?');"
+														href="${pageContext.request.contextPath}/admin/deleteNV?username=${element.user.username}"
+														class="text-center"><i class="fas fa-trash"></i></a>
 										</div>
 
 									</td>
