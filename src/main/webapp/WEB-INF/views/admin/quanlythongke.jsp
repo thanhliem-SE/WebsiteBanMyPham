@@ -10,46 +10,83 @@
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<div class="card">
 					<div class="header">
-						<h2 class="text-uppercase text-center">Thống kê</h2>
-						<ul class="header-dropdown m-r--5">
-							<li class="dropdown"><a href="javascript:void(0);"
-								class="dropdown-toggle" data-toggle="dropdown" role="button"
-								aria-haspopup="true" aria-expanded="true"> <i
-									class="material-icons">more_vert</i>
-							</a>
-								<ul class="dropdown-menu pull-right">
-									<li><a href="javascript:void(0);"
-										class=" waves-effect waves-block">Action</a></li>
-									<li><a href="javascript:void(0);"
-										class=" waves-effect waves-block">Another action</a></li>
-									<li><a href="javascript:void(0);"
-										class=" waves-effect waves-block">Something else here</a></li>
-								</ul></li>
-						</ul>
-					</div>
-					<div class="body">
-						<div class="table-responsive">
-							<div id="DataTables_Table_0_wrapper" style="margin-top: -62px;"
-								class="dataTables_wrapper form-inline dt-bootstrap">
-								<div id="DataTables_Table_0_filter" class="dataTables_filter"
-									style="float: left; padding-bottom: 4px">
-									<label>Search:<input type="search"
-										class="form-control input-sm" placeholder="Venus"
-										aria-controls="DataTables_Table_0"></label>
-								</div>
-								<div style="display: block;">
-									<h2 style="color: white;">vinh</h2>
-									<button type="button" class="btn btn-info btn-lg"
-										style="background: #f44336 !important; min-width: 180px !important;"
-										data-toggle="modal" data-target="#myModal">Thêm sản
-										phẩm</button>
+						<h2 class="text-uppercase text-center">Quản Lý Thống Kê</h2>
 
-									
+						<div style="display: flex; margin-top: 30px;">
+							<div class="col-6" style="width: 45%;">
 
-								
+								<div class="btn-group bootstrap-select form-control show-tick">
+									<div class="dropdown-menu open"
+										style="max-height: 98.25px; overflow: hidden; min-height: 0px;">
+										<ul class="dropdown-menu inner" role="menu"
+											style="max-height: 88.25px; overflow-y: auto; min-height: 0px;">
+											<li data-original-index="0" class=""><a tabindex="0"
+												class="" style="" data-tokens="null"><span class="text">THÁNG</span><span
+													class="glyphicon glyphicon-ok check-mark"></span></a></li>
+										</ul>
+									</div>
+									<select class="form-control show-tick" tabindex="-98">
+										<option value>THÁNG</option>
+										<option value="01">01</option>
+										<option value="02">02</option>
+										<option value="03">03</option>
+										<option value="04">04</option>
+										<option value="05">05</option>
+										<option value="06">06</option>
+										<option value="07">07</option>
+										<option value="08">08</option>
+										<option value="09">09</option>
+										<option value="10">10</option>
+										<option value="11">11</option>
+										<option value="12">12</option>
+									</select>
 								</div>
 
 							</div>
+							<div class="col-6"
+								style="width: 45%; float: right; margin-left: 85px;">
+
+								<div class="btn-group bootstrap-select form-control show-tick">
+									<div class="dropdown-menu open"
+										style="max-height: 98.25px; overflow: hidden; min-height: 0px;">
+										<ul class="dropdown-menu inner" role="menu"
+											style="max-height: 88.25px; overflow-y: auto; min-height: 0px;">
+											<li data-original-index="0" class=""><a tabindex="0"
+												class="" style="" data-tokens="null"><span class="text">NĂM</span><span
+													class="glyphicon glyphicon-ok check-mark"></span></a></li>
+										</ul>
+									</div>
+									<select class="form-control show-tick" tabindex="-98">
+										<option value="">NĂM</option>
+										<option value="2018">2018</option>
+										<option value="2019">2019</option>
+										<option value="2020">2020</option>
+										<option value="2021">2021</option>
+									</select>
+								</div>
+
+							</div>
+
+						</div>
+						<div style="display: block;">
+							<h2 style="color: white;">vinh</h2>
+							<button type="button" class="btn btn-info btn-lg"
+								style="background: #f44336 !important; min-width: 180px !important;">Thống
+								kê</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</section>
+
+<section class="content">
+	<div class="container-fluid">
+		<div class="row clearfix">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="card" style="margin-top: -130px;">
+					<div class="body">
+						<div class="table-responsive">
 							<table
 								class="table table-bordered table-striped table-hover dataTable js-exportable"
 								id="DataTables_Table_0" role="grid"

@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller(value = "ThongKeController")
 @RequestMapping("/admin")
-public class ThongKeController {
-	@GetMapping("/thongke")
-	public String blankPage(Model model) {
-		return "admin/thongke";
+public class QuanLyThongKeController {
+	@GetMapping("/quanlythongke")
+	public String thongKeController(Model model) {
+		return "admin/quanlythongke";
 	}
 }

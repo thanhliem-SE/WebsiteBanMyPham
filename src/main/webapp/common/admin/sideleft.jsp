@@ -75,7 +75,13 @@
                         </a>
                        
                     </li>
-                 
+                  <li>
+                        <a href="${pageContext.request.contextPath}/admin/quanlythongke">
+                            <i class="material-icons">rate_review</i>
+                            <span>Quản Lý Thống kê</span>
+                        </a>
+                       
+                    </li>
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">contacts</i>
