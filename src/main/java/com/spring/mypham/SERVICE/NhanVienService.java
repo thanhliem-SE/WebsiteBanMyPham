@@ -7,4 +7,5 @@ import com.spring.mypham.models.NhanVien;
 public interface NhanVienService {
 	void saveNhanVien(NhanVien nv);
 	public ArrayList<NhanVien> getAllNhanVien() ;
+	public String isExistNhanVien(NhanVien nhanVien) ;
 }

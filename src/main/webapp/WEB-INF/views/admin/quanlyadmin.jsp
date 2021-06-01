@@ -56,7 +56,7 @@
 																<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
 																	<label>Họ và tên</label> <br><input class="form-control fs14 "
 																		type="text" placeholder="VD: Trần Văn A"
-																		name="tenKhachHang">
+																		name="tenNhanVien">
 																</div>
 																<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
 																	<label>Tên tài khoản</label> <input

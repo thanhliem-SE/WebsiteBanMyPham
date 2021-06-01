@@ -33,6 +33,39 @@ public class NhanVienDAOImpl implements NhanVienDAO{
 		//themUserRole(user,1);
 		
 	}
+	@Override
+	public String isExistNhanVien(NhanVien nhanVien) {
+		Session session = sessionFactory.getCurrentSession();
+		Transaction tr = session.beginTransaction();
+
+		try {
+			String sql = "select email,soDienThoai,username from NhanVien";
+			@SuppressWarnings("unchecked")
+			List<Object> objs = session.createNativeQuery(sql).getResultList();
+			for (Object arrayObj : objs) {
+				Object[] obj = (Object[]) arrayObj;
+				
+				String email = obj[0].toString();
+				String soDienThoai = obj[1].toString();
+				String username = obj[2].toString();
+				if(nhanVien.getUser().getUsername().equals(username)) {
+					return "Username Exist";
+				}
+				if(nhanVien.getEmail().equals(email)) {
+					return "Email Exist";
+				}
+				if(nhanVien.getSoDienThoai().equals(soDienThoai)) {
+					return "Phone Exist";
+				}
+			}
+
+			tr.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		//nhanVien moi (Hop le)
+		return "Ready";
+	}
 	public ArrayList<NhanVien> getAllNhanVien() {
 		ArrayList<NhanVien> listNV = new ArrayList<NhanVien>();
 		
@@ -53,31 +86,31 @@ public class NhanVienDAOImpl implements NhanVienDAO{
 				else nv.setMaNhanVien(0);
 				if(obj[1]!=null)
 					nv.setCMND(obj[1].toString());
-				else nv.setCMND("Chýa có");
+				else nv.setCMND("ChÆ°a cÃ³");
 				if(obj[2]!=null)
 					nv.setChucVu(obj[2].toString());
-				else nv.setChucVu("Chýa có");
+				else nv.setChucVu("ChÆ°a cÃ³");
 				if(obj[3]!=null)
 					nv.setEmail(obj[3].toString());
-				else nv.setEmail("Chýa có");
+				else nv.setEmail("ChÆ°a cÃ³");
 				if(obj[4]!=null)
 					nv.setGioiTinh(obj[4].toString());
-				else nv.setGioiTinh("Chýa có");
+				else nv.setGioiTinh("ChÆ°a cÃ³");
 				if(obj[5]!=null)
 					nv.setNamSinh(Integer.parseInt(obj[5].toString()));
 				else nv.setNamSinh(0);
 				if(obj[6]!=null)
 					nv.setSoDienThoai(obj[6].toString());
-				else nv.setSoDienThoai("Chýa có");
+				else nv.setSoDienThoai("ChÆ°a cÃ³");
 				if(obj[7]!=null)
 					nv.setTenNhanVien(obj[7].toString());
-				else nv.setTenNhanVien("Chýa có");
+				else nv.setTenNhanVien("ChÆ°a cÃ³");
 				if(obj[8]!=null)
 					nv.setTrinhDoHocVan(obj[8].toString());
-				else nv.setTrinhDoHocVan("Chýa có");
+				else nv.setTrinhDoHocVan("ChÆ°a cÃ³");
 				if(obj[9]!=null)
 					user.setUsername(obj[9].toString());
-				else user.setUsername("Chýa có");
+				else user.setUsername("ChÆ°a cÃ³");
 				
 				nv.setUser(user);
 				
