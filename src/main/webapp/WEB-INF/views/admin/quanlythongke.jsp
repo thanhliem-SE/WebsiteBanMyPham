@@ -11,7 +11,7 @@
 				<div class="card">
 					<form:form method="get" action="thongKe">
 						<div class="header">
-							<h2 class="text-uppercase text-center">Quản Lý Thống Kê</h2>
+							<h2 class="text-uppercase text-center">Quản Lý Thống Kê - Top 5 SP Bán Chạy Nhất</h2>
 
 							<div style="display: flex; margin-top: 30px;">
 								<div class="col-6" style="width: 45%;">
