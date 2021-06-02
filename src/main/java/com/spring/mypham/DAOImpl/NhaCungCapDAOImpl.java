@@ -1,5 +1,6 @@
 package com.spring.mypham.DAOImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -12,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.spring.mypham.DAO.MySessionFactory;
 import com.spring.mypham.DAO.NhaCungCapDAO;
 import com.spring.mypham.models.NhaCungCap;
+import com.spring.mypham.models.SanPham;
 
 public class NhaCungCapDAOImpl implements NhaCungCapDAO {
 	@Autowired
@@ -73,6 +75,21 @@ public class NhaCungCapDAOImpl implements NhaCungCapDAO {
 			e.printStackTrace();
 		}
 		return NhaCungCaps;
+	}
+
+	@Override
+	public List<NhaCungCap> getListNCCTheoPage(int page, List<NhaCungCap> list) {
+		int position = (page - 1) * 6;
+		int end = position + 6;
+
+		List<NhaCungCap> listNCC = new ArrayList<NhaCungCap>();
+
+		while (position < end && list.size() > position) {
+			listNCC.add(list.get(position));
+			position++;
+		}
+
+		return listNCC;
 	}
 
 }

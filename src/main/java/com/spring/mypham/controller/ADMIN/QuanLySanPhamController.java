@@ -86,10 +86,10 @@ public class QuanLySanPhamController{
 		try {
 			byte[] bytes = multipartFile.getBytes();
 			String rootDirectory = request.getSession().getServletContext().getRealPath("").split("Server")[0];
-			Path path = Paths.get(rootDirectory + "src\\main\\webapp\\resources\\user\\img\\"
+			Path path = Paths.get(rootDirectory + "WebsiteBanMyPham\\src\\main\\webapp\\resources\\user\\img\\"
 							+ multipartFile.getOriginalFilename());
 			Files.write(path, bytes);
-			System.out.println("path: "+path);
+			System.out.println("path: "+rootDirectory);
 			return multipartFile.getOriginalFilename();
 		} catch (IOException e) {
 			return null;

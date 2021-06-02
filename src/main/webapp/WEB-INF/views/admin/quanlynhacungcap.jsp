@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ include file="/common/taglib.jsp"%>
 <section class="content">
 	<div class="container-fluid">
@@ -55,7 +56,7 @@
 														Nhà Cung Cấp</h4>
 												</div>
 												<div class="modal-body">
-													<form class="form-horizontal" action="themNhaCungCap"
+													<form:form class="form-horizontal" action="themNhaCungCap"
 														method="post">
 														<div class="row clearfix">
 															<div
@@ -100,9 +101,9 @@
 																	class="btn btn-primary m-t-15 waves-effect">Submit</button>
 															</div>
 														</div>
+													</form:form>
 												</div>
 
-												</form>
 											</div>
 											<div class="modal-footer">
 												<button type="button" class="btn btn-default"
@@ -152,7 +153,7 @@
 															Nhà Cung Cấp</h4>
 													</div>
 													<div class="modal-body">
-														<form class="form-horizontal" action="themNhaCungCap"
+														<form:form class="form-horizontal" action="themNhaCungCap"
 															method="post">
 
 															<div class="row clearfix">
@@ -200,13 +201,13 @@
 																		class="btn btn-primary m-t-15 waves-effect">Submit</button>
 																</div>
 															</div>
+														</form:form>
 													</div>
-													</form>
 												</div>
-												<div class="modal-footer">
-													<button type="button" class="btn btn-default"
-														data-dismiss="modal">Close</button>
-												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-default"
+													data-dismiss="modal">Close</button>
 											</div>
 										</div>
 										<!-- End Model -->
@@ -219,6 +220,5 @@
 				</div>
 			</div>
 		</div>
-	</div>
 	</div>
 </section>

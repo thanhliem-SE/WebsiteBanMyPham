@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ include file="/common/taglib.jsp"%>
 <section class="content">
 	<div class="container-fluid">
@@ -56,7 +57,7 @@
 														danh mục</h4>
 												</div>
 												<div class="modal-body">
-													<form class="form-horizontal" action="themDanhMuc"
+													<form:form class="form-horizontal" action="themDanhMuc"
 														method="post">
 														<div class="row clearfix">
 															<div
@@ -86,9 +87,9 @@
 																	class="btn btn-primary m-t-15 waves-effect">Submit</button>
 															</div>
 														</div>
+													</form:form>
 												</div>
 
-												</form>
 											</div>
 											<div class="modal-footer">
 												<button type="button" class="btn btn-default"
@@ -140,7 +141,7 @@
 															danh mục</h4>
 													</div>
 													<div class="modal-body">
-														<form class="form-horizontal" action="themDanhMuc"
+														<form:form class="form-horizontal" action="themDanhMuc"
 															method="post">
 
 															<div class="row clearfix">
@@ -173,8 +174,8 @@
 																		class="btn btn-primary m-t-15 waves-effect">Submit</button>
 																</div>
 															</div>
+														</form:form>
 													</div>
-													</form>
 												</div>
 												<div class="modal-footer">
 													<button type="button" class="btn btn-default"
@@ -186,6 +187,25 @@
 									</c:forEach>
 								</tbody>
 							</table>
+							<div class="dataTables_paginate paging_simple_numbers"
+								id="DataTables_Table_0_paginate">
+								<ul class="pagination">
+									<li class="paginate_button previous"
+										id="DataTables_Table_0_previous"><a
+										href="quanlysanpham?page=${previosPage}"
+										aria-controls="DataTables_Table_0" data-dt-idx="0"
+										tabindex="0">Previous</a></li>
+									<li class="paginate_button "><a
+										href="quanlysanpham?page=${page}"
+										aria-controls="DataTables_Table_0" data-dt-idx="1"
+										tabindex="0">1</a></li>
+									<li class="paginate_button previous"
+										id="DataTables_Table_0_previous"><a
+										href="quanlysanpham?page=${nextPage}"
+										aria-controls="DataTables_Table_0" data-dt-idx="0"
+										tabindex="0">Next</a></li>
+								</ul>
+							</div>
 						</div>
 					</div>
 

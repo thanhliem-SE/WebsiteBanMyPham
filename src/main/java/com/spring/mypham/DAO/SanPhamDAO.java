@@ -22,6 +22,7 @@ public interface SanPhamDAO {
 	public List<SanPham> getListSanPhamTheoTrangThai(int trangThai);
 	public SanPham getSanPhamByID(long maSanPham);
 	public List<String> getHinhAnhById(long maSanPham);
+	public List<SanPham> getListSanPhamThongKe(int thang, int nam);
 	
 	public int getPageCountSanPham(List<SanPham> sanPhams);
 }
