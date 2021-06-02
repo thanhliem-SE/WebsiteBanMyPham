@@ -2,6 +2,8 @@ package com.spring.mypham.controller.ADMIN;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +25,9 @@ public class QuanLyThongKeController {
 	private static final SanPhamService sanPhamService = new SanPhamServiceImpl();
 	
 	@GetMapping("/quanlythongke")
-	public String thongKeController(Model model) {
+	public String thongKeController(Model model, HttpSession session) {
+		if (session.getAttribute("usernameAdmin") == null)
+			return "redirect:quantricp";
 		return "admin/quanlythongke";
 
 	}

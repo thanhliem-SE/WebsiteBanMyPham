@@ -271,7 +271,7 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 				for (Object obj : listObject) {
 					Object[] objs = (Object[]) obj;
 					Long id = Long.parseLong(objs[0].toString());
-					SanPham s = getSanPham(id);
+					SanPham s = getSanPhamByID(id);
 					s.setSoLuongTon(Integer.parseInt(objs[1].toString()));
 					rs.add(s);
 				}

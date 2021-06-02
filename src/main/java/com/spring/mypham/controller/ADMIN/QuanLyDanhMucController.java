@@ -2,6 +2,8 @@ package com.spring.mypham.controller.ADMIN;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +22,9 @@ public class QuanLyDanhMucController {
 	private final static DanhMucService danhMucService = new DanhMucServiceImpl();
 
 	@GetMapping("/quanlydanhmuc")
-	public String managerAdmin(Model model) {
+	public String managerAdmin(Model model, HttpSession session) {
+		if(session.getAttribute("usernameAdmin")==null)
+			return "redirect:quantricp";
 		List<DanhMuc> list = danhMucService.getListDanhMuc();
 		model.addAttribute("listDM", list);
 		return "admin/quanlydanhmuc";

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,7 +36,9 @@ public class QuanLySanPhamController {
 	private static final NhaCungCapService nhaCungCapService = new NhaCungCapServiceImpl();
 
 	@GetMapping("/quanlysanpham")
-	public String managerAdmin(Model model, @RequestParam(name = "page", defaultValue = "1") int page) {
+	public String managerAdmin(Model model, @RequestParam(name = "page", defaultValue = "1") int page, HttpSession session) {
+		if (session.getAttribute("usernameAdmin") == null)
+			return "redirect:quantricp";
 		List<SanPham> list = sanPhamService.getListSanPham();
 		model.addAttribute("pageCount", sanPhamService.getPageCountSanPham(list));
 		model.addAttribute("listSP", sanPhamService.getListSanPhamTheoPage(page, list));
