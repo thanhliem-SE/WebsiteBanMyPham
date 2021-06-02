@@ -535,8 +535,8 @@
 																		class="btn btn-primary m-t-15 waves-effect">Submit</button>
 																</div>
 															</div>
+														</form>
 													</div>
-													</form>
 												</div>
 												<div class="modal-footer">
 													<button type="button" class="btn btn-default"

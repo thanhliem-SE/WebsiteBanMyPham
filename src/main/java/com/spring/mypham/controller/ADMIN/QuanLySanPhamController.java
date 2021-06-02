@@ -28,9 +28,8 @@ import com.spring.mypham.models.SanPham;
 
 @Controller(value = "QLSPControllerAdmin")
 @RequestMapping("/admin")
-public class QuanLySanPhamController{
-	
-	
+public class QuanLySanPhamController {
+
 	private static final SanPhamService sanPhamService = new SanPhamServiceImpl();
 	private static final DanhMucService danhMucService = new DanhMucServiceImpl();
 	private static final NhaCungCapService nhaCungCapService = new NhaCungCapServiceImpl();
@@ -59,11 +58,12 @@ public class QuanLySanPhamController{
 	}
 
 	@PostMapping("/addSanPham")
-	public String addSanPham(Model model, SanPham sanPham, Long maNhaCungCap, Long maDanhMuc, MultipartFile[] files, HttpServletRequest request) {
+	public String addSanPham(Model model, SanPham sanPham, Long maNhaCungCap, Long maDanhMuc, MultipartFile[] files,
+			HttpServletRequest request) {
 		sanPham.setNhaCungCap(nhaCungCapService.getNhaCungCap(maNhaCungCap));
 		sanPham.setDanhMuc(danhMucService.getDanhMuc(maDanhMuc));
-		
-		//Save hinh anh
+
+		// Save hinh anh
 		List<String> photos = new ArrayList<String>();
 		for (MultipartFile file : files) {
 			String fileName = saveImage(file, request);
@@ -71,7 +71,7 @@ public class QuanLySanPhamController{
 			photos.add(fileName);
 		}
 		sanPham.setHinhAnh(photos);
-		
+
 		sanPhamService.saveSanPham(sanPham);
 		return "redirect:quanlysanpham";
 	}
@@ -87,19 +87,34 @@ public class QuanLySanPhamController{
 			byte[] bytes = multipartFile.getBytes();
 			String rootDirectory = request.getSession().getServletContext().getRealPath("").split("Server")[0];
 			Path path = Paths.get(rootDirectory + "WebsiteBanMyPham\\src\\main\\webapp\\resources\\user\\img\\"
-							+ multipartFile.getOriginalFilename());
+					+ multipartFile.getOriginalFilename());
 			Files.write(path, bytes);
-			System.out.println("path: "+rootDirectory);
+			System.out.println("path: " + rootDirectory);
 			return multipartFile.getOriginalFilename();
 		} catch (IOException e) {
 			return null;
 		}
 	}
-	
+
 	@PostMapping("/updateSanPham")
-	public String updateSanPham(Model model, SanPham sanPham, Long maNhaCungCap, Long maDanhMuc, MultipartFile[] files, HttpServletRequest request) {
+	public String updateSanPham(Model model, SanPham sanPham, Long maNhaCungCap, Long maDanhMuc, MultipartFile[] files,
+			HttpServletRequest request) {
 		System.out.println("SanPham:" + sanPham);
 		System.out.println("maNhaCC" + maNhaCungCap);
+		sanPham.setNhaCungCap(nhaCungCapService.getNhaCungCap(maNhaCungCap));
+		sanPham.setDanhMuc(danhMucService.getDanhMuc(maDanhMuc));
+		if (files == null)
+			sanPham.setHinhAnh(sanPhamService.getHinhAnhById(sanPham.getMaSanPham()));
+		else {
+			List<String> photos = new ArrayList<String>();
+			for (MultipartFile file : files) {
+				String fileName = saveImage(file, request);
+				System.out.println("filename:" + fileName);
+				photos.add(fileName);
+			}
+			sanPham.setHinhAnh(photos);
+		}
+		sanPhamService.saveSanPham(sanPham);
 		return "redirect:quanlysanpham";
 	}
 }
