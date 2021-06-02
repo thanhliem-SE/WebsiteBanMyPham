@@ -178,3 +178,6 @@ GO
 INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (9, N'sp-12.jpg')
 GO
 INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (14, N'sp-13.jpg')
+
+INSERT [dbo].[ThanhToan] [phuongThucTT] VALUES (N'COD')
+

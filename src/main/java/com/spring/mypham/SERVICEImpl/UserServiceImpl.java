@@ -1,12 +1,16 @@
 package com.spring.mypham.SERVICEImpl;
 
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.spring.mypham.DAO.UserDAO;
 import com.spring.mypham.DAOImpl.UserDAOImpl;
 import com.spring.mypham.SERVICE.UserService;
-import com.spring.mypham.models.SanPham;
 import com.spring.mypham.models.User;
 @Service
 public class UserServiceImpl implements UserService{
@@ -35,11 +39,21 @@ public class UserServiceImpl implements UserService{
 		// TODO Auto-generated method stub
 		this.userDao.resetPassword(user);
 	}
-
 	@Override
 	public Boolean checkLoginInfo(User userLogin, String roleName) {
 		// TODO Auto-generated method stub
 		return userDao.checkLoginInfo(userLogin, roleName);
+	}
+	@Transactional
+	@Override
+	public User getNguoiDung(int id) {
+		// TODO Auto-generated method stub
+		return userDao.getNguoiDung(id);
+	}
+	@Transactional
+	@Override
+	public List<User> getListNguoiDung() {
+		return userDao.getListNguoiDung();
 	}
 
 }

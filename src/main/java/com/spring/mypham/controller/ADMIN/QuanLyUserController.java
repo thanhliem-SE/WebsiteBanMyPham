@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spring.mypham.SERVICE.KhachHangService;
 import com.spring.mypham.SERVICEImpl.KhachHangServiceImpl;
@@ -33,9 +34,9 @@ public class QuanLyUserController {
 		model.addAttribute("listKH", listKH);
 	}
 	@Transactional
-	@RequestMapping(value = "/deleteKH",method = RequestMethod.POST)
-	public String deleteKH(Model model,String btnDelete) {
-		khachHangService.deleteKhachHangByUserName(btnDelete);
+	@RequestMapping(value = "/deleteKH",method = RequestMethod.GET)
+	public String deleteKH(Model model,@RequestParam String username) {
+		khachHangService.deleteKhachHangByUserName(username);
 		return "redirect:quanlyuser";
 
 	}

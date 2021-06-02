@@ -138,9 +138,148 @@
 												<td>${element.user.username}</td>
 												<td>${element.chucVu}</td>
 												<td>
-													<button>Sửa</button>
-													<button>Xóa</button>
-												</td>
+										<div class="row">
+											<a style="text-align: center" data-toggle="modal" data-target="#modalEditNhanVien${element.user.username}"><i class="fas fa-edit"></i></a>
+											<!-- The Modal -->
+											<div class="modal" id="modalEditNhanVien${element.user.username}">
+												<div class="modal-dialog">
+													<div class="modal-content">
+
+														<!-- Modal Header -->
+														<div class="modal-header">
+															<h4 class="modal-title">Cập nhật thông tin nhân viên</h4>
+															<button type="button" class="close" data-dismiss="modal">&times;</button>
+														</div>
+
+														<!-- Modal body -->
+														<div class="modal-body">
+															<form:form method="post" name="submitForm"
+																action="${pageContext.request.contextPath}/admin/updateNhanVien">
+																<div class="row">
+																	
+																	<div class="col-md-6">
+																		<label>Tên nhân viên:</label><br>
+																		<input class="form-control" type="text"
+																			placeholder="Họ và tên" name="tenNhanVien"
+																			value="${element.tenNhanVien}">
+																	</div>
+																	<div class="col-md-6">
+																		<label>CMND/CCCD:</label><br>
+																		<c:if test="${not empty element.CMND}">
+																			<input class="form-control" type="text"
+																			placeholder="CMND/CCCD" name="CMND"
+																			value="${element.CMND}">
+																		</c:if>
+																		<c:if test="${empty element.CMND }">
+																			<input class="form-control" type="text"
+																			placeholder="CMND" name="CMND">
+																		</c:if>
+																	</div>
+				
+																	
+																	<div class="col-md-6">
+																		<label>Số điện thoại:</label><br>
+																		<input class="form-control" type="text"
+																			placeholder="Số điện thoại" name="soDienThoai"
+																			value="${element.soDienThoai}">
+																	</div>
+																	<div class="col-md-6">
+																		<label>E-Mail:</label><br>
+																		<input class="form-control" type="email"
+																			placeholder="Email" name="email"
+																			value="${element.email}">
+																	</div>
+																	<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+																		<label>Năm sinh:</label><br>
+																		<select class="form-control" name="namSinh">
+																			<c:if test="${not empty element.namSinh}">
+																				<option value="${element.namSinh}" selected
+																					hidden>${element.namSinh}</option>
+																			</c:if>
+																			<c:if test="${empty element.namSinh}">
+																				<option value="1995" selected hidden>1995</option>
+																			</c:if>
+																			<c:forEach var="item" begin="1950" end="2020" step="1">
+																				<option value="${item}">${item}</option>
+																			</c:forEach>
+																		</select>
+																	
+																	</div>
+																	<div
+																		class="col-sm-6 col-md-6 col-lg-6 col-xl-6 form-group">
+																		<label>Chức vụ:</label><br>
+																		<select class="form-control" name="chucVu">
+																			<c:if test="${not empty element.chucVu}">
+																				<option value="${element.chucVu}" selected
+																					hidden>${element.chucVu}</option>
+																			</c:if>
+																			<c:if test="${empty element.chucVu}">
+																				<option value="USER" selected hidden>USER</option>
+																			</c:if>
+																			<option value="ADMIN">ADMIN</option>
+																			<option value="MANAGER">MANAGER</option>
+																		</select>
+																	</div>
+																	<div
+																		class="col-sm-6 col-md-6 col-lg-6 col-xl-6 form-group">
+																		<label>Giới tính:</label><br>
+																		<select class="form-control" name="gioiTinh">
+																			<c:if test="${not empty element.gioiTinh}">
+																				<option value="${element.gioiTinh}" selected
+																					hidden>${element.gioiTinh}</option>
+																			</c:if>
+																			<c:if test="${empty element.gioiTinh}">
+																				<option value="Man" selected hidden>Man</option>
+																			</c:if>
+																			<option value="Man">Man</option>
+																			<option value="Female">Female</option>
+																		</select>
+																	</div>
+																	<div
+																		class="col-sm-6 col-md-6 col-lg-6 col-xl-6 form-group">
+																		<label>Học vấn:</label><br>
+																		<select class="form-control" name="trinhDoHocVan">
+																			<c:if test="${not empty element.trinhDoHocVan}">
+																				<option value="${element.trinhDoHocVan}" selected
+																					hidden>${element.trinhDoHocVan}</option>
+																			</c:if>
+																			<c:if test="${empty element.trinhDoHocVan}">
+																				<option value="Đại Học" selected hidden>Đại Học</option>
+																			</c:if>
+																			<option value="Đại học">Đại học</option>
+																			<option value="Tiểu học">Tiểu học</option>
+																			<option value="THCS">THCS</option>
+																			<option value="THPT">THPT</option>
+																			<option value="Khác">Khác</option>
+																		</select>
+																	</div>
+
+																	<div class="col-md-12">
+																		<button class="btn" type="submit" name="btnCapNhat" value="${element.user.username}">Cập nhật</button>
+																		<br>
+																		<br>
+																	</div>
+																</div>
+															</form:form>
+														</div>
+
+														<!-- Modal footer -->
+														<div class="modal-footer">
+															<button type="button" class="btn btn-danger"
+																data-dismiss="modal">Close</button>
+														</div>
+
+													</div>
+												</div>
+											</div>
+										
+											&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; <a
+														onclick="return confirm('Bạn muốn xoá nhân viên này phải không?');"
+														href="${pageContext.request.contextPath}/admin/deleteNV?username=${element.user.username}"
+														class="text-center"><i class="fas fa-trash"></i></a>
+										</div>
+
+									</td>
 											</tr>
 										</c:forEach>
 										</c:if>

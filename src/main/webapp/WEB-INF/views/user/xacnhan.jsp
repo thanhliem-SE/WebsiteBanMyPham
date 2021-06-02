@@ -4,6 +4,7 @@
 <div class="wishlist-page">
 	<div class="container-fluid">
 		<div class="col-12 col-md-12">
+
 			<div class="row bg-white pb-5 rounded">
 				<div class="col-12">
 					<div
@@ -12,7 +13,7 @@
 							class="circle-blue me-3 d-flex align-items-center justify-content-center">
 							<i class="fas fa-badge-check fs-24 cl-FFFF"></i>
 						</div>
-						<div class="cl-0085 fs-24 fw-bold" style="text-transfrom: uppercase;">Đặt mua thành công</div>
+						<div class="cl-0085 fs-24 fw-bold" style="text-transfrom: uppercase;">ĐẶT MUA THÀNH CÔNG</div>
 					</div>
 				</div>
 				<div class="col-12">
@@ -126,7 +127,6 @@
 					</div>
 				</div>
 			</div>
-
 
 		</div>
 	</div>

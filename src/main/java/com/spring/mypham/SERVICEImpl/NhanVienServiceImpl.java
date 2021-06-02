@@ -35,5 +35,17 @@ public class NhanVienServiceImpl implements NhanVienService{
 		// TODO Auto-generated method stub
 		return nvDAO.isExistNhanVien(nhanVien);
 	}
+
+	@Override
+	public void updateNhanVien(NhanVien nhanVien) {
+		// TODO Auto-generated method stub
+		nvDAO.updateNhanVien(nhanVien);
+	}
+
+	@Override
+	public void deleteNhanVienByUserName(String btnDelete) {
+		// TODO Auto-generated method stub
+		nvDAO.deleteNhanVienByUserName(btnDelete);
+	}
 	
 }

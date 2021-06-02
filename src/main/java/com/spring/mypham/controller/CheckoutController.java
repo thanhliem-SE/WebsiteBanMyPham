@@ -137,38 +137,38 @@ public class CheckoutController {
 				+ hoaDon.getSdtNhanHang() + "\n" + "- Email: " + hoaDon.getEmail() + "\n" + "- Địa chỉ nhận: "
 				+ hoaDon.getDiaChi() + "\n";
 
-		guiMailChoKhachHang(hoaDon.getEmail(), content, format.format(session.getAttribute("price")),
-				thongTinNguoiNhan);
+//		guiMailChoKhachHang(hoaDon.getEmail(), content, format.format(session.getAttribute("price")),
+//				thongTinNguoiNhan);
 		cart.removeAll(cart);
 		session.setAttribute("cart", cart);
 		return "/user/xacnhan";
 
 	}
 
-	private void guiMailChoKhachHang(String email, String content, String price, String thongTinNguoiNhan) {
-		try {
-			Properties properties = System.getProperties();
-			properties.put("mail.smtp.host", "smtp.gmail.com");
-			properties.put("mail.smtp.port", "465");
-			properties.put("mail.smtp.auth", "true");
-			properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-			properties.put("mail.smtp.socketFactory.port", "465");
-			Session session = Session.getDefaultInstance(properties, null);
-			session.setDebug(true);
-			MimeMessage message = new MimeMessage(session);
-			message.setFrom(new InternetAddress("jonewickyy@gmail.com"));
-			message.setRecipient(Message.RecipientType.TO, new InternetAddress(email));
-			message.setContent("Cảm ơn bạn đã đặt mua sản phẩm tại EStore. \n" + "Sản phẩm bạn mua gồm: \n" + content
-					+ "Tổng tiền: " + price + "\n" + "Thông tin người nhận:\n" + thongTinNguoiNhan
-					+ "Xin chào và hẹn gặp lại\n", "text/plain; charset=UTF-8");
-			message.setSubject("ESTORE");
-			Transport transport = session.getTransport("smtp");
-			transport.connect("smtp.gmail.com", "jonewickyy@gmail.com", "quan123456+");
-			transport.sendMessage(message, message.getAllRecipients());
-		} catch (AddressException e) {
-			e.printStackTrace();
-		} catch (MessagingException e1) {
-			e1.printStackTrace();
-		}
-	}
+//	private void guiMailChoKhachHang(String email, String content, String price, String thongTinNguoiNhan) {
+//		try {
+//			Properties properties = System.getProperties();
+//			properties.put("mail.smtp.host", "smtp.gmail.com");
+//			properties.put("mail.smtp.port", "465");
+//			properties.put("mail.smtp.auth", "true");
+//			properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+//			properties.put("mail.smtp.socketFactory.port", "465");
+//			Session session = Session.getDefaultInstance(properties, null);
+//			session.setDebug(true);
+//			MimeMessage message = new MimeMessage(session);
+//			message.setFrom(new InternetAddress("jonewickyy@gmail.com"));
+//			message.setRecipient(Message.RecipientType.TO, new InternetAddress(email));
+//			message.setContent("Cảm ơn bạn đã đặt mua sản phẩm tại EStore. \n" + "Sản phẩm bạn mua gồm: \n" + content
+//					+ "Tổng tiền: " + price + "\n" + "Thông tin người nhận:\n" + thongTinNguoiNhan
+//					+ "Xin chào và hẹn gặp lại\n", "text/plain; charset=UTF-8");
+//			message.setSubject("ESTORE");
+//			Transport transport = session.getTransport("smtp");
+//			transport.connect("smtp.gmail.com", "jonewickyy@gmail.com", "quan123456+");
+//			transport.sendMessage(message, message.getAllRecipients());
+//		} catch (AddressException e) {
+//			e.printStackTrace();
+//		} catch (MessagingException e1) {
+//			e1.printStackTrace();
+//		}
+//	}
 }
