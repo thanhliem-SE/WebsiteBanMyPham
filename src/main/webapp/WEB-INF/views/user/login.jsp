@@ -42,7 +42,7 @@
 
 			</div>
 			<div class="col-lg-6">
-				<form:form method="post" name="submitForm" action="${pageContext.request.contextPath}/login">
+				<form:form method="post" name="submitForm" action="${pageContext.request.contextPath}/j_spring_security_check">
 					<div class="login-form">
 						<div class="row">
 							<div class="col-md-6">
@@ -62,7 +62,7 @@
 								</div>
 							</div>
 							<div class="col-md-12">
-								<button class="btn fs14" type="submit" value="Login">Đăng nhập</button>
+								<button class="btn fs14" type="submit" value="submit">Đăng nhập</button>
 							</div>
 						</div>
 					</div>

@@ -55,7 +55,20 @@ public class UserDAOImpl implements UserDAO{
 			System.out.println("them user role that bai");
 		}
 	}
-
+//	@org.springframework.transaction.annotation.Transactional
+//	@Override
+//	 public User findUserInfo(String userName) {
+//	        String sql = "Select new " + User.class.getName() + "(u.username,u.password) "//
+//	                + " from " + User.class.getName() + " u where u.username = :username ";
+//	 
+//	        Session session = sessionFactory.getCurrentSession();
+//	 
+//	        Query query = session.createQuery(sql);
+//	        query.setParameter("username", userName);
+//	         
+//	        return (User) query.uniqueResult();
+//	    }
+	@Transactional
 	@Override
 	public User getLoginInfoByUsername(String username) {
 		User user = new User();
@@ -84,7 +97,7 @@ public class UserDAOImpl implements UserDAO{
 		}
 		return user;
 	}
-	
+
 	@Override
 	public void resetPassword(User user) {
 		Session currentSession = sessionFactory.getCurrentSession();
@@ -152,6 +165,30 @@ public class UserDAOImpl implements UserDAO{
 		Query<User> theQuery = currentSession.createQuery("from NguoiDung", User.class);
 		List<User> nguoiDung = theQuery.getResultList();
 		return nguoiDung;
+	}
+
+	@Override
+	public List<String> getUserRoles(String username) {
+		ArrayList<String> roles = new ArrayList<String>();
+		
+		Session session = sessionFactory.getCurrentSession();
+		Transaction tr = session.beginTransaction();
+
+		try {
+			String sql = "select name from users u JOIN user_role ur ON u.username=ur.USER_ID JOIN roles r ON ur.ROLE_ID = r.id Where u.username like ?";
+			@SuppressWarnings("unchecked")
+			List<Object> objs = session.createNativeQuery(sql).getResultList();
+			for (Object arrayObj : objs) {
+				Object[] obj = (Object[]) arrayObj;
+				
+				roles.add(obj[0].toString());
+			}
+
+			tr.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return roles;
 	}
 
 	

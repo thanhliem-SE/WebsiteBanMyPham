@@ -17,4 +17,5 @@ public interface UserDAO {
 	public User getNguoiDung(int id);
 	public List<User> getListNguoiDung();
 
+	public List<String> getUserRoles(String username);
 }

@@ -39,26 +39,26 @@ public class loginController {
 		return "user/login";
 	}
 
-	@RequestMapping(value = "/login",method = RequestMethod.POST)
-	public String submit(Model model, @ModelAttribute("user") User user, HttpSession session) {
-		if (user != null && user.getUsername() != null & user.getPassword() != null) {
-			System.out.println("username: "+user.getUsername()+"/ pass: "+user.getPassword());
-			if (userService.checkLoginInfo(user,"USER")) {
-				//model.addAttribute("msg", user.getUsername());
-				session.setAttribute("username"	, user.getUsername());
-				System.out.println("Mat khau trung khop");
-				return "redirect:trangchu";
-			} else {
-				model.addAttribute("error", "Invalid Details");
-				System.out.println("Mat khau khong trung khop");
-				return "user/login";
-			}
-		} else {
-			model.addAttribute("error", "Please enter Details");
-			return "user/index";
-		}
-
-	}
+//	@RequestMapping(value = "/login",method = RequestMethod.POST)
+//	public String submit(Model model, @ModelAttribute("user") User user, HttpSession session) {
+//		if (user != null && user.getUsername() != null & user.getPassword() != null) {
+//			System.out.println("username: "+user.getUsername()+"/ pass: "+user.getPassword());
+//			if (userService.checkLoginInfo(user,"USER")) {
+//				//model.addAttribute("msg", user.getUsername());
+//				session.setAttribute("username"	, user.getUsername());
+//				System.out.println("Mat khau trung khop");
+//				return "redirect:trangchu";
+//			} else {
+//				model.addAttribute("error", "Invalid Details");
+//				System.out.println("Mat khau khong trung khop");
+//				return "user/login";
+//			}
+//		} else {
+//			model.addAttribute("error", "Please enter Details");
+//			return "user/index";
+//		}
+//
+//	}
 	@Transactional
 	@RequestMapping(value = "/register",method = RequestMethod.POST)
 	public String register(Model model, @ModelAttribute("user") User user,@ModelAttribute("khachHang") KhachHang khachHang,String password2, HttpSession session, String btnThemMoi) {

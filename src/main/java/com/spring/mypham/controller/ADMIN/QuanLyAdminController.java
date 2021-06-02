@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -51,10 +52,12 @@ public class QuanLyAdminController {
 //		System.out.println(user.toString());
 //		System.out.println(khachHang.toString());
 //		System.out.println("PW2: "+password2);
+		String pwHash = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12));
 		nhanVien.setUser(user);
 		if (user != null && user.getUsername() != null & user.getPassword() != null && nhanVien != null && nhanVien.getTenNhanVien() != null && nhanVien.getSoDienThoai() != null && nhanVien.getEmail()!=null && password2.equals(user.getPassword())) {
 			String rs = nhanVienService.isExistNhanVien(nhanVien);
 			if(rs.equalsIgnoreCase("Ready")) {
+				user.setPassword(pwHash);
 				user.setEnabled(true);
 				userService.saveUser(user);
 				
