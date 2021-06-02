@@ -3,6 +3,7 @@ package com.spring.mypham.controller;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -64,10 +65,12 @@ public class loginController {
 //		System.out.println(user.toString());
 //		System.out.println(khachHang.toString());
 //		System.out.println("PW2: "+password2);
+		String pwHash = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12));
 		khachHang.setUser(user);
 		if (user != null && user.getUsername() != null & user.getPassword() != null && khachHang != null && khachHang.getTenKhachHang() != null && khachHang.getSoDienThoai() != null && khachHang.getEmail()!=null && password2.equals(user.getPassword())) {
 			String rs = khachHangService.isExistKhachHang(khachHang);
 			if(rs.equalsIgnoreCase("Ready")) {
+				user.setPassword(pwHash);
 				user.setEnabled(true);
 				userService.saveUser(user);
 				

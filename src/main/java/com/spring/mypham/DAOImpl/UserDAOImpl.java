@@ -11,6 +11,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -122,7 +123,8 @@ public class UserDAOImpl implements UserDAO{
 				else user.setEnabled(false);
 	
 				user.setPassword(obj[2].toString());
-				if(userLogin.getUsername().equals(user.getUsername()) && userLogin.getPassword().equals(user.getPassword()) && user.isEnabled()==true && roleName.equalsIgnoreCase(obj[6].toString())) {
+				if(userLogin.getUsername().equals(user.getUsername()) && user.isEnabled()==true && roleName.equalsIgnoreCase(obj[6].toString())) {
+					if(BCrypt.checkpw(userLogin.getPassword(), user.getPassword()))
 					return true;
 				}
 				
