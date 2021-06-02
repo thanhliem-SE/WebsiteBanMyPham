@@ -59,18 +59,8 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 	@Override
 	public SanPham getSanPham(Long id) {
 		Session currentSession = sessionFactory.getCurrentSession();
-		Transaction tr = currentSession.getTransaction();
-		if (!tr.isActive())
-			tr.begin();
-		try {
-			SanPham sanPham = currentSession.get(SanPham.class, id);
-			tr.commit();
-			sanPham.setHinhAnh(getHinhAnhById(sanPham.getMaSanPham()));
-			return sanPham;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
+		SanPham sanPham = currentSession.get(SanPham.class, id);
+		return sanPham;
 	}
 
 	public SanPham getDienThoai(Long id) {
@@ -106,7 +96,6 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 			rs = theQuery.getResultList();
 			for (SanPham s : rs)
 				s.setHinhAnh(getHinhAnhById(s.getMaSanPham()));
-			tr.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -295,9 +284,9 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 					s.setSoLuongTon(Integer.parseInt(objs[1].toString()));
 					rs.add(s);
 				}
-				
+
 			}
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
