@@ -1,10 +1,17 @@
 package com.spring.mypham.controller;
 
-import java.math.BigInteger;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Properties;
 
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +23,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.spring.mypham.DAO.HoaDonDAO;
 import com.spring.mypham.SERVICE.HoaDonService;
 import com.spring.mypham.SERVICE.LineItemService;
 import com.spring.mypham.SERVICE.SanPhamService;
@@ -43,7 +49,6 @@ public class CheckoutController {
 	private String trangChu(Model model, HttpSession session) {
 		@SuppressWarnings("unchecked")
 		List<CartItem> cart=(List<CartItem>) session.getAttribute("cart");
-		List<ThanhToan> listThanhToans= thanhToanService.getListThanhToan();
 		if(cart == null) {
 			session.setAttribute("statuscart", "Vui lòng chọn sản phẩm vào giỏ hàng");
 			return "redirect:/cart/";
@@ -53,6 +58,7 @@ public class CheckoutController {
 				return "redirect:/cart/";
 			}
 			else {
+				List<ThanhToan> listThanhToans= thanhToanService.getListThanhToan();
 				model.addAttribute("hoaDon",new HoaDon());
 				model.addAttribute("listThanhToans",listThanhToans);
 				model.addAttribute("cart",cart);
@@ -88,8 +94,9 @@ public class CheckoutController {
 		List<CartItem> cart = (List<CartItem>) session.getAttribute("cart");
 		hoaDon.setDiaChi(diaChi);
 		LocalDate localDate = LocalDate.now();
-		double tongtien = (double) session.getAttribute("price");
-
+		double tongtien = (double) session.getAttribute("tongtien");
+		String content = "";
+		DecimalFormat format = new DecimalFormat("###,###.00 đ");
 		ThanhToan thanhToan = thanhToanService.getThanhToan(maThanhToan);
 		hoaDon.setThanhToan(thanhToan);
 		hoaDon.setTongTien(tongtien);
@@ -104,20 +111,64 @@ public class CheckoutController {
 		System.out.println(diaChi);
 		
 		hoaDonService.saveHoaDon(hoaDon);
+		double giamGia = 0;
+		double tamTinh = 0;
+		
 		for (CartItem cartItem : cart) {
-
-//			System.out.println(cartItem.getSp().getTenSanPham());
-//			System.out.println(cartItem.getSoLuong());
-//			System.out.println(cartItem.getSp().getDonGia());
-//			LineItem item = new LineItem(cartItem.getSoLuong(),hoaDon, cartItem.getSp());
-//			lineItemService.saveLineItem(item);
+			tamTinh += cartItem.getSp().getDonGia()* cartItem.getSoLuong();
+			giamGia += (tamTinh * cartItem.getSp().getGiamGia()) / 100;
+			System.out.println(cartItem.getSp().getTenSanPham());
+			System.out.println(cartItem.getSoLuong());
+			System.out.println(cartItem.getSp().getDonGia());
+			LineItem item = new LineItem(cartItem.getSoLuong(), (tamTinh-giamGia),hoaDon, cartItem.getSp());
+			lineItemService.saveLineItem(item);
 			SanPham updateQuantity = cartItem.getSp();
+			System.out.println(cartItem.getSp().getSoLuongTon());
+			System.out.println(cartItem.getSoLuong());
 			int quantity = 0;
 			quantity = cartItem.getSp().getSoLuongTon() - cartItem.getSoLuong();
+			System.out.println(quantity);
 			updateQuantity.setSoLuongTon(quantity);
 			sanPhamService.saveSanPham(updateQuantity);
 		}
+//		cart.removeAll(cart);
+//		session.setAttribute("cart", cart);
+		String thongTinNguoiNhan = "- Họ và tên: " + hoaDon.getTenNhanHang() + "\n" + "- Số điện thoại: "
+				+ hoaDon.getSdtNhanHang() + "\n" + "- Email: " + hoaDon.getEmail() + "\n" + "- Địa chỉ nhận: "
+				+ hoaDon.getDiaChi() + "\n";
+
+//		guiMailChoKhachHang(hoaDon.getEmail(), content, format.format(session.getAttribute("price")),
+//				thongTinNguoiNhan);
+		cart.removeAll(cart);
+		session.setAttribute("cart", cart);
 		return "/user/xacnhan";
+
 	}
 
+//	private void guiMailChoKhachHang(String email, String content, String price, String thongTinNguoiNhan) {
+//		try {
+//			Properties properties = System.getProperties();
+//			properties.put("mail.smtp.host", "smtp.gmail.com");
+//			properties.put("mail.smtp.port", "465");
+//			properties.put("mail.smtp.auth", "true");
+//			properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+//			properties.put("mail.smtp.socketFactory.port", "465");
+//			Session session = Session.getDefaultInstance(properties, null);
+//			session.setDebug(true);
+//			MimeMessage message = new MimeMessage(session);
+//			message.setFrom(new InternetAddress("jonewickyy@gmail.com"));
+//			message.setRecipient(Message.RecipientType.TO, new InternetAddress(email));
+//			message.setContent("Cảm ơn bạn đã đặt mua sản phẩm tại EStore. \n" + "Sản phẩm bạn mua gồm: \n" + content
+//					+ "Tổng tiền: " + price + "\n" + "Thông tin người nhận:\n" + thongTinNguoiNhan
+//					+ "Xin chào và hẹn gặp lại\n", "text/plain; charset=UTF-8");
+//			message.setSubject("ESTORE");
+//			Transport transport = session.getTransport("smtp");
+//			transport.connect("smtp.gmail.com", "jonewickyy@gmail.com", "quan123456+");
+//			transport.sendMessage(message, message.getAllRecipients());
+//		} catch (AddressException e) {
+//			e.printStackTrace();
+//		} catch (MessagingException e1) {
+//			e1.printStackTrace();
+//		}
+//	}
 }

@@ -208,6 +208,11 @@ GO
 INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (9, N'sp-12.jpg')
 GO
 INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (14, N'sp-13.jpg')
+<<<<<<< HEAD
+
+INSERT [dbo].[ThanhToan] [phuongThucTT] VALUES (N'COD')
+
+=======
 GO
 SET IDENTITY_INSERT [dbo].[roles] ON 
 GO
@@ -225,3 +230,4 @@ INSERT [dbo].[user_role] ([USER_ID], [ROLE_ID]) VALUES (N'admin', 2)
 GO
 INSERT [dbo].[user_role] ([USER_ID], [ROLE_ID]) VALUES (N'user', 3)
 GO
+>>>>>>> branch 'main' of https://github.com/thanhliem-SE/WebsiteBanMyPham.git

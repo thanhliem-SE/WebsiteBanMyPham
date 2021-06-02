@@ -29,16 +29,7 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 	@Override
 	public void saveSanPham(SanPham sanPham) {
 		Session currentSession = sessionFactory.getCurrentSession();
-		Transaction tr = currentSession.getTransaction();
-		if (!tr.isActive())
-			tr = currentSession.beginTransaction();
-		try {
-			currentSession.saveOrUpdate(sanPham);
-//			currentSession.getTransaction().commit();
-			tr.commit();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		currentSession.saveOrUpdate(sanPham);
 	}
 
 	@Transactional

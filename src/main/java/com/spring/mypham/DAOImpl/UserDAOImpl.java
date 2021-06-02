@@ -134,6 +134,23 @@ public class UserDAOImpl implements UserDAO{
 		}
 		return false;
 	}
+	
+	@org.springframework.transaction.annotation.Transactional
+	@Override
+	public User getNguoiDung(int id) {
+		Session currenSession = sessionFactory.getCurrentSession();
+		User user = currenSession.get(User.class, id);
+		return user;
+	}
+	@org.springframework.transaction.annotation.Transactional
+	@Override
+	public List<User> getListNguoiDung() {
+		// TODO Auto-generated method stub
+		Session currentSession = sessionFactory.getCurrentSession();
+		Query<User> theQuery = currentSession.createQuery("from NguoiDung", User.class);
+		List<User> nguoiDung = theQuery.getResultList();
+		return nguoiDung;
+	}
 
 	
 }

@@ -1,6 +1,7 @@
 package com.spring.mypham.DAO;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.spring.mypham.models.User;
 
@@ -12,5 +13,8 @@ public interface UserDAO {
 	void resetPassword(User user);
 
 	public Boolean checkLoginInfo(User userLogin,String roleName) ;
+	
+	public User getNguoiDung(int id);
+	public List<User> getListNguoiDung();
 
 }

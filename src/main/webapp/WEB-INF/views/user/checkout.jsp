@@ -9,7 +9,7 @@
 			<div class="col-lg-8">
 				<div class="checkout-inner">
 					<div class="billing-address">
-						<h2>Billing Address</h2>
+						<h2>ĐỊA CHỈ GIAO HÀNG</h2>
 						<div class="row">
 							<form:form action="checkout/themHoaDon" method="post"
 								modelAttribute="hoaDon">
@@ -121,17 +121,17 @@
 
 						<p class="sub-total">
 							Tạm tính <span> <fmt:formatNumber type="number"
-									pattern="###,###,### ₫" value="${sub}" />
+									pattern="###,###,### ₫" value="${tamtinh}" />
 							</span>
 						</p>
 						<p class="sub-total">
 							Giảm giá <span> <fmt:formatNumber type="number"
-									pattern="###,###,### ₫" value="${salePrice}" />
+									pattern="###,###,### ₫" value="${giamgia}" />
 							</span>
 						</p>
 						<p>
 							Tổng tiền (${quantity} sản phẩm) <span> <fmt:formatNumber
-									type="number" pattern="###,###,### ₫" value="${price}" />
+									type="number" pattern="###,###,### ₫" value="${tongtien}" />
 							</span>
 						</p>
 					</div>

@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
-<h1>Thanh Cong</h1>
-<!-- <div class="wishlist-page">
+<div class="wishlist-page">
 	<div class="container-fluid">
 		<div class="col-12 col-md-12">
+
 			<div class="row bg-white pb-5 rounded">
 				<div class="col-12">
 					<div
@@ -13,7 +13,7 @@
 							class="circle-blue me-3 d-flex align-items-center justify-content-center">
 							<i class="fas fa-badge-check fs-24 cl-FFFF"></i>
 						</div>
-						<div class="cl-0085 fs-24 fw-bold" style="text-transfrom: uppercase;">Đặt mua thành công</div>
+						<div class="cl-0085 fs-24 fw-bold" style="text-transfrom: uppercase;">ĐẶT MUA THÀNH CÔNG</div>
 					</div>
 				</div>
 				<div class="col-12">
@@ -117,10 +117,17 @@
 							</div>
 						</div>
 					</div>
+					<div class="row">
+						<div class="col-12">
+							<div class="receive text-center pt-1">
+								<span class="badge bg-recei py-2 fs-14 px-3">
+								<a href="<c:url value="/"/>" class="cl-3333">Trở về trang chủ</a>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 
-
 		</div>
 	</div>
-</div> -->
+</div>
