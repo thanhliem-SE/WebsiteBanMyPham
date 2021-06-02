@@ -30,6 +30,8 @@ public class AccountController {
 	@RequestMapping("/account")
 	public String trangChu(Model model,HttpSession session) {
 		//System.out.println("Mask:" +session.getAttribute("username").toString());
+		if(session.getAttribute("username")==null)
+			return "user/login";
 		String userName = session.getAttribute("username").toString();
 		showOrders(model, userName);
 		showKhachHang(model,userName);
