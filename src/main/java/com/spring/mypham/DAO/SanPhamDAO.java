@@ -10,6 +10,8 @@ public interface SanPhamDAO {
 	public SanPham getSanPham(Long id);
 	public List<SanPham> getListSanPham();
 	public List<SanPham> getListSanPhamTheoPage(int page, List<SanPham> list);
+	public List<SanPham> getListSanPhamTheoPage(int page, int size);
+	
 	/**
 	 * 
 	 * @param dinhMuc: 1,2,3 tương ứng với dưới 1 tr, từ 1tr đến 3tr, trên 3tr

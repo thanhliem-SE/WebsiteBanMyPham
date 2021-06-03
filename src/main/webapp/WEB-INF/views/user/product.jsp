@@ -78,8 +78,11 @@
 										alt="Product Image">
 									</a>
 									<div class="product-action">
-										<a href="${pageContext.request.contextPath}/cart/addtocart/${sanPham.maSanPham}"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
-											class="fa fa-heart"></i></a> <a href="product-details?maSanPham=${sanPham.maSanPham}"><i
+										<a
+											href="${pageContext.request.contextPath}/cart/addtocart/${sanPham.maSanPham}"><i
+											class="fa fa-cart-plus"></i></a> <a href="#"><i
+											class="fa fa-heart"></i></a> <a
+											href="product-details?maSanPham=${sanPham.maSanPham}"><i
 											class="fa fa-search"></i></a>
 									</div>
 								</div>
@@ -90,7 +93,8 @@
 										out.println(new DecimalFormat("#,###").format(request.getAttribute("donGia")));
 										%>
 									</h3>
-									<a class="btn" href="<c:url value="product-details?maSanPham=${sanPham.maSanPham}"/>">
+									<a class="btn"
+										href="<c:url value="product-details?maSanPham=${sanPham.maSanPham}"/>">
 										<i class="fa fa-shopping-cart"></i>Chi tiết
 									</a>
 								</div>
@@ -103,14 +107,15 @@
 				<div class="col-md-12">
 					<nav aria-label="Page navigation example">
 						<ul class="pagination justify-content-center">
-							<li class="page-item"><a class="page-link px-4" href="product?page=${previosPage }">Trước đó</a></li>
+							<li class="page-item"><a class="page-link px-4"
+								href="product?page=${previosPage }">Trước đó</a></li>
 
 							<c:forEach var="i" begin="1" end="${countPage}">
 								<li class="page-item"><a class="page-link px-4"
 									href="product?page=${i}">${i}</a></li>
 							</c:forEach>
-							<li class="page-item"><a class="page-link px-4" href="product?page=${nextPage }">Tiếp
-									theo</a></li>
+							<li class="page-item"><a class="page-link px-4"
+								href="product?page=${nextPage }">Tiếp theo</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -123,24 +128,11 @@
 					<h2 class="title">Danh mục</h2>
 					<nav class="navbar bg-light">
 						<ul class="navbar-nav">
-							<li class="nav-item"><a class="nav-link"
-								href="product?maDanhMuc=1"><i class="fa fa-female"></i>Chăm
-									sóc da mặt</a></li>
-							<li class="nav-item"><a class="nav-link"
-								href="product?maDanhMuc=2"><i class="fa fa-child"></i>Chăm
-									sóc cơ thể</a></li>
-							<li class="nav-item"><a class="nav-link"
-								href="product?maDanhMuc=3"><i class="fa fa-tshirt"></i>Chăm
-									sóc tóc</a></li>
-							<li class="nav-item"><a class="nav-link"
-								href="product?maDanhMuc=4"><i class="fa fa-mobile-alt"></i>Nước
-									hoa</a></li>
-							<li class="nav-item"><a class="nav-link"
-								href="product?maDanhMuc=5"><i class="fa fa-microchip"></i>Trang
-									điểm</a></li>
-							<li class="nav-item"><a class="nav-link"
-								href="product?maDanhMuc=6"><i class="fa fa-microchip"></i>Thực
-									phẩm chức năng</a></li>
+							<c:forEach var="dm" items="${listDanhMuc}">
+								<li class="nav-item"><a class="nav-link"
+									href="product?maDanhMuc=${dm.maDanhMuc}"><i
+										class="fa fa-female"></i>${dm.tenDanhMuc}</a></li>
+							</c:forEach>
 						</ul>
 					</nav>
 				</div>
@@ -161,23 +153,28 @@
 					<div class="sidebar-widget brands">
 						<h2 class="title">Nhà cung cấp</h2>
 						<ul>
-							<li><a href="product?nhaCC=Bioderma">Bioderma </a><span>(45)</span></li>
-							<li><a href="product?nhaCC=Valmont">Valmont </a><span>(34)</span></li>
-							<li><a href="product?nhaCC=Huxley">Huxley </a><span>(67)</span></li>
-							<li><a href="product?nhaCC=Kérastase">Kérastase</a><span>(74)</span></li>
-							<li><a href="product?nhaCC=Vital Beautie">Vital Beautie
-							</a><span>(89)</span></li>
+							<c:forEach var="ncc" items="${listNhaCungCap}">
+								<li><a href="product?nhaCC=${ncc.tenNCC}">${ncc.tenNCC} </a></li>
+							</c:forEach>
+							
 						</ul>
 					</div>
 
 					<div class="sidebar-widget tag">
-					<h2 class="title">Tags</h2>
-					<a href="product?tenSP=tẩy da">tẩy da</a> <a href="product?tenSP=mặt nạ">mặt nạ</a> <a href="product?tenSP=dưỡng ẩm">dưỡng
-						ẩm</a> <a href="product?tenSP=trang điểm">trang điểm</a> <a href="product?tenSP=collagen">collagen</a> <a href="product?tenSP=phấn nước">phấn
-						nước</a> <a href="product?tenSP=sữa rửa mặt">sữa rửa mặt</a> <a href="product?tenSP=tóc bết">tóc bết</a> <a
-						href="product?tenSP=gàu">gàu </a> <a href="product?tenSP=nước hoa">nước hoa</a> <a href="product?tenSP=kem tái sinh">kem tái
-						sinh</a> <a href="product?tenSP=da trắng">da trắng</a>
-				</div>
+						<h2 class="title">Tags</h2>
+						<a href="product?tenSP=tẩy da">tẩy da</a> <a
+							href="product?tenSP=mặt nạ">mặt nạ</a> <a
+							href="product?tenSP=dưỡng ẩm">dưỡng ẩm</a> <a
+							href="product?tenSP=trang điểm">trang điểm</a> <a
+							href="product?tenSP=collagen">collagen</a> <a
+							href="product?tenSP=phấn nước">phấn nước</a> <a
+							href="product?tenSP=sữa rửa mặt">sữa rửa mặt</a> <a
+							href="product?tenSP=tóc bết">tóc bết</a> <a
+							href="product?tenSP=gàu">gàu </a> <a
+							href="product?tenSP=nước hoa">nước hoa</a> <a
+							href="product?tenSP=kem tái sinh">kem tái sinh</a> <a
+							href="product?tenSP=da trắng">da trắng</a>
+					</div>
 				</div>
 				<!-- Side Bar End -->
 			</div>

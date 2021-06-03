@@ -43,21 +43,9 @@
 									<h4>Price:</h4>
 									<c:set var="donGia" value="${sanPham.donGia }" scope="request" />
 									<%
-									out.println(new DecimalFormat("#,###").format(request.getAttribute("donGia"))+" đ");
-									%> 
+									out.println(new DecimalFormat("#,###").format(request.getAttribute("donGia")) + " đ");
+									%>
 								</div>
-								<!-- <div class="quantity">
-									<h4>Số lượng:</h4>
-									<div class="qty">
-										<button class="btn-minus">
-											<i class="fa fa-minus"></i>
-										</button>
-										<input type="text" value="1">
-										<button class="btn-plus">
-											<i class="fa fa-plus"></i>
-										</button>
-									</div>
-								</div> -->
 								<div class="p-size">
 									<h4>Còn lại:</h4>
 									<div class="btn-group btn-group-sm">
@@ -71,18 +59,18 @@
 									</div>
 								</div>
 								<div class="action">
-<<<<<<< HEAD
-									<a class="btn" href="${pageContext.request.contextPath}/cart/addtocart/${sanPham.maSanPham}">
-									<i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a> 
+									<<<<<<< HEAD <a class="btn"
+										href="${pageContext.request.contextPath}/cart/addtocart/${sanPham.maSanPham}">
+										<i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng
+									</a>
 									<%-- <a class="btn" href="${pageContext.request.contextPath}/checkout"><i
 										class="fa fa-shopping-bag"></i>Mua ngay</a> --%>
-=======
-									<a class="btn"
+									======= <a class="btn"
 										href="${pageContext.request.contextPath}/cart/addtocart/${sanPham.maSanPham}"><i
 										class="fa fa-shopping-cart"></i>Giỏ hàng</a> <a class="btn"
 										href="${pageContext.request.contextPath}/checkout"><i
-										class="fa fa-shopping-bag"></i>Mua ngay</a>
->>>>>>> branch 'main' of https://github.com/thanhliem-SE/WebsiteBanMyPham.git
+										class="fa fa-shopping-bag"></i>Mua ngay</a> >>>>>>> branch 'main'
+									of https://github.com/thanhliem-SE/WebsiteBanMyPham.git
 								</div>
 							</div>
 						</div>
@@ -220,24 +208,11 @@
 					<h2 class="title">Danh mục</h2>
 					<nav class="navbar bg-light">
 						<ul class="navbar-nav">
-							<li class="nav-item"><a class="nav-link"
-								href="product?maDanhMuc=1"><i class="fa fa-female"></i>Chăm
-									sóc da mặt</a></li>
-							<li class="nav-item"><a class="nav-link"
-								href="product?maDanhMuc=2"><i class="fa fa-child"></i>Chăm
-									sóc cơ thể</a></li>
-							<li class="nav-item"><a class="nav-link"
-								href="product?maDanhMuc=3"><i class="fa fa-tshirt"></i>Chăm
-									sóc tóc</a></li>
-							<li class="nav-item"><a class="nav-link"
-								href="product?maDanhMuc=4"><i class="fa fa-mobile-alt"></i>Nước
-									hoa</a></li>
-							<li class="nav-item"><a class="nav-link"
-								href="product?maDanhMuc=5"><i class="fa fa-microchip"></i>Trang
-									điểm</a></li>
-							<li class="nav-item"><a class="nav-link"
-								href="product?maDanhMuc=6"><i class="fa fa-microchip"></i>Thực
-									phẩm chức năng</a></li>
+							<c:forEach var="dm" items="${listDanhMuc}">
+								<li class="nav-item"><a class="nav-link"
+									href="product?maDanhMuc=${dm.maDanhMuc}"><i
+										class="fa fa-female"></i>${dm.tenDanhMuc}</a></li>
+							</c:forEach>
 						</ul>
 					</nav>
 				</div>
@@ -258,11 +233,10 @@
 				<div class="sidebar-widget brands">
 					<h2 class="title">Nhà cung cấp</h2>
 					<ul>
-						<li><a href="product?nhaCC=Bioderma">Bioderma </a><span>(45)</span></li>
-						<li><a href="product?nhaCC=Valmont">Valmont </a><span>(34)</span></li>
-						<li><a href="product?nhaCC=Huxley">Huxley </a><span>(67)</span></li>
-						<li><a href="product?nhaCC=Kérastase">Kérastase</a><span>(74)</span></li>
-						<li><a href="product?nhaCC=Vital Beautie">Vital Beautie </a><span>(89)</span></li>
+						<c:forEach var="ncc" items="${listNhaCungCap}">
+							<li><a href="product?nhaCC=${ncc.tenNCC}">${ncc.tenNCC}
+							</a></li>
+						</c:forEach>
 					</ul>
 				</div>
 
