@@ -11,6 +11,7 @@ import java.util.Set;
 import com.spring.mypham.DAO.MySessionFactory;
 import com.spring.mypham.DAO.UserDAO;
 import com.spring.mypham.DAOImpl.DanhMucImpl;
+import com.spring.mypham.DAOImpl.SanPhamDAOImpl;
 import com.spring.mypham.DAOImpl.UserDAOImpl;
 import com.spring.mypham.SERVICE.HoaDonService;
 import com.spring.mypham.SERVICE.SanPhamService;
@@ -21,17 +22,15 @@ import com.spring.mypham.models.HoaDon;
 public class MainTest {
 	public static void main(String[] args) {
 		
-//		SanPhamService sanPhamService = new SanPhamServiceImpl();
-//		sanPhamService.getListSanPhamThongKe(8, 2021).forEach(s->{
-//			System.out.println(s);
-//		});
+		SanPhamDAOImpl dao = new SanPhamDAOImpl();
+		System.out.println(dao.getListSanPhamTheoPage(2, 6).size());
 		
-		UserDAO userdao = new UserDAOImpl();
-		
-		List<String> listString = userdao.getUserRoles("binhnn123");
-		for(String i : listString) {
-			System.out.println(i+", ");
-		}
+////		UserDAO userdao = new UserDAOImpl();
+////		
+////		List<String> listString = userdao.getUserRoles("binhnn123");
+////		for(String i : listString) {
+////			System.out.println(i+", ");
+//		}
 //		MySessionFactory.getInstance().getSessionFactory();
 //		KhachHangService hangService = new KhachHangServiceImpl();
 //		

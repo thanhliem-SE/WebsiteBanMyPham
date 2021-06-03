@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class TrangChuController {
 	@RequestMapping("/admin")
 	public String trangChu(Model model,HttpSession session) {
-		if(session.getAttribute("usernameAdmin")==null)
-			return "redirect:quantricp";
+//		if(session.getAttribute("usernameAdmin")==null)
+//			return "redirect:quantricp";
 		return "admin/index";
 	}
 }

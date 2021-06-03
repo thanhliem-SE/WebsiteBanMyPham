@@ -30,6 +30,7 @@ public class SanPhamServiceImpl implements SanPhamService {
 	public void deleteSanPham(Long id) {
 		sanPhamDAO.deleteSanPham(id);
 	}
+
 	@Transactional
 	@Override
 	public SanPham getSanPham(Long id) {
@@ -89,15 +90,21 @@ public class SanPhamServiceImpl implements SanPhamService {
 		// TODO Auto-generated method stub
 		return sanPhamDAO.getSanPhamByID(maSanPham);
 	}
-	
+
 	@Override
-	public List<String> getHinhAnhById(long maSanPham){
+	public List<String> getHinhAnhById(long maSanPham) {
 		return sanPhamDAO.getHinhAnhById(maSanPham);
 	}
 
 	@Override
 	public List<SanPham> getListSanPhamThongKe(int thang, int nam) {
 		return sanPhamDAO.getListSanPhamThongKe(thang, nam);
+	}
+
+	@Override
+	public List<SanPham> getListSanPhamTheoPage(int page, int size) {
+		// TODO Auto-generated method stub
+		return sanPhamDAO.getListSanPhamTheoPage(page, size);
 	}
 
 }

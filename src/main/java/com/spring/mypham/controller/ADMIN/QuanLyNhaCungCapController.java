@@ -24,8 +24,8 @@ public class QuanLyNhaCungCapController {
 
 	@GetMapping("/quanlynhacungcap")
 	public String managerAdmin(Model model, HttpSession session) {
-		if(session.getAttribute("usernameAdmin")==null)
-			return "redirect:quantricp";
+//		if(session.getAttribute("usernameAdmin")==null)
+//			return "redirect:quantricp";
 		List<NhaCungCap> list = nhaCungCapService.getListNhaCungCap();
 		model.addAttribute("listNCC", list);
 		return "admin/quanlynhacungcap";

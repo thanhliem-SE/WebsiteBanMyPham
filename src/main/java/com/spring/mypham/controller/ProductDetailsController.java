@@ -9,8 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spring.mypham.SERVICE.DanhGiaService;
+import com.spring.mypham.SERVICE.DanhMucService;
 import com.spring.mypham.SERVICE.SanPhamService;
 import com.spring.mypham.SERVICEImpl.DanhGiaServiceImpl;
+import com.spring.mypham.SERVICEImpl.DanhMucServiceImpl;
+import com.spring.mypham.SERVICEImpl.NhaCungCapServiceImpl;
 import com.spring.mypham.SERVICEImpl.SanPhamServiceImpl;
 import com.spring.mypham.SERVICEImpl.UserServiceImpl;
 import com.spring.mypham.models.DanhGia;
@@ -21,6 +24,8 @@ import com.spring.mypham.models.User;
 public class ProductDetailsController {
 	private static final SanPhamService sanPhamService = new SanPhamServiceImpl();
 	private static final DanhGiaService danhGiaService = new DanhGiaServiceImpl();
+	private static final DanhMucService danhMucService = new DanhMucServiceImpl();
+	private static final NhaCungCapServiceImpl nhaCungCapService = new NhaCungCapServiceImpl();
 
 	@RequestMapping("/product-details")
 	public String trangChu(Model model, @RequestParam(value = "maSanPham", defaultValue = "1") long maSanPham) {
@@ -28,6 +33,8 @@ public class ProductDetailsController {
 		model.addAttribute("imgs", sanPhamService.getHinhAnhById(maSanPham));
 		model.addAttribute("sanPhams", sanPhamService.getListSanPhamTheoPage(1, sanPhamService.getListSanPham()));
 		model.addAttribute("listReview", danhGiaService.getListDanhGiaBySanPham(maSanPham));
+		model.addAttribute("listDanhMuc", danhMucService.getListDanhMuc());
+		model.addAttribute("listNhaCungCap", nhaCungCapService.getListNhaCungCap());
 		return "user/product-details";
 	}
 

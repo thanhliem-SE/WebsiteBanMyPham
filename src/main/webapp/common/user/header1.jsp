@@ -1,5 +1,3 @@
-<%@page import="com.spring.mypham.models.CartItem"%>
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -31,15 +29,7 @@
 						class="btn wishlist"> <i class="fa fa-heart"></i> <span>(0)</span>
 					</a> <a href="${pageContext.request.contextPath}/cart/"
 						class="btn cart"> <i class="fa fa-shopping-cart"></i> <span>
-							<%
-								List<CartItem> cartItem = (List<CartItem>) session.getAttribute("cart");
-								int count = 0;
-								try{
-									count = cartItem.size();
-								} catch(Exception e){}
-							%>
-								 (<span><%=count %></span>)
-
+							<c:forEach var="ds" items="${sessionScope.cart}">(${ds.soLuong})			</c:forEach>
 					</span>
 
 					</a>
@@ -709,10 +699,10 @@
 
 			<ul class="navbar-nav ms-auto">
 				<li class="nav-item dropdown"><c:if
-						test="${pageContext.request.userPrincipal.name!= null}">
+						test="${pageContext.request.userPrincipal.name != null}">
 						<a class="nav-link dropdown-toggle text-white"
 							href="javascript:void(0)" data-bs-toggle="dropdown">
-							${pageContext.request.userPrincipal.name}</a>
+							${pageContext.request.userPrincipal.name} </a>
 						<ul class="dropdown-menu dropdown-menu-end">
 							<li style="margin-top: -8px;"><a class="dropdown-item"
 								href="${pageContext.request.contextPath}/account">Account</a></li>

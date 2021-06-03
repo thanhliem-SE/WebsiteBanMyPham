@@ -34,8 +34,8 @@ public class QuanLyAdminController {
 	private static final UserService userService = new UserServiceImpl();
 	@GetMapping("/quanlyadmin")
 	public String managerAdmin(Model model,HttpSession session) {
-		if(session.getAttribute("usernameAdmin")==null)
-			return "redirect:quantricp";
+//		if(session.getAttribute("usernameAdmin")==null)
+//			return "redirect:quantricp";
 		
 		showDanhSachAdmin(model);
 		

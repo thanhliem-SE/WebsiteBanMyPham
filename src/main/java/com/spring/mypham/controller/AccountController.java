@@ -38,6 +38,10 @@ public class AccountController {
 //		String userName = session.getAttribute("username").toString();
 		showOrders(model, username);
 		showKhachHang(model,username);
+		String currentPrincipalName = authentication.getName();
+		String userName =currentPrincipalName;
+		showOrders(model, userName);
+		showKhachHang(model,userName);
 		return "user/account";
 	}
 	@RequestMapping(value = "/updateAccount",method = RequestMethod.POST)
@@ -45,7 +49,8 @@ public class AccountController {
 		//System.out.println("Make -1: "+user.toString());
 		String username = btnCapNhat;
 		if(btnCapNhat.equalsIgnoreCase("updateAccount")) {
-			username = session.getAttribute("username").toString();
+			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+			username = authentication.getName();
 		}
 		KhachHang kh = khachHangService.getKhachHangByUsername(username);
 		

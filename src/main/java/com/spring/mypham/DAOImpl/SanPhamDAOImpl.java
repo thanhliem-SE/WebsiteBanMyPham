@@ -63,9 +63,9 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 			String sql = "select * from SanPham Where maSanPham = '" + id + "'";
 			NativeQuery<SanPham> theQuery = session.createNativeQuery(sql, SanPham.class);
 			rs = theQuery.getResultList();
+			tr.commit();
 			for (SanPham s : rs)
 				s.setHinhAnh(getHinhAnhById(s.getMaSanPham()));
-			tr.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -106,13 +106,13 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 					+ maSanPham;
 			@SuppressWarnings("unchecked")
 			List<Object> objs = session.createNativeQuery(sql).getResultList();
+			tr.commit();
 			if (objs.size() > 0)
 				for (Object obj : objs) {
 					rs.add(obj.toString());
 				}
 			else
 				rs.add("img-default.jpg");
-			tr.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -158,9 +158,9 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 				sql = "select * from SanPham Where donGia > 3000000";
 			NativeQuery<SanPham> theQuery = session.createNativeQuery(sql, SanPham.class);
 			rs = theQuery.getResultList();
+			tr.commit();
 			for (SanPham s : rs)
 				s.setHinhAnh(getHinhAnhById(s.getMaSanPham()));
-			tr.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -177,9 +177,9 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 			String sql = "select * from SanPham Where maDanhMuc = " + maDanhMuc;
 			NativeQuery<SanPham> theQuery = session.createNativeQuery(sql, SanPham.class);
 			rs = theQuery.getResultList();
+			tr.commit();
 			for (SanPham s : rs)
 				s.setHinhAnh(getHinhAnhById(s.getMaSanPham()));
-			tr.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -198,9 +198,9 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 					+ ncc + "')";
 			NativeQuery<SanPham> theQuery = session.createNativeQuery(sql, SanPham.class);
 			rs = theQuery.getResultList();
+			tr.commit();
 			for (SanPham s : rs)
 				s.setHinhAnh(getHinhAnhById(s.getMaSanPham()));
-			tr.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -243,9 +243,9 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 			String sql = "select * from SanPham Where maSanPham = '" + maSanPham + "'";
 			NativeQuery<SanPham> theQuery = session.createNativeQuery(sql, SanPham.class);
 			rs = theQuery.getResultList();
+			tr.commit();
 			for (SanPham s : rs)
 				s.setHinhAnh(getHinhAnhById(s.getMaSanPham()));
-			tr.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -278,6 +278,33 @@ public class SanPhamDAOImpl implements SanPhamDAO {
 
 			}
 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
+
+	@Override
+	@Transactional
+	public List<SanPham> getListSanPhamTheoPage(int page, int size) {
+		List<SanPham> rs = new ArrayList<SanPham>();
+		Session session = sessionFactory.getCurrentSession();
+		int startRow = (page-1)*size;
+		int endRow = startRow+size;
+		Transaction tr = session.beginTransaction();
+
+		try {
+			String sql = "SELECT *\r\n"
+					+ "FROM (\r\n"
+					+ "    SELECT *, ROW_NUMBER() OVER (ORDER BY maSanPham) AS RowNum\r\n"
+					+ "    FROM dbo.SanPham\r\n"
+					+ ") AS MyDerivedTable\r\n"
+					+ "WHERE MyDerivedTable.RowNum BETWEEN "+startRow+"  AND "+endRow+"";
+			NativeQuery<SanPham> theQuery = session.createNativeQuery(sql, SanPham.class);
+			rs = theQuery.getResultList();
+			tr.commit();
+			for (SanPham s : rs)
+				s.setHinhAnh(getHinhAnhById(s.getMaSanPham()));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

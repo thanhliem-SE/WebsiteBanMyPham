@@ -42,7 +42,7 @@
 		</div>
 		<div class="card">
 			<div class="body">
-				<form:form method="post" name="registerForm" action="${pageContext.request.contextPath}/admin/login">
+				<form:form method="post" name="submitForm" action="${pageContext.request.contextPath}/j_spring_security_check_admin">
 				    <div class="form-group">
 				      <label class="control-label col-sm-2">Tài khoản</label>
 				      <div class="col-sm-5">
@@ -66,7 +66,7 @@
 				    </div>
 				    <div class="form-group">        
 				      <div class="col-sm-offset-2 col-sm-10">
-				        <button type="submit" class="btn btn-default" name="btnDangNhapAdmin">Đăng nhập</button>
+				        <button type="submit" class="btn btn-default" value="submit">Đăng nhập</button>
 				      </div>
 				    </div>
 				  </form:form>
