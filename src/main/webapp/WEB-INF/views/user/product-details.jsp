@@ -59,31 +59,12 @@
 									</div>
 								</div>
 								<div class="action">
-<<<<<<< HEAD
+
 									<a class="btn" href="${pageContext.request.contextPath}/cart/addtocart/${sanPham.maSanPham}">
 									<i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a> 
-=======
-									<<<<<<< HEAD <a class="btn"
-										href="${pageContext.request.contextPath}/cart/addtocart/${sanPham.maSanPham}">
-										<i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng
-									</a>
->>>>>>> branch 'main' of https://github.com/thanhliem-SE/WebsiteBanMyPham.git
-									<%-- <a class="btn" href="${pageContext.request.contextPath}/checkout"><i
-										class="fa fa-shopping-bag"></i>Mua ngay</a> --%>
-<<<<<<< HEAD
-									<a class="btn"
-=======
-									======= <a class="btn"
-										href="${pageContext.request.contextPath}/cart/addtocart/${sanPham.maSanPham}"><i
-										class="fa fa-shopping-cart"></i>Giỏ hàng</a> <a class="btn"
->>>>>>> branch 'main' of https://github.com/thanhliem-SE/WebsiteBanMyPham.git
-										href="${pageContext.request.contextPath}/checkout"><i
-<<<<<<< HEAD
-										class="fa fa-shopping-bag"></i>Mua ngay</a>
-=======
-										class="fa fa-shopping-bag"></i>Mua ngay</a> >>>>>>> branch 'main'
-									of https://github.com/thanhliem-SE/WebsiteBanMyPham.git
->>>>>>> branch 'main' of https://github.com/thanhliem-SE/WebsiteBanMyPham.git
+
+
+
 								</div>
 							</div>
 						</div>
