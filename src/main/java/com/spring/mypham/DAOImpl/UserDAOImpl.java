@@ -2,14 +2,18 @@ package com.spring.mypham.DAOImpl;
 
 
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,7 +77,7 @@ public class UserDAOImpl implements UserDAO{
 	public User getLoginInfoByUsername(String username) {
 		User user = new User();
 		Session session = sessionFactory.getCurrentSession();
-		Transaction tr = session.beginTransaction();
+		//Transaction tr = session.beginTransaction();
 
 		try {
 			String sql = "select * from users where username like ?";
@@ -90,10 +94,11 @@ public class UserDAOImpl implements UserDAO{
 				user.setPassword(obj[2].toString());
 				user.toString();
 			}
-
-			tr.commit();
+			System.out.println("Dang nhap thanh cong");
+			//tr.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println("Dang nhap that bai");
 		}
 		return user;
 	}
@@ -166,25 +171,25 @@ public class UserDAOImpl implements UserDAO{
 		List<User> nguoiDung = theQuery.getResultList();
 		return nguoiDung;
 	}
-
+	@Transactional
 	@Override
 	public List<String> getUserRoles(String username) {
-		ArrayList<String> roles = new ArrayList<String>();
-		
+		List<String> roles = new ArrayList<String>();
 		Session session = sessionFactory.getCurrentSession();
-		Transaction tr = session.beginTransaction();
+	
+		
+		//Transaction tr = session.beginTransaction();
 
 		try {
-			String sql = "select name from users u JOIN user_role ur ON u.username=ur.USER_ID JOIN roles r ON ur.ROLE_ID = r.id Where u.username like ?";
+			String sql = "select id,name from users u JOIN user_role ur ON u.username=ur.USER_ID JOIN roles r ON ur.ROLE_ID = r.id Where u.username like ?";
 			@SuppressWarnings("unchecked")
-			List<Object> objs = session.createNativeQuery(sql).getResultList();
+			List<Object> objs = session.createNativeQuery(sql).setParameter(1, username).getResultList();
 			for (Object arrayObj : objs) {
 				Object[] obj = (Object[]) arrayObj;
 				
-				roles.add(obj[0].toString());
+				roles.add(obj[1].toString());
 			}
-
-			tr.commit();
+			//tr.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

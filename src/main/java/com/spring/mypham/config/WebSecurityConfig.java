@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.spring.mypham.SERVICEImpl.MyUserDetailsService;
@@ -30,7 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   
        // Các User trong bộ nhớ (MEMORY).
  
-       auth.inMemoryAuthentication().withUser("user1").password("12345").roles("USER");
+       auth.inMemoryAuthentication().withUser("user1").password(BCrypt.hashpw("12345", BCrypt.gensalt(12))).roles("USER");
        auth.inMemoryAuthentication().withUser("admin1").password("12345").roles("USER, ADMIN");
   
        // Các User trong Database
@@ -65,7 +66,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                // Submit URL của trang login
                .loginProcessingUrl("/j_spring_security_check") // Submit URL
                .loginPage("/login")//
-               .defaultSuccessUrl("/account")//
+               .defaultSuccessUrl("/trangchu")//
                .failureUrl("/login?error=true")//
                .usernameParameter("username")//
                .passwordParameter("password")
