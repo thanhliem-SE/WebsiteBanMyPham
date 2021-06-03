@@ -10,27 +10,27 @@
 						<div class="row">
 							<div class="col-md-6">
 								<label>Họ và tên</label> <input class="form-control fs14" type="text"
-									placeholder="VD: Trần Văn A" name="tenKhachHang">
+									placeholder="VD: Trần Văn A" name="tenKhachHang" required="required">
 							</div>
 							<div class="col-md-6">
 								<label>Tên tài khoản</label> <input class="form-control fs14"
-									type="text" placeholder="VD: username123" name="username">
+									type="text" placeholder="VD: username123" name="username" required="required">
 							</div>
 							<div class="col-md-6">
-								<label>E-mail</label> <input class="form-control fs14" type="text"
+								<label>E-mail</label> <input class="form-control fs14" type="email"
 									placeholder="abc@example.com" name="email">
 							</div>
 							<div class="col-md-6">
 								<label>Số điện thoại</label> <input class="form-control fs14"
-									type="text" placeholder="VD: 0912345567" name="soDienThoai">
+									type="text" placeholder="VD: 0912345567" name="soDienThoai" pattern="[0-9]{10}" title="Số điện phải có 10 số">
 							</div>
 							<div class="col-md-6">
 								<label>Mật khẩu</label> <input class="form-control fs14" type="password"
-									placeholder="Mật khẩu" name="password">
+									placeholder="Mật khẩu" name="password" required="required">
 							</div>
 							<div class="col-md-6">
 								<label>Nhập lại mật khẩu</label> <input class="form-control fs14"
-									type="password" placeholder="Mật khẩu" name="password2">
+									type="password" placeholder="Mật khẩu" name="password2" required="required">
 							</div>
 							<div class="col-md-12">
 								<button class="btn" type="submit" value="Register" name="btnThemMoi">Đăng
@@ -48,11 +48,11 @@
 							<div class="col-md-6">
 								<label>E-mail / Tên tài khoản</label> <input
 									class="form-control fs14" type="text"
-									placeholder="E-mail / Username" name="username">
+									placeholder="E-mail / Username" name="username" required="required">
 							</div>
 							<div class="col-md-6">
 								<label>Mật khẩu</label> <input class="form-control  fs14" type="Password"
-									placeholder="Mật khẩu" name="password">
+									placeholder="Mật khẩu" name="password" required="required">
 							</div>
 							<div class="col-md-12">
 								<div class="custom-control custom-checkbox">
