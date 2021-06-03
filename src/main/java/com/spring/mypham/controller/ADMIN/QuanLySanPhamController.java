@@ -1,5 +1,6 @@
 package com.spring.mypham.controller.ADMIN;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -40,7 +41,7 @@ public class QuanLySanPhamController {
 //			return "redirect:quantricp";
 		List<SanPham> list = sanPhamService.getListSanPham();
 		model.addAttribute("pageCount", sanPhamService.getPageCountSanPham(list));
-		model.addAttribute("listSP", sanPhamService.getListSanPhamTheoPage(page, 6));
+		model.addAttribute("listSP", sanPhamService.getListSanPhamTheoPage(page, list));
 		model.addAttribute("listDanhMuc", danhMucService.getListDanhMuc());
 		model.addAttribute("listNhaCungCap", nhaCungCapService.getListNhaCungCap());
 		nextOrPreviosPage(model, page);
@@ -64,7 +65,7 @@ public class QuanLySanPhamController {
 			HttpServletRequest request) {
 		sanPham.setNhaCungCap(nhaCungCapService.getNhaCungCap(maNhaCungCap));
 		sanPham.setDanhMuc(danhMucService.getDanhMuc(maDanhMuc));
-		System.out.println("==============="+maNhaCungCap);
+
 		// Save hinh anh
 		List<String> photos = new ArrayList<String>();
 		for (MultipartFile file : files) {
