@@ -6,6 +6,7 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
+import com.spring.mypham.models.DanhGia;
 import com.spring.mypham.models.DanhMuc;
 import com.spring.mypham.models.DiaChi;
 import com.spring.mypham.models.GioHang;
@@ -39,6 +40,7 @@ public class MySessionFactory {
 				.addAnnotatedClass(ThanhToan.class)
 				.addAnnotatedClass(User.class)
 				.addAnnotatedClass(NhaCungCap.class)
+				.addAnnotatedClass(DanhGia.class)
 				.getMetadataBuilder().build();
 		sessionFactory = meta.getSessionFactoryBuilder().build();
 	}

@@ -23,8 +23,8 @@ public class QuanLyDanhMucController {
 
 	@GetMapping("/quanlydanhmuc")
 	public String managerAdmin(Model model, HttpSession session) {
-		if(session.getAttribute("usernameAdmin")==null)
-			return "redirect:quantricp";
+//		if(session.getAttribute("usernameAdmin")==null)
+//			return "redirect:quantricp";
 		List<DanhMuc> list = danhMucService.getListDanhMuc();
 		model.addAttribute("listDM", list);
 		return "admin/quanlydanhmuc";

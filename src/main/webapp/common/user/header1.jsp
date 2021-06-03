@@ -709,17 +709,17 @@
 
 			<ul class="navbar-nav ms-auto">
 				<li class="nav-item dropdown"><c:if
-						test="${sessionScope.username != null}">
+						test="${pageContext.request.userPrincipal.name!= null}">
 						<a class="nav-link dropdown-toggle text-white"
 							href="javascript:void(0)" data-bs-toggle="dropdown">
-							${sessionScope.username } </a>
+							${pageContext.request.userPrincipal.name}</a>
 						<ul class="dropdown-menu dropdown-menu-end">
 							<li style="margin-top: -8px;"><a class="dropdown-item"
 								href="${pageContext.request.contextPath}/account">Account</a></li>
 							<li style="margin-bottom: -8px;"><a class="dropdown-item"
 								href="${pageContext.request.contextPath}/login">Logout</a></li>
 						</ul>
-					</c:if> <c:if test="${sessionScope.username == null}">
+					</c:if> <c:if test="${pageContext.request.userPrincipal.name == null}">
 						<a class="nav-link dropdown-toggle text-white"
 							href="javascript:void(0)" data-bs-toggle="dropdown"> <i
 							class="fas fa-user"></i>

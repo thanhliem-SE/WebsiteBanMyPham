@@ -37,8 +37,8 @@ public class QuanLySanPhamController {
 
 	@GetMapping("/quanlysanpham")
 	public String managerAdmin(Model model, @RequestParam(name = "page", defaultValue = "1") int page, HttpSession session) {
-		if (session.getAttribute("usernameAdmin") == null)
-			return "redirect:quantricp";
+//		if (session.getAttribute("usernameAdmin") == null)
+//			return "redirect:quantricp";
 		List<SanPham> list = sanPhamService.getListSanPham();
 		model.addAttribute("pageCount", sanPhamService.getPageCountSanPham(list));
 		model.addAttribute("listSP", sanPhamService.getListSanPhamTheoPage(page, list));

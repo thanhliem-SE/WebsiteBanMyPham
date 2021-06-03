@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <div class="product-detail">
 	<div class="container-fluid">
 		<div class="row">
@@ -70,10 +71,18 @@
 									</div>
 								</div>
 								<div class="action">
+<<<<<<< HEAD
 									<a class="btn" href="${pageContext.request.contextPath}/cart/addtocart/${sanPham.maSanPham}">
 									<i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a> 
 									<%-- <a class="btn" href="${pageContext.request.contextPath}/checkout"><i
 										class="fa fa-shopping-bag"></i>Mua ngay</a> --%>
+=======
+									<a class="btn"
+										href="${pageContext.request.contextPath}/cart/addtocart/${sanPham.maSanPham}"><i
+										class="fa fa-shopping-cart"></i>Giỏ hàng</a> <a class="btn"
+										href="${pageContext.request.contextPath}/checkout"><i
+										class="fa fa-shopping-bag"></i>Mua ngay</a>
+>>>>>>> branch 'main' of https://github.com/thanhliem-SE/WebsiteBanMyPham.git
 								</div>
 							</div>
 						</div>
@@ -88,7 +97,7 @@
 							<li class="nav-item"><a class="nav-link" data-toggle="pill"
 								href="#specification">Thành Phần</a></li>
 							<li class="nav-item"><a class="nav-link" data-toggle="pill"
-								href="#reviews">Đánh Giá (1)</a></li>
+								href="#reviews">Đánh Giá</a></li>
 						</ul>
 
 						<div class="tab-content">
@@ -113,6 +122,19 @@
 									<p>Sản phẩm dùng rất tốt, hiện nay 3 đời nhà mình đều đang
 										dùng sản phẩm này.</p>
 								</div>
+								<c:forEach var="rv" items="${listReview}">
+									<div id="reviews" class="container tab-pane fade">
+										<div class="reviews-submitted">
+											<div class="reviewer">${rv.ten}</div>
+											<div class="ratting">
+												<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+													class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+													class="fa fa-star"></i>
+											</div>
+											<p>${rv.danhGia}</p>
+										</div>
+									</div>
+								</c:forEach>
 								<div class="reviews-submit">
 									<h4>Gửi đánh giá của bạn:</h4>
 									<div class="ratting">
@@ -120,20 +142,24 @@
 											class="far fa-star"></i> <i class="far fa-star"></i> <i
 											class="far fa-star"></i>
 									</div>
-									<div class="row form">
-										<div class="col-sm-6">
-											<input type="text" placeholder="Tên">
+									<form:form method="post" action="addReview">
+										<div class="row form">
+											<div class="col-sm-6">
+												<input type="text" name="maSanPham" value="${sp.maSanPham}"
+													hidden> <input type="text" placeholder="Tên"
+													name="ten">
+											</div>
+											<div class="col-sm-6">
+												<input type="email" placeholder="Email" name="danhGia">
+											</div>
+											<div class="col-sm-12">
+												<textarea placeholder="Đánh giá" name="danhGia"></textarea>
+											</div>
+											<div class="col-sm-12">
+												<button type="submit">Submit</button>
+											</div>
 										</div>
-										<div class="col-sm-6">
-											<input type="email" placeholder="Email">
-										</div>
-										<div class="col-sm-12">
-											<textarea placeholder="Đánh giá"></textarea>
-										</div>
-										<div class="col-sm-12">
-											<button>Submit</button>
-										</div>
-									</div>
+									</form:form>
 								</div>
 							</div>
 						</div>
@@ -163,8 +189,11 @@
 											alt="Product Image">
 										</a>
 										<div class="product-action">
-											<a href="${pageContext.request.contextPath}/cart/addtocart/${sanPham.maSanPham}"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
-												class="fa fa-heart"></i></a> <a href="product-details?maSanPham=${sp.maSanPham}"><i
+											<a
+												href="${pageContext.request.contextPath}/cart/addtocart/${sanPham.maSanPham}"><i
+												class="fa fa-cart-plus"></i></a> <a href="#"><i
+												class="fa fa-heart"></i></a> <a
+												href="product-details?maSanPham=${sp.maSanPham}"><i
 												class="fa fa-search"></i></a>
 										</div>
 									</div>
@@ -239,11 +268,17 @@
 
 				<div class="sidebar-widget tag">
 					<h2 class="title">Tags</h2>
-					<a href="product?tenSP=tẩy da">tẩy da</a> <a href="product?tenSP=mặt nạ">mặt nạ</a> <a href="product?tenSP=dưỡng ẩm">dưỡng
-						ẩm</a> <a href="product?tenSP=trang điểm">trang điểm</a> <a href="product?tenSP=collagen">collagen</a> <a href="product?tenSP=phấn nước">phấn
-						nước</a> <a href="product?tenSP=sữa rửa mặt">sữa rửa mặt</a> <a href="product?tenSP=tóc bết">tóc bết</a> <a
-						href="product?tenSP=gàu">gàu </a> <a href="product?tenSP=nước hoa">nước hoa</a> <a href="product?tenSP=kem tái sinh">kem tái
-						sinh</a> <a href="product?tenSP=da trắng">da trắng</a>
+					<a href="product?tenSP=tẩy da">tẩy da</a> <a
+						href="product?tenSP=mặt nạ">mặt nạ</a> <a
+						href="product?tenSP=dưỡng ẩm">dưỡng ẩm</a> <a
+						href="product?tenSP=trang điểm">trang điểm</a> <a
+						href="product?tenSP=collagen">collagen</a> <a
+						href="product?tenSP=phấn nước">phấn nước</a> <a
+						href="product?tenSP=sữa rửa mặt">sữa rửa mặt</a> <a
+						href="product?tenSP=tóc bết">tóc bết</a> <a
+						href="product?tenSP=gàu">gàu </a> <a href="product?tenSP=nước hoa">nước
+						hoa</a> <a href="product?tenSP=kem tái sinh">kem tái sinh</a> <a
+						href="product?tenSP=da trắng">da trắng</a>
 				</div>
 			</div>
 			<!-- Side Bar End -->

@@ -34,6 +34,9 @@ public class SanPham implements Serializable {
 	@OneToOne
 	@JoinColumn(name = "maNhaCungCap")
 	private NhaCungCap NhaCungCap;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "sanPham")
+	private List<DanhGia> danhGia;
 
 	private double donGia;
 	private int hanSuDung;
