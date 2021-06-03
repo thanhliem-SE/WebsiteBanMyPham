@@ -26,8 +26,8 @@ public class QuanLyThongKeController {
 	
 	@GetMapping("/quanlythongke")
 	public String thongKeController(Model model, HttpSession session) {
-		if (session.getAttribute("usernameAdmin") == null)
-			return "redirect:quantricp";
+//		if (session.getAttribute("usernameAdmin") == null)
+//			return "redirect:quantricp";
 		return "admin/quanlythongke";
 
 	}
