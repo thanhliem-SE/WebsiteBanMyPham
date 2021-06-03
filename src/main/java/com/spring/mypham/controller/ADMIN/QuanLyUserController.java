@@ -22,8 +22,8 @@ public class QuanLyUserController {
 	private static final KhachHangService khachHangService = new KhachHangServiceImpl();
 	@GetMapping("/quanlyuser")
 	public String managerUser(Model model,HttpSession session) {
-		if(session.getAttribute("usernameAdmin")==null)
-			return "redirect:quantricp";
+//		if(session.getAttribute("usernameAdmin")==null)
+//			return "redirect:quantricp";
 			
 		showAllKhachHang(model);
 		return "admin/quanlyuser";
