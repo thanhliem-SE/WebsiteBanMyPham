@@ -58,7 +58,7 @@
 												</div>
 												<div class="modal-body">
 													<form class="form-horizontal" method="post"
-														enctype="multipart/form-data" action="addSanPham">
+														action="addSanPham">
 														<div class="row clearfix">
 															<div
 																class="col-lg-3 col-md-3 col-sm-4 col-xs-5 form-control-label">
