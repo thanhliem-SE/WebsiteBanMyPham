@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <div class="product-detail">
 	<div class="container-fluid">
 		<div class="row">
@@ -42,20 +43,8 @@
 									<h4>Price:</h4>
 									<c:set var="donGia" value="${sanPham.donGia }" scope="request" />
 									<%
-									out.println(new DecimalFormat("#,###").format(request.getAttribute("donGia")));
+									out.println(new DecimalFormat("#,###").format(request.getAttribute("donGia")) + " đ");
 									%>
-								</div>
-								<div class="quantity">
-									<h4>Số lượng:</h4>
-									<div class="qty">
-										<button class="btn-minus">
-											<i class="fa fa-minus"></i>
-										</button>
-										<input type="text" value="1">
-										<button class="btn-plus">
-											<i class="fa fa-plus"></i>
-										</button>
-									</div>
 								</div>
 								<div class="p-size">
 									<h4>Còn lại:</h4>
@@ -70,8 +59,18 @@
 									</div>
 								</div>
 								<div class="action">
-									<a class="btn" href="${pageContext.request.contextPath}/cart/addtocart/${sanPham.maSanPham}"><i class="fa fa-shopping-cart"></i>Giỏ hàng</a> <a class="btn" href="${pageContext.request.contextPath}/checkout"><i
-										class="fa fa-shopping-bag"></i>Mua ngay</a>
+									<<<<<<< HEAD <a class="btn"
+										href="${pageContext.request.contextPath}/cart/addtocart/${sanPham.maSanPham}">
+										<i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng
+									</a>
+									<%-- <a class="btn" href="${pageContext.request.contextPath}/checkout"><i
+										class="fa fa-shopping-bag"></i>Mua ngay</a> --%>
+									======= <a class="btn"
+										href="${pageContext.request.contextPath}/cart/addtocart/${sanPham.maSanPham}"><i
+										class="fa fa-shopping-cart"></i>Giỏ hàng</a> <a class="btn"
+										href="${pageContext.request.contextPath}/checkout"><i
+										class="fa fa-shopping-bag"></i>Mua ngay</a> >>>>>>> branch 'main'
+									of https://github.com/thanhliem-SE/WebsiteBanMyPham.git
 								</div>
 							</div>
 						</div>
@@ -86,7 +85,7 @@
 							<li class="nav-item"><a class="nav-link" data-toggle="pill"
 								href="#specification">Thành Phần</a></li>
 							<li class="nav-item"><a class="nav-link" data-toggle="pill"
-								href="#reviews">Đánh Giá (1)</a></li>
+								href="#reviews">Đánh Giá</a></li>
 						</ul>
 
 						<div class="tab-content">
@@ -111,6 +110,19 @@
 									<p>Sản phẩm dùng rất tốt, hiện nay 3 đời nhà mình đều đang
 										dùng sản phẩm này.</p>
 								</div>
+								<c:forEach var="rv" items="${listReview}">
+									<div id="reviews" class="container tab-pane fade">
+										<div class="reviews-submitted">
+											<div class="reviewer">${rv.ten}</div>
+											<div class="ratting">
+												<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+													class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+													class="fa fa-star"></i>
+											</div>
+											<p>${rv.danhGia}</p>
+										</div>
+									</div>
+								</c:forEach>
 								<div class="reviews-submit">
 									<h4>Gửi đánh giá của bạn:</h4>
 									<div class="ratting">
@@ -118,20 +130,24 @@
 											class="far fa-star"></i> <i class="far fa-star"></i> <i
 											class="far fa-star"></i>
 									</div>
-									<div class="row form">
-										<div class="col-sm-6">
-											<input type="text" placeholder="Tên">
+									<form:form method="post" action="addReview">
+										<div class="row form">
+											<div class="col-sm-6">
+												<input type="text" name="maSanPham" value="${sp.maSanPham}"
+													hidden> <input type="text" placeholder="Tên"
+													name="ten">
+											</div>
+											<div class="col-sm-6">
+												<input type="email" placeholder="Email" name="danhGia">
+											</div>
+											<div class="col-sm-12">
+												<textarea placeholder="Đánh giá" name="danhGia"></textarea>
+											</div>
+											<div class="col-sm-12">
+												<button type="submit">Submit</button>
+											</div>
 										</div>
-										<div class="col-sm-6">
-											<input type="email" placeholder="Email">
-										</div>
-										<div class="col-sm-12">
-											<textarea placeholder="Đánh giá"></textarea>
-										</div>
-										<div class="col-sm-12">
-											<button>Submit</button>
-										</div>
-									</div>
+									</form:form>
 								</div>
 							</div>
 						</div>
@@ -161,8 +177,11 @@
 											alt="Product Image">
 										</a>
 										<div class="product-action">
-											<a href="${pageContext.request.contextPath}/cart/addtocart/${sanPham.maSanPham}"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
-												class="fa fa-heart"></i></a> <a href="product-details?maSanPham=${sp.maSanPham}"><i
+											<a
+												href="${pageContext.request.contextPath}/cart/addtocart/${sanPham.maSanPham}"><i
+												class="fa fa-cart-plus"></i></a> <a href="#"><i
+												class="fa fa-heart"></i></a> <a
+												href="product-details?maSanPham=${sp.maSanPham}"><i
 												class="fa fa-search"></i></a>
 										</div>
 									</div>
@@ -189,24 +208,11 @@
 					<h2 class="title">Danh mục</h2>
 					<nav class="navbar bg-light">
 						<ul class="navbar-nav">
-							<li class="nav-item"><a class="nav-link"
-								href="product?maDanhMuc=1"><i class="fa fa-female"></i>Chăm
-									sóc da mặt</a></li>
-							<li class="nav-item"><a class="nav-link"
-								href="product?maDanhMuc=2"><i class="fa fa-child"></i>Chăm
-									sóc cơ thể</a></li>
-							<li class="nav-item"><a class="nav-link"
-								href="product?maDanhMuc=3"><i class="fa fa-tshirt"></i>Chăm
-									sóc tóc</a></li>
-							<li class="nav-item"><a class="nav-link"
-								href="product?maDanhMuc=4"><i class="fa fa-mobile-alt"></i>Nước
-									hoa</a></li>
-							<li class="nav-item"><a class="nav-link"
-								href="product?maDanhMuc=5"><i class="fa fa-microchip"></i>Trang
-									điểm</a></li>
-							<li class="nav-item"><a class="nav-link"
-								href="product?maDanhMuc=6"><i class="fa fa-microchip"></i>Thực
-									phẩm chức năng</a></li>
+							<c:forEach var="dm" items="${listDanhMuc}">
+								<li class="nav-item"><a class="nav-link"
+									href="product?maDanhMuc=${dm.maDanhMuc}"><i
+										class="fa fa-female"></i>${dm.tenDanhMuc}</a></li>
+							</c:forEach>
 						</ul>
 					</nav>
 				</div>
@@ -227,21 +233,26 @@
 				<div class="sidebar-widget brands">
 					<h2 class="title">Nhà cung cấp</h2>
 					<ul>
-						<li><a href="product?nhaCC=Bioderma">Bioderma </a><span>(45)</span></li>
-						<li><a href="product?nhaCC=Valmont">Valmont </a><span>(34)</span></li>
-						<li><a href="product?nhaCC=Huxley">Huxley </a><span>(67)</span></li>
-						<li><a href="product?nhaCC=Kérastase">Kérastase</a><span>(74)</span></li>
-						<li><a href="product?nhaCC=Vital Beautie">Vital Beautie </a><span>(89)</span></li>
+						<c:forEach var="ncc" items="${listNhaCungCap}">
+							<li><a href="product?nhaCC=${ncc.tenNCC}">${ncc.tenNCC}
+							</a></li>
+						</c:forEach>
 					</ul>
 				</div>
 
 				<div class="sidebar-widget tag">
 					<h2 class="title">Tags</h2>
-					<a href="product?tenSP=tẩy da">tẩy da</a> <a href="product?tenSP=mặt nạ">mặt nạ</a> <a href="product?tenSP=dưỡng ẩm">dưỡng
-						ẩm</a> <a href="product?tenSP=trang điểm">trang điểm</a> <a href="product?tenSP=collagen">collagen</a> <a href="product?tenSP=phấn nước">phấn
-						nước</a> <a href="product?tenSP=sữa rửa mặt">sữa rửa mặt</a> <a href="product?tenSP=tóc bết">tóc bết</a> <a
-						href="product?tenSP=gàu">gàu </a> <a href="product?tenSP=nước hoa">nước hoa</a> <a href="product?tenSP=kem tái sinh">kem tái
-						sinh</a> <a href="product?tenSP=da trắng">da trắng</a>
+					<a href="product?tenSP=tẩy da">tẩy da</a> <a
+						href="product?tenSP=mặt nạ">mặt nạ</a> <a
+						href="product?tenSP=dưỡng ẩm">dưỡng ẩm</a> <a
+						href="product?tenSP=trang điểm">trang điểm</a> <a
+						href="product?tenSP=collagen">collagen</a> <a
+						href="product?tenSP=phấn nước">phấn nước</a> <a
+						href="product?tenSP=sữa rửa mặt">sữa rửa mặt</a> <a
+						href="product?tenSP=tóc bết">tóc bết</a> <a
+						href="product?tenSP=gàu">gàu </a> <a href="product?tenSP=nước hoa">nước
+						hoa</a> <a href="product?tenSP=kem tái sinh">kem tái sinh</a> <a
+						href="product?tenSP=da trắng">da trắng</a>
 				</div>
 			</div>
 			<!-- Side Bar End -->

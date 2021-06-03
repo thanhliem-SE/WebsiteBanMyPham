@@ -14,24 +14,12 @@
 						<li class="nav-item"><a class="nav-link"
 							href="${pageContext.request.contextPath}/bestseller"><i
 								class="fa fa-shopping-bag"></i>Sản phẩm bán chạy</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="product?maDanhMuc=1"><i
-								class="fa fa-plus-square"></i>Chăm sóc da mặt</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="product?maDanhMuc=2"><i
-								class="fa fa-female"></i>Chăm sóc cơ thể</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="product?maDanhMuc=3"><i
-								class="fa fa-child"></i>Chăm sóc tóc</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="product?maDanhMuc=4"><i
-								class="fa fa-tshirt"></i>Nước hoa</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="product?maDanhMuc=5"><i
-								class="fa fa-mobile-alt"></i>Trang điểm</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="product?maDanhMuc=6"><i
-								class="fa fa-microchip"></i>Thực phẩm chức năng</a></li>
+						<c:forEach var="dm" items="${danhMucs}">
+							<li class="nav-item"><a class="nav-link"
+								href="product?maDanhMuc=${dm.maDanhMuc }"><i class="fa fa-plus-square"></i>${dm.tenDanhMuc}
+									</a></li>
+						</c:forEach>
+
 					</ul>
 				</nav>
 			</div>
@@ -270,8 +258,11 @@
 								alt="Product Image">
 							</a>
 							<div class="product-action">
-								<a href="${pageContext.request.contextPath}/cart/addtocart/${sanPham.maSanPham}"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
-									class="fa fa-heart"></i></a> <a href="product-details?maSanPham=${sanPham.maSanPham}"><i
+								<a
+									href="${pageContext.request.contextPath}/cart/addtocart/${sanPham.maSanPham}"><i
+									class="fa fa-cart-plus"></i></a> <a href="#"><i
+									class="fa fa-heart"></i></a> <a
+									href="product-details?maSanPham=${sanPham.maSanPham}"><i
 									class="fa fa-search"></i></a>
 							</div>
 						</div>
@@ -282,7 +273,8 @@
 								out.println(new DecimalFormat("#,###").format(request.getAttribute("donGia")));
 								%>
 							</h3>
-							<a class="btn fs16" href="<c:url value="product-details?maSanPham=${sanPham.maSanPham}"/>"><i
+							<a class="btn fs16"
+								href="<c:url value="product-details?maSanPham=${sanPham.maSanPham}"/>"><i
 								class="fa fa-shopping-cart fs16"></i><span>Mua ngay</span></a>
 						</div>
 					</div>
@@ -337,8 +329,11 @@
 								alt="Product Image">
 							</a>
 							<div class="product-action">
-								<a href="${pageContext.request.contextPath}/cart/addtocart/${sanPham.maSanPham}"><i class="fa fa-cart-plus"></i></a> <a href="#"><i
-									class="fa fa-heart"></i></a> <a href="product-details?maSanPham=${sanPham.maSanPham}"><i
+								<a
+									href="${pageContext.request.contextPath}/cart/addtocart/${sanPham.maSanPham}"><i
+									class="fa fa-cart-plus"></i></a> <a href="#"><i
+									class="fa fa-heart"></i></a> <a
+									href="product-details?maSanPham=${sanPham.maSanPham}"><i
 									class="fa fa-search"></i></a>
 							</div>
 						</div>
@@ -349,7 +344,8 @@
 								out.println(new DecimalFormat("#,###").format(request.getAttribute("donGia")));
 								%>
 							</h3>
-							<a class="btn fs16" href="<c:url value="product-details?maSanPham=${sanPham.maSanPham}"/>"><i
+							<a class="btn fs16"
+								href="<c:url value="product-details?maSanPham=${sanPham.maSanPham}"/>"><i
 								class="fa fa-shopping-cart fs16"></i><span>Mua ngay</span></a>
 						</div>
 					</div>

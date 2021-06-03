@@ -26,11 +26,13 @@ public interface SanPhamService {
 	public List<SanPham> getListSanPhamTheoTrangThai(int trangThai);
 
 	public int getPageCountSanPham(List<SanPham> sanPhams);
-	
+
 	public SanPham getSanPhamByID(long maSanPham);
-	
+
 	public List<String> getHinhAnhById(long maSanPham);
-	
+
 	public List<SanPham> getListSanPhamThongKe(int thang, int nam);
+
+	public List<SanPham> getListSanPhamTheoPage(int page, int size);
 
 }

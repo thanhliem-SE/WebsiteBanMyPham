@@ -37,11 +37,11 @@ public class QuanLySanPhamController {
 
 	@GetMapping("/quanlysanpham")
 	public String managerAdmin(Model model, @RequestParam(name = "page", defaultValue = "1") int page, HttpSession session) {
-		if (session.getAttribute("usernameAdmin") == null)
-			return "redirect:quantricp";
+//		if (session.getAttribute("usernameAdmin") == null)
+//			return "redirect:quantricp";
 		List<SanPham> list = sanPhamService.getListSanPham();
 		model.addAttribute("pageCount", sanPhamService.getPageCountSanPham(list));
-		model.addAttribute("listSP", sanPhamService.getListSanPhamTheoPage(page, list));
+		model.addAttribute("listSP", sanPhamService.getListSanPhamTheoPage(page, 6));
 		model.addAttribute("listDanhMuc", danhMucService.getListDanhMuc());
 		model.addAttribute("listNhaCungCap", nhaCungCapService.getListNhaCungCap());
 		nextOrPreviosPage(model, page);
@@ -65,17 +65,17 @@ public class QuanLySanPhamController {
 			HttpServletRequest request) {
 		sanPham.setNhaCungCap(nhaCungCapService.getNhaCungCap(maNhaCungCap));
 		sanPham.setDanhMuc(danhMucService.getDanhMuc(maDanhMuc));
-
+		System.out.println("==============="+maNhaCungCap);
 		// Save hinh anh
-		List<String> photos = new ArrayList<String>();
-		for (MultipartFile file : files) {
-			String fileName = saveImage(file, request);
-			System.out.println("filename:" + fileName);
-			photos.add(fileName);
-		}
-		sanPham.setHinhAnh(photos);
-
-		sanPhamService.saveSanPham(sanPham);
+//		List<String> photos = new ArrayList<String>();
+//		for (MultipartFile file : files) {
+//			String fileName = saveImage(file, request);
+//			System.out.println("filename:" + fileName);
+//			photos.add(fileName);
+//		}
+//		sanPham.setHinhAnh(photos);
+//
+//		sanPhamService.saveSanPham(sanPham);
 		return "redirect:quanlysanpham";
 	}
 
