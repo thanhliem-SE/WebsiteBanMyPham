@@ -23,23 +23,23 @@ public class DangNhapController {
 		request.removeAttribute("usernameAdmin", WebRequest.SCOPE_SESSION);
 		return "admin/login-form";
 	}
-	@RequestMapping(value = "/login",method = RequestMethod.POST)
-	public String submit(Model model, @ModelAttribute("user") User user, HttpSession session) {
-		if (user != null && user.getUsername() != null & user.getPassword() != null) {
-			///System.out.println("username: "+user.getUsername()+"/ pass: "+user.getPassword());
-			if (userService.checkLoginInfo(user,"ADMIN")) {
-				//model.addAttribute("msg", user.getUsername());
-				session.setAttribute("usernameAdmin", user.getUsername());
-				System.out.println("Mat khau trung khop");
-				return "redirect:quanlyuser";
-			} else {
-				model.addAttribute("error", "Invalid Details");
-				System.out.println("Mat khau khong trung khop");
-				return "redirect:quantricp";
-			}
-		} else {
-			model.addAttribute("error", "Please enter Details");
-			return "redirect:quantricp";
-		}
-	}
+//	@RequestMapping(value = "/login",method = RequestMethod.POST)
+//	public String submit(Model model, @ModelAttribute("user") User user, HttpSession session) {
+//		if (user != null && user.getUsername() != null & user.getPassword() != null) {
+//			///System.out.println("username: "+user.getUsername()+"/ pass: "+user.getPassword());
+//			if (userService.checkLoginInfo(user,"ADMIN")) {
+//				//model.addAttribute("msg", user.getUsername());
+//				session.setAttribute("usernameAdmin", user.getUsername());
+//				System.out.println("Mat khau trung khop");
+//				return "redirect:quanlyuser";
+//			} else {
+//				model.addAttribute("error", "Invalid Details");
+//				System.out.println("Mat khau khong trung khop");
+//				return "redirect:quantricp";
+//			}
+//		} else {
+//			model.addAttribute("error", "Please enter Details");
+//			return "redirect:quantricp";
+//		}
+//	}
 }

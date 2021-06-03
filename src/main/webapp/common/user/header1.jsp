@@ -699,10 +699,10 @@
 
 			<ul class="navbar-nav ms-auto">
 				<li class="nav-item dropdown"><c:if
-						test="${pageContext.request.userPrincipal.name!= null}">
+						test="${pageContext.request.userPrincipal.name != null}">
 						<a class="nav-link dropdown-toggle text-white"
 							href="javascript:void(0)" data-bs-toggle="dropdown">
-							${pageContext.request.userPrincipal.name}</a>
+							${pageContext.request.userPrincipal.name} </a>
 						<ul class="dropdown-menu dropdown-menu-end">
 							<li style="margin-top: -8px;"><a class="dropdown-item"
 								href="${pageContext.request.contextPath}/account">Account</a></li>
