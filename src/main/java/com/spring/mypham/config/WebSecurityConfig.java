@@ -50,8 +50,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   
        // Trang /userInfo yêu cầu phải login với vai trò USER hoặc ADMIN.
        // Nếu chưa login, nó sẽ redirect tới trang /login.
-       http.authorizeRequests().antMatchers("/account").access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')");
-  
+		/*
+		 * http.authorizeRequests().antMatchers("/checkout").
+		 * access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')");
+		 */
+
+		 http.authorizeRequests().antMatchers("/checkout").access("hasAnyRole('USER', 'ADMIN')");
+		 
        // Trang chỉ dành cho ADMIN
        http.authorizeRequests().antMatchers("/admin").access("hasRole('ROLE_ADMIN')");
   
@@ -66,7 +71,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                // Submit URL của trang login
                .loginProcessingUrl("/j_spring_security_check") // Submit URL
                .loginPage("/login")//
-               .defaultSuccessUrl("/trangchu")//
+               .defaultSuccessUrl("/")//
                .failureUrl("/login?error=true")//
                .usernameParameter("username")//
                .passwordParameter("password")

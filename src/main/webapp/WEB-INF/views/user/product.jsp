@@ -91,7 +91,7 @@
 										%>
 									</h3>
 									<a class="btn" href="<c:url value="product-details?maSanPham=${sanPham.maSanPham}"/>">
-										<i class="fa fa-shopping-cart"></i>Mua ngay
+										<i class="fa fa-shopping-cart"></i>Chi tiết
 									</a>
 								</div>
 							</div>

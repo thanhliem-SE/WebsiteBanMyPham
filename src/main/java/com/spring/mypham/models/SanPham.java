@@ -14,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -49,7 +50,7 @@ public class SanPham implements Serializable {
 
 	private double giamGia;
 
-	@ElementCollection()
+	@ElementCollection(fetch = FetchType.EAGER)
 	@CollectionTable(name = "HinhAnh", joinColumns = @JoinColumn(name = "maSanPham"))
 	private List<String> hinhAnh;
 

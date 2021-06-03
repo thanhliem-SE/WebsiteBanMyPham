@@ -30,6 +30,8 @@
 										<p
 											style="color: rgba(0, 0, 0, 0.4); text-align: center; font-size: 1rem; line-height: 1rem; margin-top: 1.125rem;">
 											<b>Giỏ hàng của bạn còn trống</b>
+											<br>
+											<span>${statuscart}</span>
 										</p>
 										<div style="text-align: center;">
 											<a href="${pageContext.request.contextPath}/product">

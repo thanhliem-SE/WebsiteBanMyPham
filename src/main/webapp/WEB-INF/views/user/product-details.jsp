@@ -42,10 +42,10 @@
 									<h4>Price:</h4>
 									<c:set var="donGia" value="${sanPham.donGia }" scope="request" />
 									<%
-									out.println(new DecimalFormat("#,###").format(request.getAttribute("donGia")));
-									%>
+									out.println(new DecimalFormat("#,###").format(request.getAttribute("donGia"))+" đ");
+									%> 
 								</div>
-								<div class="quantity">
+								<!-- <div class="quantity">
 									<h4>Số lượng:</h4>
 									<div class="qty">
 										<button class="btn-minus">
@@ -56,7 +56,7 @@
 											<i class="fa fa-plus"></i>
 										</button>
 									</div>
-								</div>
+								</div> -->
 								<div class="p-size">
 									<h4>Còn lại:</h4>
 									<div class="btn-group btn-group-sm">
@@ -70,8 +70,10 @@
 									</div>
 								</div>
 								<div class="action">
-									<a class="btn" href="${pageContext.request.contextPath}/cart/addtocart/${sanPham.maSanPham}"><i class="fa fa-shopping-cart"></i>Giỏ hàng</a> <a class="btn" href="${pageContext.request.contextPath}/checkout"><i
-										class="fa fa-shopping-bag"></i>Mua ngay</a>
+									<a class="btn" href="${pageContext.request.contextPath}/cart/addtocart/${sanPham.maSanPham}">
+									<i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a> 
+									<%-- <a class="btn" href="${pageContext.request.contextPath}/checkout"><i
+										class="fa fa-shopping-bag"></i>Mua ngay</a> --%>
 								</div>
 							</div>
 						</div>

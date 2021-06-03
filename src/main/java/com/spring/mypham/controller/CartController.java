@@ -44,6 +44,7 @@ public class CartController {
 				int sl = cart.get(index).getSoLuong() + 1;
 				cart.get(index).setSoLuong(sl);
 			}
+
 			session.setAttribute("cart", cart);
 			session.setAttribute("cartsize", cart.size());
 			System.out.println("cart.size() : " + cart.size());
@@ -56,17 +57,17 @@ public class CartController {
 	public String addToCart(Model model, HttpSession session) {
 		List<SanPham> cart = (List<SanPham>) session.getAttribute("cart");
 		if (cart == null) {
-			session.setAttribute("sub", 0);
-			session.setAttribute("salePrice", 0);
-			session.setAttribute("price", 0);
-			session.setAttribute("statuscart", "Không có sản phẩm nào trong giỏ hàng!");
+			session.setAttribute("tamtinh", 0);
+			session.setAttribute("giamgia", 0);
+			session.setAttribute("tongtien", 0);
+			session.setAttribute("statuscart", "Vui lòng thêm sản phẩm vào giỏ hàng!");
 			return "user/cart";
 		} else {
 			if (cart.size() <= 0) {
-				session.setAttribute("sub", 0);
-				session.setAttribute("salePrice", 0);
-				session.setAttribute("price", 0);
-				session.setAttribute("statuscart", "Không có sản phẩm nào trong giỏ hàng!");
+				session.setAttribute("tamtinh", 0);
+				session.setAttribute("giamgia", 0);
+				session.setAttribute("tongtien", 0);
+				session.setAttribute("statuscart", "Vui lòng thêm sản phẩm vào giỏ hàng!");
 				return "user/cart";
 			} else {
 				session.setAttribute("statuscart", "");
@@ -96,6 +97,7 @@ public class CartController {
 		}
 		session.setAttribute("cart", cart);
 		updatePrice(session);
+		session.setAttribute("statuscart", "");
 		return "redirect:/cart/";
 	}
 
