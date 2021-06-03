@@ -60,7 +60,7 @@
 										<td>
 											<div class="img">
 												<a href="#"><img
-													src="${pageContext.request.contextPath}/${urlUserImg}/${sanPham.getPathFirstImg()}"
+													src="${pageContext.request.contextPath}/${urlUserImg}/product-1.jpg"
 													alt="Image"></a>
 												<p>${ds.sp.tenSanPham }</p>
 											</div>

@@ -71,18 +71,13 @@
 									</div>
 								</div>
 								<div class="action">
-<<<<<<< HEAD
 									<a class="btn" href="${pageContext.request.contextPath}/cart/addtocart/${sanPham.maSanPham}">
 									<i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a> 
 									<%-- <a class="btn" href="${pageContext.request.contextPath}/checkout"><i
 										class="fa fa-shopping-bag"></i>Mua ngay</a> --%>
-=======
 									<a class="btn"
-										href="${pageContext.request.contextPath}/cart/addtocart/${sanPham.maSanPham}"><i
-										class="fa fa-shopping-cart"></i>Giỏ hàng</a> <a class="btn"
 										href="${pageContext.request.contextPath}/checkout"><i
 										class="fa fa-shopping-bag"></i>Mua ngay</a>
->>>>>>> branch 'main' of https://github.com/thanhliem-SE/WebsiteBanMyPham.git
 								</div>
 							</div>
 						</div>

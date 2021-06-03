@@ -13,13 +13,16 @@
 							class="circle-blue me-3 d-flex align-items-center justify-content-center">
 							<i class="fas fa-badge-check fs-24 cl-FFFF"></i>
 						</div>
-						<div class="cl-0085 fs-24 fw-bold" style="text-transfrom: uppercase;">ĐẶT MUA THÀNH CÔNG</div>
+						<div class="cl-0085 fs-24 fw-bold"
+							style="text-transfrom: uppercase;">ĐẶT MUA THÀNH CÔNG</div>
 					</div>
 				</div>
-				<div class="col-12">
-					<p class="fs-15 cl-3333" style="text-align: center">Cảm ơn anh Nguyễn Nhật Minh đã cho
-						ESTORE cơ hội được phục vụ. trong 10 phút, anh sẽ nhận được GMAIL thông tin thanh toán trong giây lát ạ.</p>
-				</div>
+					<div class="col-12">
+						<p class="fs-15 cl-3333" style="text-align: center">Cảm ơn anh
+							Nguyễn Nhật Minh đã cho ESTORE cơ hội được phục vụ. trong 10
+							phút, anh sẽ nhận được GMAIL thông tin thanh toán trong giây lát
+							ạ.</p>
+					</div>
 				<div class="col-12 col-lg-6 border-end">
 					<div class="row mb-3">
 						<div class="col-12">
@@ -74,7 +77,7 @@
 							<span class="fs-14 cl-3333">Nước hoa nam</span>
 						</div>
 					</div>
-										<div class="row mt-1">
+					<div class="row mt-1">
 						<div class="col-4">
 							<span class="fs-14 cl-7E82">Số lượng: </span>
 						</div>
@@ -120,8 +123,8 @@
 					<div class="row">
 						<div class="col-12">
 							<div class="receive text-center pt-1">
-								<span class="badge bg-recei py-2 fs-14 px-3">
-								<a href="<c:url value="/"/>" class="cl-3333">Trở về trang chủ</a>
+								<span class="badge bg-recei py-2 fs-14 px-3"></span> <a
+									href="<c:url value="/"/>" class="cl-3333">Trở về trang chủ</a>
 							</div>
 						</div>
 					</div>

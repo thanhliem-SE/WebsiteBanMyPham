@@ -48,7 +48,6 @@ public class CartController {
 			session.setAttribute("cart", cart);
 			session.setAttribute("cartsize", cart.size());
 			System.out.println("cart.size() : " + cart.size());
-			System.out.println("TRUNG VINH");
 		}
 		return "redirect:/cart/";
 	}

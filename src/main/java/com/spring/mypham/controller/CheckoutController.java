@@ -74,7 +74,7 @@ public class CheckoutController {
 	}
 	
 	@PostMapping("/themHoaDon")
-	private String themHoaDon(@ModelAttribute("hoaDon") HoaDon hoaDon, @RequestParam("maThanhToan") long maThanhToan, HttpSession session, DiaChi diaChi) {
+	private String themHoaDon(@ModelAttribute("hoaDon") HoaDon hoaDon, @RequestParam("maThanhToan") long maThanhToan, HttpSession session, DiaChi diaChi, Model model) {
 		/*
 		 * List<CartItem> cart=(List<CartItem>) session.getAttribute("cart"); LocalDate
 		 * localDate = LocalDate.now(); double tongTien=(double)
@@ -132,14 +132,16 @@ public class CheckoutController {
 //			test
 
 			content += cartItem.getSoLuong();
+		
 			
 			int quantity = 0;
 			quantity = cartItem.getSp().getSoLuongTon() - cartItem.getSoLuong();
 			System.out.println(quantity);
 			updateQuantity.setSoLuongTon(quantity);
 			sanPhamService.saveSanPham(updateQuantity);
+			model.addAttribute("xn", hoaDon);
 		}
-
+		
 //		cart.removeAll(cart);
 //		session.setAttribute("cart", cart);
 		/*
@@ -149,8 +151,8 @@ public class CheckoutController {
 		 * session.getAttribute("tongtien")),thongTinNguoiNhan);
 		 * System.out.println(format.format((Double) session.getAttribute("tongtien")));
 		 */
-//		cart.removeAll(cart);
-//		session.setAttribute("cart", cart);
+		cart.removeAll(cart);
+		session.setAttribute("cart", cart);
 		return "/user/xacnhan";
 	}
 
