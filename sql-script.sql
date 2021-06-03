@@ -34,15 +34,15 @@ INSERT [dbo].[NhaCungCap] ([id], [tenNCC], [thongTinNCC]) VALUES (7, N'Vital Bea
 GO
 SET IDENTITY_INSERT [dbo].[NhaCungCap] OFF
 GO
-INSERT [dbo].[users] ([username], [enabled], [password]) VALUES (N'admin', 1, N'123456')
+INSERT [dbo].[users] ([username], [enabled], [password]) VALUES (N'admin', 1, N'$2a$12$eoKAwww5WpI/eyb.mBJ6u.B1FZ.69cgs7tdEcv99PYQamouaGQPS6')
 GO
-INSERT [dbo].[users] ([username], [enabled], [password]) VALUES (N'liem123', 1, N'123456')
+INSERT [dbo].[users] ([username], [enabled], [password]) VALUES (N'liem123', 1, N'$12$YxWRc.QiP8qMnq3PlsgwaOZzcgUe3ERmhdP/kbNbhIKJ7YtXbAXGC')
 GO
-INSERT [dbo].[users] ([username], [enabled], [password]) VALUES (N'liem2n', 1, N'123456')
+INSERT [dbo].[users] ([username], [enabled], [password]) VALUES (N'liem2n', 1, N'$12$YxWRc.QiP8qMnq3PlsgwaOZzcgUe3ERmhdP/kbNbhIKJ7YtXbAXGC')
 GO
-INSERT [dbo].[users] ([username], [enabled], [password]) VALUES (N'manager', 1, N'123456')
+INSERT [dbo].[users] ([username], [enabled], [password]) VALUES (N'manager', 1, N'$2a$12$IWi6n6i2XQe907.YTOf4p.iR2BjQ2L0Zv55HI57.fyAGT37ihZ.jG')
 GO
-INSERT [dbo].[users] ([username], [enabled], [password]) VALUES (N'user', 1, N'`123456')
+INSERT [dbo].[users] ([username], [enabled], [password]) VALUES (N'username', 1, N'$2a$12$ARKpvN7h3saxDtJwB/raAuk/fZAx872K8kCmlowKs.Z6Yh.v9yWDu')
 GO
 SET IDENTITY_INSERT [dbo].[NhanVien] ON 
 GO
@@ -55,7 +55,7 @@ GO
 INSERT [dbo].[SanPham] ([maSanPham], [congDung], [donGia], [donViTinh], [giamGia], [hanSuDung], [soLuongTon], [tenSanPham], [thanhPhan], [thue], [maNhaCungCap], [maDanhMuc], [maNhanVien]) VALUES (1, N'Bioderma Sebium Gel Gommant với kết cấu dạng gel có chứa những hạt Polyethylene sẽ giúp nhẹ nhàng lấy đi lớp tế bào chết, bụi bẩn, bã nhờn tồn đọng trên da...giúp lỗ chân lông thông thoáng.
 - Giúp thúc đẩy quá trình tái tạo da mới nhằm mang đến cho bạn làn da sáng mịn màng và khỏe  mạnh hơn.', 351000, N'Tuýp', 10, 24, 20, N'Tẩy Da Chết Bioderma Sebium Gel Gommant 100ml', N'Aqua/water/eau, polyethylene, sodium laureth sulfate, xanthan gum, lauryl glucoside, ginkgo biloba leaf extract, mannitol, xylitol, rhamnose, fructooligosaccharides, glycolic acid, salicylic acid, sodium hydroxide, disodium edta, propylene glycol, fragrance (parfum)', 10, 1, 2, 1)
 GO
-INSERT [dbo].[SanPham] ([maSanPham], [congDung], [donGia], [donViTinh], [giamGia], [hanSuDung], [soLuongTon], [tenSanPham], [thanhPhan], [thue], [maNhaCungCap], [maDanhMuc], [maNhanVien]) VALUES (5, N'Hiệu ứng "Photoshop” làn da từ Valmont - là biểu tượng chăm sóc da thiết yếu, mặt nạ kem giúp xoá đi dấu hiệu mệt mỏi bằng cách làm mới làn da và làm đầy nếp nhăn chỉ trong vài phút', 6510000, N'Lọ', 10, 32, 10, N'VALMONT Prime Renewing Pack - Mặt nạ kem tái sinh làn da', N'Water (Aqua), Mineral Oil (Paraffinum Liquidum), Propylene Glycol, Calcium Dna, Gynostemma Pentaphyllum Extract, Lecithin, Magnesium Dna, Palmitoyl, Tetrapeptide-7, Palmitoyl Tripeptide-1, Panax Ginseng Root Extract, Rna, Sodium Dna, Urea, Acrylates/C10-30 Alkyl Acrylate Crosspolymer, Butylene Glycol, C12-20 Acid Peg-8 Ester, C13-14 Isoparaffin, Caprylyl Glycol, Carbomer, Coco-Glucoside, Disodium Edta, Glycerin, Helylene Glycol, Laureth-7, Menthyl Lactate, Polyacrylamide, Potassium Cetyl Phosphate, Sodium Carboxymethyl Beta-Glucan, Sodium Hydroxide, Sodium Lactate, Titanium Dioxide (Ci 77891), Ethylhexylglycerin, Phenoxyethanol, Fragrance (Parfum), Benzyl Benzoate, Cinnamyl Alcohol, Citronellol, Eugenol, Geranoil, Hexyl Cinnamal, Hydroxycitronellal, Limonene, Linalool.', 10, 2, 1, 1)
+INSERT [dbo].[SanPham] ([maSanPham], [congDung], [donGia], [donViTinh], [giamGia], [hanSuDung], [soLuongTon], [tenSanPham], [thanhPhan], [thue], [maNhaCungCap], [maDanhMuc], [maNhanVien]) VALUES (5, N'Hiệu ứng "Photoshop” làn da từ Valmont - là biểu tượng chăm sóc da thiết yếu, mặt nạ kem giúp xoá đi dấu hiệu mệt mỏi bằng cách làm mới làn da và làm đầy nếp nhăn chỉ trong vài phút', 6510000, N'Lọ', 10, 32, 8, N'VALMONT Prime Renewing Pack - Mặt nạ kem tái sinh làn da', N'Water (Aqua), Mineral Oil (Paraffinum Liquidum), Propylene Glycol, Calcium Dna, Gynostemma Pentaphyllum Extract, Lecithin, Magnesium Dna, Palmitoyl, Tetrapeptide-7, Palmitoyl Tripeptide-1, Panax Ginseng Root Extract, Rna, Sodium Dna, Urea, Acrylates/C10-30 Alkyl Acrylate Crosspolymer, Butylene Glycol, C12-20 Acid Peg-8 Ester, C13-14 Isoparaffin, Caprylyl Glycol, Carbomer, Coco-Glucoside, Disodium Edta, Glycerin, Helylene Glycol, Laureth-7, Menthyl Lactate, Polyacrylamide, Potassium Cetyl Phosphate, Sodium Carboxymethyl Beta-Glucan, Sodium Hydroxide, Sodium Lactate, Titanium Dioxide (Ci 77891), Ethylhexylglycerin, Phenoxyethanol, Fragrance (Parfum), Benzyl Benzoate, Cinnamyl Alcohol, Citronellol, Eugenol, Geranoil, Hexyl Cinnamal, Hydroxycitronellal, Limonene, Linalool.', 10, 2, 1, 1)
 GO
 INSERT [dbo].[SanPham] ([maSanPham], [congDung], [donGia], [donViTinh], [giamGia], [hanSuDung], [soLuongTon], [tenSanPham], [thanhPhan], [thue], [maNhaCungCap], [maDanhMuc], [maNhanVien]) VALUES (7, N'Tẩy da chết da đầu chiết xuất từ muối biển tràn đầy năng lượng giúp làm sạch sâu da đầu đồng thời loại bỏ các tạp chất tăng sâu và mang lại sự tươi mát lâu dài. Dành cho da dầu, tóc nhanh bết và nhìu gàu.', 1300000, N'Lọ', 10, 32, 10, N'KERASTASE Scrub Energisant - Tẩy da chết da dầu, tóc bết & gàu', N'Helianthus Annuus Seed Oil, Sunflower Seed Oil, Citrus Limon Peel Oil, Lemon Peel Oil, Limonene, Parfum, Fragrance, Citral, Zingiber Officinale Root Oil, Ginger Root Oil, Pelargonium Graveolens Flower Oil, Linalool, Citronellol, Geraniol, Hydroxycitronellal, Hexyl Cinnamal.', 10, 3, 3, 1)
 GO
@@ -107,6 +107,12 @@ SET IDENTITY_INSERT [dbo].[KhachHang] ON
 GO
 INSERT [dbo].[KhachHang] ([maKhachHang], [ghiChu], [phuong], [quan], [soNha], [thanhPho], [email], [gioiTinh], [namSinh], [ngheNghiep], [soCMND], [soDienThoai], [tenKhachHang], [username]) VALUES (1, NULL, NULL, NULL, NULL, NULL, N'thanhliem2n@gmail.com', NULL, 0, NULL, NULL, N'0123456789', N'Nguyễn Thanh Liêm', N'liem123')
 GO
+INSERT [dbo].[KhachHang] ([maKhachHang], [ghiChu], [phuong], [quan], [soNha], [thanhPho], [email], [gioiTinh], [namSinh], [ngheNghiep], [soCMND], [soDienThoai], [tenKhachHang], [username]) VALUES (4, NULL, NULL, NULL, NULL, NULL, N'abc@gmail.com', NULL, 0, NULL, NULL, N'1234567891', N'Nguyễn Văn A', N'username')
+GO
+INSERT [dbo].[KhachHang] ([maKhachHang], [ghiChu], [phuong], [quan], [soNha], [thanhPho], [email], [gioiTinh], [namSinh], [ngheNghiep], [soCMND], [soDienThoai], [tenKhachHang], [username]) VALUES (5, NULL, NULL, NULL, NULL, NULL, N'abcd@gmail.com', NULL, 0, NULL, NULL, N'0234563821', N'Nguyễn Văn B', N'admin')
+GO
+INSERT [dbo].[KhachHang] ([maKhachHang], [ghiChu], [phuong], [quan], [soNha], [thanhPho], [email], [gioiTinh], [namSinh], [ngheNghiep], [soCMND], [soDienThoai], [tenKhachHang], [username]) VALUES (6, NULL, NULL, NULL, NULL, NULL, N'abcde@gmail.com', NULL, 0, NULL, NULL, N'0444444441', N'Nguyễn Văn C', N'manager')
+GO
 SET IDENTITY_INSERT [dbo].[KhachHang] OFF
 GO
 SET IDENTITY_INSERT [dbo].[GioHang] ON 
@@ -125,6 +131,10 @@ SET IDENTITY_INSERT [dbo].[HoaDon] ON
 GO
 INSERT [dbo].[HoaDon] ([maHoaDon], [ghiChu], [phuong], [quan], [soNha], [thanhPho], [diaChiNhanHang], [email], [ngayGiao], [ngayLap], [sdtNhanHang], [tenNhanHang], [tongTien], [trangThaiHoaDon], [maThanhToan]) VALUES (2, N'sdsd', N'12', N'8', N'120', N'HCM', N'PhuDInh', N'mail', CAST(N'2021-01-06' AS Date), CAST(N'2021-08-06' AS Date), N'034324233', N'Liem', 100000, N'DaGiao', 1)
 GO
+INSERT [dbo].[HoaDon] ([maHoaDon], [ghiChu], [phuong], [quan], [soNha], [thanhPho], [diaChiNhanHang], [email], [ngayGiao], [ngayLap], [sdtNhanHang], [tenNhanHang], [tongTien], [trangThaiHoaDon], [maThanhToan]) VALUES (3, N'TRG', N'Phường 2', N'Quận 2', N'343/3', N'Hồ Chí Minh', NULL, N'thanhliem2n@gmail.com', CAST(N'2021-06-08' AS Date), CAST(N'2021-06-03' AS Date), N'0123456789', N'Nguyen Thanh Liem', 6510000, N'Thành công', 1)
+GO
+INSERT [dbo].[HoaDon] ([maHoaDon], [ghiChu], [phuong], [quan], [soNha], [thanhPho], [diaChiNhanHang], [email], [ngayGiao], [ngayLap], [sdtNhanHang], [tenNhanHang], [tongTien], [trangThaiHoaDon], [maThanhToan]) VALUES (4, N'gdf', N'Phường 2', N'Quận 11', N'343/3', N'Hồ Chí Minh', NULL, N'thanhliem2n@gmail.com', CAST(N'2021-06-08' AS Date), CAST(N'2021-06-03' AS Date), N'0123456789', N'Nguyen Thanh Liem', 6510000, N'Thành công', 1)
+GO
 SET IDENTITY_INSERT [dbo].[HoaDon] OFF
 GO
 SET IDENTITY_INSERT [dbo].[LineItem] ON 
@@ -132,6 +142,10 @@ GO
 INSERT [dbo].[LineItem] ([maLineItem], [soLuong], [thanhTien], [maGioHang], [maHoaDon], [maSanPham]) VALUES (3, 1, 10000, 1, 2, 1)
 GO
 INSERT [dbo].[LineItem] ([maLineItem], [soLuong], [thanhTien], [maGioHang], [maHoaDon], [maSanPham]) VALUES (4, 1, 1000, 1, 2, 5)
+GO
+INSERT [dbo].[LineItem] ([maLineItem], [soLuong], [thanhTien], [maGioHang], [maHoaDon], [maSanPham]) VALUES (5, 1, 5859000, NULL, 3, 5)
+GO
+INSERT [dbo].[LineItem] ([maLineItem], [soLuong], [thanhTien], [maGioHang], [maHoaDon], [maSanPham]) VALUES (6, 1, 5859000, NULL, 4, 5)
 GO
 SET IDENTITY_INSERT [dbo].[LineItem] OFF
 GO
@@ -208,26 +222,24 @@ GO
 INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (9, N'sp-12.jpg')
 GO
 INSERT [dbo].[HinhAnh] ([maSanPham], [hinhAnh]) VALUES (14, N'sp-13.jpg')
-<<<<<<< HEAD
-
-INSERT [dbo].[ThanhToan] [phuongThucTT] VALUES (N'COD')
-
-=======
 GO
 SET IDENTITY_INSERT [dbo].[roles] ON 
 GO
+INSERT [dbo].[roles] ([id], [name]) VALUES (1, N'USER')
+GO
 INSERT [dbo].[roles] ([id], [name]) VALUES (2, N'ADMIN')
 GO
-INSERT [dbo].[roles] ([id], [name]) VALUES (1, N'MANAGER')
-GO
-INSERT [dbo].[roles] ([id], [name]) VALUES (3, N'USER')
+INSERT [dbo].[roles] ([id], [name]) VALUES (3, N'MANAGER')
 GO
 SET IDENTITY_INSERT [dbo].[roles] OFF
 GO
-INSERT [dbo].[user_role] ([USER_ID], [ROLE_ID]) VALUES (N'manager', 1)
+INSERT [dbo].[user_role] ([USER_ID], [ROLE_ID]) VALUES (N'liem123', 2)
 GO
-INSERT [dbo].[user_role] ([USER_ID], [ROLE_ID]) VALUES (N'admin', 2)
+INSERT [dbo].[user_role] ([USER_ID], [ROLE_ID]) VALUES (N'username', 1)
 GO
-INSERT [dbo].[user_role] ([USER_ID], [ROLE_ID]) VALUES (N'user', 3)
+INSERT [dbo].[user_role] ([USER_ID], [ROLE_ID]) VALUES (N'admin', 1)
 GO
->>>>>>> branch 'main' of https://github.com/thanhliem-SE/WebsiteBanMyPham.git
+INSERT [dbo].[user_role] ([USER_ID], [ROLE_ID]) VALUES (N'manager', 3)
+GO
+INSERT [dbo].[user_role] ([USER_ID], [ROLE_ID]) VALUES (N'liem2n', 3)
+GO
