@@ -58,7 +58,7 @@
 												</div>
 												<div class="modal-body">
 													<form class="form-horizontal" method="post"
-														action="addSanPham">
+														enctype="multipart/form-data" action="addSanPham">
 														<div class="row clearfix">
 															<div
 																class="col-lg-3 col-md-3 col-sm-4 col-xs-5 form-control-label">
@@ -235,7 +235,6 @@
 															<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7 ml--15">
 																<div
 																	class="btn-group bootstrap-select form-control show-tick open dropup">
-
 																	<select class="form-control show-tick" tabindex="-98"
 																		name="giamGia">
 																		<option value="5">5%</option>
@@ -260,7 +259,6 @@
 														<div class="row clearfix">
 															<div
 																class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-
 															</div>
 															<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																<button type="submit"
@@ -269,7 +267,6 @@
 															</div>
 														</div>
 												
-
 												</form>
 												</div>
 											</div>
@@ -278,10 +275,8 @@
 													data-dismiss="modal">Close</button>
 											</div>
 										</div>
-
 									</div>
 								</div>
-
 							</div>
 							<table
 								class="table table-bordered table-striped table-hover dataTable js-exportable"
@@ -301,14 +296,12 @@
 										<th scope="col" colspan="2">Hành động</th>
 									</tr>
 								</thead>
-
 								<tbody>
 									<c:forEach var="sp" items="${listSP}">
 										<!-- Modal Edit Sản Phẩm -->
 										<div class="modal fade" id="modal${sp.maSanPham}"
 											role="dialog">
 											<div class="modal-dialog">
-
 												<!-- Modal content-->
 												<div class="modal-content">
 													<div class="modal-header">
@@ -332,7 +325,6 @@
 																				hidden> <input type="text" id="tensp"
 																				name="tenSanPham" required="required"
 																				class="form-control" value="${sp.tenSanPham}">
-
 																		</div>
 																	</div>
 																</div>
@@ -419,7 +411,6 @@
 																<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7 ml--15">
 																	<div
 																		class="btn-group bootstrap-select form-control show-tick open dropup">
-
 																		<select class="form-control show-tick" tabindex="-98"
 																			name="donViTinh">
 																			<option value="Chai">Chai</option>
@@ -440,7 +431,6 @@
 																<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7 ml--15">
 																	<div
 																		class="btn-group bootstrap-select form-control show-tick open dropup">
-
 																		<select class="form-control show-tick" tabindex="-98"
 																			name="hanSuDung">
 																			<option value="6">6 tháng</option>
@@ -460,7 +450,6 @@
 																<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7 ml--15">
 																	<div
 																		class="btn-group bootstrap-select form-control show-tick open dropup">
-
 																		<select class="form-control show-tick" tabindex="-98"
 																			name="maDanhMuc">
 																			<c:forEach var="dm" items="${listDanhMuc}">
@@ -479,7 +468,6 @@
 																<div class="col-lg-9 col-md-9 col-sm-8 col-xs-7 ml--15">
 																	<div
 																		class="btn-group bootstrap-select form-control show-tick open dropup">
-
 																		<select class="form-control show-tick"
 																			tabindex="-98 name="maNhaCungCap">
 																			<c:forEach var="ncc" items="${listNhaCungCap}">
