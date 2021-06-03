@@ -1,6 +1,5 @@
 package com.spring.mypham.controller.ADMIN;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -67,15 +66,15 @@ public class QuanLySanPhamController {
 		sanPham.setDanhMuc(danhMucService.getDanhMuc(maDanhMuc));
 		System.out.println("==============="+maNhaCungCap);
 		// Save hinh anh
-//		List<String> photos = new ArrayList<String>();
-//		for (MultipartFile file : files) {
-//			String fileName = saveImage(file, request);
-//			System.out.println("filename:" + fileName);
-//			photos.add(fileName);
-//		}
-//		sanPham.setHinhAnh(photos);
-//
-//		sanPhamService.saveSanPham(sanPham);
+		List<String> photos = new ArrayList<String>();
+		for (MultipartFile file : files) {
+			String fileName = saveImage(file, request);
+			System.out.println("filename:" + fileName);
+			photos.add(fileName);
+		}
+		sanPham.setHinhAnh(photos);
+
+		sanPhamService.saveSanPham(sanPham);
 		return "redirect:quanlysanpham";
 	}
 
