@@ -19,7 +19,7 @@
 				</div>
 					<div class="col-12">
 						<p class="fs-15 cl-3333" style="text-align: center">Cảm ơn anh
-							Nguyễn Nhật Minh đã cho ESTORE cơ hội được phục vụ. trong 10
+							${nguoiNhan } đã cho ESTORE cơ hội được phục vụ. trong 10
 							phút, anh sẽ nhận được GMAIL thông tin thanh toán trong giây lát
 							ạ.</p>
 					</div>

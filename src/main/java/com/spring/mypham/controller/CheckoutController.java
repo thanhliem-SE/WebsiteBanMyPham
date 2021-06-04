@@ -141,7 +141,7 @@ public class CheckoutController {
 			sanPhamService.saveSanPham(updateQuantity);
 			model.addAttribute("xn", hoaDon);
 		}
-		
+	session.setAttribute("nguoiNhan",hoaDon.getTenNhanHang());
 //		cart.removeAll(cart);
 //		session.setAttribute("cart", cart);
 		/*
