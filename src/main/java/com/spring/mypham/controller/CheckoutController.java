@@ -140,8 +140,20 @@ public class CheckoutController {
 			updateQuantity.setSoLuongTon(quantity);
 			sanPhamService.saveSanPham(updateQuantity);
 			model.addAttribute("xn", hoaDon);
+			session.setAttribute("tensp", cartItem.getSp().getTenSanPham());
+			session.setAttribute("sl", cartItem.getSoLuong());
+			session.setAttribute("dvt", cartItem.getSp().getDonViTinh());
+			session.setAttribute("tamtinh", tamTinh);
+			session.setAttribute("thanhtien", tamTinh-giamGia + cartItem.getSp().getThue());
 		}
+		
 	session.setAttribute("nguoiNhan",hoaDon.getTenNhanHang());
+	session.setAttribute("sonha",hoaDon.getDiaChi().getSoNha());
+	session.setAttribute("phuong",hoaDon.getDiaChi().getPhuong());
+	session.setAttribute("quan",hoaDon.getDiaChi().getQuan());
+	session.setAttribute("tp",hoaDon.getDiaChi().getThanhPho());
+	session.setAttribute("sdt", hoaDon.getSdtNhanHang());
+	
 //		cart.removeAll(cart);
 //		session.setAttribute("cart", cart);
 		/*

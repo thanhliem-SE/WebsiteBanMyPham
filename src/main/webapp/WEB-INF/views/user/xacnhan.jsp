@@ -19,7 +19,7 @@
 				</div>
 					<div class="col-12">
 						<p class="fs-15 cl-3333" style="text-align: center">Cảm ơn anh
-							${nguoiNhan } đã cho ESTORE cơ hội được phục vụ. trong 10
+							<b style="font-size: 24px;">${nguoiNhan }</b> đã cho ESTORE cơ hội được phục vụ. trong 10
 							phút, anh sẽ nhận được GMAIL thông tin thanh toán trong giây lát
 							ạ.</p>
 					</div>
@@ -35,7 +35,7 @@
 							<span class="fs-14 cl-7E82">Người nhận: </span>
 						</div>
 						<div class="col-8">
-							<span class="fs-14 cl-3333">Nguyễn Nhật Minh</span>
+							<span class="fs-14 cl-3333"><b style="font-size: 18px;">${nguoiNhan }</b></span>
 						</div>
 					</div>
 					<div class="row mt-1">
@@ -43,8 +43,10 @@
 							<span class="fs-14 cl-7E82">Địa chỉ: </span>
 						</div>
 						<div class="col-8">
-							<span class="fs-14 cl-3333">151/1 Nguyễn văn trỗi, Phường
-								11, Quận Phú Nhuận, Hồ Chí Minh, Việt Nam </span>
+							<span class="fs-14 cl-3333">${sonha}, </span>
+							<span class="fs-14 cl-3333">${phuong}, </span>
+							<span class="fs-14 cl-3333">${quan}, </span>
+							<span class="fs-14 cl-3333">${tp}</span>
 						</div>
 					</div>
 					<div class="row mt-1">
@@ -52,7 +54,7 @@
 							<span class="fs-14 cl-7E82">Điện thoại:</span>
 						</div>
 						<div class="col-8">
-							<span class="fs-14 cl-3333">0978111222</span>
+							<span class="fs-14 cl-3333">${sdt }</span>
 						</div>
 					</div>
 					<div class="row mt-2">
@@ -74,7 +76,7 @@
 							<span class="fs-14 cl-7E82">Tên sản phẩm: </span>
 						</div>
 						<div class="col-8">
-							<span class="fs-14 cl-3333">Nước hoa nam</span>
+							<span class="fs-14 cl-3333">${tensp }</span>
 						</div>
 					</div>
 					<div class="row mt-1">
@@ -82,7 +84,7 @@
 							<span class="fs-14 cl-7E82">Số lượng: </span>
 						</div>
 						<div class="col-8">
-							<span class="fs-14 cl-3333">10 chai</span>
+							<span class="fs-14 cl-3333">${sl } ${dvt }</span>
 						</div>
 					</div>
 					<div class="row mt-1">
@@ -90,7 +92,7 @@
 							<span class="fs-14 cl-7E82">Giá bán: </span>
 						</div>
 						<div class="col-8">
-							<span class="fs-14 cl-3333">13.890.000 ₫</span>
+							<span class="fs-14 cl-3333">${tamtinh }₫</span>
 						</div>
 					</div>
 					<div class="row mt-1">
@@ -107,7 +109,7 @@
 							<span class="fs-14 cl-7E82">Thành tiền</span>
 						</div>
 						<div class="col-8">
-							<span class="fs-5" style="color: #BF081F;">13.890.000 ₫</span><br>
+							<span class="fs-5" style="color: #BF081F;">${thanhtien  } ₫</span><br>
 							<span class="fs-13 cl-7E82">(Đã bao gồm VAT nếu có)</span>
 						</div>
 					</div>

@@ -77,11 +77,13 @@
 													</a>
 												</c:if>
 												<c:if test="${ds.soLuong == 1}">
-													<a href="javascript:void(0)">
-														<button class="btn-minus" style="opacity: 0.5">
-															<i class="fa fa-minus"></i>
-														</button>
-													</a>
+													<a
+											
+											href="<c:url value="deletecart/${ds.sp.maSanPham}"/>">
+												<button>
+													<i class="fa fa-minus"></i>
+												</button>
+										</a>
 												</c:if>
 												<input type="text" value="${ds.soLuong}">
 												<c:if test="${ds.soLuong >= ds.sp.soLuongTon}">
